@@ -234,6 +234,16 @@ details.card .term-table .subgroup{font-weight:600;color:#005A94;background:#F0F
 <a href="#ch17-workflow" style="padding-left:36px;font-size:12px;">⑥ 端到端工作流</a>
 </div>
 
+<div class="ch"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0071B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M18 10l-6-6-6 6"/><path d="M12 4v16"/></svg>
+<a href="#ch18">网页部署与分享</a>
+<a href="#ch18-arch" style="padding-left:36px;font-size:12px;">① 三平台架构</a>
+<a href="#ch18-why" style="padding-left:36px;font-size:12px;">② 为什么多平台</a>
+<a href="#ch18-git" style="padding-left:36px;font-size:12px;">③ 双Remote配置</a>
+<a href="#ch18-matrix" style="padding-left:36px;font-size:12px;">④ 部署决策矩阵</a>
+<a href="#ch18-actual" style="padding-left:36px;font-size:12px;">⑤ 全流程实战</a>
+<a href="#ch18-optimize" style="padding-left:36px;font-size:12px;">⑥ 文件优化技巧</a>
+</div>
+
 <div style="max-width:1100px;">
 
 <!-- 前言 -->
@@ -315,6 +325,10 @@ details.card .term-table .subgroup{font-weight:600;color:#005A94;background:#F0F
 <div class="timeline-item">
 <h4>第十七章 · TÜV设计品控体系（AI-Powered Design QA）</h4>
 <p>五工具+品牌令牌，构成完整的设计品控闭环。从DESIGN.md品牌宪法到6维审计，从防AI模板审美到设计情报搜索——让Agent输出的每一份HTML/PPT/PDF都精准符合TÜV莱茵品牌标准。</p>
+</div>
+<div class="timeline-item">
+<h4>第十八章 · 网页部署与文件分享（Web Deploy & File Sharing）</h4>
+<p>GitHub + Vercel + Gitee三平台联动——GitHub托管源码、Vercel自动部署国际线、Gitee Pages国内秒开。双remote一次推送，AI问卷、课程大纲、调研报告一键上云，微信直接打开。</p>
 </div>
 </div>
 </div>
@@ -5148,7 +5162,7 @@ P2 轻微级（下次迭代改）
 </div>
 <div class="timeline-item">
 <h4>Step 6：交付前最终闸门</h4>
-<p>重新跑5大质量闸门（颜色/字体/布局/AI痕迹/双语）——全部通过才交付。Health Score ≥ 18/24方可发出去。</p>
+重新跑5大质量闸门（颜色/字体/布局/AI痕迹/双语）——全部通过才交付。Health Score ≥ 18/24方可发出去。</p>
 </div>
 </div>
 
@@ -5158,7 +5172,168 @@ P2 轻微级（下次迭代改）
 </div>
 
 <div class="section" style="border-left-color:#95A5A6;color:#7F8C8D;">📌 品控体系完整参考</div>
-<div class="section-desc">Skill安装位置：<code>~/.hermes/skills/business/</code> · 四大Skill名称：<code>ai-design-qa-system</code> / <code>tuv-brand-compliance</code> / <code>tuv-design-qa</code> / <code>tuv-frontend-taste</code> / <code>tuv-design-search</code> · 品牌令牌：<code>D:\June\_wiki\TUV Standard\DESIGN.md</code> · 触发关键词：audit、polish、设计品控、design QA、品牌合规</div>
+<div class="section-desc">Skill安装位置：<code>~/.hermes/skills/business/</code> · 四大Skill名称：<code>ai-design-qa-system</code> / <code>tuv-brand-compliance</code> / <code>tuv-design-qa</code> / <code>tuv-frontend-taste</code> / <code>tuv-design-search</code> · 品牌令牌：<code>D:\\June\\_wiki\\TUV Standard\\DESIGN.md</code> · 触发关键词：audit、polish、设计品控、design QA、品牌合规</div>
+
+<!-- ===== 第十八章 · 网页部署与文件分享 ===== -->
+<div class="section" id="ch18"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0071B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M18 10l-6-6-6 6"/><path d="M12 4v16"/></svg> 第十八章 · 网页部署与文件分享（Web Deploy & File Sharing）</div>
+<div class="section-desc">GitHub + Vercel + Gitee 三平台联动——一次推送，全球可访问，微信直接打开</div>
+
+<div class="highlight">
+<strong>本章核心命题：</strong>AI Agent产出的HTML报告、PPT页面、调研问卷，怎么让June在手机上秒开？怎么发给客户？答案是一套三平台部署方案——<strong>GitHub托管源码 → Vercel自动部署国际线 → Gitee Pages国内秒开</strong>。一个Git仓库配两个remote，一条命令推两边，微信浏览器直接访问，免费、稳定、零运维。
+</div>
+
+<div class="card" id="ch18-arch">
+<div class="step-header">
+<div class="step-circle">1</div>
+<div><h3>三平台架构总览</h3>
+<div class="meta">源码一处存放，部署两条线路，覆盖国内外所有访问场景</div></div>
+</div>
+
+<div class="diagram">
+                    ┌─────────────────────────────────────────┐
+                    │         Local Git Repo                    │
+                    │         /d/tuv-west-deploy/               │
+                    │  AI问卷 · 课程大纲 · 调研报告 · PPT       │
+                    └────────┬───────────────────┬──────────────┘
+                             │                   │
+                    git push origin        git push gitee
+                             │                   │
+                             ▼                   ▼
+                 ┌──────────────────┐  ┌──────────────────┐
+                 │   GitHub          │  │   Gitee（码云）    │
+                 │ JuneZhu96/        │  │ junezhuspace/     │
+                 │ tuv-west-deploy   │  │ tuv-west-deploy   │
+                 └────────┬─────────┘  └────────┬─────────┘
+                          │                      │
+                    Vercel 自动部署          手动点"更新"
+                          │                      │
+                          ▼                      ▼
+                 ┌──────────────────┐  ┌──────────────────┐
+                 │  Vercel           │  │  Gitee Pages      │
+                 │  *.vercel.app     │  │  *.gitee.io       │
+                 │  🌍 国际可用       │  │  🇨🇳 国内秒开      │
+                 │  ⚠️ 国内手机稍慢    │  │  ✅ 微信直接打开   │
+                 └──────────────────┘  └──────────────────┘
+</div>
+
+<table style="margin-top:16px;">
+<tr><th style="width:100px;">平台</th><th style="width:160px;">URL</th><th>特点</th><th style="width:80px;">更新方式</th></tr>
+<tr><td><strong>GitHub</strong></td><td><code>JuneZhu96/tuv-west-deploy</code></td><td>源码托管，Vercel的数据源</td><td><code>git push</code></td></tr>
+<tr><td><strong>Vercel</strong></td><td><code>tuv-west-deploy.vercel.app</code></td><td>自动部署，微信可开，国际可用</td><td>推送即部署（10-30s）</td></tr>
+<tr><td><strong>Gitee</strong></td><td><code>junezhuspace.gitee.io</code></td><td>国内CDN加速，手机秒开</td><td>推送后手动点"更新"</td></tr>
+</table>
+
+<div class="insight">
+<strong>🐷 八戒点评：</strong>这个架构的核心思想是<strong>"一套源码，两条交付线"</strong>。GitHub是国际标准，Vercel跟它无缝对接；Gitee是中国特色，解决微信内置浏览器屏蔽github.io的痛点。以前发个PPT要QQ邮箱传附件，现在一个链接甩过去，客户手机直接打开，档次都不一样了撒！
+</div>
+</div>
+
+<div class="card" id="ch18-why">
+<div class="step-header">
+<div class="step-circle">2</div>
+<div><h3>为什么需要多平台？——中国互联网的现实</h3>
+<div class="meta">不是技术选型，是物理现实</div></div>
+</div>
+
+<table>
+<tr><th style="width:100px;">场景</th><th style="width:120px;">最佳方案</th><th>原因</th></tr>
+<tr><td>📱 微信发给客户</td><td><strong>Gitee Pages</strong></td><td>微信内置浏览器屏蔽<code>*.github.io</code>，Gitee域名白名单</td></tr>
+<tr><td>🌍 国际客户访问</td><td><strong>Vercel</strong></td><td><code>*.vercel.app</code>全球CDN，未被屏蔽</td></tr>
+<tr><td>🔧 开发调试预览</td><td><strong>localhost.run</strong></td><td>免费SSH隧道，临时URL，30秒搭好</td></tr>
+<tr><td>📧 大文件/离线场景</td><td><strong>QQ邮箱附件</strong></td><td>兜底方案，不限文件类型</td></tr>
+</table>
+
+<div class="highlight">
+<strong>实测数据（2026年7月）：</strong>
+<ul style="margin:8px 0 0 20px;font-size:14px;color:#4A5568;">
+<li>Vercel：中国移动4G加载3MB页面约5-10秒，WiFi约1-2秒</li>
+<li>Gitee Pages：无论4G还是WiFi，加载均小于2秒</li>
+<li>GitHub Pages：微信内置浏览器完全打不开（404/空白）</li>
+</ul>
+</div>
+</div>
+
+<div class="card" id="ch18-git">
+<div class="step-header">
+<div class="step-circle">3</div>
+<div><h3>Git双Remote配置——一次推送，两边同步</h3>
+<div class="meta">3条命令，永久生效</div></div>
+</div>
+
+<pre style="font-size:13px;line-height:1.8;color:#4A5568;white-space:pre-wrap;background:#f4f7fb;padding:16px;border-radius:8px;margin:12px 0;"># 添加GitHub远程（Vercel自动部署的数据源）
+git remote add origin https://JuneZhu96:TOKEN@github.com/JuneZhu96/tuv-west-deploy.git
+git push -u origin main
+
+# 添加Gitee远程（国内加速）
+git remote add gitee https://junezhuspace:TOKEN@gitee.com/junezhuspace/tuv-west-deploy.git
+git push -u gitee main</pre>
+
+<p style="color:#4A5568;font-size:14px;line-height:1.7;">每次更新：<code>git add</code> → <code>git commit</code> → <code>git push origin main</code>（Vercel自动部署）→ <code>git push gitee main</code>（手动点更新）</p>
+
+<div class="insight">
+<strong>🐷 八戒点评：</strong>双remote是这节课的精髓——不是"选GitHub还是Gitee"，是<strong>"两个都要"</strong>。GitHub负责国际化+自动部署，Gitee负责国内秒开。有几个咨询公司能让Agent自动部署方案书到云端？
+</div>
+</div>
+
+<div class="card" id="ch18-matrix">
+<div class="step-header">
+<div class="step-circle">4</div>
+<div><h3>部署决策矩阵——不同场景选不同平台</h3>
+<div class="meta">不是所有文件都适合Vercel，不是所有场景都适合Gitee</div></div>
+</div>
+
+<table>
+<tr><th>场景</th><th>渠道</th><th>持久性</th></tr>
+<tr><td>"刚做的方案，你看下对不对"</td><td><strong>localhost.run</strong></td><td>当前会话</td></tr>
+<tr><td>"这个给客户看的，链接要固定"</td><td><strong>Vercel</strong>（首选）</td><td>永久</td></tr>
+<tr><td>"在国内手机上打开很慢"</td><td><strong>Gitee Pages</strong></td><td>永久</td></tr>
+<tr><td>"文件太大了 / 不便公开"</td><td><strong>QQ邮箱</strong>（兜底）</td><td>永久</td></tr>
+</table>
+
+<p style="color:#4A5568;font-size:14px;margin-top:12px;"><strong>Gitee Pages注意：</strong>不自动部署，每次推送后需手动点"更新"。打开 <code>https://gitee.com/junezhuspace/tuv-west-deploy</code> → 服务 → Gitee Pages → 更新。</p>
+</div>
+
+<div class="card" id="ch18-actual">
+<div class="step-header">
+<div class="step-circle">5</div>
+<div><h3>全流程实战——AI调研问卷部署全记录（示例案例）</h3>
+<div class="meta">真实项目：从docx到全球可访问链接</div></div>
+</div>
+
+<div class="timeline">
+<div class="timeline-item"><h4>Step 1：内容产出</h4><p>完成<strong>AI调研问卷 V6.2</strong>——22道题、8个Part、TÜV品牌格式。配套产出调研报告HTML和课程大纲HTML。</p></div>
+<div class="timeline-item"><h4>Step 2：文件归位</h4><p>将相关项目文件从 <code>D:\June\</code> 移动到Wiki。对外分享的文件复制到 <code>/d/tuv-west-deploy/</code>。</p></div>
+<div class="timeline-item"><h4>Step 3：Git提交</h4><p><code>git commit</code> → <code>git push origin main</code> + <code>git push gitee main</code>。一次提交，两个remote。</p></div>
+<div class="timeline-item"><h4>Step 4：Vercel自动部署</h4><p>GitHub推送后10-30秒自动生效。URL：<code>tuv-west-deploy.vercel.app/...</code></p></div>
+<div class="timeline-item"><h4>Step 5：Gitee Pages手动更新</h4><p>点"更新"按钮 → 国内手机秒开：<code>junezhuspace.gitee.io/tuv-west-deploy/</code></p></div>
+<div class="timeline-item"><h4>Step 6：微信发送</h4><p>链接发微信——对方直接打开下载，无需附件，无需等待。</p></div>
+</div>
+
+<div class="highlight" style="margin-top:16px;">
+<strong>踩坑记录：</strong>① git push超时——Windows下Git走代理，加 <code>-c credential.helper=</code> 禁用credential弹窗；② Gitee需手动更新——免费版限制，可接受。</div>
+</div>
+
+<div class="card" id="ch18-optimize">
+<div class="step-header">
+<div class="step-circle">6</div>
+<div><h3>文件优化技巧——让手机加载快10倍</h3>
+<div class="meta">3MB → 245KB</div></div>
+</div>
+
+<table>
+<tr><th style="width:20px;">#</th><th>问题</th><th>优化</th><th>效果</th></tr>
+<tr><td>1</td><td>HTML内嵌base64大图</td><td>提取为外部JPG</td><td>3MB→245KB</td></tr>
+<tr><td>2</td><td>品牌格式不规范</td><td>先跑TÜV DESIGN.md品牌标准再部署</td><td>客户看到品牌感</td></tr>
+<tr><td>3</td><td>无版本标记</td><td>文件名加版本号</td><td>可追溯，不搞混</td></tr>
+</table>
+
+<div class="insight">
+<strong>🐷 八戒点评：</strong>部署不是"把文件扔上去就完了"——从内容产出到品牌化到双平台部署，这是一个完整工作流。以后June你任何一个方案、任何一份报告，都能在<strong>5分钟内走完"产出→品牌化→部署→发链接"</strong>。这不是工具教学，这是<strong>工作方式的升级</strong>——从"做完了存在电脑里"变成"做完了全世界都能看到"。安逸！
+</div>
+</div>
+
+<div class="section" style="border-left-color:#95A5A6;color:#7F8C8D;">📌 部署体系完整参考</div>
+<div class="section-desc">Skill安装位置：<code>~/.hermes/skills/devops/web-deploy/</code> · Skill名称：<code>web-deploy</code> · 部署仓库：<code>/d/tuv-west-deploy/</code> · 触发关键词：deploy、部署、发链接、分享、推送、Gitee、Vercel</div>
 
 <div class="footer">
 TÜV Rheinland BS.A · 八戒课堂 · 用AI Agent打造你的数字员工及AI团队<br>
