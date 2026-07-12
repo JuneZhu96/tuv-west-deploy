@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TÜV Rheinland | 通威内训师AI调研 · 分析报告（示例）</title>
-<script src="chart.umd.min.js"></script>
+<!-- Chart.js removed, using pure CSS -->
 <style>
 :root {
   --blue: #005AA9; --blue-dark: #003D73; --blue-light: #E8F1FA;
@@ -78,6 +78,19 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
 .footer span { color:var(--blue); font-weight:600; }
 
 @media (max-width:768px) { .chart-row,.col2 { grid-template-columns:1fr; } .container { padding:0 20px; } }
+
+/* Pure CSS Charts */
+.css-chart { margin: 16px 0; }
+.css-bar-row { display: flex; align-items: center; margin: 6px 0; gap: 8px; }
+.css-bar-label { width: 100px; font-size: 12px; text-align: right; flex-shrink: 0; color: #374151; }
+.css-bar-track { flex: 1; height: 20px; background: #E5E9F0; border-radius: 4px; overflow: hidden; }
+.css-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; display: flex; align-items: center; padding-left: 6px; }
+.css-bar-val { font-size: 11px; color: #fff; font-weight: 600; }
+.css-doughnut { display: flex; gap: 12px; flex-wrap: wrap; }
+.css-doughnut-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.css-doughnut-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.css-hbar { display: flex; flex-direction: column; gap: 4px; }
+
 </style>
 </head>
 <body>
@@ -114,11 +127,11 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
   <div class="chart-row">
     <div class="chart-box">
       <h3><span class="dot"></span>部门分布</h3>
-      <canvas id="chartDept"></canvas>
+      <div class="css-chart"><strong>部门分布</strong><div class="css-doughnut" style="margin-top:8px"><div class="css-doughnut-item"><div class="css-doughnut-dot" style="background:#003D73"></div>工艺技术: 2人 (10%)</div><div class="css-doughnut-item"><div class="css-doughnut-dot" style="background:#005AA9"></div>生产技术: 6人 (30%)</div><div class="css-doughnut-item"><div class="css-doughnut-dot" style="background:#0077CC"></div>设备维护: 3人 (15%)</div><div class="css-doughnut-item"><div class="css-doughnut-dot" style="background:#3399DD"></div>质量管理: 4人 (20%)</div><div class="css-doughnut-item"><div class="css-doughnut-dot" style="background:#99DDFF"></div>安全环保: 3人 (15%)</div><div class="css-doughnut-item"><div class="css-doughnut-dot" style="background:#D4A017"></div>HR/管理: 2人 (10%)</div></div></div>
     </div>
     <div class="chart-box">
       <h3><span class="dot"></span>AI应用水平</h3>
-      <canvas id="chartTag"></canvas>
+      <div class="css-chart"><strong>AI应用水平</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">AI新人</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#99DDFF"><span class="css-bar-val">11</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI探索者</div><div class="css-bar-track"><div class="css-bar-fill" style="width:27%;background:#3399DD"><span class="css-bar-val">3</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI实践者</div><div class="css-bar-track"><div class="css-bar-fill" style="width:27%;background:#005AA9"><span class="css-bar-val">3</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI创作者</div><div class="css-bar-track"><div class="css-bar-fill" style="width:9%;background:#003D73"><span class="css-bar-val">1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI赋能者</div><div class="css-bar-track"><div class="css-bar-fill" style="width:18%;background:#D4A017"><span class="css-bar-val">2</span></div></div></div></div></div>
     </div>
   </div>
   <div class="insight-box">
@@ -133,7 +146,7 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
   <div class="chart-row">
     <div class="chart-box full">
       <h3><span class="dot"></span>最耗时 vs 最困难环节（TOP 8）</h3>
-      <canvas id="chartPain"></canvas>
+      <div class="css-chart"><strong>最耗时 vs 最困难</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">PPT制作</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">9</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:22%;background:#D4A017"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">授课</div><div class="css-bar-track"><div class="css-bar-fill" style="width:78%;background:#005AA9"><span class="css-bar-val">7</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:89%;background:#D4A017"><span class="css-bar-val">8</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">案例设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:67%;background:#005AA9"><span class="css-bar-val">6</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:56%;background:#D4A017"><span class="css-bar-val">5</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">编写讲稿</div><div class="css-bar-track"><div class="css-bar-fill" style="width:56%;background:#005AA9"><span class="css-bar-val">5</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:11%;background:#D4A017"><span class="css-bar-val">1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课堂互动</div><div class="css-bar-track"><div class="css-bar-fill" style="width:56%;background:#005AA9"><span class="css-bar-val">5</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:67%;background:#D4A017"><span class="css-bar-val">6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课程设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:56%;background:#005AA9"><span class="css-bar-val">5</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:67%;background:#D4A017"><span class="css-bar-val">6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">搜集资料</div><div class="css-bar-track"><div class="css-bar-fill" style="width:56%;background:#005AA9"><span class="css-bar-val">5</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:78%;background:#D4A017"><span class="css-bar-val">7</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">视频制作</div><div class="css-bar-track"><div class="css-bar-fill" style="width:44%;background:#005AA9"><span class="css-bar-val">4</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:56%;background:#D4A017"><span class="css-bar-val">5</span></div></div></div></div></div>
     </div>
   </div>
   <div class="chart-row">
@@ -158,11 +171,11 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
   <div class="chart-row">
     <div class="chart-box">
       <h3><span class="dot"></span>AI使用深度分布</h3>
-      <canvas id="chartDepth"></canvas>
+      <div class="css-chart"><strong>AI使用深度分布</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">浅层·信息消费</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">15</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">中层·内容生产</div><div class="css-bar-track"><div class="css-bar-fill" style="width:40%;background:#0D9488"><span class="css-bar-val">6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">深层·创作交付</div><div class="css-bar-track"><div class="css-bar-fill" style="width:27%;background:#D4A017"><span class="css-bar-val">4</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">基本没有使用</div><div class="css-bar-track"><div class="css-bar-fill" style="width:33%;background:#E75A4B"><span class="css-bar-val">5</span></div></div></div></div></div>
     </div>
     <div class="chart-box">
       <h3><span class="dot"></span>AI自评水平雷达图</h3>
-      <canvas id="chartRadar"></canvas>
+      <div class="css-chart"><strong>AI自评水平</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">AI搜索与资料整理</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">4.0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI制作PPT</div><div class="css-bar-track"><div class="css-bar-fill" style="width:70%;background:#3399DD"><span class="css-bar-val">2.8</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI视频制作</div><div class="css-bar-track"><div class="css-bar-fill" style="width:65%;background:#0D9488"><span class="css-bar-val">2.6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI课堂互动设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:65%;background:#D4A017"><span class="css-bar-val">2.6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">Prompt提示词编写</div><div class="css-bar-track"><div class="css-bar-fill" style="width:52%;background:#E75A4B"><span class="css-bar-val">2.1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI Agent应用</div><div class="css-bar-track"><div class="css-bar-fill" style="width:52%;background:#7C3AED"><span class="css-bar-val">2.1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI辅助课程设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#64748B"><span class="css-bar-val">2.0</span></div></div></div></div></div>
     </div>
   </div>
   <div class="col2">
@@ -183,13 +196,13 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
   <div class="chart-row">
     <div class="chart-box full">
       <h3><span class="dot"></span>Q11 TOP3期望 vs Q13 培训需求 TOP 10</h3>
-      <canvas id="chartExpect"></canvas>
+      <div class="css-chart"><strong>AI期望 vs 培训需求</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">PPT美化</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">8</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#D4A017"><span class="css-bar-val">10</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">培训需求分析</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">8</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">编写讲稿</div><div class="css-bar-track"><div class="css-bar-fill" style="width:88%;background:#005AA9"><span class="css-bar-val">7</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">更新课程</div><div class="css-bar-track"><div class="css-bar-fill" style="width:75%;background:#005AA9"><span class="css-bar-val">6</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">搜集资料</div><div class="css-bar-track"><div class="css-bar-fill" style="width:62%;background:#005AA9"><span class="css-bar-val">5</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课堂互动</div><div class="css-bar-track"><div class="css-bar-fill" style="width:62%;background:#005AA9"><span class="css-bar-val">5</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课程设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#005AA9"><span class="css-bar-val">4</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">PPT制作</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#005AA9"><span class="css-bar-val">4</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">案例设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#005AA9"><span class="css-bar-val">4</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">视频制作</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#005AA9"><span class="css-bar-val">4</span></div></div><div class="css-bar-track"><div class="css-bar-fill" style="width:0%;background:#D4A017"><span class="css-bar-val">0</span></div></div></div></div></div>
     </div>
   </div>
   <div class="chart-row">
     <div class="chart-box full">
       <h3><span class="dot"></span>Q12 "AI只能帮您一件事" —— 全卷最重要的一题</h3>
-      <canvas id="chartQ12"></canvas>
+      <div class="css-chart"><strong>Q12: AI只能帮您一件事</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">PPT美化</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">4</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">搜集资料</div><div class="css-bar-track"><div class="css-bar-fill" style="width:75%;background:#3399DD"><span class="css-bar-val">3</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课程设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:75%;background:#0D9488"><span class="css-bar-val">3</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">编写讲稿</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#D4A017"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">做PPT</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#E75A4B"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课堂互动</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#7C3AED"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">培训需求分析</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#64748B"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">更新课程</div><div class="css-bar-track"><div class="css-bar-fill" style="width:25%;background:#99DDFF"><span class="css-bar-val">1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">案例设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:25%;background:#003D73"><span class="css-bar-val">1</span></div></div></div></div></div>
     </div>
   </div>
   <div class="insight-box teal">
@@ -204,11 +217,11 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
   <div class="chart-row">
     <div class="chart-box">
       <h3><span class="dot"></span>最想设计的Agent类型</h3>
-      <canvas id="chartAgent"></canvas>
+      <div class="css-chart"><strong>最想设计的Agent类型</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">PPT Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">视频制作Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:67%;background:#3399DD"><span class="css-bar-val">4</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课程设计Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:67%;background:#0D9488"><span class="css-bar-val">4</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">案例设计Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:33%;background:#D4A017"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">培训资料整理Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:33%;background:#E75A4B"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">培训总结Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:17%;background:#7C3AED"><span class="css-bar-val">1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">课堂互动Agent</div><div class="css-bar-track"><div class="css-bar-fill" style="width:17%;background:#64748B"><span class="css-bar-val">1</span></div></div></div></div></div>
     </div>
     <div class="chart-box">
       <h3><span class="dot"></span>最大顾虑</h3>
-      <canvas id="chartConcern"></canvas>
+      <div class="css-chart"><strong>最大顾虑</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">AI生成内容不靠谱</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#E75A4B"><span class="css-bar-val">8</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">不会写Prompt</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#D4A017"><span class="css-bar-val">4</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">没时间练习</div><div class="css-bar-track"><div class="css-bar-fill" style="width:38%;background:#005AA9"><span class="css-bar-val">3</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">公司数据安全</div><div class="css-bar-track"><div class="css-bar-fill" style="width:25%;background:#0D9488"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">不知道能解决什么问题</div><div class="css-bar-track"><div class="css-bar-fill" style="width:25%;background:#7C3AED"><span class="css-bar-val">2</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">担心学不会</div><div class="css-bar-track"><div class="css-bar-fill" style="width:12%;background:#64748B"><span class="css-bar-val">1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">不知道怎么开始</div><div class="css-bar-track"><div class="css-bar-fill" style="width:12%;background:#99DDFF"><span class="css-bar-val">1</span></div></div></div></div></div>
     </div>
   </div>
   <div class="insight-box coral">
@@ -222,7 +235,7 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
   <div class="section-title"><span class="num">6</span> 能力基线 Capability Baseline</div>
   <div class="chart-box full">
     <h3><span class="dot"></span>7项AI能力自评分布（1-5分）</h3>
-    <canvas id="chartCap"></canvas>
+    <div class="css-chart"><strong>7项AI能力自评</strong><div class="css-hbar" style="margin-top:8px"><div class="css-bar-row"><div class="css-bar-label">AI搜索与资料整理</div><div class="css-bar-track"><div class="css-bar-fill" style="width:100%;background:#005AA9"><span class="css-bar-val">4.0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI制作PPT</div><div class="css-bar-track"><div class="css-bar-fill" style="width:70%;background:#3399DD"><span class="css-bar-val">2.8</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI视频制作</div><div class="css-bar-track"><div class="css-bar-fill" style="width:65%;background:#0D9488"><span class="css-bar-val">2.6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI课堂互动设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:65%;background:#D4A017"><span class="css-bar-val">2.6</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">Prompt提示词编写</div><div class="css-bar-track"><div class="css-bar-fill" style="width:52%;background:#E75A4B"><span class="css-bar-val">2.1</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI辅助课程设计</div><div class="css-bar-track"><div class="css-bar-fill" style="width:50%;background:#7C3AED"><span class="css-bar-val">2.0</span></div></div></div><div class="css-bar-row"><div class="css-bar-label">AI Agent应用</div><div class="css-bar-track"><div class="css-bar-fill" style="width:52%;background:#64748B"><span class="css-bar-val">2.1</span></div></div></div></div></div>
   </div>
   <div class="col2" style="margin-top:20px">
     <div class="insight-box">
@@ -277,93 +290,7 @@ body { font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; backg
 </div>
 
 <!-- CHARTS -->
-<script>
-const blue = '#005AA9', amber = '#D4A017', coral = '#E75A4B', teal = '#0D9488', purple = '#7C3AED', green = '#059669';
-const blues5 = ['#003D73','#005AA9','#0077CC','#3399DD','#99DDFF'];
 
-// Dept
-new Chart(document.getElementById('chartDept'), {
-  type:'doughnut',
-  data:{labels:["\u5de5\u827a\u6280\u672f", "\u751f\u4ea7\u6280\u672f", "\u8bbe\u5907\u7ef4\u62a4", "\u8d28\u91cf\u7ba1\u7406", "\u5b89\u5168\u73af\u4fdd", "HR/\u7ba1\u7406"],datasets:[{data:[2, 6, 3, 4, 3, 2],backgroundColor:blues5,borderWidth:2,borderColor:'#fff'}]},
-  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true}}}}
-});
-
-// Tag
-new Chart(document.getElementById('chartTag'), {
-  type:'bar',data:{labels:["AI\u65b0\u4eba", "AI\u63a2\u7d22\u8005", "AI\u5b9e\u8df5\u8005", "AI\u521b\u4f5c\u8005", "AI\u8d4b\u80fd\u8005"],datasets:[{label:'人数',data:[11, 3, 3, 1, 2],backgroundColor:['#99DDFF','#3399DD','#005AA9','#003D73','#D4A017'],borderRadius:6}]},
-  options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:2}}}}
-});
-
-// Pain - horizontal bar
-new Chart(document.getElementById('chartPain'), {
-  type:'bar',
-  data:{labels:["更新课程','授课','案例设计','编写讲稿','课堂互动','课程设计','搜集资料','视频制作],datasets:[
-    {label:'最耗时',data:[9, 7, 6, 5, 5, 5, 5, 4],backgroundColor:blue,borderRadius:4},
-    {label:'最困难',data:[2, 8, 5, 1, 6, 6, 7, 5],backgroundColor:amber,borderRadius:4}
-  ]},
-  options:{responsive:true,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true}}},scales:{x:{beginAtZero:true,ticks:{stepSize:2}}}}
-});
-
-// Depth
-new Chart(document.getElementById('chartDepth'), {
-  type:'bar',data:{labels:['浅层·信息消费','中层·内容生产','深层·创作交付','基本没有使用'],datasets:[{label:'人数',data:[15, 6, 4, 5],backgroundColor:[blue,teal,amber,coral],borderRadius:6}]},
-  options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:2}}}}
-});
-
-// Radar
-new Chart(document.getElementById('chartRadar'), {
-  type:'radar',
-  data:{labels:["AI\u641c\u7d22\u4e0e\u8d44\u6599\u6574\u7406", "Prompt\u63d0\u793a\u8bcd\u7f16\u5199", "AI\u8f85\u52a9\u8bfe\u7a0b\u8bbe\u8ba1", "AI\u5236\u4f5cPPT", "AI\u5236\u4f5c\u89c6\u9891", "AI\u8bfe\u5802\u4e92\u52a8\u8bbe\u8ba1", "AI Agent\u5e94\u7528"],datasets:[{label:'均值 /5',data:[4.0, 2.1, 2.0, 2.8, 2.6, 2.6, 2.1],borderColor:blue,backgroundColor:'rgba(0,90,169,.1)',borderWidth:2,pointBackgroundColor:blue}]},
-  options:{responsive:true,scales:{r:{beginAtZero:true,min:0,max:5,ticks:{stepSize:1}}},plugins:{legend:{display:false}}}
-});
-
-// Expect
-new Chart(document.getElementById('chartExpect'), {
-  type:'bar',
-  data:{labels:["PPT美化','培训需求分析','编写讲稿','更新课程','搜集资料','课堂互动','课程设计','PPT制作','案例设计','视频制作],datasets:[
-    {label:'AI期望 TOP3',data:[8, 8, 7, 6, 5, 5, 4, 4, 4, 4],backgroundColor:blue,borderRadius:4},
-    {label:'培训需求 TOP10',data:[10, 0, 0, 0, 0, 0, 0, 0, 0, 0],backgroundColor:amber,borderRadius:4}
-  ]},
-  options:{responsive:true,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true}}},scales:{x:{beginAtZero:true,ticks:{stepSize:2}}}}
-});
-
-// Q12
-new Chart(document.getElementById('chartQ12'), {
-  type:'bar',data:{labels:["PPT美化','搜集资料','课程设计','PPT制作','课后评估','培训需求分析','编写讲稿','案例设计','更新课程','视频制作],datasets:[{label:'人数',data:[4, 3, 3, 2, 2, 2, 1, 1, 1, 1],backgroundColor:purple,borderRadius:6}]},
-  options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}
-});
-
-// Agent
-new Chart(document.getElementById('chartAgent'), {
-  type:'bar',data:{labels:["案例设计Agent','培训资料整理Agent','PPT Agent','培训总结Agent','课堂互动Agent','视频制作Agent','课程设计Agent],datasets:[{label:'人数',data:[5, 4, 3, 3, 2, 2, 1],backgroundColor:[blue,teal,amber,coral,purple,green,'#99DDFF'],borderRadius:6}]},
-  options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:1}}}}
-});
-
-// Concern
-new Chart(document.getElementById('chartConcern'), {
-  type:'bar',data:{labels:["公司数据安全','不会写Prompt','AI生成的内容不靠谱','没时间练习','不知道能解决什么问题','担心学不会','不知道怎么开始'],datasets:[{label:'人数',data:[7, 7, 7, 6, 5, 5, 3],backgroundColor:coral,borderRadius:6}]},
-  options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:1}}}}
-});
-
-// Capability baseline horizontal
-new Chart(document.getElementById('chartCap'), {
-  type:'bar',data:{labels:["AI\u641c\u7d22\u4e0e\u8d44\u6599\u6574\u7406", "Prompt\u63d0\u793a\u8bcd\u7f16\u5199", "AI\u8f85\u52a9\u8bfe\u7a0b\u8bbe\u8ba1", "AI\u5236\u4f5cPPT", "AI\u5236\u4f5c\u89c6\u9891", "AI\u8bfe\u5802\u4e92\u52a8\u8bbe\u8ba1", "AI Agent\u5e94\u7528"],datasets:[{label:'均值 /5',data:[4.0, 2.1, 2.0, 2.8, 2.6, 2.6, 2.1],backgroundColor:[blue,amber,coral,teal,purple,green,'#99DDFF'],borderRadius:6}]},
-  options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:5,ticks:{stepSize:1}}}}
-});
-
-// Word clouds
-const tc = {"\u66f4\u65b0\u8bfe\u7a0b": 9, "\u6388\u8bfe": 7, "\u6848\u4f8b\u8bbe\u8ba1": 6, "\u7f16\u5199\u8bb2\u7a3f": 5, "\u8bfe\u5802\u4e92\u52a8": 5};
-const hc = {"\u6388\u8bfe": 8, "\u8bfe\u540e\u8bc4\u4f30": 7, "\u641c\u96c6\u8d44\u6599": 7, "\u8bfe\u5802\u4e92\u52a8": 6, "PPT\u5236\u4f5c": 6};
-function wc(el, data) {
-  const maxV = Math.max(...Object.values(data));
-  Object.entries(data).forEach(([k,v]) => {
-    const sz = v/maxV > 0.75 ? 'sz4' : v/maxV > 0.5 ? 'sz3' : v/maxV > 0.25 ? 'sz2' : 'sz1';
-    el.innerHTML += '<span class="'+sz+'">'+k+'</span>';
-  });
-}
-wc(document.getElementById('wcTime'), tc);
-wc(document.getElementById('wcHard'), hc);
-</script>
 
 </body>
 </html>
