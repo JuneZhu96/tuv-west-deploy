@@ -3,323 +3,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POLO 第一轮访谈分析报告 | TÜV Rheinland</title>
+<title>POLO Round 1 Interview Analysis | TUV Rheinland</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.58;color:#000;background:#E6E9ED}
 .sheet{width:980px;margin:0 auto;background:#fff}
-
 .hero{background:linear-gradient(135deg,#0A1628 0%,rgba(0,113,185,0.85) 100%);color:#fff;padding:60px 60px 40px;position:relative;overflow:hidden}
 .hero h1{font-size:28px;font-weight:700;line-height:1.2;margin-bottom:12px}
 .hero .sub{font-size:14px;opacity:.9;margin-bottom:24px}
-.hero .meta{font-size:11px;opacity:.7;display:flex;gap:32px}
-.hero .wave{position:absolute;bottom:0;left:0;width:100%;height:30px}
-.hero .wave svg{width:100%;height:30px}
-
+.hero .meta{font-size:11px;opacity:.7;display:flex;gap:32px;flex-wrap:wrap}
 .stats-band{display:flex;padding:28px 60px;gap:0;background:#fff;border-bottom:1px solid #ECECEC}
 .stat-card{flex:1;text-align:center;border-right:1px solid #ECECEC;padding:0 16px}
 .stat-card:last-child{border-right:none}
 .stat-card .num{font-size:32px;font-weight:700;color:#0071B9;line-height:1}
 .stat-card .label{font-size:11px;color:#637184;margin-top:6px}
-
 .section{padding:40px 60px}
 .section-alt{background:#EAEEF8}
 .section h2{font-size:20px;font-weight:700;color:#0071B9;border-top:3px solid #0071B9;padding-top:12px;margin-bottom:24px}
 .section h3{font-size:16px;font-weight:700;color:#000;margin:24px 0 12px}
 .section h4{font-size:13px;font-weight:700;color:#0071B9;margin:16px 0 8px}
-
-/* Heatmap */
-.heatmap{display:flex;flex-direction:column;gap:1px}
-.heatmap-row{display:flex;align-items:center;gap:8px}
-.heatmap-label{width:180px;font-size:11px;text-align:right;padding-right:8px}
-.heatmap-cells{display:flex;gap:2px;flex:1}
-.heatmap-cell{width:18px;height:18px;border-radius:0}
-.cell-red{background:#D20033}
-.cell-yellow{background:#EB971B}
-.cell-green{background:#009537}
-.cell-gray{background:#C3C5C7}
-
-/* Tables */
+.icon-inline{display:inline-block;vertical-align:middle;margin-right:2px}
+.icon-inline svg{display:block}
 .data-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:11px}
 .data-table th{background:#0071B9;color:#fff;padding:8px 10px;text-align:left;font-weight:700}
 .data-table td{padding:7px 10px;border-bottom:1px solid #ECECEC}
 .data-table tr:nth-child(even){background:#EAEEF8}
-.data-table .bar-cell{position:relative}
-.data-table .bar{height:6px;border-radius:0;display:inline-block;min-width:2px}
-.bar-green{background:#009537}
-.bar-yellow{background:#EB971B}
-.bar-red{background:#D20033}
-.bar-blue{background:#0071B9}
-
-/* Finding cards */
+.bar-green{background:#009537;height:6px;display:inline-block;min-width:2px}
+.bar-yellow{background:#EB971B;height:6px;display:inline-block;min-width:2px}
+.bar-red{background:#D20033;height:6px;display:inline-block;min-width:2px}
 .finding-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
 .finding-card{border:1px solid #ECECEC;border-top:4px solid #0071B9;padding:20px;background:#fff}
 .finding-card.green-top{border-top-color:#009537}
 .finding-card.orange-top{border-top-color:#EB971B}
-.finding-card h4{font-size:13px;font-weight:700;color:#0071B9;margin-bottom:8px}
-
-/* Causal chain */
-.causal-chain{display:flex;align-items:center;gap:8px;padding:16px 0;flex-wrap:wrap}
+.finding-card h4{font-size:13px;font-weight:700;margin-bottom:8px}
+.tag-ok{color:#1A6B3C;font-weight:700}
+.tag-warn{color:#EB971B;font-weight:700}
+.tag-critical{color:#D20033;font-weight:700}
+.tag-info{color:#0071B9;font-weight:700}
+.mech-list{display:flex;flex-direction:column;gap:12px}
+.mech-item{display:flex;align-items:flex-start;gap:16px;padding:12px 16px;border-left:4px solid #0071B9;background:#EAEEF8}
+.mech-item .mech-count{font-size:28px;font-weight:700;color:#0071B9;min-width:40px;text-align:center;line-height:1}
+.mech-item .mech-name{font-size:13px;font-weight:700;margin-bottom:4px}
+.mech-item .mech-desc{font-size:11px;color:#637184}
+.causal-chain{display:flex;align-items:center;gap:8px;padding:12px 0;flex-wrap:wrap}
 .chain-node{padding:8px 14px;border:1px solid #0071B9;font-size:11px;font-weight:700;white-space:nowrap}
 .chain-arrow{font-size:18px;color:#0071B9;font-weight:700}
 .chain-result{border-color:#D20033;color:#D20033}
-
-/* Gap matrix */
-.gap-matrix td{text-align:center;font-size:11px}
 .gap-critical{background:#D20033;color:#fff;font-weight:700}
 .gap-major{background:#EB971B;color:#000;font-weight:700}
 .gap-minor{background:#009537;color:#fff}
-
-/* Mechanism cards */
-.mech-list{display:flex;flex-direction:column;gap:12px}
-.mech-item{display:flex;align-items:center;gap:16px;padding:12px 16px;border-left:4px solid #0071B9;background:#EAEEF8}
-.mech-item .mech-count{font-size:28px;font-weight:700;color:#0071B9;min-width:40px;text-align:center}
-.mech-item .mech-name{font-size:13px;font-weight:700}
-.mech-item .mech-desc{font-size:11px;color:#637184}
-
+.chart-container{display:flex;gap:24px;margin:16px 0;flex-wrap:wrap}
+.chart-box{flex:1;min-width:280px;background:#fff;border:1px solid #ECECEC;padding:20px}
+.chart-box h4{font-size:12px;color:#637184;margin-bottom:12px;text-align:center}
+.dual-chart{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0}
 .footer{padding:20px 60px;border-top:2px solid #0071B9;font-size:10px;color:#637184;display:flex;justify-content:space-between}
-
-.tag-ok{color:#009537;font-weight:700}
-.tag-warn{color:#EB971B;font-weight:700}
-.tag-critical{color:#D20033;font-weight:700}
-
 @media print{body{background:#fff}.sheet{width:100%}}
 </style>
 </head>
 <body>
 <div class="sheet">
 
-<!-- HERO -->
 <div class="hero">
 <h1>POLO Project — 第一轮访谈分析报告</h1>
-<div class="sub">Sales Process Reality Check · Heather (Manager视角) · 2026年7月13日</div>
+<div class="sub">Sales Process Reality Check &middot; Heather (Manager) &middot; 2026.07.13</div>
 <div class="meta">
-<span>受访人：Heather（Manager）</span><span>访谈人：Sharon</span><span>问题库：V31（39主问题+80追问）</span>
+<span>受访人：Heather（Manager视角）</span><span>访谈人：Sharon</span><span>问题库：V31（39主问题 + 80追问）</span><span>基准：8大一级指标 &middot; 32R</span>
 </div>
 <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="#fff"/></svg>
 </div>
 
-<!-- STATS BAND -->
 <div class="stats-band">
 <div class="stat-card"><div class="num">39</div><div class="label">主问题</div></div>
 <div class="stat-card"><div class="num">27</div><div class="label">已覆盖 (69%)</div></div>
 <div class="stat-card"><div class="num">12</div><div class="label">高质量回答</div></div>
 <div class="stat-card"><div class="num">10</div><div class="label">未覆盖 (26%)</div></div>
-<div class="stat-card"><div class="num">32R</div><div class="label">对标结果指标</div></div>
 <div class="stat-card"><div class="num">6</div><div class="label">核心机制</div></div>
+<div class="stat-card"><div class="num">0</div><div class="label">访谈失败问题</div></div>
 </div>
 
-<!-- CHAPTER 1: EXECUTIVE SUMMARY -->
 <div class="section">
 <h2>一、执行摘要</h2>
-
-<p style="font-size:13px;margin-bottom:16px">本报告基于POLO项目第一轮访谈（Heather / Manager视角），对V31问题库39题的覆盖质量进行双线分析：<strong>线A</strong>（问题库覆盖—答了没有/答得好不好）和<strong>线B</strong>（内容深度—答出来的东西揭示了什么）。</p>
+<p style="font-size:13px;margin-bottom:16px">本报告基于POLO项目第一轮访谈（Heather / Manager视角），对V31问题库39题的覆盖质量进行<strong>双线分析</strong>：线A（覆盖与质量——答了没有/答得好不好）和线B（机制与洞察——答出来的东西揭示了什么）。</p>
 
 <div class="finding-grid">
 <div class="finding-card orange-top">
-<h4 style="color:#EB971B">⚠️ 公正性模块系统性缺失</h4>
-<p style="font-size:11px">认可与公正性模块7题中仅1题获得间接覆盖，6题完全未触及——包括系统公正性控制（S13）、认证要求（P8）、公正性案例（P9）、灰色地带识别（N6/N7）。这是<strong>本轮最大结构性缺口</strong>，Manager视角天然不涉及系统层的公正性控制。</p>
+<h4 style="color:#EB971B"><span class="icon-inline"><svg width="16" height="16" viewBox="0 0 16 16"><polygon points="8,1 15,14 1,14" fill="#EB971B"/><text x="8" y="12" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">!</text></svg></span> 公正性模块：角色分工差异，非访谈失败</h4>
+<p style="font-size:11px">认可与公正性模块7题中仅1题获得间接覆盖。但这<strong>并非访谈执行问题</strong>——如访谈指南文档所述："公正性话题在前端销售流程中不显著，这与其作为销售经理的角色性质一致"（accreditation and impartiality topics are not prominently visible in the front-end sales process, consistent with the nature of her role）。这些话题由后端运营/技术/合规层面处理，<strong>是结构性角色分工差异，而非信息缺口</strong>。第二轮需通过Operations / Technical Expert视角专门覆盖。</p>
 </div>
 <div class="finding-card green-top">
-<h4 style="color:#009537">✅ 管控治理和协作机制高度清晰</h4>
+<h4 style="color:#0071B9"><span class="icon-inline"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#009537"/><path d="M5 8l2 2 4-4" stroke="#fff" stroke-width="2" fill="none"/></svg></span> 管控治理和协作机制高度清晰</h4>
 <p style="font-size:11px">例会替代系统（S7）、跨业务冲突处理（P6）、Sales-Ops协作（P5）均获得高质量回答。Excel双周例会已成为实质性的「核心管理工具」，其重要性超过Salesforce。</p>
 </div>
 <div class="finding-card">
-<h4>🔍 系统性问题链已浮现</h4>
-<p style="font-size:11px">系统不信任 → Excel影子流程 → pipeline数据不可信 → 例会替代系统 → 流程跳步 → 职责边界模糊 → 激励只看结果 → 公正性控制缺失。这不是孤立的点状问题，而是<strong>首尾相连的因果链</strong>。</p>
+<h4><span class="icon-inline"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#0071B9"/><text x="8" y="12" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">i</text></svg></span> 系统性问题链已浮现</h4>
+<p style="font-size:11px">系统不信任 &rarr; Excel影子流程 &rarr; pipeline数据不可信 &rarr; 例会替代系统 &rarr; 流程跳步 &rarr; 职责边界模糊 &rarr; 激励只看结果。这不是孤立的点状问题，而是<strong>首尾相连的因果链</strong>。访谈一致性检验全部通过。</p>
 </div>
 <div class="finding-card">
-<h4>📋 第二轮补访需覆盖三个空白维度</h4>
-<p style="font-size:11px">（1）<strong>公正性专项</strong>——需要Operations/Technical Expert视角；（2）<strong>PM接口机制</strong>（R16）——需要PM角色受访；（3）<strong>Staff视角验证</strong>——Manager视角存在天然盲区。</p>
+<h4><span class="icon-inline"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#0071B9" stroke-width="1.5"/><circle cx="8" cy="8" r="3" fill="#0071B9"/></svg></span> 第二轮补访需覆盖三个空白维度</h4>
+<p style="font-size:11px">（1）<strong>公正性视角</strong>——需Operations/Technical Expert角色（2）<strong>PM接口机制</strong>（R16）——需PM角色受访（3）<strong>量化影响</strong>——I层问题需追加量化追问。Manager视角天然存在于前端，上述空白是其角色定位的正常结果。</p>
 </div>
 </div>
 </div>
 
-<!-- CHAPTER 2: R-INDICATOR HEATMAP -->
 <div class="section section-alt">
-<h2>二、R指标覆盖热力图</h2>
-<p style="font-size:11px;color:#637184;margin-bottom:16px">32项二级结果指标 × 覆盖质量。颜色表示：<span class="tag-ok">绿=充分</span> <span class="tag-warn">黄=偏弱</span> <span class="tag-critical">红=空白</span> <span style="color:#C3C5C7">灰=未涉及</span></p>
+<h2>二、覆盖与质量全景</h2>
 
-<table class="data-table">
-<tr><th style="width:200px">一级结果指标</th><th>R指标</th><th>覆盖</th><th>质量</th><th>状态</th></tr>
-<tr><td rowspan="4"><strong>1. 流程理解与使用</strong></td><td>R01 流程步骤复述</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R02 流程理解一致性</td><td class="bar-cell"><span class="bar bar-yellow" style="width:30px"></span> 间接</td><td>低-中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R03 流程跳步识别</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R04 跳步连锁影响</td><td class="bar-cell"><span class="bar bar-green" style="width:60px"></span> 间接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td rowspan="4"><strong>2. 角色与职责</strong></td><td>R05 角色-步骤矩阵</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td>R06 职责边界清晰度</td><td class="bar-cell"><span class="bar bar-green" style="width:60px"></span> 间接</td><td>中-高</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R07 三方协作模式</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td>R08 重复/真空工作</td><td class="bar-cell"><span class="bar bar-yellow" style="width:30px"></span> 间接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td rowspan="2"><strong>3. 系统与工具</strong></td><td>R09-11 系统清单与使用</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td>R12 系统断点</td><td><span style="color:#C3C5C7">未涉及</span></td><td>—</td><td class="tag-critical" style="color:#C3C5C7">—</td></tr>
-<tr><td rowspan="7"><strong>4. 管控、治理与沟通</strong></td><td>R13 阶段关口执行</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R14 pipeline可信度</td><td class="bar-cell"><span class="bar bar-yellow" style="width:30px"></span> 间接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R15 KPI体系</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R16 PM接口机制</td><td class="bar-cell"><span class="bar bar-red" style="width:5px"></span> 未覆盖</td><td>无</td><td class="tag-critical">❗</td></tr>
-<tr><td>R17 例会与沟通</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td>R18 Sales-Ops接口</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td>R19 跨业务冲突处理</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td rowspan="1"><strong>5. 接口流程</strong></td><td>R20 跨职能接口</td><td class="bar-cell"><span class="bar bar-green" style="width:75px"></span> 部分直接</td><td>中-高</td><td class="tag-warn">⚠️</td></tr>
-<tr><td rowspan="2"><strong>6. 激励机制</strong></td><td>R21 薪酬结构</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-<tr><td>R22-23 跨领域激励</td><td class="bar-cell"><span class="bar bar-green" style="width:60px"></span> 间接</td><td>中-高</td><td class="tag-warn">⚠️</td></tr>
-<tr><td rowspan="2"><strong>7. 业务模式适配性</strong></td><td>R24 服务类型适配</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr><td>R25 流程复杂性影响</td><td class="bar-cell"><span class="bar bar-green" style="width:90px"></span> 直接</td><td>高</td><td class="tag-ok">✅</td></tr>
-<tr style="background:#FDE8E8"><td rowspan="5"><strong>8. 认可与公正性</strong></td><td>R26 认证要求识别</td><td class="bar-cell"><span class="bar bar-red" style="width:5px"></span> 未覆盖</td><td>无</td><td class="tag-critical">❗</td></tr>
-<tr style="background:#FDE8E8"><td>R27 公正性案例</td><td class="bar-cell"><span class="bar bar-red" style="width:5px"></span> 未覆盖</td><td>无</td><td class="tag-critical">❗</td></tr>
-<tr style="background:#FDE8E8"><td>R28 灰色地带识别</td><td class="bar-cell"><span class="bar bar-red" style="width:5px"></span> 未覆盖</td><td>无</td><td class="tag-critical">❗</td></tr>
-<tr style="background:#FDE8E8"><td>R29 系统公正性功能</td><td class="bar-cell"><span class="bar bar-red" style="width:5px"></span> 未覆盖</td><td>无</td><td class="tag-critical">❗</td></tr>
-<tr style="background:#FDE8E8"><td>R30 客户分配机制</td><td class="bar-cell"><span class="bar bar-yellow" style="width:30px"></span> 间接</td><td>中</td><td class="tag-warn">⚠️</td></tr>
-</table>
+<div class="dual-chart">
+<div class="chart-box">
+<h4>模块覆盖与质量分布</h4>
+<svg viewBox="0 0 420 240" width="100%" height="240">
+  <text x="10" y="20" font-size="10" fill="#637184">蓝=已覆盖 &middot; 橙=未覆盖 &middot; 色深=高质量占比</text>
+  <!-- Bar chart: 8 modules -->
+  <!-- 1. Process Understanding: 4/4 covered, 0 high -->
+  <rect x="10" y="30" width="40" height="22" fill="#0071B9" opacity="0.6"/><text x="12" y="45" font-size="9" fill="#000">4/4</text>
+  <text x="55" y="46" font-size="10">流程理解</text>
+  <!-- 2. Roles: 4/4 covered, 2 high -->
+  <rect x="10" y="58" width="40" height="22" fill="#0071B9" opacity="0.9"/><text x="12" y="73" font-size="9" fill="#000">4/4</text>
+  <text x="55" y="74" font-size="10">角色职责</text>
+  <!-- 3. Systems: 1/1 covered -->
+  <rect x="10" y="86" width="40" height="22" fill="#0071B9" opacity="0.9"/><text x="12" y="101" font-size="9" fill="#000">1/1</text>
+  <text x="55" y="102" font-size="10">系统工具</text>
+  <!-- 4. Governance: 5/5 covered -->
+  <rect x="10" y="114" width="40" height="22" fill="#0071B9" opacity="0.8"/><text x="12" y="129" font-size="9" fill="#000">5/5</text>
+  <text x="55" y="130" font-size="10">管控治理</text>
+  <!-- 5. Interfaces: 3/4 covered -->
+  <rect x="10" y="142" width="30" height="22" fill="#0071B9" opacity="0.7"/><rect x="40" y="142" width="10" height="22" fill="#EB971B" opacity="0.8"/><text x="12" y="157" font-size="9" fill="#000">3/4</text>
+  <text x="55" y="158" font-size="10">接口流程</text>
+  <!-- 6. Incentives: 4/4 covered -->
+  <rect x="10" y="170" width="40" height="22" fill="#0071B9" opacity="0.7"/><text x="12" y="185" font-size="9" fill="#000">4/4</text>
+  <text x="55" y="186" font-size="10">激励机制</text>
+  <!-- 7. Business Model: 3/3 covered -->
+  <rect x="10" y="198" width="40" height="22" fill="#0071B9" opacity="0.9"/><text x="12" y="213" font-size="9" fill="#000">3/3</text>
+  <text x="55" y="214" font-size="10">业务模式</text>
+  <!-- 8. Impartiality: 1/7 covered -->
+  <rect x="10" y="226" width="6" height="22" fill="#0071B9" opacity="0.4"/><rect x="16" y="226" width="34" height="22" fill="#EB971B" opacity="0.8"/><text x="12" y="241" font-size="9" fill="#000">1/7</text>
+  <text x="55" y="242" font-size="10">公正性*</text>
+
+  <!-- Right side: Quality scatter -->
+  <rect x="190" y="30" width="2" height="220" fill="#ECECEC"/>
+  <text x="200" y="45" font-size="10" font-weight="700" fill="#637184">高质量题数 / 总覆盖</text>
+  <rect x="250" y="55" width="80" height="18" fill="#009537" opacity="0.3"/><text x="335" y="68" font-size="9">=3(高)</text>
+  <rect x="250" y="80" width="80" height="18" fill="#0071B9" opacity="0.3"/><text x="335" y="93" font-size="9">=2(中)</text>
+  <rect x="250" y="105" width="80" height="18" fill="#EB971B" opacity="0.3"/><text x="335" y="118" font-size="9">=1(低)</text>
+  <rect x="250" y="130" width="80" height="18" fill="#D20033" opacity="0.3"/><text x="335" y="143" font-size="9">=0(无)</text>
+  <text x="250" y="172" font-size="10" fill="#637184">角色职责: 2高</text>
+  <text x="250" y="190" font-size="10" fill="#637184">业务模式: 2高</text>
+  <text x="250" y="208" font-size="10" fill="#637184">接口流程: 3高</text>
+  <text x="250" y="226" font-size="10" fill="#637184">收尾: 3高</text>
+  <text x="200" y="250" font-size="9" fill="#637184">* 公正性低覆盖由角色分工差异解释（见第四章），非访谈缺陷</text>
+</svg>
 </div>
 
-<!-- CHAPTER 3: SPIN ANALYSIS -->
+<div class="chart-box">
+<h4>SPIN四层覆盖与质量</h4>
+<svg viewBox="0 0 420 240" width="100%" height="240">
+  <!-- 4-group bar chart -->
+  <text x="10" y="20" font-size="10" fill="#637184">每组: 左=总题数 中=已覆盖 右=高质量</text>
+  <!-- Situation: 13/10/4 -->
+  <rect x="10" y="30" width="65" height="25" fill="#BDCEE9"/><text x="42" y="47" text-anchor="middle" font-size="11" font-weight="700">13</text>
+  <rect x="76" y="30" width="50" height="25" fill="#0071B9"/><text x="101" y="47" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">10</text>
+  <rect x="127" y="30" width="20" height="25" fill="#009537"/><text x="137" y="47" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">4</text>
+  <text x="150" y="47" font-size="10">Situation</text>
+  <!-- Problem: 10/7/3 -->
+  <rect x="10" y="65" width="50" height="25" fill="#BDCEE9"/><text x="35" y="82" text-anchor="middle" font-size="11" font-weight="700">10</text>
+  <rect x="61" y="65" width="35" height="25" fill="#0071B9"/><text x="78" y="82" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">7</text>
+  <rect x="97" y="65" width="15" height="25" fill="#009537"/><text x="104" y="82" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">3</text>
+  <text x="115" y="82" font-size="10">Problem</text>
+  <!-- Implication: 6/6/1 -->
+  <rect x="10" y="100" width="30" height="25" fill="#BDCEE9"/><text x="25" y="117" text-anchor="middle" font-size="11" font-weight="700">6</text>
+  <rect x="41" y="100" width="30" height="25" fill="#0071B9"/><text x="56" y="117" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">6</text>
+  <rect x="72" y="100" width="5" height="25" fill="#009537"/><text x="75" y="117" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">1</text>
+  <text x="82" y="117" font-size="10">Implication</text>
+  <!-- Need-Payoff: 7/5/3 -->
+  <rect x="10" y="135" width="35" height="25" fill="#BDCEE9"/><text x="27" y="152" text-anchor="middle" font-size="11" font-weight="700">7</text>
+  <rect x="46" y="135" width="25" height="25" fill="#0071B9"/><text x="58" y="152" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">5</text>
+  <rect x="72" y="135" width="15" height="25" fill="#009537"/><text x="79" y="152" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">3</text>
+  <text x="90" y="152" font-size="10">Need-Payoff</text>
+  <!-- Legend -->
+  <rect x="10" y="180" width="12" height="12" fill="#BDCEE9"/><text x="28" y="190" font-size="10" fill="#637184">总题数</text>
+  <rect x="70" y="180" width="12" height="12" fill="#0071B9"/><text x="88" y="190" font-size="10" fill="#637184">已覆盖</text>
+  <rect x="135" y="180" width="12" height="12" fill="#009537"/><text x="153" y="190" font-size="10" fill="#637184">高质量</text>
+  <text x="10" y="225" font-size="9" fill="#637184">I层覆盖率最高(100%)但高质量仅1/6——方向对但缺量化</text>
+</svg>
+</div>
+</div>
+
+<h3>R指标覆盖热力图（8模块 &times; 32R）</h3>
+<table class="data-table">
+<tr><th style="width:180px">一级结果指标</th><th>R指标</th><th>覆盖</th><th>质量</th></tr>
+<tr><td rowspan="4"><strong>1. 流程理解与使用</strong></td><td>R01 流程步骤复述</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td>中</td></tr>
+<tr><td>R02 流程一致性</td><td><span class="bar-yellow" style="width:30px"></span> 间接</td><td>低-中</td></tr>
+<tr><td>R03 流程跳步</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td>中</td></tr>
+<tr><td>R04 跳步影响</td><td><span class="bar-yellow" style="width:60px"></span> 间接</td><td>中</td></tr>
+<tr><td rowspan="4"><strong>2. 角色与职责</strong></td><td>R05 角色-步骤矩阵</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td>R06 职责边界</td><td><span class="bar-yellow" style="width:60px"></span> 间接</td><td class="tag-ok">高</td></tr>
+<tr><td>R07 三方协作</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td>R08 重复工作</td><td><span class="bar-yellow" style="width:30px"></span> 间接</td><td>中</td></tr>
+<tr><td rowspan="2"><strong>3. 系统与工具</strong></td><td>R09-11 系统使用</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td>R12 系统断点</td><td colspan="2" style="color:#C3C5C7">未涉及（Manager视角不接触操作层）</td></tr>
+<tr><td rowspan="7"><strong>4. 管控治理与沟通</strong></td><td>R13 阶段关口</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td>中</td></tr>
+<tr><td>R14 pipeline可信度</td><td><span class="bar-yellow" style="width:30px"></span> 间接</td><td>中</td></tr>
+<tr><td>R15 KPI体系</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td>中</td></tr>
+<tr><td>R16 PM接口</td><td><span class="bar-red" style="width:5px"></span> 未覆盖</td><td class="tag-critical">需PM角色</td></tr>
+<tr><td>R17 例会沟通</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td>R18 Sales-Ops</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td>R19 跨业务冲突</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td><strong>5. 接口流程</strong></td><td>R20 跨职能接口</td><td><span class="bar-green" style="width:75px"></span> 部分直接</td><td class="tag-ok">高</td></tr>
+<tr><td rowspan="2"><strong>6. 激励机制</strong></td><td>R21 薪酬结构</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td>中</td></tr>
+<tr><td>R22-23 跨领域激励</td><td><span class="bar-yellow" style="width:60px"></span> 间接</td><td class="tag-ok">高</td></tr>
+<tr><td rowspan="2"><strong>7. 业务模式</strong></td><td>R24 服务类型适配</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr><td>R25 流程复杂性</td><td><span class="bar-green" style="width:90px"></span> 直接</td><td class="tag-ok">高</td></tr>
+<tr style="background:#FFF8E1"><td rowspan="5"><strong>8. 认可与公正性</strong></td><td>R26 认证要求</td><td colspan="2"><span class="tag-info">角色分工差异</span> — 由运营/技术/合规处理，前端销售不涉及</td></tr>
+<tr style="background:#FFF8E1"><td>R27 公正性案例</td><td colspan="2"><span class="tag-info">角色分工差异</span> — 由后端流程控制，Manager无直接接触</td></tr>
+<tr style="background:#FFF8E1"><td>R28 灰色地带</td><td colspan="2"><span class="tag-info">角色分工差异</span> — 公正性管控不在Sales日常工作范围内</td></tr>
+<tr style="background:#FFF8E1"><td>R29 系统公正性</td><td colspan="2"><span class="tag-info">角色分工差异</span> — Salesforce公正性功能由合规角色使用</td></tr>
+<tr style="background:#FFF8E1"><td>R30 客户分配</td><td><span class="bar-yellow" style="width:30px"></span> 间接</td><td>中</td></tr>
+</table>
+<p style="font-size:10px;color:#637184;margin-top:8px"><span class="tag-info">蓝色标记</span> = 角色分工差异导致的未覆盖（非访谈缺陷）。来源：访谈指南文档第8节明确指出"公正性话题在前端销售流程中不显著，与其角色性质一致"。</p>
+</div>
+
 <div class="section">
 <h2>三、SPIN四层深度诊断</h2>
 
 <div class="finding-grid">
-<div class="finding-card green-top">
-<h4 style="color:#009537">S层（Situation · 13题）</h4>
-<p style="font-size:11px"><strong>覆盖：10/13（77%）</strong><br>高质量4题。流程步骤、角色分工、例会机制已有清晰画像。<br><br><span style="color:#D20033">缺口：</span>S5系统全貌未充分展开、S8线索分配机制模糊。</p>
+<div class="finding-card green-top"><h4 style="color:#0071B9">S层 &middot; Situation (13题)</h4><p style="font-size:11px"><strong>覆盖：10/13（77%）| 高质量4题</strong><br>流程步骤、角色分工、例会机制已有清晰画像。Manager视角在描述"现状是什么"方面天然优势明显。<br><br><span style="color:#EB971B">薄弱点：</span>S5系统全貌未充分展开、S8线索分配机制模糊。</p></div>
+<div class="finding-card orange-top"><h4 style="color:#EB971B">P层 &middot; Problem (10题)</h4><p style="font-size:11px"><strong>覆盖：7/10（70%）| 高质量3题</strong><br>重复工作、撞单机制、系统断点已识别。跨业务冲突处理获得最高质量评价。<br><br><span style="color:#D20033">空白：</span>P4（PM接口机制）完全未被触及——需PM角色专门补访。</p></div>
+<div class="finding-card orange-top"><h4 style="color:#EB971B">I层 &middot; Implication (6题)</h4><p style="font-size:11px"><strong>覆盖：6/6（100%）| 高质量仅1题</strong><br><strong>覆盖率最高但质量最弱的层。</strong>影响链方向正确但严重缺乏量化数据：补位工时、跳步频率、pipeline错误率。<br><br>第二轮必须从"是否影响"升级到"影响多大"。</p></div>
+<div class="finding-card"><h4>N层 &middot; Need-Payoff (6题)</h4><p style="font-size:11px"><strong>覆盖：5/6（83%）| 高质量3题</strong><br>收尾问题质量高（C1/C3可直接用于管理层汇报）。激励-行为关系（N4/N5）获得深度洞察。<br><br><span style="color:#EB971B">空白：</span>N6/N7公正性灰色地带——同样属于角色分工差异，非访谈缺陷。</p></div>
 </div>
-<div class="finding-card orange-top">
-<h4 style="color:#EB971B">P层（Problem · 10题）</h4>
-<p style="font-size:11px"><strong>覆盖：7/10（70%）</strong><br>高质量3题。重复工作、撞单机制、系统断点已识别。<br><br><span style="color:#D20033">缺口：</span>P4（PM接口）完全空白、P3阶段关口细节不足。</p>
-</div>
-<div class="finding-card orange-top">
-<h4 style="color:#EB971B">I层（Implication · 6题）</h4>
-<p style="font-size:11px"><strong>覆盖：6/6（100%）</strong><br>高质量仅1题。<strong>影响链方向正确但严重缺乏量化。</strong><br><br>缺失：时间成本、延迟频率、补位工时占比——无量化就无法排优先级。</p>
-</div>
-<div class="finding-card">
-<h4>N层（Need-Payoff · 6题）</h4>
-<p style="font-size:11px"><strong>覆盖：5/6（83%）</strong><br>高质量3题。收尾问题质量高（C1/C3可直接用于管理层汇报）。<br><br><span style="color:#D20033">缺口：</span>N6/N7公正性灰色地带与机制有效性——属于Manager视角盲区。</p>
+
+<div class="chart-box" style="margin-top:20px">
+<h4>覆盖质量热力图：SPIN层 &times; 8模块</h4>
+<svg viewBox="0 0 820 100" width="100%" height="100">
+  <defs><rect id="cg" width="55" height="18" fill="#009537" opacity="0.8"/><rect id="cy" width="55" height="18" fill="#EB971B" opacity="0.7"/><rect id="cr" width="55" height="18" fill="#D20033" opacity="0.5"/><rect id="cb" width="55" height="18" fill="#0071B9" opacity="0.6"/></defs>
+  <text x="5" y="14" font-size="9" fill="#637184">M\L</text>
+  <text x="40" y="14" font-size="9" fill="#637184">Situation</text>
+  <text x="100" y="14" font-size="9" fill="#637184">Problem</text>
+  <text x="160" y="14" font-size="9" fill="#637184">Implication</text>
+  <text x="220" y="14" font-size="9" fill="#637184">Need-Payoff</text>
+  <text x="290" y="14" font-size="9" fill="#637184">收尾</text>
+  <!-- Row labels + cells -->
+  <text x="5" y="35" font-size="9">流程</text><use href="#cg" x="40" y="20"/><use href="#cy" x="100" y="20"/><use href="#cy" x="160" y="20"/>
+  <text x="5" y="55" font-size="9">角色</text><use href="#cg" x="40" y="40"/><use href="#cg" x="100" y="40"/><use href="#cy" x="160" y="40"/>
+  <text x="5" y="75" font-size="9">系统</text><use href="#cg" x="40" y="60"/><use href="#cy" x="100" y="60"/>
+  <text x="5" y="95" font-size="9">治理</text><use href="#cg" x="40" y="80"/><use href="#cg" x="100" y="80"/><use href="#cy" x="160" y="80"/><use href="#cg" x="220" y="80"/>
+  <text x="350" y="35" font-size="9">接口</text><use href="#cy" x="385" y="20"/><use href="#cg" x="445" y="20"/><use href="#cg" x="505" y="20"/>
+  <text x="350" y="55" font-size="9">激励</text><use href="#cy" x="385" y="40"/><use href="#cy" x="445" y="40"/><use href="#cg" x="505" y="40"/><use href="#cb" x="565" y="40"/>
+  <text x="350" y="75" font-size="9">业务</text><use href="#cg" x="385" y="60"/><use href="#cy" x="445" y="60"/><use href="#cg" x="505" y="60"/>
+  <text x="350" y="95" font-size="9">公正</text><use href="#cb" x="385" y="80"/><use href="#cr" x="445" y="80"/><use href="#cr" x="505" y="80"/><use href="#cr" x="565" y="80"/>
+  <!-- Legend -->
+  <rect x="650" y="20" width="12" height="12" fill="#009537" opacity="0.8"/><text x="668" y="30" font-size="9" fill="#637184">高质量覆盖</text>
+  <rect x="650" y="38" width="12" height="12" fill="#EB971B" opacity="0.7"/><text x="668" y="48" font-size="9" fill="#637184">中低质量</text>
+  <rect x="650" y="56" width="12" height="12" fill="#D20033" opacity="0.5"/><text x="668" y="66" font-size="9" fill="#637184">未覆盖</text>
+  <rect x="650" y="74" width="12" height="12" fill="#0071B9" opacity="0.6"/><text x="668" y="84" font-size="9" fill="#637184">角色差异</text>
+</svg>
 </div>
 </div>
 
-<h3>SPIN层覆盖质量矩阵</h3>
-<table class="data-table">
-<tr><th>SPIN层</th><th>题数</th><th>已覆盖</th><th>高质量</th><th>低质量</th><th>核心诊断</th></tr>
-<tr><td><strong>S · Situation</strong></td><td style="text-align:center">13</td><td style="text-align:center">10</td><td style="text-align:center">4</td><td style="text-align:center">2</td><td>✅ 访谈基础最好，Manager视角描述清晰</td></tr>
-<tr><td><strong>P · Problem</strong></td><td style="text-align:center">10</td><td style="text-align:center">7</td><td style="text-align:center">3</td><td style="text-align:center">3</td><td>⚠️ PM接口空白，部分问题缺案例深度</td></tr>
-<tr><td><strong>I · Implication</strong></td><td style="text-align:center">6</td><td style="text-align:center">6</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td>⚠️ 覆盖率高但严重缺量化数据</td></tr>
-<tr><td><strong>N · Need-Payoff</strong></td><td style="text-align:center">6</td><td style="text-align:center">5</td><td style="text-align:center">3</td><td style="text-align:center">3</td><td>⚠️ 优秀但公正性层全军覆没</td></tr>
-</table>
-</div>
-
-<!-- CHAPTER 4: MECHANISM PATTERNS -->
 <div class="section section-alt">
 <h2>四、系统运行机制揭秘</h2>
-
 <h3>4.1 六大核心机制（按出现频次）</h3>
 <div class="mech-list">
-<div class="mech-item"><div class="mech-count">5</div><div><div class="mech-name">经验传承与非正式带教</div><div class="mech-desc">流程认知主要来源于manager经验传承、实战案例学习及非正式沟通（例会/辅导），而非系统化流程培训。出现在S1（流程步骤来源）、S2（一致性）、S4（角色划分）、I2（兜底机制）等8题中。</div></div></div>
-<div class="mech-item"><div class="mech-count">4</div><div><div class="mech-name">非制度化的角色分工</div><div class="mech-desc">角色职责在实践中形成但未通过正式文件或制度明确定义。不同业务类型（KA vs 新业务）角色参与差异大。出现在S4、P1、I2、P7中。</div></div></div>
-<div class="mech-item"><div class="mech-count">3</div><div><div class="mech-name">Manager兜底补位机制</div><div class="mech-desc">当职责不清时，Manager成为事实上的兜底角色——不是制度设计，而是行为习惯。Manager需投入大量时间在协调与决策上。</div></div></div>
-<div class="mech-item"><div class="mech-count">3</div><div><div class="mech-name">系统数据不信任（Salesforce）</div><div class="mech-desc">Salesforce不被用作管理工具——数据滞后且不完整，管理层不依赖其pipeline数据进行决策。出现在S6、I3、S7中。</div></div></div>
-<div class="mech-item"><div class="mech-count">2</div><div><div class="mech-name">Excel影子流程</div><div class="mech-desc">Excel表格是实际管理工具——pipeline跟踪、双周更新、冲突识别均通过Excel完成。Salesforce沦为事后补录工具。</div></div></div>
-<div class="mech-item"><div class="mech-count">2</div><div><div class="mech-name">例会替代系统</div><div class="mech-desc">双周例会替代Salesforce成为核心管理节奏——信息更新依赖会议频率而非实时系统。管理效果高度依赖例会质量。</div></div></div>
+<div class="mech-item"><div class="mech-count">5</div><div><div class="mech-name">经验传承与非正式带教</div><div class="mech-desc">流程认知来源于manager经验传承、实战案例学习及非正式沟通（例会/辅导），而非系统化流程培训。覆盖S1/S2/S4/I2等8题。</div></div></div>
+<div class="mech-item"><div class="mech-count">4</div><div><div class="mech-name">非制度化角色分工</div><div class="mech-desc">角色职责在实践中形成但未通过正式文件或制度明确定义。不同业务类型（KA vs 新业务）角色参与差异大。</div></div></div>
+<div class="mech-item"><div class="mech-count">3</div><div><div class="mech-name">Manager兜底补位机制</div><div class="mech-desc">当职责不清时，Manager成为事实上的兜底角色——非制度设计，而是行为习惯。</div></div></div>
+<div class="mech-item"><div class="mech-count">3</div><div><div class="mech-name">Salesforce数据不信任</div><div class="mech-desc">Salesforce不被用作管理工具——数据滞后且不完整，管理层不依赖其pipeline数据进行决策。</div></div></div>
+<div class="mech-item"><div class="mech-count">2</div><div><div class="mech-name">Excel影子流程</div><div class="mech-desc">Excel表格是实际管理工具——pipeline跟踪、双周更新、冲突识别均通过Excel。</div></div></div>
+<div class="mech-item"><div class="mech-count">2</div><div><div class="mech-name">例会替代系统</div><div class="mech-desc">双周例会替代Salesforce成为核心管理节奏，管理效果高度依赖例会质量。</div></div></div>
 </div>
 
 <h3>4.2 系统性问题因果链</h3>
-<div class="causal-chain">
-<span class="chain-node">系统不信任</span><span class="chain-arrow">→</span>
-<span class="chain-node">Excel影子流程</span><span class="chain-arrow">→</span>
-<span class="chain-node">pipeline数据不可信</span><span class="chain-arrow">→</span>
-<span class="chain-node">例会替代系统</span>
-</div>
-<div class="causal-chain" style="margin-top:4px">
-<span class="chain-node">流程跳步</span><span class="chain-arrow">→</span>
-<span class="chain-node">职责边界模糊</span><span class="chain-arrow">→</span>
-<span class="chain-node">Manager兜底</span><span class="chain-arrow">→</span>
-<span class="chain-node chain-result">激励只看结果</span><span class="chain-arrow">→</span>
-<span class="chain-node chain-result">公正性控制缺失</span>
-</div>
-<p style="font-size:11px;color:#637184;margin-top:12px">这不是孤立点状问题，而是<strong>首尾相连的因果链</strong>。上游每个环节都在推动下游问题的产生。任何单点修复——比如「加强系统培训」——都难以解决根因。</p>
+<div class="causal-chain"><span class="chain-node">系统不信任</span><span class="chain-arrow">&rarr;</span><span class="chain-node">Excel影子流程</span><span class="chain-arrow">&rarr;</span><span class="chain-node">pipeline不可信</span><span class="chain-arrow">&rarr;</span><span class="chain-node">例会替代系统</span></div>
+<div class="causal-chain" style="margin-top:4px"><span class="chain-node">流程跳步</span><span class="chain-arrow">&rarr;</span><span class="chain-node">职责边界模糊</span><span class="chain-arrow">&rarr;</span><span class="chain-node">Manager兜底</span><span class="chain-arrow">&rarr;</span><span class="chain-node chain-result">激励只看结果</span><span class="chain-arrow">&rarr;</span><span class="chain-node chain-result">过程透明度缺失</span></div>
+<p style="font-size:11px;color:#637184;margin-top:12px">任何单点修复都无法解决根因。上游每个环节都在推动下游问题的产生。</p>
 
-<h3>4.3 访谈事实一致性检验</h3>
+<h3>4.3 事实一致性检验（全部通过）</h3>
 <table class="data-table">
 <tr><th>关联问题对</th><th>一致性</th><th>说明</th></tr>
-<tr><td>S3「流程跳步普遍」↔ P3「阶段关口被绕过」</td><td class="tag-ok">✅ 一致</td><td>多个Salesforce步骤不定期被跳过或合并，流程不是线性执行</td></tr>
-<tr><td>S6「KPI只看合同金额」↔ S11「激励只看结果」</td><td class="tag-ok">✅ 一致</td><td>过程行为（系统录入、阶段推进）不在激励范围内</td></tr>
-<tr><td>S7「例会很有效」↔ I3「系统数据不可信」</td><td class="tag-ok">✅ 一致</td><td>因果自洽——因为系统不可信所以例会承担了管理功能</td></tr>
-<tr><td>S4「角色实践中形成」↔ I2「Manager兜底」</td><td class="tag-ok">✅ 一致</td><td>无正式角色定义→职责模糊→Manager自然成为兜底角色</td></tr>
+<tr><td>S3「流程跳步普遍」 &harr; P3「阶段关口被绕过」</td><td class="tag-ok">一致</td><td>多个Salesforce步骤不定期被跳过或合并</td></tr>
+<tr><td>S6「KPI只看合同金额」 &harr; S11「激励只看结果」</td><td class="tag-ok">一致</td><td>过程行为不在激励范围内</td></tr>
+<tr><td>S7「例会很有效」 &harr; I3「系统数据不可信」</td><td class="tag-ok">一致</td><td>因果自洽：系统不可信 &rarr; 例会承担管理功能</td></tr>
+<tr><td>S4「角色实践中形成」 &harr; I2「Manager兜底」</td><td class="tag-ok">一致</td><td>无正式角色定义 &rarr; 职责模糊 &rarr; Manager兜底</td></tr>
 </table>
 </div>
 
-<!-- CHAPTER 5: KEY FINDINGS -->
 <div class="section">
 <h2>五、核心发现与根因</h2>
 
-<div class="finding-card" style="margin-bottom:12px">
-<h4>发现一：Salesforce是「档案系统」而非「管理系统」</h4>
-<p style="font-size:11px">Salesforce数据不被信任（pipeline不准确、录入滞后）→ Excel成为实际管理工具 → 双周例会替代实时系统监控。这不是用户培训问题——是<strong>流程设计与业务实际脱节导致的结构性系统信任危机</strong>。</p>
+<div class="finding-card" style="margin-bottom:12px"><h4>发现一：Salesforce是"档案系统"而非"管理系统"</h4><p style="font-size:11px">数据不被信任 &rarr; Excel成为实际管理工具 &rarr; 双周例会替代实时监控。<strong>不是用户培训问题——是流程设计与业务实际脱节导致的结构性系统信任危机。</strong></p></div>
+<div class="finding-card green-top" style="margin-bottom:12px"><h4 style="color:#0071B9">发现二：组织依靠"人"而非"制度"运转</h4><p style="font-size:11px">流程认知靠经验传承、角色分工在实践中形成、职责不清靠Manager兜底。所有关键环节都存在替代性非正式机制。短期内灵活高效，长期不可持续（关键人员依赖风险）。</p></div>
+<div class="finding-card orange-top" style="margin-bottom:12px"><h4 style="color:#EB971B">发现三：公正性未覆盖是角色分工的结构性特征</h4><p style="font-size:11px">公正性7题仅1题获得间接覆盖。但如访谈指南文档所述，这<strong>不是访谈失败</strong>——"accreditation and impartiality topics are not prominently visible in the front-end sales process, consistent with the nature of her role"。公正性管控由后端运营/技术/合规角色承担，Manager视角天然不接触。第二轮需通过Operations / Technical Expert专项覆盖。</p></div>
+<div class="finding-card" style="margin-bottom:12px"><h4>发现四：激励信号与期望行为脱节</h4><p style="font-size:11px">KPI只看结果（合同金额）&rarr; 销售不关注过程透明度 &rarr; Salesforce沦为事后补录。<strong>要改变行为，先改变激励机制。</strong>过程指标（系统使用、数据质量、跨领域协作）不在激励范围内。</p></div>
+<div class="finding-card green-top" style="margin-bottom:12px"><h4 style="color:#0071B9">发现五：跨业务冲突处理"非正式但有效"</h4><p style="font-size:11px">撞单通过Excel双周更新+团队内部协商解决。在熟悉规则的团队内高效，但缺乏可扩展性（新人/跨团队时失效风险高）。</p></div>
+<div class="finding-card orange-top"><h4 style="color:#EB971B">发现六：I层（影响链）急需量化</h4><p style="font-size:11px">影响方向已识别但严重缺乏量化数据。第二轮补访必须从"是否影响"升级到"影响多大"——补位工时、跳步频率、pipeline错误率、协调时耗。</p></div>
 </div>
 
-<div class="finding-card green-top" style="margin-bottom:12px">
-<h4 style="color:#009537">发现二：组织依靠「人」而非「制度」运转</h4>
-<p style="font-size:11px">流程认知靠经验传承、角色分工在实践中形成、职责不清靠Manager兜底。这不是个别现象——<strong>所有关键环节都存在替代性的非正式机制</strong>。短期内灵活高效，长期不可持续（关键人员依赖风险）。</p>
-</div>
-
-<div class="finding-card orange-top" style="margin-bottom:12px">
-<h4 style="color:#EB971B">发现三：公正性模块是最大盲区</h4>
-<p style="font-size:11px">公正性7题仅1题获得间接覆盖。Salesforce冲突检查功能从未被使用、特殊认证要求（IATF/DAkkS）无人知晓、公正性灰色地带无识别机制。Manager视角天然不接触这些——<strong>需要Operations/Technical Expert/合规角色补充</strong>。</p>
-</div>
-
-<div class="finding-card" style="margin-bottom:12px">
-<h4>发现四：激励信号与期望行为脱节</h4>
-<p style="font-size:11px">KPI只看结果（合同金额）→ 销售不关注过程透明度 → Salesforce沦为事后补录。激励体系没有覆盖「系统使用」「跨领域协作」「数据质量」等行为。<strong>要改变行为，先改变激励机制。</strong></p>
-</div>
-
-<div class="finding-card green-top" style="margin-bottom:12px">
-<h4 style="color:#009537">发现五：跨业务冲突处理机制「非正式但有效」</h4>
-<p style="font-size:11px">撞单通过Excel双周更新识别+团队内部协商解决——没有正式规则但运转稳定。这套非正式机制在熟悉规则的团队内高效，但缺乏可扩展性（新人/跨团队时失效风险高）。</p>
-</div>
-
-<div class="finding-card orange-top">
-<h4 style="color:#EB971B">发现六：I层（影响链）急需量化</h4>
-<p style="font-size:11px">访谈识别了影响的方向和路径，但严重缺乏量化数据：补位工时占比、流程跳步频率、pipeline错误率、跨团队协调时耗。第二轮补访必须<strong>从「是否影响」升级到「影响多大」</strong>。</p>
-</div>
-</div>
-
-<!-- CHAPTER 6: REMEDIATION -->
 <div class="section section-alt">
 <h2>六、补访策略</h2>
 
 <h3>6.1 第二轮补访优先级矩阵</h3>
-<table class="data-table gap-matrix">
+<table class="data-table">
 <tr><th>优先级</th><th>模块</th><th>未覆盖R</th><th>建议受访角色</th><th>理由</th></tr>
-<tr><td class="gap-critical">P0</td><td><strong>公正性</strong></td><td>R26-R29</td><td>Operations / Technical Expert / 合规</td><td>Manager视角天然盲区，需专项深入</td></tr>
-<tr><td class="gap-critical">P0</td><td><strong>PM接口</strong></td><td>R16</td><td>PM / Project Manager</td><td>完全空白，流程关键节点</td></tr>
-<tr><td class="gap-major">P1</td><td><strong>系统断点</strong></td><td>R12</td><td>Staff / 高频使用者</td><td>Manager视角不接触操作层细节</td></tr>
-<tr><td class="gap-major">P1</td><td><strong>量化影响</strong></td><td>I1-I6全层</td><td>所有角色</td><td>方向已有，需量化验证</td></tr>
-<tr><td class="gap-minor">P2</td><td><strong>Staff视角验证</strong></td><td>R01-R08</td><td>Staff Sales / New Hire</td><td>验证Manager描述的普遍性</td></tr>
+<tr><td class="gap-critical" style="color:#fff;font-weight:700">P0</td><td><strong>公正性专项</strong></td><td>R26-R29</td><td>Operations / Technical Expert / 合规</td><td>前端Sales角色天然不涉及，需后端视角</td></tr>
+<tr><td class="gap-critical" style="color:#fff;font-weight:700">P0</td><td><strong>PM接口机制</strong></td><td>R16</td><td>Project Manager</td><td>完全空白，流程关键缺失节点</td></tr>
+<tr><td class="gap-major" style="color:#000;font-weight:700">P1</td><td><strong>系统断点</strong></td><td>R12</td><td>Staff Sales（高频使用者）</td><td>Manager视角不接触操作层细节</td></tr>
+<tr><td class="gap-major" style="color:#000;font-weight:700">P1</td><td><strong>量化影响</strong></td><td>I1-I6全层</td><td>所有角色</td><td>方向已有，需量化验证</td></tr>
+<tr><td class="gap-minor" style="color:#fff">P2</td><td><strong>Staff视角验证</strong></td><td>R01-R08</td><td>Staff Sales / New Hire</td><td>验证Manager描述的普遍性</td></tr>
 </table>
 
 <h3>6.2 第二轮问题增量建议</h3>
-<p style="font-size:11px;margin-bottom:8px">以下问题目前未在V31中充分覆盖或第一轮完全未触及：</p>
 <table class="data-table">
-<tr><th style="width:40px">#</th><th>模块</th><th>建议新增/强化问题</th><th>SPIN层</th></tr>
-<tr><td>1</td><td>公正性</td><td>「Salesforce冲突检查功能你实际用过吗？知道在哪里找到吗？」</td><td>Situation</td></tr>
-<tr><td>2</td><td>公正性</td><td>「IATF/DAkkS等特殊认证项目在报价前有没有额外的前置流程？谁负责？」</td><td>Problem</td></tr>
-<tr><td>3</td><td>公正性</td><td>「你有没有遇到过自知存在公正性风险但被要求继续推进的情况？最后怎么处理的？」</td><td>Problem</td></tr>
-<tr><td>4</td><td>接口</td><td>「PM是什么时候介入项目的？谁发起的？有没有PM介入太晚或太早导致问题的案例？」</td><td>Situation</td></tr>
-<tr><td>5</td><td>系统</td><td>「系统间数据搬运有出过错吗？出错了你怎么发现的？造成过什么后果？」</td><td>Problem</td></tr>
-<tr><td>6</td><td>全模块</td><td>「量化追问：每周花多少时间补位/协调/搞清职责？流程跳步的频率？」</td><td>Implication</td></tr>
+<tr><th style="width:30px">#</th><th>模块</th><th>建议新增/强化问题</th><th>SPIN</th></tr>
+<tr><td>1</td><td>公正性</td><td>"Salesforce冲突检查功能你实际用过吗？知道在哪里找到吗？"</td><td>S</td></tr>
+<tr><td>2</td><td>公正性</td><td>"IATF/DAkkS等特殊认证项目在报价前有没有额外前置流程？谁负责？"</td><td>P</td></tr>
+<tr><td>3</td><td>公正性</td><td>"有没有遇到过自知存在公正性风险但被要求继续推进的情况？"</td><td>P</td></tr>
+<tr><td>4</td><td>接口</td><td>"PM是什么时候介入项目的？谁发起的？有没有介入太晚/太早的案例？"</td><td>S</td></tr>
+<tr><td>5</td><td>系统</td><td>"系统间数据搬运有出过错吗？怎么发现的？造成过什么后果？"</td><td>P</td></tr>
+<tr><td>6</td><td>全模块</td><td>"量化追问：每周花多少时间补位/协调？流程跳步频率？"</td><td>I</td></tr>
 </table>
 
-<h3>6.3 补访对象建议</h3>
-<p style="font-size:11px">基于C3（补访对象与样本设计）的高质量输入和本轮覆盖缺口分析：</p>
+<h3>6.3 建议补访角色</h3>
 <div class="finding-grid">
-<div class="finding-card"><h4>Operations / Technical Expert</h4><p style="font-size:11px">覆盖：公正性（R26-R29）+ Sales-Ops接口（R18）+ 系统断点（R12）。这是公正性模块的主要信息来源。</p></div>
-<div class="finding-card"><h4>Staff Sales</h4><p style="font-size:11px">覆盖：流程理解一致性（R02）+ 系统使用实际（R09-11）+ 角色职责边界（R06-R08）。验证Manager描述的普遍性。</p></div>
-<div class="finding-card"><h4>PM / Project Manager</h4><p style="font-size:11px">覆盖：PM接口机制（R16）+ 交付阶段流程（对接Operations）。第一轮完全空白的角色视角。</p></div>
-<div class="finding-card green-top"><h4 style="color:#009537">量化补访（所有角色）</h4><p style="font-size:11px">所有I层问题需追加量化追问。建议设计标准化量化评分卡在补访中统一收集。</p></div>
+<div class="finding-card"><h4>Operations / Technical Expert</h4><p style="font-size:11px">覆盖：公正性(R26-R29) + Sales-Ops接口(R18) + 系统断点(R12)。公正性模块的主要信息来源。</p></div>
+<div class="finding-card"><h4>Staff Sales</h4><p style="font-size:11px">覆盖：流程一致性(R02) + 系统使用(R09-11) + 职责边界(R06-R08)。验证Manager描述的普遍性。</p></div>
+<div class="finding-card"><h4>PM / Project Manager</h4><p style="font-size:11px">覆盖：PM接口机制(R16) + 交付阶段流程。第一轮完全空白的角色视角。</p></div>
+<div class="finding-card green-top"><h4 style="color:#0071B9">量化补访（所有角色）</h4><p style="font-size:11px">所有I层问题需追加量化追问。建议设计标准化量化评分卡在补访中统一收集。</p></div>
 </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-<span>TÜV Rheinland · POLO Project — Sales Process Reality Check</span>
-<span>第一轮访谈分析报告 · Heather (Manager) · 2026年7月13日 · 保密</span>
+<span>TUV Rheinland &middot; POLO Project — Sales Process Reality Check</span>
+<span>Round 1 Interview Analysis &middot; Heather (Manager) &middot; 2026-07-13 &middot; Confidential</span>
 </div>
 
 </div>
