@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>通威内训师AI实战工作坊 - 培训大纲</title>
+<style>
+  :root{
+    --blue:#0071B9;--green:#009537;--dark:#000000;--body:#4B5563;
+    --blue-10:#EAEEF8;--blue-30:#BDCEE9;--light:#F3F7FA;--line:#D9E4EE;--paper:#fff;--accent:#F5B335;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#E6E9ED;color:var(--body);font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.58;font-size:12px}
+  .sheet{width:980px;margin:28px auto;background:var(--paper)}
+  .top-url{padding:18px 42px 0;color:var(--blue);font-size:13px;font-weight:700;margin:0;line-height:1}
+  .hero-visual{position:relative;margin:0;overflow:hidden;background:#fff;line-height:0;font-size:0}
+  .hero-img{width:100%;display:block}
+  .wave-cut{position:absolute;left:0;right:0;bottom:0;width:100%;height:126px;display:block;pointer-events:none}
+  .location-badge{position:absolute;right:92px;bottom:106px;z-index:2;display:flex;align-items:center;gap:7px;color:#1F2937;font-size:15px;font-weight:700;background:transparent;padding:0}
+  .location-pin{width:16px;height:16px;display:inline-block}
+  .content{padding:34px 42px 46px;margin-top:0}
+  .head{display:grid;grid-template-columns:1fr 275px;gap:28px;align-items:start;margin-bottom:24px}
+  .top-url{padding:18px 42px 0;color:var(--blue);font-size:13px;font-weight:700;line-height:1}
+  h1{margin:0;color:var(--dark);font-size:45px;line-height:1.08;font-weight:700}
+  .sub{margin-top:12px;color:#6B7280;font-size:17px;font-weight:400}
+  .message-strip{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .message{border-left:4px solid var(--blue);background:#F8FBFD;padding:12px 13px;color:var(--body);font-size:12px;min-height:68px}
+  .message strong{display:block;color:var(--dark);font-size:14px;font-weight:700;margin-bottom:3px}
+  .facts{border-top:6px solid var(--blue);background:var(--blue-10);padding:18px 20px}
+  .facts h2{margin:0 0 12px;color:var(--blue);font-size:16px;line-height:1.2;text-transform:uppercase;font-weight:700}
+  .fact{padding:10px 0;border-top:1px solid rgba(255,255,255,.5)}
+  .fact:first-of-type{border-top:0}
+  .fact .k{color:#4B5563;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .fact .v{color:var(--dark);font-size:15px;font-weight:700;margin-top:2px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  section{padding:32px 0}
+  section+section{border-top:1px solid var(--line)}
+  h2{margin:0 0 16px;color:var(--blue);font-size:25px;line-height:1.18;text-transform:uppercase;letter-spacing:.02em;font-weight:700}
+  h2 small{font-size:14px;font-weight:400;text-transform:none;letter-spacing:0;color:#6B7280;margin-left:8px}
+  h3{margin:0 0 6px;color:var(--dark);font-size:16px;line-height:1.25;font-weight:700}
+  p{margin:0 0 10px}
+  .lead{color:var(--dark);font-size:18px;font-weight:700}
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .benefit{border-top:4px solid var(--green);background:var(--paper);padding:14px 14px 13px;border-left:none}
+  .benefit p{font-size:13px;margin:0}
+  .program{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .block{border:1px solid var(--line);padding:16px;min-height:138px;background:var(--paper)}
+  .time{color:var(--blue);font-size:13px;font-weight:700;margin-bottom:7px}
+  .block p{font-size:13px;margin:0}
+  .scenes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 16px}
+  .scene{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;border:1px solid var(--line);padding:13px 14px;min-height:118px;background:var(--paper)}
+  .num{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;font-size:13px;font-weight:700}
+  .scene p{grid-column:2;margin:2px 0 0;font-size:13px;line-height:1.5}
+  .scene h3{font-size:14px;line-height:1.35;margin-top:2px}
+  .blueband{background:var(--blue);color:#fff;padding:22px 24px;margin-top:30px}
+  .blueband h2{color:#fff;margin-bottom:8px;font-size:25px}
+  .blueband p{color:#E8F3FA;margin:0;font-size:17px;font-weight:700}
+  .needs-strip{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .needs-tag{background:var(--blue-10);border-left:4px solid var(--blue);padding:8px 11px;font-size:12px;color:var(--body)}
+  .needs-tag strong{color:var(--dark);display:block;font-size:13px;font-weight:700;margin-bottom:2px}
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative}
+  .timeline::before{content:'';position:absolute;top:24px;left:calc(16.7% - 0px);right:calc(16.7% - 0px);height:2px;background:var(--green)}
+  .tl-step{text-align:center;position:relative;padding-top:36px}
+  .tl-step::before{content:'';position:absolute;top:17px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--green);border:2px solid var(--paper)}
+  .tl-step h4{font-size:14px;font-weight:700;color:var(--dark);margin:0 0 4px}
+  .tl-step p{font-size:12px;color:var(--body);margin:0;line-height:1.5}
+  .footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#6B7280;font-size:11px}
+  @page{margin:0}
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @media print{body{background:#fff}.sheet{width:auto;margin:0;box-shadow:none}section,.block,.benefit,.output{break-inside:avoid}}
+</style>
+</head>
+<body>
+<article class="sheet">
+  <div class="top-url">www.tuv.com/academy · People & Business Assurance</div>
+  <div class="hero-visual">
+    <img class="hero-img" src="0712_1.png" alt="通威内训师AI实战工作坊主视觉">
+    <div class="location-badge">
+      <svg class="location-pin" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0071B9" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.8A2.8 2.8 0 1 1 12 6.2a2.8 2.8 0 0 1 0 5.6z"/></svg>
+      <span>眉山 · 通威太阳能</span>
+    </div>
+    <svg class="wave-cut" viewBox="0 0 980 126" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,62 C245,18 245,18 490,62 C735,106 735,106 980,62 L980,126 L0,126 Z" fill="#fff"></path>
+    </svg>
+  </div>
+
+  <div class="content">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Training Outline · AI-TNA Method</div>
+        <h1>通威内训师AI实战工作坊</h1>
+        <div class="sub">从课程开发到数字化授课——基于课前需求诊断的定制化课程设计。</div>
+        <div class="message-strip">
+          <div class="message"><strong>需求驱动</strong>课前通过8模块22题问卷，诊断内训师在培训全流程中的工作现状与核心需求，确保课程内容精准匹配。</div>
+          <div class="message"><strong>场景串联</strong>以真实培训工作流为主线：资料搜集→课程设计→PPT制作→视频制作→Agent搭建，不教孤立工具。</div>
+          <div class="message"><strong>学以致用</strong>Workshop产出AI辅助课件初稿及Agent原型。视频制作方法课内演示，课后可独立完成。</div>
+        </div>
+        <div class="needs-strip">
+          <div class="needs-tag"><strong>Part 1-2</strong>培训工作现状</div>
+          <div class="needs-tag"><strong>Part 3-4</strong>AI使用现状与期望</div>
+          <div class="needs-tag"><strong>Part 5-6</strong>培训需求与Workshop</div>
+          <div class="needs-tag"><strong>Part 7-8</strong>实施准备与能力基线</div>
+        </div>
+      </div>
+      <aside class="facts">
+        <h2>Course facts</h2>
+        <div class="fact"><div class="k">Date</div><div class="v">2026年8月</div></div>
+        <div class="fact"><div class="k">Audience</div><div class="v">通威太阳能内训师</div></div>
+        <div class="fact"><div class="k">Duration</div><div class="v">1天 · 09:00-17:00</div></div>
+        <div class="fact"><div class="k">Format</div><div class="v">上午方法 + 下午实操</div></div>
+        <div class="fact"><div class="k">Method</div><div class="v">AI-TNA精准诊断</div></div>
+      </aside>
+    </div>
+
+    <section>
+      <h2>Training positioning<small> 课程定位</small></h2>
+      <div class="two-col">
+        <div>
+          <p class="lead">一场基于需求诊断的AI实战工作坊——不是泛泛的AI科普，也不是深度的技术培训。</p>
+          <p>课程设计采用AI-TNA（AI Training Needs Analysis）方法：课前通过8模块22题问卷，系统梳理内训师在"需求分析→资料搜集→课程设计→PPT制作→视频制作→授课→评估"全流程中的工作现状，据此定制课程内容，确保不讲与学员工作无关的内容。</p>
+        </div>
+        <div>
+          <p><strong>为什么需要TNA？</strong>内训师的AI需求与通用办公场景不同——他们拥有独特的培训工作流（开发→备课→授课→评估）。问卷设计覆盖了培训前、中、后完整链条，将课程内容精准锚定在学员的真实痛点上。</p>
+          <p><strong>课程目标：</strong>帮助内训师从"会用AI搜索资料"提升到"能用AI完成课件制作、视频生产、Agent搭建"，带走可直接应用于日常工作的AI工具链。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Training objectives<small> 培训目标</small></h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>认知目标</h3>
+          <p>理解AI在培训全流程中的应用边界——从需求分析到课后评估，明确AI的能力范围和人工判断的不可替代性。</p>
+        </div>
+        <div class="benefit">
+          <h3>技能目标</h3>
+          <p>掌握四项核心技能：Prompt编写、AI资料整理、AI生成PPT、AI视频制作（剪映/即梦）。每人至少完成一份可用的培训课件初稿。</p>
+        </div>
+        <div class="benefit">
+          <h3>进阶目标</h3>
+          <p>理解AI Agent的工作原理，Workshop环节动手搭建一个"培训全流程助手"，体验从手动操作到半自动再到全自动的完整演进。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Participant preparation<small> 课前准备</small></h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>课前完成</h3>
+          <p>AI-TNA调研问卷（约8-10分钟）——帮助我们了解您当前的培训工作模式和AI使用情况，据此定制课程内容。</p>
+        </div>
+        <div class="benefit">
+          <h3>需携带</h3>
+          <p>公司电脑（PC端实操）；一份近期已完成或即将制作的培训PPT原始文件，作为下午实操环节的真实素材。</p>
+        </div>
+        <div class="benefit">
+          <h3>建议提前准备</h3>
+          <p>注册DeepSeek、剪映、即梦账号——课程实操环节将使用这些工具。问卷将提前收集账号注册情况以便安排教学节奏。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Program structure<small> 课程安排</small></h2>
+      <div class="program">
+        <div class="block">
+          <div class="time">09:00-09:30</div>
+          <h3>Opening：AI能为内训师做什么</h3>
+          <p>以问卷结果开场，呈现内训师培训全流程中的共性痛点与AI机会点。明确课程预期：不是培养AI专家，而是学会用AI处理重复性工作。</p>
+        </div>
+        <div class="block">
+          <div class="time">09:30-10:30</div>
+          <h3>Prompt技巧 + AI搜索与资料整理</h3>
+          <p>从"基础搜索"到"结构化输出"——教授让AI稳定产出的Prompt方法论。实操：用AI搜索并整理一个培训主题的完整资料包。</p>
+        </div>
+        <div class="block">
+          <div class="time">10:45-12:00</div>
+          <h3>AI制作PPT + AI视频入门</h3>
+          <p>将大纲输入AI生成PPT初稿；演示剪映/即梦将课件转化为培训视频的完整流程。实操：使用自有课件完成一份AI辅助PPT。</p>
+        </div>
+        <div class="block">
+          <div class="time">13:30-17:00</div>
+          <h3>AI Agent Workshop</h3>
+          <p>场景探讨→分组设计→Agent搭建→成果路演。每组完成一个覆盖"搜资料→写大纲→做PPT"链路的培训Agent原型，带走可复用模板。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Six AI scenarios<small> 六大AI应用场景</small></h2>
+      <div class="scenes">
+        <div class="scene"><div class="num">1</div><h3>AI搜索与资料整理</h3><p>快速检索行业法规、技术标准与案例素材，自动整理为结构化的培训资料库，替代每次从头搜集的重复劳动。</p></div>
+        <div class="scene"><div class="num">2</div><h3>AI课程设计与大纲生成</h3><p>输入培训主题与目标学员信息，AI自动生成课程大纲、学习目标和模块结构。课程设计周期从数天压缩到数十分钟。</p></div>
+        <div class="scene"><div class="num">3</div><h3>AI生成培训PPT</h3><p>从大纲到PPT一步完成——AI自动完成排版、图表制作与案例匹配，解决PPT反复修改的时间消耗。</p></div>
+        <div class="scene"><div class="num">4</div><h3>AI视频与微课制作</h3><p>使用剪映/即梦将课件转化为视频微课，AI自动完成配音、字幕和转场。降低视频制作的技术门槛。</p></div>
+        <div class="scene"><div class="num">5</div><h3>AI案例与考题生成</h3><p>根据培训内容自动生成教学案例、讨论题和考试题，确保每次培训都有新鲜且贴合主题的配套素材。</p></div>
+        <div class="scene"><div class="num">6</div><h3>AI Agent：全流程自动化</h3><p>将以上五个场景整合为一个Agent——输入培训主题，自动完成搜索→大纲→PPT→视频→考题的全流程输出。</p></div>
+      </div>
+    </section>
+
+    <div class="blueband">
+      <h2>Workshop output<small style="color:#E8F3FA;font-size:14px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:8px"> 现场产出</small></h2>
+      <p>Workshop现场产出：每人一份AI辅助制作的培训PPT初稿 + 每组一个"培训全流程Agent"原型并上台展示。</p>
+    </div>
+
+    <section>
+      <h2>Post-workshop assignment<small> 课后作业</small></h2>
+      <div class="timeline">
+        <div class="tl-step">
+          <h4>一周内完成</h4>
+          <p>将PPT初稿打磨为终稿，撰写200字复盘：AI节省的时间与仍需人工调整的部分。</p>
+        </div>
+        <div class="tl-step">
+          <h4>两周内完成</h4>
+          <p>使用剪映或即梦将PPT转化为3-5分钟微课视频；持续优化Agent模板至可实际运行。</p>
+        </div>
+        <div class="tl-step">
+          <h4>一个月后</h4>
+          <p>使用Agent独立完成一门新课的全流程开发。收集反馈，评估AI工具实际应用效果。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>TÜV Rheinland · People & Business Assurance · AI for Corporate Trainers</span>
+      <span>AI-TNA Method · Version 2026-08</span>
+    </div>
+  </div>
+</article>
+</body>
+</html>
