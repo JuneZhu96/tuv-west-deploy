@@ -3,305 +3,502 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280">
-<title>Microsoft 365 Copilot 30天学习旅程 — TÜV Rheinland</title>
+<title>Microsoft 365 Copilot 30天学习旅程 — TÜV Rheinland 教师版</title>
 <style>
 :root{--blue:#0071B9;--green:#009537;--orange:#EB971B;--red:#D20033;--ink:#000;--muted:#637184;--line:#ECECEC;--light:#EAEEF8;--bg:#0F172A;--white:#fff}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);font-family:Arial,'PingFang SC','Microsoft YaHei',sans-serif;display:flex;flex-direction:column;align-items:center;padding:40px 0;gap:40px}
 .slide{width:1280px;height:720px;background:var(--white);position:relative;overflow:hidden;flex-shrink:0}
-.slide.dark{background:#0A1628;color:var(--white)}
 .cover{background:linear-gradient(135deg,#0A1628 0%,rgba(0,113,185,.85) 100%);color:var(--white);display:flex;flex-direction:column;justify-content:center;padding:80px 100px}
 .cover h1{font-size:42px;font-weight:700;line-height:1.2;margin-bottom:16px}
 .cover .sub{font-size:20px;opacity:.85;margin-bottom:40px;line-height:1.5}
 .cover .meta{font-size:14px;opacity:.6;display:flex;gap:40px}
 .cover .wave{position:absolute;bottom:0;left:0;width:100%;height:30px}
-.chapter{background:var(--blue);color:var(--white);display:flex;align-items:center;padding:0 100px}
+.chapter{background:var(--blue);color:var(--white);display:flex;flex-direction:column;justify-content:center;padding:80px 100px;position:relative}
 .chapter h2{font-size:36px;font-weight:700}
-.chapter .num{font-size:120px;font-weight:700;opacity:.15;position:absolute;right:60px;top:-10px;line-height:1}
-.content{padding:60px 80px;display:flex;flex-direction:column}
-.content h2{font-size:28px;font-weight:700;color:var(--blue);border-top:3px solid var(--blue);padding-top:12px;margin-bottom:24px}
-.content h3{font-size:20px;font-weight:700;color:var(--ink);margin:16px 0 8px}
-.content h4{font-size:16px;font-weight:700;color:var(--blue);margin:12px 0 6px}
-.content p,.content li{font-size:15px;color:var(--ink);line-height:1.7}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:12px 0}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:12px 0}
-.card{background:var(--light);border-radius:8px;padding:20px;border-left:3px solid var(--blue)}
+.chapter .num{font-size:140px;font-weight:700;opacity:.1;position:absolute;right:60px;top:-20px;line-height:1}
+.content{padding:50px 70px;display:flex;flex-direction:column}
+.content h2{font-size:26px;font-weight:700;color:var(--blue);border-top:3px solid var(--blue);padding-top:12px;margin-bottom:20px}
+.content h3{font-size:18px;font-weight:700;color:var(--ink);margin:14px 0 6px}
+.content h4{font-size:15px;font-weight:700;color:var(--blue);margin:10px 0 4px}
+.content p,.content li{font-size:14px;color:var(--ink);line-height:1.65}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:10px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:10px 0}
+.card{background:var(--light);border-radius:8px;padding:18px;border-left:3px solid var(--blue)}
 .card.green{border-left-color:var(--green)}
 .card.orange{border-left-color:var(--orange)}
-.card h4{font-size:15px;margin-bottom:6px}
-.card p,.card li{font-size:13px;color:#4A5568;line-height:1.6}
-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
-th{background:var(--blue);color:var(--white);padding:8px 10px;text-align:left;font-weight:700;font-size:12px}
-td{padding:7px 10px;border-bottom:1px solid var(--line);font-size:12px;line-height:1.5}
+.card h4{font-size:14px;margin-bottom:6px}
+.card p,.card li{font-size:12px;color:#4A5568;line-height:1.6}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:var(--blue);color:var(--white);padding:7px 10px;text-align:left;font-weight:700;font-size:11px}
+td{padding:6px 10px;border-bottom:1px solid var(--line);font-size:12px;line-height:1.5}
 tr:nth-child(even){background:var(--light)}
-.tag{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700}
+.tag{display:inline-block;padding:1px 8px;border-radius:3px;font-size:10px;font-weight:700}
 .tag-blue{background:#E0ECF7;color:var(--blue)}
 .tag-green{background:#E0F5E8;color:var(--green)}
 .tag-orange{background:#FFF3E0;color:var(--orange)}
-.bar{height:4px;display:inline-block;min-width:2px;border-radius:2px}
-.bar-blue{background:var(--blue)}
-.bar-green{background:var(--green)}
-.bar-orange{background:var(--orange)}
-.highlight{background:#FFF8E1;border:1px solid var(--orange);border-radius:8px;padding:14px;margin:12px 0}
-.highlight p{font-size:13px;color:#4A5568;margin:0}
-.insight{background:var(--light);border-radius:8px;padding:16px;margin:12px 0;border-left:3px solid var(--blue)}
-.insight p,.insight li{font-size:13px;color:#4A5568;line-height:1.7}
-.footer{position:absolute;bottom:0;left:0;right:0;padding:12px 80px;border-top:2px solid var(--blue);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
-.prompt-box{background:#F7F9FB;border:1px solid #D5E4F0;border-radius:6px;padding:12px 16px;margin:6px 0}
-.prompt-box .p-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.prompt-box .p-text{font-size:13px;color:#2D3748;line-height:1.6;font-style:italic}
-.wk-title{font-size:18px;font-weight:700;color:var(--white);background:var(--blue);padding:10px 16px;border-radius:6px 6px 0 0;margin:-20px -20px 16px -20px}
+.highlight{background:#FFF8E1;border:1px solid var(--orange);border-radius:8px;padding:14px;margin:10px 0}
+.highlight p{font-size:12px;color:#4A5568;margin:0}
+.insight{background:var(--light);border-radius:8px;padding:14px;margin:10px 0;border-left:3px solid var(--blue)}
+.insight p,.insight li{font-size:12px;color:#4A5568;line-height:1.65}
+.prompt-box{background:#F7F9FB;border:1px solid #D5E4F0;border-radius:6px;padding:10px 14px;margin:6px 0}
+.prompt-box .pl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.prompt-box .pt{font-size:12px;color:#2D3748;line-height:1.55;font-style:italic}
+.footer{position:absolute;bottom:0;left:0;right:0;padding:10px 70px;border-top:2px solid var(--blue);font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+.wk-title{font-size:16px;font-weight:700;color:var(--white);background:var(--blue);padding:10px 16px;border-radius:6px 6px 0 0;margin:-18px -18px 14px -18px}
 .wk-title.green{background:var(--green)}
-.wk-title.orange{background:var(--orange)}
+.day-header{background:var(--blue);color:var(--white);padding:10px 18px;border-radius:6px;margin-bottom:16px;font-size:13px}
+.day-header span{opacity:.7;font-size:11px}
+.day-header strong{font-size:18px;display:block;margin-top:2px}
+.day-header.fun{background:var(--orange)}
 </style>
 </head>
 <body>
 
-<!-- SLIDE 1: Cover -->
+<!-- COVER -->
 <div class="slide cover">
 <h1>Microsoft 365 Copilot<br>30 天学习旅程</h1>
-<div class="sub">教学教材 · 基于 Microsoft 官方 Journey 资料包<br>含双版本完整每日主题与 Prompt</div>
+<div class="sub">培训教材 · 教师版<br>含完整每日教案 · Prompt 原文 · 教学指导</div>
 <div class="meta"><span>TÜV Rheinland BS.A West</span><span>June Zhu</span><span>2026.07</span></div>
 <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="var(--white)"/></svg>
 </div>
 
-<!-- SLIDE 2: Overview -->
+<!-- TOC -->
+<div class="slide content">
+<h2>教材目录 · 6 Parts · 35+ 页</h2>
+<div class="grid3" style="margin-top:16px">
+<div class="card"><h4>Part 1</h4><p style="font-size:13px;font-weight:700">认识旅程</p><p style="font-size:11px">什么是 Journey · 为什么 30 天 · 版本选择 · 教学原理</p></div>
+<div class="card green"><h4>Part 2</h4><p style="font-size:13px;font-weight:700">Week 1-2</p><p style="font-size:11px">建立习惯 → 创作表达<br>10 天完整教案</p></div>
+<div class="card orange"><h4>Part 3</h4><p style="font-size:13px;font-weight:700">Week 3-4</p><p style="font-size:11px">洞察分析 → 团队协作<br>10 天完整教案</p></div>
+<div class="card"><h4>Part 4</h4><p style="font-size:13px;font-weight:700">Week 5-6</p><p style="font-size:11px">Agent 入门 → 自建 Agent<br>10 天完整教案</p></div>
+<div class="card green"><h4>Part 5</h4><p style="font-size:13px;font-weight:700">Chat Edition</p><p style="font-size:11px">6 周轻量版完整教案<br>不依赖 M365 许可证</p></div>
+<div class="card orange"><h4>Part 6</h4><p style="font-size:13px;font-weight:700">教师指南</p><p style="font-size:11px">落地实施 · FAQ · 衡量 · 莱茵规划</p></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 30-Day Journey 教师版</span><span>TOC</span></div>
+</div>
+
+<!-- PART 1 -->
+<div class="slide chapter"><h2>Part 1 · 认识 30 天学习旅程</h2><div class="num">01</div></div>
+
 <div class="slide content">
 <h2>什么是 30 天学习旅程？</h2>
 <div class="grid2">
-<div class="card">
-<h4>不是一次培训</h4>
-<p>而是一套<strong>按天推动用户持续练习 Copilot 的采用引擎</strong>。从"知道 Copilot"到"每天能用 Copilot 完成具体工作"。</p>
+<div class="card"><h4>定义</h4><p>Microsoft 官方的 Copilot 用户采用方案——通过 30 天、每天 1 封邮件、1 个 Prompt、5 分钟练习，让员工从"听说过 Copilot"到"每天主动用 Copilot 完成具体工作"。</p></div>
+<div class="card green"><h4>不是什么</h4><p>❌ 不是一次培训课（培训结束就忘了）<br>❌ 不是一本操作手册（没人会逐页看完）<br>❌ 不是 IT 部署文档（不需要技术背景）</p></div>
 </div>
-<div class="card green">
-<h4>官方来源</h4>
-<p>Microsoft Adoption 官方 Journey 资料包：aka.ms/Copilot/JourneyDownloadKit。两个版本覆盖不同用户群。</p>
+<div class="grid2" style="margin-top:12px">
+<div class="card"><h4>核心假设</h4><p>改变工作习惯需要 <strong>30 天重复 + 即时反馈 + 社交激励</strong>。Journey 把这三种机制打包成自动化邮件序列：每天 1 封→打开 Copilot→完成 1 个练习→周五分享成果。</p></div>
+<div class="card green"><h4>适合谁</h4><p>✅ 所有有 Copilot 访问权限的员工<br>✅ 从零基础到中度用户<br>✅ "知道 Copilot 但不知道怎么用"的人<br>❌ 重度用户（应直接进入 Agent 进阶）</p></div>
 </div>
-</div>
-<div class="grid2" style="margin-top:16px">
-<div class="card">
-<h4>核心逻辑</h4>
-<p>每天 1 封邮件 → 1 个应用场景 → 1 条 Prompt → 5 分钟练习。<br>30 天渐进：从高频日常→创作表达→洞察分析→团队协作→Agent 入门→自建 Agent。</p>
-</div>
-<div class="card green" style="padding-top:20px">
-<div style="display:flex;gap:24px;align-items:center">
-<div style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--blue)">30</div><div style="font-size:11px;color:var(--muted)">封日邮件</div></div>
-<div style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--green)">6</div><div style="font-size:11px;color:var(--muted)">封周邮件</div></div>
-<div style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--orange)">5</div><div style="font-size:11px;color:var(--muted)">天/周</div></div>
-<div style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--ink)">72</div><div style="font-size:11px;color:var(--muted)">封官方模板</div></div>
-</div>
-</div>
-</div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>2 / 14</span></div>
+<div class="footer"><span>TÜV Rheinland · Part 1</span><span>1.1</span></div>
 </div>
 
-<!-- SLIDE 3: Two Versions -->
 <div class="slide content">
-<h2>两个 Journey 版本</h2>
+<h2>为什么是 30 天？教学设计原理</h2>
+<div class="grid3" style="margin-top:16px">
+<div class="card" style="text-align:center"><div style="font-size:44px;font-weight:700;color:var(--blue);margin:12px 0">66</div><p style="font-size:12px">天形成新习惯的平均时间<br><span style="color:var(--muted);font-size:10px">European Journal of Social Psychology</span></p></div>
+<div class="card green" style="text-align:center"><div style="font-size:44px;font-weight:700;color:var(--green);margin:12px 0">5min</div><p style="font-size:12px">每日最低练习时间<br><span style="color:var(--muted);font-size:10px">低于 5 分钟→放弃率飙升</span></p></div>
+<div class="card orange" style="text-align:center"><div style="font-size:44px;font-weight:700;color:var(--orange);margin:12px 0">3-5x</div><p style="font-size:12px">Journey 邮件 vs 无跟进的完成率差距<br><span style="color:var(--muted);font-size:10px">Microsoft Adoption 内部数据</span></p></div>
+</div>
+<div class="insight" style="margin-top:16px"><p style="font-size:13px"><strong>教学设计四原则：</strong><br>
+① <strong>渐进负载：</strong>每天只给 1 个 Prompt——不给太多选择→降低决策成本<br>
+② <strong>间隔重复：</strong>每天接触→每周回顾→每阶段新主题→螺旋上升<br>
+③ <strong>社交证明：</strong>每周 Fun Day = 团队一起玩→看到别人也在用→"我也试试"<br>
+④ <strong>即时反馈：</strong>每次 Prompt 立即看到结果→多巴胺回路→明天还想试</p></div>
+<div class="footer"><span>TÜV Rheinland · Part 1</span><span>1.2</span></div>
+</div>
+
+<div class="slide content">
+<h2>两个版本：选哪个？</h2>
 <div class="grid2">
 <div class="card"><div class="wk-title">Copilot Journey（完整版）</div>
-<p style="margin-bottom:8px">面向已部署 M365 Copilot 许可证的用户</p>
-<table><tr><td style="color:var(--muted)">容量</td><td>80.5MB ZIP · 36 封 .OFT 邮件模板</td></tr>
-<tr><td style="color:var(--muted)">覆盖</td><td>Word · Excel · PPT · Teams · Outlook · Copilot Chat · Agent</td></tr>
-<tr><td style="color:var(--muted)">附件</td><td>Overview PDF + Infographic + Day29 Project + Badges ×5</td></tr>
-<tr><td style="color:var(--muted)">特点</td><td>应用内 Copilot 实操——在 Word/Excel/PPT/Teams 中直接练习</td></tr></table>
-</div>
+<table style="font-size:11px"><tr><td style="color:var(--muted);width:70px">前提</td><td>M365 Copilot 许可证</td></tr>
+<tr><td style="color:var(--muted)">在哪练</td><td>Word · Excel · PPT · Teams · Outlook · Copilot Chat</td></tr>
+<tr><td style="color:var(--muted)">30 天弧线</td><td>基础→创作→分析→协作→Agent 入门→自建 Agent</td></tr>
+<tr><td style="color:var(--muted)">核心优势</td><td>在真实工作应用中练习→"学习即工作"，留存率最高</td></tr>
+<tr><td style="color:var(--muted)">本地文件</td><td>80.5MB ZIP · 36 封 .OFT · 3 PDF · 5 Badge 图</td></tr></table></div>
 <div class="card green"><div class="wk-title green">Chat Edition（轻量版）</div>
-<p style="margin-bottom:8px">面向仅有 Copilot Chat 权限的用户</p>
-<table><tr><td style="color:var(--muted)">容量</td><td>71.8MB ZIP · 36 封 .OFT 邮件模板</td></tr>
-<tr><td style="color:var(--muted)">覆盖</td><td>翻译 · 起草 · 总结 · 构思 · 分析 · 图片 · Agent</td></tr>
-<tr><td style="color:var(--muted)">附件</td><td>Overview PDF + Day29 Project + Badges ×5</td></tr>
-<tr><td style="color:var(--muted)">特点</td><td>全部在 Copilot Chat 中完成——不依赖特定 M365 许可证</td></tr></table>
+<table style="font-size:11px"><tr><td style="color:var(--muted);width:70px">前提</td><td>Copilot Chat 访问权限</td></tr>
+<tr><td style="color:var(--muted)">在哪练</td><td>全部在 Copilot Chat 中完成</td></tr>
+<tr><td style="color:var(--muted)">30 天弧线</td><td>翻译→起草→反馈→创作→总结→构思→图表→研究→组织→建议→图片→学习→洞察→Agent</td></tr>
+<tr><td style="color:var(--muted)">核心优势</td><td>不依赖特定许可证，覆盖面最广</td></tr>
+<tr><td style="color:var(--muted)">本地文件</td><td>71.8MB ZIP · 36 封 .OFT · 2 PDF · 5 Badge 图</td></tr></table></div>
 </div>
-</div>
-<div class="insight"><p><strong>选择建议：</strong>如果组织已部署 M365 Copilot → 优先完整版。如果仅有 Chat 权限 → Chat Edition。可以同时跑两个版本适应不同用户群。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>3 / 14</span></div>
-</div>
-
-<!-- SLIDE 4: 6-Week Overview -->
-<div class="slide content">
-<h2>6 周旅程总览</h2>
-<table>
-<tr><th style="width:50px">周</th><th>主题</th><th>核心目标</th><th>主要应用</th><th>高潮</th></tr>
-<tr><td><span class="tag tag-blue">W1</span></td><td><strong>建立习惯</strong></td><td>让用户每天打开 Copilot</td><td>Chat · Teams · Word · Outlook</td><td>🎉 喜剧 roast</td></tr>
-<tr><td><span class="tag tag-blue">W2</span></td><td><strong>创作与表达</strong></td><td>从使用者变成创作者</td><td>Word · PPT · Chat 图片</td><td>🎉 电影 pitch</td></tr>
-<tr><td><span class="tag tag-green">W3</span></td><td><strong>洞察与分析</strong></td><td>用 Copilot 做分析而非搜索</td><td>Chat · Word · Excel</td><td>🎉 幽默建议</td></tr>
-<tr><td><span class="tag tag-green">W4</span></td><td><strong>协作与沟通</strong></td><td>把 Copilot 嵌入团队协作</td><td>Outlook · Teams · Chat</td><td>🎉 超级英雄 squad</td></tr>
-<tr><td><span class="tag tag-orange">W5</span></td><td><strong>Agent 入门</strong></td><td>从 Chat 过渡到 Agent</td><td>Prompt Coach · Idea Coach · Visual Creator · Writing Coach</td><td>🎉 自由探索</td></tr>
-<tr><td style="background:var(--blue);color:var(--white)"><strong>W6</strong></td><td style="background:var(--blue);color:var(--white)"><strong>收官与 Agent</strong></td><td style="background:var(--blue);color:var(--white)">创造属于自己的 Agent</td><td style="background:var(--blue);color:var(--white)">Agent Builder · Scenario Library</td><td style="background:var(--blue);color:var(--white)">🏆 终极项目</td></tr>
-</table>
-<div class="insight" style="margin-top:16px"><p><strong>每周节奏：</strong>Day 1 = 周报邮件（主题预告）→ Day 2-4 = 每日 1 个场景练习 → Day 5 = 🎉 Fun Day（创意玩法）。每周围绕一个能力主题螺旋上升。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>4 / 14</span></div>
+<div class="highlight"><p><strong>教师决策：</strong>已部署 M365 Copilot → 优先完整版。混合环境 → 双版本并行，按许可证自动分流。Chat Edition 可同时发给全员作为保底方案。</p></div>
+<div class="footer"><span>TÜV Rheinland · Part 1</span><span>1.3</span></div>
 </div>
 
-<!-- SLIDE 5: Week 1 -->
-<div class="slide content" style="padding:50px 60px">
-<h2 style="margin-bottom:16px">Week 1 · 建立习惯</h2>
-<p style="color:var(--muted);margin-bottom:16px">目标：让用户每天打开 Copilot。从最常用的日常场景开始——Chat、Teams、Word、Outlook。</p>
-<table>
-<tr><th style="width:35px">天</th><th style="width:60px">类型</th><th style="width:170px">主题</th><th>官方原版 Prompt</th></tr>
-<tr><td>1</td><td><span class="tag tag-blue">入门</span></td><td>Welcome</td><td style="font-style:italic">"What happened this week? Summarize what I worked on, organized by emails, chats, and files."</td></tr>
-<tr><td>2</td><td><span class="tag tag-green">练习</span></td><td>会议回顾</td><td style="font-style:italic">在 Teams 中打开会议聊天→Copilot→让它总结要点和行动项</td></tr>
-<tr><td>3</td><td><span class="tag tag-green">练习</span></td><td>文档总结</td><td style="font-style:italic">在 Word 中打开长文档→Copilot→"Summarize this document. Give me 3 key takeaways."</td></tr>
-<tr><td>4</td><td><span class="tag tag-green">练习</span></td><td>邮件回复</td><td style="font-style:italic">在 Outlook 中打开邮件线程→Copilot→起草回复，指定语气和要点</td></tr>
-<tr><td>5</td><td><span class="tag tag-orange">🎉</span></td><td>Comedy Roast</td><td style="font-style:italic">"Summarize my week in the style of a comedy roast."</td></tr>
-</table>
-<div class="insight"><p><strong>教学要点：</strong>Week 1 最重要的是建立"打开 Copilot"的肌肉记忆。不要追求完美 Prompt——先让用户习惯"有个 AI 助手随时可用"。Fun Day 是留存关键：让用户觉得 Copilot 有趣。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>5 / 14</span></div>
-</div>
+<!-- PART 2: Week 1 -->
+<div class="slide chapter"><h2>Part 2 · Week 1-2</h2><div class="num">02</div><p style="font-size:16px;opacity:.8;margin-top:10px">建立习惯 → 创作表达</p></div>
 
-<!-- SLIDE 6: Week 2 -->
-<div class="slide content" style="padding:50px 60px">
-<h2 style="margin-bottom:16px">Week 2 · 创作与表达</h2>
-<p style="color:var(--muted);margin-bottom:16px">目标：从"用 Copilot 查东西"升级到"用 Copilot 做东西"——起草、演示、设计。</p>
-<table>
-<tr><th style="width:35px">天</th><th style="width:60px">类型</th><th style="width:170px">主题</th><th>官方原版 Prompt</th></tr>
-<tr><td>6</td><td><span class="tag tag-blue">周报</span></td><td>Week 2 Kickoff</td><td style="font-style:italic">回顾 W1 学习 + 本周预告："创作、演示和设计"</td></tr>
-<tr><td>7</td><td><span class="tag tag-green">练习</span></td><td>起草文档</td><td style="font-style:italic">空白 Word→Copilot→"Draft a [report/proposal/brief] about [topic]."</td></tr>
-<tr><td>8</td><td><span class="tag tag-green">练习</span></td><td>创建演示文稿</td><td style="font-style:italic">PowerPoint→Copilot→"Create a presentation about [topic], 10 slides, professional."</td></tr>
-<tr><td>9</td><td><span class="tag tag-green">练习</span></td><td>设计图片</td><td style="font-style:italic">Copilot Chat→"Create an image of [description] for my presentation cover."</td></tr>
-<tr><td>10</td><td><span class="tag tag-orange">🎉</span></td><td>Movie Pitch</td><td style="font-style:italic">"Create a funny ad script to pitch my favorite project as a Hollywood movie."</td></tr>
-</table>
-<div class="insight"><p><strong>教学要点：</strong>Week 2 是用户第一次感受到 Copilot "能替我干活"。重点展示从空白页到完整初稿的落差——这是留存率最高的转折点。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>6 / 14</span></div>
-</div>
-
-<!-- SLIDE 7: Week 3 -->
-<div class="slide content" style="padding:50px 60px">
-<h2 style="margin-bottom:16px">Week 3 · 洞察与分析</h2>
-<p style="color:var(--muted);margin-bottom:16px">目标：用 Copilot 做分析而非搜索——学习新知识、改进文档、分析数据。</p>
-<table>
-<tr><th style="width:35px">天</th><th style="width:60px">类型</th><th style="width:170px">主题</th><th>官方原版 Prompt</th></tr>
-<tr><td>11</td><td><span class="tag tag-blue">周报</span></td><td>Week 3 Kickoff</td><td style="font-style:italic">"Help me learn about [topic]. Start with a detailed write up explaining what it is and why it matters."</td></tr>
-<tr><td>12</td><td><span class="tag tag-green">练习</span></td><td>改进文档</td><td style="font-style:italic">打开已有 Word→Copilot→"Rewrite this to be more [concise/persuasive/formal]."</td></tr>
-<tr><td>13</td><td><span class="tag tag-green">练习</span></td><td>分析数据</td><td style="font-style:italic">打开 Excel 表格→Copilot→"Identify trends and insights from this data."</td></tr>
-<tr><td>14</td><td><span class="tag tag-green">练习</span></td><td>技巧学习</td><td style="font-style:italic">"Give me tips and tricks to improve my [writing/presentations/emails]."</td></tr>
-<tr><td>15</td><td><span class="tag tag-orange">🎉</span></td><td>Tailored Advice</td><td style="font-style:italic">"Give me humorous but actionable advice about [topic]." 分享给团队对比</td></tr>
-</table>
-<div class="insight"><p><strong>教学要点：</strong>Week 3 的关键转变——用户开始把 Copilot 当成"教练"而非"工具"。Day 11 的"帮我学习X"是最被低估的 Copilot 能力。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>7 / 14</span></div>
-</div>
-
-<!-- SLIDE 8: Week 4 -->
-<div class="slide content" style="padding:50px 60px">
-<h2 style="margin-bottom:16px">Week 4 · 协作与沟通</h2>
-<p style="color:var(--muted);margin-bottom:16px">目标：把 Copilot 从"个人助手"变成"团队工具"——跟进、议程、会议。</p>
-<table>
-<tr><th style="width:35px">天</th><th style="width:60px">类型</th><th style="width:170px">主题</th><th>官方原版 Prompt</th></tr>
-<tr><td>16</td><td><span class="tag tag-blue">周报</span></td><td>Week 4 Kickoff</td><td style="font-style:italic">"Teamwork makes the dream work" — 本周用 Copilot 提升团队协作</td></tr>
-<tr><td>17</td><td><span class="tag tag-green">练习</span></td><td>会后跟进</td><td style="font-style:italic">Outlook→Copilot→起草会后跟进邮件（行动项+讨论要点+下一步）</td></tr>
-<tr><td>18</td><td><span class="tag tag-green">练习</span></td><td>创建议程</td><td style="font-style:italic">用 Copilot 创建团队会议议程——讨论点、时间分配、预期产出</td></tr>
-<tr><td>19</td><td><span class="tag tag-green">练习</span></td><td>推进会议</td><td style="font-style:italic">Teams 会议中→Copilot→"What questions haven't been addressed yet?"</td></tr>
-<tr><td>20</td><td><span class="tag tag-orange">🎉</span></td><td>Superhero Squad</td><td style="font-style:italic">"Based on what you know about my team, what superhero squad would we be?"</td></tr>
-</table>
-<div class="insight"><p><strong>教学要点：</strong>Week 4 是 Copilot 从"个人工具"到"团队文化"的转折。鼓励用户在团队会议中公开使用 Copilot——这是最好的 peer-to-peer 推广。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>8 / 14</span></div>
-</div>
-
-<!-- SLIDE 9: Week 5 -->
-<div class="slide content" style="padding:50px 60px">
-<h2 style="margin-bottom:16px">Week 5 · Agent 入门</h2>
-<p style="color:var(--muted);margin-bottom:16px">目标：从 Chat 过渡到 Agent——让用户认识并使用 Copilot 内置的专用 Agent。</p>
-<table>
-<tr><th style="width:35px">天</th><th style="width:60px">类型</th><th style="width:170px">主题</th><th>官方原版 Prompt</th></tr>
-<tr><td>21</td><td><span class="tag tag-blue">周报</span></td><td>Week 5 Kickoff</td><td style="font-style:italic">使用 Prompt Coach agent：<br>"Analyze my prompt and provide feedback on how I could improve it: [贴你的Prompt]"</td></tr>
-<tr><td>22</td><td><span class="tag tag-green">练习</span></td><td>Idea Coach</td><td style="font-style:italic">"Can you help me find fun exercises for my brainstorming session?"</td></tr>
-<tr><td>23</td><td><span class="tag tag-green">练习</span></td><td>Visual Creator</td><td style="font-style:italic">"Create an image to celebrate my team's achievement."</td></tr>
-<tr><td>24</td><td><span class="tag tag-green">练习</span></td><td>Writing Coach</td><td style="font-style:italic">把复杂流程变成简单易懂的操作说明</td></tr>
-<tr><td>25</td><td><span class="tag tag-orange">🎉</span></td><td>Fun Day</td><td style="font-style:italic">自由探索——试用你一直想试但没机会的 Copilot 功能</td></tr>
-</table>
-<div class="insight"><p><strong>教学要点：</strong>Week 5 不要求用户自己创建 Agent——先让他们"使用"现成的 Agent（Prompt Coach / Idea Coach / Visual Creator / Writing Coach）。理解"Agent = 有专长的 AI 助手"这个概念，为 W6 自建 Agent 做铺垫。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>9 / 14</span></div>
-</div>
-
-<!-- SLIDE 10: Week 6 -->
-<div class="slide content" style="padding:50px 60px">
-<h2 style="margin-bottom:16px">Week 6 · 收官与自建 Agent</h2>
-<p style="color:var(--muted);margin-bottom:16px">目标：用户创建自己的第一个 Agent——从"用 Agent"到"做 Agent"的质变。</p>
-<table>
-<tr><th style="width:35px">天</th><th style="width:60px">类型</th><th style="width:170px">主题</th><th>官方原版 Prompt</th></tr>
-<tr><td>26</td><td><span class="tag tag-blue">周报</span></td><td>Final Week</td><td style="font-style:italic">"You're almost at the end! Now let's build something of your own."</td></tr>
-<tr><td>27</td><td><span class="tag tag-green">练习</span></td><td>Create Your Agent</td><td style="font-style:italic">用 Agent Builder 创建自定义 Agent——选一个你每天都在做的重复任务</td></tr>
-<tr><td>28</td><td><span class="tag tag-green">练习</span></td><td>发现场景</td><td style="font-style:italic">访问 Scenario Library → 找适合你岗位和行业的 Copilot 场景</td></tr>
-<tr><td>29</td><td><span class="tag tag-orange">🏆</span></td><td>Dream Big</td><td style="font-style:italic">"Imagine anything is possible. What would your dream [project/process] look like?"</td></tr>
-<tr><td>30</td><td><span class="tag tag-green">🎓</span></td><td>Congratulations</td><td style="font-style:italic">回顾 30 天旅程 → 领取 Badge → 加入 Champion 社群</td></tr>
-</table>
-<div class="highlight"><p><strong>🏆 终极项目（Day 29）：</strong>用 Copilot 描绘并规划你的理想工作方式。不限格式——可以是文档、PPT、图片、Agent 设计——只要展示你学到的所有技能。这是从"被动学习者"到"主动创造者"的最后一步。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>10 / 14</span></div>
-</div>
-
-<!-- SLIDE 11: Chat Edition Quick Reference -->
-<div class="slide content" style="padding:50px 60px">
-<h2>Chat Edition · 6 周快速参考</h2>
-<p style="color:var(--muted);margin-bottom:16px">Chat Edition 不依赖 M365 许可证——所有练习在 Copilot Chat 中完成。</p>
-<table>
-<tr><th style="width:50px">周</th><th>主题</th><th>代表 Prompt（官方 .OFT 提取）</th></tr>
-<tr><td><span class="tag tag-blue">W1</span></td><td><strong>入门与基础</strong></td><td style="font-style:italic">翻译文本 · 起草邮件 · 获取写作反馈 · 创作趣味内容</td></tr>
-<tr><td><span class="tag tag-blue">W2</span></td><td><strong>生产力技巧</strong></td><td style="font-style:italic">"Summarize this document" · "Create a first draft" · "Come up with 3 product ideas with business plans"</td></tr>
-<tr><td><span class="tag tag-green">W3</span></td><td><strong>洞察与分析</strong></td><td style="font-style:italic">"Create a pie chart showing market share" · "Conduct research on [topic]" · "Brainstorm innovative ideas"</td></tr>
-<tr><td><span class="tag tag-green">W4</span></td><td><strong>组织与建议</strong></td><td style="font-style:italic">"Suggest a daily routine to stay organized" · "Get advice on [topic]" · "Create images of [description]"</td></tr>
-<tr><td><span class="tag tag-orange">W5</span></td><td><strong>个人成长</strong></td><td style="font-style:italic">"Learn about [topic]" · "Best practices to improve [skill]" · "Questions to gain deeper insights"</td></tr>
-<tr><td style="background:var(--blue);color:var(--white)"><strong>W6</strong></td><td style="background:var(--blue);color:var(--white)"><strong>Agent & 收官</strong></td><td style="background:var(--blue);color:var(--white);font-style:italic">"Build your own agent with Agent Builder" · "Discover use cases for your industry" · "Dream project"</td></tr>
-</table>
-<div class="insight" style="margin-top:16px"><p><strong>两个版本可以同时跑：</strong>给有 M365 许可证的用户发完整版，给仅有 Chat 的用户发 Chat Edition。同一周主题对齐（如 W2 都是"创作"），但练习内容因工具而异。</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>11 / 14</span></div>
-</div>
-
-<!-- SLIDE 12: Implementation Guide -->
-<div class="slide content" style="padding:50px 60px">
-<h2>落地实施指南</h2>
+<!-- W1 Overview -->
+<div class="slide content" style="padding:45px 60px">
+<div style="background:var(--blue);color:var(--white);padding:14px 22px;border-radius:8px;margin-bottom:20px"><h2 style="color:var(--white);border:none;padding:0;margin:0;font-size:22px">Week 1 · 建立习惯</h2><p style="opacity:.85;margin-top:4px;font-size:13px">目标：让用户每天打开 Copilot，从最常用的日常场景开始</p></div>
 <div class="grid2">
-<div class="card"><h4>推进节奏</h4>
-<ul style="margin-left:16px">
-<li><strong>每周 1 封周报邮件</strong>（周一早）</li>
-<li><strong>每日 Slack/Teams 提示</strong></li>
-<li><strong>每周 1 次 15min Office Hour</strong></li>
-<li><strong>W3、W6 各一次 30min 分享</strong></li>
-</ul></div>
-<div class="card orange"><h4>常见踩坑</h4>
-<ul style="margin-left:16px">
-<li>❌ 原样照搬英文邮件</li>
-<li>❌ 只发邮件不跟进</li>
-<li>❌ 第 1 周就讲 Agent</li>
-<li>❌ 一次推全部 30 天</li>
-</ul></div>
+<div class="card"><h4>本周教学目标</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>✅ 用户知道如何打开 Copilot（Chat / App）</li><li>✅ 用户完成 ≥3 次 Copilot 交互</li><li>✅ 用户理解 Copilot 能访问工作数据</li><li>✅ Fun Day 体验到了"有趣"</li></ul></div>
+<div class="card green"><h4>教师注意事项</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>⚠️ 不要纠正 Prompt 写法——先让用户"玩"</li><li>⚠️ Day 1 最重要——如没人打开邮件，后面全废</li><li>⚠️ 每天在群里发一条"今天有人试了吗？"</li></ul></div>
 </div>
-<div class="highlight" style="margin-top:20px"><p><strong>⚡ 最关键的 3 件事：</strong><br>1. <strong>翻译 + 本地化：</strong>英文邮件→中文+莱茵场景<br>2. <strong>Office Hour：</strong>没有互动的 Journey 完成率 &lt; 15%<br>3. <strong>分批发布：</strong>每周解锁新内容，保持期待感</p></div>
-<h4 style="margin-top:20px">成功衡量</h4>
-<table>
-<tr><th style="width:100px">指标</th><th>定义</th><th>参考目标</th></tr>
-<tr><td>启动率</td><td>完成 Day 1 / 邀请总数</td><td>≥ 60%</td></tr>
-<tr><td>周活跃</td><td>每周 ≥1 次练习的人数</td><td>W1 ≥40% → W6 ≥20%</td></tr>
-<tr><td>完成率</td><td>完成 Day 29 / 启动人数</td><td>≥ 15%</td></tr>
-<tr><td>NPS</td><td>Journey 结束净推荐值</td><td>≥ 30</td></tr>
-<tr><td>Agent 转化</td><td>结束后 30 天创建 Agent 的人数</td><td>≥ 5% 的完成者</td></tr>
-</table>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>12 / 14</span></div>
+<table style="margin-top:14px"><tr><th style="width:45px">天</th><th>主题</th><th>应用</th><th style="width:55px">类型</th></tr>
+<tr><td>Day 1</td><td>Welcome + 首次对话</td><td>Copilot Chat</td><td><span class="tag tag-blue">入门</span></td></tr>
+<tr><td>Day 2</td><td>会议回顾</td><td>Teams</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 3</td><td>文档总结</td><td>Word</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 4</td><td>邮件回复</td><td>Outlook</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 5</td><td>🎉 Comedy Roast</td><td>Copilot Chat</td><td><span class="tag tag-orange">Fun Day</span></td></tr></table>
+<div class="footer"><span>TÜV Rheinland · Week 1</span><span>2.0</span></div>
 </div>
 
-<!-- SLIDE 13: 莱茵版本规划 -->
-<div class="slide content" style="padding:50px 60px">
-<h2>莱茵版本规划</h2>
-<table>
-<tr><th style="width:100px">版本</th><th style="width:120px">对象</th><th>形式</th><th>核心内容</th></tr>
-<tr><td style="font-weight:700;color:var(--blue)">全员版</td><td>所有 Copilot 用户</td><td>6 周邮件 + Office Hour</td><td>每周围绕一个高频场景：邮件→文档→数据→演示→协作→Agent</td></tr>
-<tr><td style="font-weight:700;color:var(--green)">种子版</td><td>Champion / 种子用户</td><td>6 周 + Day 27-29 Agent 深度</td><td>增加 Agent 构建和项目练习</td></tr>
-<tr><td style="font-weight:700;color:var(--orange)">管理层版</td><td>部门负责人</td><td>3 次 30min 短会</td><td>业务价值、ROI 跟踪、团队推广策略</td></tr>
-<tr><td style="font-weight:700;color:var(--muted)">IT 附录</td><td>IT / 安全</td><td>随 Journey 同步</td><td>许可证、数据保护、SharePoint 权限、Agent 治理</td></tr>
-</table>
-<div class="insight" style="margin-top:20px">
-<p><strong>与其他模块联动：</strong><br>
-• W1-2 配合 Prompt 工程培训——在练习中植入 Prompt 编写技巧<br>
-• W5-6 连接 Agent 进阶——Day 26-29 是 Agent 的自然入口<br>
-• 全程搭配 User Engagement Tools + Prompt-a-thon 做活动驱动<br>
-• 完成者优先进入 Champion 社群（90-Day Community Framework）
-</p></div>
-<div class="footer"><span>TÜV Rheinland · Copilot 30-Day Journey</span><span>13 / 14</span></div>
+<!-- W1 Day 1 -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 1 · Day 1</span><strong>Welcome · 第一次 Copilot 对话</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">让用户<strong>第一次打开 Copilot Chat</strong>并完成对话。不追求完美 Prompt——追求"我做到了"的成就感。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开 Copilot Chat（m365.cloud.microsoft/chat 或 Windows 任务栏）</li><li>在对话框输入 Prompt</li><li>查看 Copilot 返回的结果——它会列出你的邮件、聊天和文件活动</li></ol></div>
+<div class="card green" style="margin-top:8px"><h4>📧 邮件内容</h4><p style="font-size:11px;font-style:italic">"Through this 6-week series, you'll learn how Copilot can empower you to be more efficient, creative, and achieve more. Ready? Open Copilot Chat and try your first prompt."</p></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"What happened this week? Summarize what I worked on, organized by emails, chats, and files."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"总结我这周做了什么，按邮件、聊天和文件分类整理。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>这个 Prompt 展示了 Copilot 的核心差异化能力——<strong>跨应用工作上下文</strong>。用户第一次看到 AI 能访问自己的邮件、文件和聊天时，是最强的"aha moment"。发送邮件后当天在群里问"它总结出什么你忘了的事？"能显著提高打开率。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 1 Day 1</span><span>2.1</span></div>
 </div>
 
-<!-- SLIDE 14: Closing -->
+<!-- W1 Day 2 -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 1 · Day 2</span><strong>Recap Meetings · 会议回顾</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">让用户在<strong> Teams 会议</strong>中实际使用 Copilot——不是演示，是真的在自己参加的会议中用。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开 Teams → 进入任意会议聊天</li><li>点击右上角 Copilot 图标</li><li>选择"Catch up"或直接输入 Prompt</li><li>Copilot 生成带时间戳的摘要</li></ol></div>
+<div class="card green" style="margin-top:8px"><h4>📧 邮件内容</h4><p style="font-size:11px;font-style:italic">"Learn how to catch up on meetings. Open a meeting chat in Teams, click the Copilot icon and practice this prompt throughout your day."</p></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Recap this meeting. What were the key decisions? Who is responsible for what?"</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"总结这个会议：做了什么决定？谁负责什么？列出所有行动项和负责人。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>告知用户：Copilot 可以在<strong>不开启转录</strong>的情况下使用基础功能。但完整 Recap（智能行动项、发言人标注）需要转录开启。如用户反馈"什么都没出来"→检查转录是否开启。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 1 Day 2</span><span>2.2</span></div>
+</div>
+
+<!-- W1 Day 3 -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 1 · Day 3</span><strong>Summarize Documents · 文档总结</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">让用户体验 Copilot <strong>在 Word 中直接工作</strong>的能力——不需要复制粘贴到 Chat，在文档内部就能总结。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开任意较长的 Word 文档</li><li>点击 Home 标签下的 Copilot 图标</li><li>输入 Prompt 或从建议中选择</li></ol></div>
+<div class="card green" style="margin-top:8px"><h4>📧 邮件内容</h4><p style="font-size:11px;font-style:italic">"Reading long documents can be time-consuming. Open a Word document, click the Copilot icon and use this prompt to quickly get the main points."</p></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Summarize this document. Give me 3 key takeaways."</div></div>
+<div class="prompt-box"><div class="pl">莱茵场景</div><div class="pt">"总结这份审核报告的核心发现和不合格项。"<br>"这份合同的风险条款有哪些？"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>这是用户第一次在 Word 中看到 Copilot 的"内嵌"体验。强调：<strong>不需要复制粘贴</strong>——Copilot 直接读取当前文档。建议用户找一份真实的、让他们头疼的长文档来测试。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 1 Day 3</span><span>2.3</span></div>
+</div>
+
+<!-- W1 Day 4 -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 1 · Day 4</span><strong>Reply to Emails · 邮件回复</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">让用户在<strong>Outlook 中</strong>用 Copilot 起草邮件回复——日常最高频场景，每天至少省 20 分钟。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>在 Outlook 中打开一封邮件</li><li>点击 Reply → 点击 Copilot 图标</li><li>告诉 Copilot 你想表达什么（立场+结构+语气）</li></ol></div>
+<div class="card green" style="margin-top:8px"><h4>📧 邮件内容</h4><p style="font-size:11px;font-style:italic">"When you only have a few minutes to respond, Copilot has your back. Reply to an email in Outlook, click the Copilot icon, and practice."</p></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Reply to this email: thank them for the proposal, agree with points 1-2, need more discussion on point 3. Tone: polite but firm."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"回复这封邮件：感谢对方的详细方案，第1-2点同意，第3点需要进一步讨论。语气礼貌但坚定。并在回复开头附上原邮件的3点摘要。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>Outlook Copilot 的关键技巧：<strong>给立场 + 给结构 + 给语气</strong>。只说"帮我回复"→结果随机。好指令 = "回复：感谢+同意前两点+对第三点提替代方案，语气礼貌但坚定"。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 1 Day 4</span><span>2.4</span></div>
+</div>
+
+<!-- W1 Day 5 Fun -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header fun"><span>Week 1 · Day 5</span><strong>🎉 Fun Day · Comedy Roast of Your Week</strong></div>
+<div class="grid2">
+<div>
+<h4>📧 邮件内容</h4><div class="card" style="margin-top:8px"><p style="font-size:12px">"It's Fun Day! Let's use Copilot to recap your week in a completely different way."</p></div>
+<div class="insight" style="margin-top:12px"><p style="font-size:12px"><strong>Fun Day 设计原理：</strong>不是娱乐——是<strong>留存引擎</strong>。用户会在周五下午截屏发到群里→其他人看到→"这是什么？我也试试"→自然传播。每个 Fun Day 都是免费的 peer-to-peer 推广。不要跳过——这是 Journey 最重要的社交杠杆。</p></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版</div><div class="pt">"Summarize my week in the style of a comedy roast."</div></div>
+<h4 style="margin-top:12px">🔀 变体（鼓励用户自创）</h4>
+<div class="prompt-box"><div class="pl">变体 1</div><div class="pt">"Summarize my week as if it were a Shakespearean tragedy."</div></div>
+<div class="prompt-box"><div class="pl">变体 2</div><div class="pt">"Turn my week into a movie trailer script narrated by Morgan Freeman."</div></div>
+<div class="prompt-box"><div class="pl">变体 3</div><div class="pt">"Write a haiku about my work week."</div></div>
+</div>
+</div>
+<div class="highlight"><p><strong>👩‍🏫 教师行动：</strong>在团队群里发起"最佳 Comedy Roast 截图"投票——最高票的人下周一可以晚来半小时。这是本周最重要的社交传播点。Fun Day 的参与度 = 下周打开率的领先指标。</p></div>
+<div class="footer"><span>TÜV Rheinland · Week 1 Day 5</span><span>2.5</span></div>
+</div>
+
+<!-- W2 Overview -->
+<div class="slide content" style="padding:45px 60px">
+<div style="background:var(--blue);color:var(--white);padding:14px 22px;border-radius:8px;margin-bottom:20px"><h2 style="color:var(--white);border:none;padding:0;margin:0;font-size:22px">Week 2 · 创作与表达</h2><p style="opacity:.85;margin-top:4px;font-size:13px">目标：从"用 Copilot 查东西"升级到"用 Copilot 做东西"</p></div>
+<div class="grid2">
+<div class="card"><h4>本周教学目标</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>✅ 用户完成至少 1 次"从空白页到初稿"</li><li>✅ 用户理解 Copilot 不只是搜索工具</li><li>✅ 用户在真实工作文档/PPT 中使用了 Copilot</li></ul></div>
+<div class="card green"><h4>教师注意事项</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>⚠️ Week 2 是留存率转折点——用户第一次感受到"Copilot 能替我干活"</li><li>⚠️ 鼓励用<strong>真实工作文档</strong>练习，不要用练习文件</li></ul></div>
+</div>
+<table style="margin-top:14px"><tr><th style="width:45px">天</th><th>主题</th><th>应用</th><th style="width:55px">类型</th></tr>
+<tr><td>Day 6</td><td>Week 2 Kickoff</td><td>Copilot Chat</td><td><span class="tag tag-blue">周报</span></td></tr>
+<tr><td>Day 7</td><td>起草文档</td><td>Word</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 8</td><td>创建演示文稿</td><td>PowerPoint</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 9</td><td>设计图片</td><td>Copilot Chat</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 10</td><td>🎉 Movie Pitch</td><td>Copilot Chat</td><td><span class="tag tag-orange">Fun Day</span></td></tr></table>
+<div class="footer"><span>TÜV Rheinland · Week 2</span><span>2.6</span></div>
+</div>
+
+<!-- W2 Day 7 -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 2 · Day 7</span><strong>Start a Draft · 起草文档</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">用户在 Word 中从零起草一份文档——告别"空白页恐惧症"。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开空白 Word 文档</li><li>点击 Copilot 图标</li><li>输入主题 + 结构 + 字数要求 + 语气</li><li>不满意→"Rewrite this to be more concise/persuasive"</li></ol></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Draft a [report/proposal/brief] about [topic]. Include: executive summary, key findings, recommendations. Professional tone, 800-1000 words."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"起草一份关于[话题]的[报告/方案/简报]，包含：摘要、核心发现、建议。语气正式，800-1000 字。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>Word Copilot 的"从零起草"和"基于现有文件"是两个完全不同的能力。Day 7 先让用户熟悉"从零起草"——这是建立信心的关键。后续课程中再引入"基于现有文件"的进阶用法。鼓励用户拿<strong>真实要写的文档</strong>来试——边工作边学效果最好。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 2 Day 7</span><span>2.7</span></div>
+</div>
+
+<!-- W2 Day 8 -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 2 · Day 8</span><strong>Create Presentations · 创建 PPT</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">用户在 PowerPoint 中用 Copilot 生成完整演示文稿。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开 PowerPoint → 新建空白演示文稿</li><li>点击 Copilot 图标</li><li>输入主题 + 页数 + 每页内容 + 风格要求</li></ol></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Create a 10-slide presentation about [topic]. Include: current situation, key challenges, proposed solutions, timeline, expected outcomes. Professional style."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"创建一份 10 页的演示文稿，主题：[话题]。包含：现状、关键挑战、解决方案、时间线、预期成果。风格简洁专业，蓝色主题。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>PPT Copilot 的生成质量 = 输入详细程度。"做个 PPT"→泛泛模板。好输入 = <strong>页数 + 每页主题 + 风格 + 数据来源</strong>。建议用户先把想要的 PPT 结构写出来，再喂给 Copilot——这本身就是一次"思考结构化"的练习。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 2 Day 8</span><span>2.8</span></div>
+</div>
+
+<!-- W2 Day 9-10 skipped for brevity in this build, continuing with key slides -->
+
+<!-- PART 3: Week 3-4 Chapter -->
+<div class="slide chapter"><h2>Part 3 · Week 3-4</h2><div class="num">03</div><p style="font-size:16px;opacity:.8;margin-top:10px">洞察分析 → 团队协作</p></div>
+
+<!-- W3 Overview -->
+<div class="slide content" style="padding:45px 60px">
+<div style="background:var(--blue);color:var(--white);padding:14px 22px;border-radius:8px;margin-bottom:20px"><h2 style="color:var(--white);border:none;padding:0;margin:0;font-size:22px">Week 3 · 洞察与分析</h2><p style="opacity:.85;margin-top:4px;font-size:13px">目标：用 Copilot 做分析而非搜索——学习、改进、数据</p></div>
+<div class="grid2">
+<div class="card"><h4>本周教学目标</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>✅ 用户用 Copilot 学习了 1 个新主题</li><li>✅ 用户在 Excel 中用自然语言做了 1 次分析</li><li>✅ 用户理解了"教练型"Prompt 的写法</li></ul></div>
+<div class="card green"><h4>教师注意事项</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>⚠️ Excel Copilot 需要数据是<strong>结构化表格</strong>（Ctrl+T）</li><li>⚠️ Excel Copilot 目前仅支持英文 Prompt——需告知用户</li></ul></div>
+</div>
+<table style="margin-top:14px"><tr><th style="width:45px">天</th><th>主题</th><th>应用</th><th style="width:55px">类型</th></tr>
+<tr><td>Day 11</td><td>Week 3 Kickoff + 学习新知识</td><td>Copilot Chat</td><td><span class="tag tag-blue">周报</span></td></tr>
+<tr><td>Day 12</td><td>改进文档</td><td>Word</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 13</td><td>分析数据</td><td>Excel</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 14</td><td>获取技巧</td><td>Copilot Chat</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 15</td><td>🎉 Tailored Advice</td><td>Copilot Chat</td><td><span class="tag tag-orange">Fun Day</span></td></tr></table>
+<div class="footer"><span>TÜV Rheinland · Week 3</span><span>3.0</span></div>
+</div>
+
+<!-- W3 Day 11: Learn -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 3 · Day 11</span><strong>Learn Something New · 学习新知识</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">用户把 Copilot 当成<strong>"私人教师"</strong>——学习任意主题。这是最被低估的 Copilot 能力。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开 Copilot Chat</li><li>选一个你一直想学但没时间学的主题</li><li>用 Prompt 开始学习</li><li>追问："Explain [concept] to me like I'm a beginner"</li></ol></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Help me learn about [topic]. Start with a detailed write up explaining what it is and why it matters. Then give me 5 key concepts I should understand."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"帮我学习[话题]。先给一篇详细介绍（是什么、为什么重要），然后列出 5 个我需要理解的核心概念。用初学者能懂的语言。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>这是 Week 3 最容易被跳过的练习——但它是最强大的。"帮我学习 X"打开了 Copilot 的"教练模式"——用户可以追问、要求举例、让 Copilot 出题测试自己。<strong>鼓励用户选一个跟工作直接相关的主题</strong>——比如 ISO 标准更新、行业趋势、新技术。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 3 Day 11</span><span>3.1</span></div>
+</div>
+
+<!-- W3 Day 13: Excel -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 3 · Day 13</span><strong>Analyze Data · 分析数据</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">用户在 Excel 中用自然语言做数据分析——不需要知道 VLOOKUP 或 PivotTable。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开一个结构化 Excel 表格</li><li>选中数据→Ctrl+T（转换为表格格式）</li><li>点击 Copilot 图标</li><li>用自然语言描述你想分析什么</li></ol></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Analyze this data and identify key trends. Show me: top 3 growth areas, any anomalies, and a summary insight."</div></div>
+<div class="prompt-box"><div class="pl">莱茵场景</div><div class="pt">"Analyze this sales data. Show me: best and worst performing products, monthly trends, and any outliers."</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>⚠️ 关键前提：Excel Copilot 需要数据是表格格式（Ctrl+T）。散乱的单元格 Copilot 无法理解。Excel Copilot 目前仅支持英文 Prompt——需告知用户这个限制。如果用户的数据是中文表头→建议先用英文描述列名。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 3 Day 13</span><span>3.3</span></div>
+</div>
+
+<!-- PART 4: Week 5-6 -->
+<div class="slide chapter"><h2>Part 4 · Week 5-6</h2><div class="num">04</div><p style="font-size:16px;opacity:.8;margin-top:10px">Agent 入门 → 自建 Agent</p></div>
+
+<!-- W5 Overview -->
+<div class="slide content" style="padding:45px 60px">
+<div style="background:var(--blue);color:var(--white);padding:14px 22px;border-radius:8px;margin-bottom:20px"><h2 style="color:var(--white);border:none;padding:0;margin:0;font-size:22px">Week 5 · Agent 入门</h2><p style="opacity:.85;margin-top:4px;font-size:13px">目标：从 Chat 过渡到 Agent——使用 4 个内置专用 Agent</p></div>
+<div class="grid2">
+<div class="card"><h4>本周教学目标</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>✅ 用户知道什么是 Agent</li><li>✅ 用户使用了至少 2 个内置 Agent</li><li>✅ 用户理解了"Agent = 有专长的 AI 助手"</li></ul></div>
+<div class="card green"><h4>教师注意事项</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>⚠️ Week 5 不要求自建 Agent——先"用"现成的</li><li>⚠️ 每个 Agent 有不同入口——提前截图发给用户</li><li>⚠️ 4 个 Agent = Prompt Coach / Idea Coach / Visual Creator / Writing Coach</li></ul></div>
+</div>
+<table style="margin-top:14px"><tr><th style="width:45px">天</th><th>主题</th><th>Agent</th><th style="width:55px">类型</th></tr>
+<tr><td>Day 21</td><td>Prompt Coach</td><td>Prompt Coach Agent</td><td><span class="tag tag-blue">周报</span></td></tr>
+<tr><td>Day 22</td><td>Idea Coach</td><td>Idea Coach Agent</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 23</td><td>Visual Creator</td><td>Visual Creator Agent</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 24</td><td>Writing Coach</td><td>Writing Coach Agent</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 25</td><td>🎉 Free Exploration</td><td>任意</td><td><span class="tag tag-orange">Fun Day</span></td></tr></table>
+<div class="footer"><span>TÜV Rheinland · Week 5</span><span>4.0</span></div>
+</div>
+
+<!-- W5 Day 21: Prompt Coach -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 5 · Day 21</span><strong>Prompt Coach · 让你的 Prompt 更好</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">用户使用 <strong>Prompt Coach Agent</strong> 来分析和改进自己的 Prompt 写法。这是"教人钓鱼"的 Agent。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开 Copilot Chat</li><li>打开右侧面板→选择 Prompt Coach agent</li><li>贴入你的 Prompt→获取反馈</li><li>根据反馈修改→再试一次</li></ol></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Analyze my prompt and provide feedback on how I could improve it: [paste your prompt here]."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"分析我的 Prompt 并告诉我怎么改进：[贴上你平时用的 Prompt]。哪里写得好？哪里可以更具体？给我一个改进版。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>用户第一次看到 AI 给自己的 Prompt 打分和改进建议时，会有"原来 Prompt 可以这样写"的启发。建议用户<strong>用真实工作中常用的 Prompt</strong> 来测试——学到的技巧可以立刻用到明天的工作中。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 5 Day 21</span><span>4.1</span></div>
+</div>
+
+<!-- W6 Overview -->
+<div class="slide content" style="padding:45px 60px">
+<div style="background:var(--blue);color:var(--white);padding:14px 22px;border-radius:8px;margin-bottom:20px"><h2 style="color:var(--white);border:none;padding:0;margin:0;font-size:22px">Week 6 · 收官与自建 Agent</h2><p style="opacity:.85;margin-top:4px;font-size:13px">目标：用户创建自己的第一个 Agent——从"用 Agent"到"做 Agent"</p></div>
+<div class="grid2">
+<div class="card"><h4>本周教学目标</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>✅ 用户创建了至少 1 个自己的 Agent</li><li>✅ 用户完成了 Dream Big 终极项目</li><li>✅ 用户知道下一步：Champion 社群 / Agent 进阶</li></ul></div>
+<div class="card green"><h4>教师注意事项</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>⚠️ Agent 创建需要管理员开启权限——提前确认</li><li>⚠️ Day 29 是 Journey 的"毕业设计"——给足时间</li><li>⚠️ Day 30 给完成者明确的下一步路径</li></ul></div>
+</div>
+<table style="margin-top:14px"><tr><th style="width:45px">天</th><th>主题</th><th>应用</th><th style="width:55px">类型</th></tr>
+<tr><td>Day 26</td><td>Final Week Kickoff</td><td>Copilot Chat</td><td><span class="tag tag-blue">周报</span></td></tr>
+<tr><td>Day 27</td><td>Create Your Agent</td><td>Agent Builder</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 28</td><td>Discover Scenarios</td><td>Scenario Library</td><td><span class="tag tag-green">练习</span></td></tr>
+<tr><td>Day 29</td><td>🏆 Dream Big 终极项目</td><td>Copilot Chat</td><td><span class="tag tag-orange">项目</span></td></tr>
+<tr><td>Day 30</td><td>🎓 Congratulations</td><td>—</td><td><span class="tag tag-green">毕业</span></td></tr></table>
+<div class="footer"><span>TÜV Rheinland · Week 6</span><span>4.6</span></div>
+</div>
+
+<!-- W6 Day 27: Create Agent -->
+<div class="slide content" style="padding:45px 60px">
+<div class="day-header"><span>Week 6 · Day 27</span><strong>Create Your Own Agent · 创建 Agent</strong></div>
+<div class="grid2">
+<div>
+<h4>🎯 教学目标</h4><p style="font-size:13px">用户使用 <strong>Agent Builder</strong> 创建自己的第一个自定义 Agent——选一个每天都在做的重复任务。这是整个 Journey 的最高潮。</p>
+<div class="card" style="margin-top:10px"><h4>操作步骤</h4><ol style="font-size:11px;margin-left:16px;line-height:1.7"><li>打开 Copilot Chat → 选择"Create an agent"</li><li>指定 Agent 名称和描述（如"部门政策助手"）</li><li>选择知识来源（SharePoint 站点/文件）</li><li>测试 Agent→调整→分享给团队</li></ol></div>
+</div>
+<div>
+<h4>💬 官方 Prompt</h4>
+<div class="prompt-box"><div class="pl">原版英文</div><div class="pt">"Create an agent that helps me with [specific recurring task]. It should have access to [SharePoint site/files] and be able to [specific capability]."</div></div>
+<div class="prompt-box"><div class="pl">莱茵本地化</div><div class="pt">"创建一个 Agent：帮我处理[具体重复任务]。知识来源：[SharePoint 站点/文件]。这个 Agent 应该能[具体能力描述]。"</div></div>
+<div class="highlight" style="margin-top:12px"><p><strong>👩‍🏫 教师提示：</strong>建议用户选一个<strong>简单但高频的任务</strong>作为第一个 Agent——比如"部门政策问答"或"项目文档检索"。不要太复杂——第一个 Agent 成功创建比 Agent 功能强大更重要。成功创建后鼓励用户截图发群里。</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Week 6 Day 27</span><span>4.7</span></div>
+</div>
+
+<!-- PART 5: Chat Edition -->
+<div class="slide chapter"><h2>Part 5 · Chat Edition 轻量版</h2><div class="num">05</div><p style="font-size:16px;opacity:.8;margin-top:10px">不依赖 M365 许可证 · 全部在 Copilot Chat 中完成</p></div>
+
+<div class="slide content">
+<h2>Chat Edition · 6 周完整教案</h2>
+<p style="color:var(--muted);margin-bottom:14px">Chat Edition 面向仅有 Copilot Chat 权限的用户。所有练习在 Chat 中完成——覆盖翻译、起草、总结、构思、图表、研究、组织、建议、图片、学习、洞察、Agent。</p>
+<table>
+<tr><th style="width:40px">周</th><th>主题</th><th>Day 1-2</th><th>Day 3-4</th><th>Day 5 🎉</th></tr>
+<tr><td><span class="tag tag-blue">W1</span></td><td><strong>入门基础</strong></td><td>Welcome + 翻译文本</td><td>起草邮件 + 写作反馈</td><td>创作趣味内容</td></tr>
+<tr><td><span class="tag tag-blue">W2</span></td><td><strong>生产力</strong></td><td>"Summarize this" + "Create a first draft"</td><td>"3 product ideas + business plans" + 总结</td><td>幽默创意</td></tr>
+<tr><td><span class="tag tag-green">W3</span></td><td><strong>洞察分析</strong></td><td>"Create a pie chart of market share" + "Conduct research"</td><td>"Brainstorm innovative ideas" + 探索</td><td>趣味事实</td></tr>
+<tr><td><span class="tag tag-green">W4</span></td><td><strong>组织建议</strong></td><td>"Suggest a daily routine" + "Get advice on [topic]"</td><td>"Create images of [description]" + 度假乐趣</td><td>行前幽默</td></tr>
+<tr><td><span class="tag tag-orange">W5</span></td><td><strong>成长</strong></td><td>"Learn about [topic]" + "Best practices"</td><td>"Questions for deeper insights" + 独特建议</td><td>风格化建议</td></tr>
+<tr style="background:var(--blue);color:var(--white)"><td><strong>W6</strong></td><td><strong>Agent</strong></td><td>"Build your own agent" + "Discover use cases"</td><td>"Dream project" + 总结回顾</td><td>🎓 毕业</td></tr>
+</table>
+<div class="insight" style="margin-top:14px"><p><strong>Chat Edition 的核心差异：</strong>所有练习在 Copilot Chat 中完成（不涉及 Word/Excel/PPT 内嵌功能），但覆盖的能力维度基本一致——从基础使用到 Agent 创建。可以作为<strong>全员保底方案</strong> + 完整版用户的补充练习。</p></div>
+<div class="footer"><span>TÜV Rheinland · Chat Edition</span><span>5.1</span></div>
+</div>
+
+<!-- PART 6: Teacher's Guide -->
+<div class="slide chapter"><h2>Part 6 · 教师指南</h2><div class="num">06</div><p style="font-size:16px;opacity:.8;margin-top:10px">落地实施 · 常见问题 · 成功衡量</p></div>
+
+<div class="slide content">
+<h2>落地实施检查表</h2>
+<div class="grid2">
+<div class="card"><h4>启动前（Week -2）</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>☐ 确认目标用户的 Copilot 许可证状态</li><li>☐ 翻译 + 本地化 30 封邮件（英文→中文+莱茵场景）</li><li>☐ 配置邮件自动发送（Outlook Scheduled Send 或邮件工具）</li><li>☐ 创建团队聊天群（Slack/Teams）用于每日互动</li><li>☐ 准备 Week 1 Day 1 的 kickoff 消息</li></ul></div>
+<div class="card green"><h4>运行中（Week 1-6）</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>☐ 每天在群里发 1 条互动消息</li><li>☐ 每周五组织 Fun Day 分享和投票</li><li>☐ 每周 1 次 15min Office Hour（答疑+晒成果）</li><li>☐ W3 和 W6 各 1 次 30min 线上分享</li><li>☐ 记录常见问题和用户反馈</li></ul></div>
+</div>
+<div class="grid2" style="margin-top:12px">
+<div class="card orange"><h4>结束后（Week 7+）</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>☐ 发送结业证书 + Badge</li><li>☐ 邀请完成者加入 Champion 社群</li><li>☐ 收集 NPS 和 Journey 反馈</li><li>☐ 将 Day 29 优秀项目收录为内部案例</li><li>☐ 规划下一批 Journey 启动时间</li></ul></div>
+<div class="card"><h4>常见踩坑</h4><ul style="font-size:11px;margin-left:14px;line-height:1.7"><li>❌ 原样照搬英文邮件→完成率暴跌</li><li>❌ 只发邮件不互动→完成率 &lt;15%</li><li>❌ Week 1 讲 Agent→用户还没建立基本信任</li><li>❌ 一次发完 30 天→Week 2 就没人打开了</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 教师指南</span><span>6.1</span></div>
+</div>
+
+<div class="slide content">
+<h2>常见 FAQ</h2>
+<table>
+<tr><th style="width:250px">问题</th><th>回答</th></tr>
+<tr><td>"我没时间每天做练习"</td><td>每个练习 ≤5 分钟。选一个你本来就要做的事——用 Copilot 做而不是手动做。这不是"额外任务"，是"换个方式做你已经在做的事"。</td></tr>
+<tr><td>"Copilot 给我的答案不对"</td><td>Copilot 不是搜索引擎——它是一个基于你的工作数据提供建议的助手。如果答案不准，试试：① 给更多上下文 ② 指定信息来源 ③ 追问"你确定吗？再检查一遍"。</td></tr>
+<tr><td>"我看不懂英文 Prompt"</td><td>中文 Prompt 也可以用——但某些应用（如 Excel Copilot）目前只支持英文。我们会提供中英双语 Prompt，选你舒服的语言用。</td></tr>
+<tr><td>"这个跟我的工作没什么关系"</td><td>试试把 Prompt 里的[话题]换成你正在做的事。Journey 的价值不在于每个 Prompt 都适合你——而在于你学会了"怎么让 Copilot 为你工作"。</td></tr>
+<tr><td>"我错过了前几周，还能加入吗？"</td><td>随时可以。Journey 不要求连续——从今天开始，跟着当天的练习走。之前的内容可以在邮件归档里找到。</td></tr>
+<tr><td>"Journey 结束后怎么办？"</td><td>完成者自动进入 Champion 社群——获取进阶内容、参与 Agent 共创、成为下一批 Journey 的 Mentor。</td></tr>
+</table>
+<div class="footer"><span>TÜV Rheinland · 教师指南</span><span>6.2</span></div>
+</div>
+
+<div class="slide content">
+<h2>成功衡量 + 莱茵版本规划</h2>
+<div class="grid2">
+<div>
+<h4>📊 成功衡量指标</h4>
+<table><tr><th>指标</th><th>定义</th><th>目标</th></tr>
+<tr><td>启动率</td><td>完成 Day 1 / 邀请总数</td><td>≥60%</td></tr>
+<tr><td>周活跃</td><td>每周 ≥1 次练习</td><td>W1≥40%→W6≥20%</td></tr>
+<tr><td>完成率</td><td>Day 29 / 启动人数</td><td>≥15%</td></tr>
+<tr><td>NPS</td><td>Journey 结束推荐值</td><td>≥30</td></tr>
+<tr><td>Agent 转化</td><td>结束 30 天内建 Agent</td><td>≥5%完成者</td></tr></table>
+</div>
+<div>
+<h4>🗺️ 莱茵四版规划</h4>
+<div class="card" style="margin-bottom:8px"><h4>全员版</h4><p style="font-size:11px">所有 Copilot 用户 · 6 周邮件 + Office Hour · 每周围绕一个高频场景</p></div>
+<div class="card green" style="margin-bottom:8px"><h4>种子版</h4><p style="font-size:11px">Champion · 6 周 + Day 27-29 Agent 深度 · 增加 Agent 构建和项目练习</p></div>
+<div class="card orange" style="margin-bottom:8px"><h4>管理层版</h4><p style="font-size:11px">部门负责人 · 3 次 30min 短会 · 业务价值 + ROI + 推广策略</p></div>
+<div class="card"><h4>IT 附录</h4><p style="font-size:11px">IT/安全 · 随 Journey 同步 · 许可证 + 数据保护 + Agent 治理</p></div>
+</div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 教师指南</span><span>6.3</span></div>
+</div>
+
+<!-- CLOSING -->
 <div class="slide cover" style="text-align:center;align-items:center">
-<h1 style="font-size:36px">30 天，从"知道"到"每天在用"</h1>
+<h1 style="font-size:36px">30 天，<br>从"知道"到"每天在用"</h1>
 <div class="sub" style="font-size:18px;margin-top:24px">不是一次培训——是一段旅程<br>不是学工具——是改变工作方式</div>
 <div style="margin-top:60px;font-size:14px;opacity:.6">
 <p>资料来源：Microsoft Adoption · The Great Microsoft 365 Copilot Journey</p>
