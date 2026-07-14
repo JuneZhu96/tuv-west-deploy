@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft 365 Copilot Agent 进阶教材 — TÜV Rheinland</title>
+<style>
+:root{--blue:#0071B9;--green:#107C41;--orange:#D45D00;--white:#fff;--bg:#f5f7fa;--muted:#637184;--card-bg:#fff;--highlight-bg:#E8F0FE}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:#142235;line-height:1.6}
+.slide{max-width:1100px;margin:0 auto 20px;background:var(--white);border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;position:relative}
+.chapter{background:linear-gradient(135deg,#0A1628 0%,#1a3a5c 100%);color:var(--white);padding:60px 50px;text-align:center}
+.chapter h2{font-size:28px}.chapter .num{font-size:72px;font-weight:700;opacity:.15;position:absolute;right:30px;top:10px}
+.cover{background:linear-gradient(135deg,#0A1628 0%,rgba(0,90,169,.85) 100%);color:var(--white);padding:80px 50px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:500px}
+.content{padding:35px 50px}
+h2{font-size:22px;color:var(--blue);margin-bottom:8px}
+h4{font-size:14px;color:#142235;margin-bottom:4px}
+.card{background:var(--card-bg);border-radius:8px;padding:16px;margin-bottom:10px;border:1px solid #e8ecf0}
+.card.green{border-left:4px solid var(--green)}.card.orange{border-left:4px solid var(--orange)}
+.wk-bar{background:var(--blue);color:var(--white);padding:12px 20px;border-radius:8px;margin-bottom:12px}
+.wk-bar h2{color:var(--white);margin-bottom:2px;font-size:18px}.wk-bar p{font-size:13px;opacity:.85}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+table{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+th{background:#f0f3f7;text-align:left;padding:6px 10px;color:#555;font-weight:600}
+td{padding:6px 10px;border-bottom:1px solid #eee}
+.highlight{background:var(--highlight-bg);border-radius:6px;padding:10px 14px;margin-top:8px}
+.highlight p{font-size:11px;line-height:1.6}
+.source{font-size:10px;color:var(--muted);margin-top:8px;font-style:italic}
+.footer{display:flex;justify-content:space-between;padding:10px 20px;font-size:10px;color:var(--muted);border-top:1px solid #eee;margin-top:15px}
+.tag{padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600}
+.tb{background:#E8F0FE;color:var(--blue)}.tg{background:#E6F4EA;color:var(--green)}.to{background:#FFF3E6;color:var(--orange)}
+ul,ol{font-size:11px;line-height:1.7;padding-left:18px}
+.wave{display:block;width:100%}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="slide cover">
+<h1 style="font-size:36px">Microsoft 365 Copilot<br>Agent 进阶教材</h1>
+<div class="sub" style="font-size:18px;margin-top:16px">认识 · 应用 · 构建 · 案例 · 治理 · 推广</div>
+<div style="margin-top:40px;font-size:13px;opacity:.7">
+<p>基于 Microsoft 官方 Agent 资料库全部内容提取</p>
+<p>6 层知识体系 · 22 个官方页面 · 9 份白皮书/PDF · 2 份场景 PPT</p>
+</div>
+<div style="margin-top:50px;font-size:13px;opacity:.6">
+<p>TÜV Rheinland BS.A West · June Zhu · 2026.07</p>
+</div>
+</div>
+
+<!-- TOC -->
+<div class="slide content" style="padding:40px 50px">
+<h2>教材目录</h2>
+<div class="grid3" style="margin-top:20px">
+<div class="card"><h4>Part 1 · 认识 Agent</h4><p style="font-size:10px">Agent 是什么 · 在 M365 中的位置 · 与 Copilot Chat 的区别 · 入门起点</p></div>
+<div class="card green"><h4>Part 2 · 应用场景</h4><p style="font-size:10px">SharePoint · Employee Self-Service · Analyst/Researcher · App Agents</p></div>
+<div class="card orange"><h4>Part 3 · 构建方法</h4><p style="font-size:10px">Agent Builder vs Copilot Studio · Build · Share · Manage</p></div>
+<div class="card"><h4>Part 4 · 模板与案例</h4><p style="font-size:10px">官方模板库 · Copilot Studio 场景 · 莱茵场景映射</p></div>
+<div class="card green"><h4>Part 5 · 治理与安全</h4><p style="font-size:10px">Governance · Security · Registry · Evaluation</p></div>
+<div class="card orange"><h4>Part 6 · 学习与推广</h4><p style="font-size:10px">Agentic Readiness · 90天社区框架 · 组织采用路径</p></div>
+</div>
+<p style="font-size:10px;color:var(--muted);margin-top:20px">数据来源：Microsoft Learn · Microsoft Support · Microsoft Adoption 官方资料 · 9 份 PDF 白皮书</p>
+<div class="footer"><span>TÜV Rheinland · Agent 教材</span><span>TOC</span></div>
+</div>
+
+<!-- ====== PART 1: 认识 Agent ====== -->
+<div class="slide chapter"><h2>Part 1 · 认识 Agent</h2><div class="num">01</div><p style="font-size:15px;opacity:.8;margin-top:8px">Agent 是什么 · 在 Microsoft 365 中的位置 · 与 Copilot Chat 的区别</p></div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agent 体系总览</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Agent 应用地图 · Get Started with Agents · Agents in Microsoft 365</p>
+<div class="card" style="padding:16px">
+<h4>Agent 是什么？</h4>
+<p style="font-size:12px;line-height:1.7;margin-top:6px">Agent 是 Microsoft 365 Copilot 的<strong>扩展能力</strong>——它不是独立的应用，而是<strong>运行在 Copilot 生态中的智能助手</strong>。Agent 可以理解特定的业务场景、访问指定的数据源、执行预定义的任务，并在 Copilot 对话中被调用。</p></div>
+<div class="grid2" style="gap:14px;margin-top:12px">
+<div class="card"><h4>Agent vs Copilot Chat</h4><table style="font-size:10px"><tr><th>维度</th><th>Copilot Chat</th><th>Agent</th></tr>
+<tr><td>范围</td><td>通用问答</td><td>特定场景/任务</td></tr>
+<tr><td>数据</td><td>Web + 工作文件</td><td>可指定数据源</td></tr>
+<tr><td>创建</td><td>无需创建</td><td>由用户/IT创建</td></tr>
+<tr><td>适用</td><td>人人可用</td><td>按需配置</td></tr></table></div>
+<div class="card green"><h4>Agent 的三种形态</h4><ul style="margin-top:6px"><li><strong>预构建 Agent：</strong>Microsoft 官方提供的开箱即用 Agent（如 SharePoint Agent）</li><li><strong>Agent Builder Agent：</strong>用户在 Copilot Chat 中用自然语言创建的 Agent</li><li><strong>Copilot Studio Agent：</strong>在 Copilot Studio 中构建的高级 Agent，支持复杂逻辑和外部连接</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 认识 Agent</span><span>1.1</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agent 应用地图 · 六层体系</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Agent 应用地图 · 从认识到推广的完整学习路径</p>
+<table style="font-size:10px">
+<tr><th style="width:90px">层级</th><th style="width:180px">代表资料</th><th style="width:140px">适合对象</th><th>说明</th></tr>
+<tr><td><span class="tag tb">认识 Agent</span></td><td>Get Started with Agents · Agents in M365</td><td>全员进阶、讲师</td><td>理解 Agent 与 Copilot Chat 的区别</td></tr>
+<tr><td><span class="tag tg">应用型 Agent</span></td><td>SharePoint · Employee Self-Service · App Agents</td><td>种子用户、业务团队</td><td>重点看真实应用，不先讲技术架构</td></tr>
+<tr><td><span class="tag to">构建 Agent</span></td><td>Agent Builder vs Copilot Studio</td><td>Champion、业务负责人、IT</td><td>判断用 Agent Builder 还是 Copilot Studio</td></tr>
+<tr><td><span class="tag tb">模板与案例</span></td><td>Templates & Examples · Copilot Studio Scenarios</td><td>讲师、项目负责人</td><td>用官方案例帮助发现莱茵场景</td></tr>
+<tr><td><span class="tag tg">治理与安全</span></td><td>Governance · Security · Registry · Evaluation</td><td>IT、安全、管理层</td><td>Agent 不是只会创建，还要管理、评估、下线</td></tr>
+<tr><td><span class="tag to">学习与推广</span></td><td>Readiness · 90-Day Community · Adoption Journey</td><td>培训项目负责人</td><td>让 Agent 从单点实验变成组织采用</td></tr>
+</table>
+<div class="highlight" style="margin-top:12px"><p style="font-size:11px"><strong>关键原则：</strong>不要一上来就让全员创建 Agent。推荐的路径是：先选 2-3 个高价值场景 → 种子用户试点 → 形成模板和案例 → 建立治理规则 → 再规模化推广。</p></div>
+<div class="footer"><span>TÜV Rheinland · Agent 应用地图</span><span>1.2</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Word / Excel / PowerPoint Agents — 从应用内 Copilot 到应用 Agent</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Word Excel and PowerPoint Agents · Microsoft Support + Microsoft Learn Training</p>
+<div class="grid2" style="gap:14px">
+<div class="card"><h4>Word Agent</h4><p style="font-size:11px;color:var(--muted)">基于文档内容生成报告、提案、摘要。不只是"Copilot 写一段"，而是"Agent 理解整份文档并执行多步骤任务"。</p></div>
+<div class="card green"><h4>Excel Agent</h4><p style="font-size:11px;color:var(--muted)">自动分析数据、生成洞察、创建可视化。Agent 可以记住你的分析偏好并自动应用。</p></div>
+<div class="card orange"><h4>PowerPoint Agent</h4><p style="font-size:11px;color:var(--muted)">基于文档/数据自动生成演示文稿。Agent 理解品牌风格并保持一致。</p></div>
+<div class="card"><h4>与基础 Copilot 的区别</h4><p style="font-size:11px;color:var(--muted)">基础 Copilot 是"单次问答"；App Agent 可以<strong>持续运行</strong>、<strong>记住上下文</strong>、<strong>跨文档工作</strong>。</p></div>
+</div>
+<div class="highlight" style="margin-top:12px"><p style="font-size:11px"><strong>适用对象：</strong>普通员工中的进阶用户、Champion/种子用户、培训讲师。不建议放入第一轮全员基础课——先让用户熟悉 Copilot 基础后再引入 Agent 概念。</p></div>
+<div class="footer"><span>TÜV Rheinland · App Agents</span><span>1.3</span></div>
+</div>
+
+<!-- ====== PART 2: 应用场景 ====== -->
+<div class="slide chapter"><h2>Part 2 · 典型 Agent 应用场景</h2><div class="num">02</div><p style="font-size:15px;opacity:.8;margin-top:8px">SharePoint · Employee Self-Service · Analyst/Researcher · App Agents</p></div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>SharePoint Agents — 基于组织知识的 Agent</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Agents in SharePoint · Microsoft Adoption</p>
+<div class="card"><h4>应用场景</h4><p style="font-size:12px;margin-top:4px">SharePoint 是企业知识和文件协作的中心。SharePoint Agent 可以：</p>
+<ul style="margin-top:6px"><li>回答基于 SharePoint 站点内容的问题（"公司的差旅政策是什么？"）</li><li>自动归纳文件夹中的文档变化</li><li>帮助新员工快速找到相关政策和模板</li><li>作为项目知识库的智能检索入口</li></ul></div>
+<div class="grid2" style="gap:12px;margin-top:10px">
+<div class="card green"><h4>使用场景举例</h4><ul><li>HR 站点 → 员工自助问答 Agent</li><li>项目站点 → 项目文档智能助手</li><li>销售站点 → 产品知识/竞品信息检索</li><li>合规站点 → 政策法规智能检索</li></ul></div>
+<div class="card orange"><h4>莱茵落地建议</h4><ul><li>先盘点莱茵内部已有的 SharePoint 站点</li><li>选 1-2 个文档量大、查询频率高的站点做试点</li><li>与 SharePoint 权限治理同步规划</li><li>种子用户先测试再推广</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · SharePoint Agent</span><span>2.1</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Employee Self-Service Agent — 员工自助服务</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Employee Self-Service Agent in Microsoft 365 Copilot · Microsoft Adoption</p>
+<div class="card"><h4>应用场景</h4><p style="font-size:12px;margin-top:4px">代表一种典型的<strong>企业内部服务型 Agent</strong>场景——员工不再需要翻找内网、打电话给HR/IT，而是直接向 Agent 提问。</p></div>
+<div class="grid2" style="gap:12px;margin-top:10px">
+<div class="card"><h4>典型问题域</h4><ul><li>HR：请假流程、福利查询、入职指南、培训报名</li><li>IT：设备申请、密码重置、软件安装、网络问题</li><li>行政：会议室预订、访客登记、办公用品申请</li><li>财务：报销流程、差旅标准、发票要求</li></ul></div>
+<div class="card green"><h4>莱茵落地建议</h4><ul><li>适合 HR/IT/行政联合推进</li><li>先做 FAQ 类问题（答案明确、数据好整理）</li><li>逐步扩展到流程类问题（需要对接后端系统）</li><li>可作为莱茵内部数字化转型的示范项目</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Self-Service Agent</span><span>2.2</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Analyst / Researcher Agent + App Agents</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: AnalystResearcherOverviewDeck.pptx + Microsoft365CopilotAppAgents Guide & Handout</p>
+<div class="card" style="margin-bottom:10px"><h4>Analyst / Researcher Agent — 知识工作增强型</h4>
+<p style="font-size:11px;color:var(--muted)">代表"知识工作者增强型 Agent"方向。适合研究资料整理、分析报告初稿、信息归纳和业务洞察生成。对莱茵咨询、销售、项目管理、市场研究类场景有直接启发。</p>
+<ul style="margin-top:6px"><li>研究资料收集与归纳 → 生成分析报告初稿</li><li>竞对信息监控 → 市场动态摘要</li><li>项目文档分析 → 风险识别和要点提取</li></ul></div>
+<div class="card green"><h4>App Agents — 从应用内 Copilot 到应用 Agent</h4>
+<p style="font-size:11px;color:var(--muted)">代表"从 Office 应用内的 Copilot 能力走向独立 Agent"的进阶路径。Office App Agents 可以跨 Word/Excel/PPT 工作，执行多步骤任务。</p>
+<ul style="margin-top:6px"><li>自动监控 Excel 数据变化 → 触发报告更新</li><li>基于 Word 模板 → 自动生成定制化文档</li><li>分析多个 PPT → 提取跨演示文稿的主题一致性</li></ul></div>
+<div class="footer"><span>TÜV Rheinland · 分析+App Agent</span><span>2.3</span></div>
+</div>
+
+<!-- ====== PART 3: 构建方法 ====== -->
+<div class="slide chapter"><h2>Part 3 · 如何构建 Agent</h2><div class="num">03</div><p style="font-size:15px;opacity:.8;margin-top:8px">Agent Builder vs Copilot Studio · Build · Share · Manage</p></div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agent Builder vs Copilot Studio — 选型决策</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Choose between Agent Builder and Copilot Studio · Microsoft Learn</p>
+<div class="card" style="padding:16px;margin-bottom:12px"><h4>核心判断标准</h4><p style="font-size:12px;margin-top:4px">不是"哪个更好"，而是<strong>"你的场景适合哪个"</strong>。</p></div>
+<table style="font-size:10px">
+<tr><th style="width:120px">维度</th><th style="width:220px">Agent Builder</th><th style="width:220px">Copilot Studio</th></tr>
+<tr><td>门槛</td><td>低——自然语言创建</td><td>中高——需要配置技能</td></tr>
+<tr><td>适合谁</td><td>业务用户、种子用户</td><td>IT、开发者、高级制作者</td></tr>
+<tr><td>数据源</td><td>SharePoint、Web、文件</td><td>以上 + API、数据库、外部系统</td></tr>
+<tr><td>逻辑复杂度</td><td>简单流程、FAQ</td><td>多步骤、条件分支、外部调用</td></tr>
+<tr><td>治理</td><td>基本共享</td><td>完整生命周期管理</td></tr>
+<tr><td>典型场景</td><td>"帮我回答关于 XX 项目的问题"</td><td>"对接ERP系统处理请假申请"</td></tr>
+</table>
+<div class="highlight" style="margin-top:12px"><p style="font-size:11px"><strong>决策建议：</strong>先让种子用户用 Agent Builder 快速验证场景（1-2天出原型）。验证通过且需要更复杂能力时，再迁移到 Copilot Studio。不要一上来就推 Copilot Studio——门槛太高会吓退业务用户。</p></div>
+<div class="footer"><span>TÜV Rheinland · Builder vs Studio</span><span>3.1</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Build · Share · Manage — Agent 生命周期</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Build Agents with Microsoft 365 Copilot · Share and Manage Agents · Microsoft Adoption/Learn</p>
+<div class="grid2" style="gap:14px">
+<div class="card"><h4>Build — 构建 Agent</h4><ol style="margin-top:6px"><li>明确场景：这个 Agent 要解决什么问题？</li><li>选择工具：Agent Builder 还是 Copilot Studio？</li><li>定义知识源：SharePoint 站点/文件/Web</li><li>设定行为：Agent 应该怎么回答、不能做什么</li><li>测试迭代：用真实问题测试，调整 Prompt 和知识源</li></ol></div>
+<div class="card green"><h4>Share — 分享 Agent</h4><ol style="margin-top:6px"><li>从"只有我能用"到"团队/组织能用"</li><li>在 Copilot Chat 中通过链接分享</li><li>在 Teams 频道中发布 Agent</li><li>管理员可在 Admin Center 管理可见范围</li></ol></div>
+<div class="card orange"><h4>Manage — 管理 Agent</h4><ol style="margin-top:6px"><li>谁创建了哪些 Agent？（Agent Registry）</li><li>Agent 使用了哪些数据源？权限是否合理？</li><li>Agent 的使用频率和效果如何？</li><li>何时需要更新、下线或替换 Agent？</li></ol></div>
+<div class="card"><h4>常见陷阱</h4><ul style="margin-top:6px"><li>知识源太广 → Agent 回答不精准</li><li>权限未控制 → 敏感信息泄露</li><li>只建不管 → 过期 Agent 给出过时答案</li><li>没有反馈机制 → Agent 质量无法提升</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Agent 生命周期</span><span>3.2</span></div>
+</div>
+
+<!-- ====== PART 4: 模板与案例 ====== -->
+<div class="slide chapter"><h2>Part 4 · Agent 模板与案例</h2><div class="num">04</div><p style="font-size:15px;opacity:.8;margin-top:8px">官方模板库 · Copilot Studio 场景 · 莱茵内部场景映射</p></div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>官方 Agent 模板与案例库</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Agent Templates and Examples · AI Agents Hub · Copilot Studio Scenarios</p>
+<div class="grid2" style="gap:14px">
+<div class="card"><h4>AI Agents Hub</h4><p style="font-size:11px;color:var(--muted)">Microsoft Adoption 的 Agent 总入口。包含：</p><ul style="margin-top:4px"><li>按行业分类的 Agent 案例</li><li>按角色分类的 Agent 模板</li><li>构建指南和最佳实践</li><li>成功案例和 ROI 数据</li></ul></div>
+<div class="card green"><h4>Copilot Studio 场景 PPT</h4><p style="font-size:11px;color:var(--muted)">官方提供的场景示例 PPTX：</p><ul style="margin-top:4px"><li>HR 自助服务场景</li><li>IT 服务台场景</li><li>销售支持场景</li><li>财务流程自动化场景</li></ul></div>
+</div>
+<div class="highlight" style="margin-top:12px"><p style="font-size:11px"><strong>莱茵场景映射建议：</strong>不要照搬官方案例——从莱茵真实业务痛点出发，反向匹配官方案例。重点关注：认证审核流程、培训咨询交付、客户项目管理、内部合规审计。</p></div>
+<div class="footer"><span>TÜV Rheinland · 模板与案例</span><span>4.1</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>白皮书资源 · 构建与采用</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: 9 official PDF white papers from Microsoft Adoption · Feb 2026</p>
+<div class="grid2" style="gap:14px">
+<div class="card"><h4>How to Build Agents with Microsoft</h4><p style="font-size:11px;color:var(--muted)">构建 Agent 的端到端白皮书（2026年2月）。从场景发现、架构设计到部署运维的完整方法论。</p></div>
+<div class="card green"><h4>The Microsoft Agent Factory</h4><p style="font-size:11px;color:var(--muted)">微软内部的 Agent 工厂方法论——如何规模化生产和管理 Agent。</p></div>
+<div class="card orange"><h4>Microsoft IQ Agent Data Platform</h4><p style="font-size:11px;color:var(--muted)">Agent 数据平台架构——Agent 如何访问、处理和利用组织数据。</p></div>
+<div class="card"><h4>Microsoft Foundry AI Adoption Journey</h4><p style="font-size:11px;color:var(--muted)">从 AI 实验到 AI 规模化的组织采用路径。适合管理层阅读。</p></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 白皮书资源</span><span>4.2</span></div>
+</div>
+
+<!-- ====== PART 5: 治理与安全 ====== -->
+<div class="slide chapter"><h2>Part 5 · Agent 治理与安全</h2><div class="num">05</div><p style="font-size:15px;opacity:.8;margin-top:8px">Governance · Security · Registry · Evaluation</p></div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agent Governance — 治理框架</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Agent-governance-whitepaper.pdf · Microsoft Adoption</p>
+<div class="card" style="padding:16px;margin-bottom:10px"><h4>核心理念</h4><p style="font-size:12px;margin-top:4px">Agent 不是一次性创建物——它是<strong>需要持续治理的组织资产</strong>。就像管理应用程序一样管理 Agent。</p></div>
+<div class="grid2" style="gap:12px">
+<div class="card"><h4>治理覆盖维度</h4><ul><li><strong>创建：</strong>谁可以创建 Agent？需要什么审批？</li><li><strong>权限：</strong>Agent 使用哪些数据？谁授权？</li><li><strong>监控：</strong>Agent 使用频率？回答质量？</li><li><strong>评估：</strong>Agent 是否仍然有效？需要更新？</li><li><strong>退役：</strong>何时下线？如何迁移用户？</li></ul></div>
+<div class="card green"><h4>关键角色</h4><ul><li><strong>业务负责人：</strong>定义场景、审批创建、评估价值</li><li><strong>IT 管理员：</strong>技术实现、权限控制、Registry 管理</li><li><strong>安全/合规：</strong>数据边界、风险评估、审计</li><li><strong>培训团队：</strong>用户教育、Champion 培养</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Agent 治理</span><span>5.1</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agent Security + Registry + Evaluation</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: Agent-security-playbook.pdf · Agent Registry · AgentEvaluationEbook.pdf</p>
+<div class="grid2" style="gap:14px">
+<div class="card"><h4>Agent Security — 安全手册</h4><ul style="margin-top:4px"><li><strong>数据边界：</strong>Agent 不能访问用户无权访问的数据</li><li><strong>权限继承：</strong>Agent 的权限基于创建者和使用者的双重校验</li><li><strong>人工复核：</strong>关键决策必须有人的最终确认</li><li><strong>审计追踪：</strong>Agent 的所有操作应可追溯</li></ul></div>
+<div class="card green"><h4>Agent Registry — 资产清单</h4><ul style="margin-top:4px"><li>Microsoft 365 Admin Center 中的 Agent 管理面板</li><li>让 Agent 从"个人创建物"变成"可被组织看见的资产"</li><li>管理员可以查看、管理、限制 Agent 的使用范围</li><li>支持按部门/角色配置 Agent 可见性</li></ul></div>
+<div class="card orange"><h4>Agent Evaluation — 评估框架</h4><ul style="margin-top:4px"><li><strong>质量：</strong>回答准确率、相关性、完整性</li><li><strong>安全：</strong>不泄露敏感信息、不执行危险操作</li><li><strong>体验：</strong>用户满意度、响应速度、易用性</li><li><strong>价值：</strong>节省的时间、解决的工单数</li></ul></div>
+<div class="card"><h4>莱茵落地：上线前检查清单</h4><ul style="margin-top:4px"><li>Agent 定义清晰：要解决什么问题？</li><li>数据源已确认：权限范围是否合理？</li><li>安全评估通过：不会泄露敏感信息？</li><li>已注册到 Registry：管理员可见</li><li>有反馈机制：用户如何报告问题？</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 安全+注册+评估</span><span>5.2</span></div>
+</div>
+
+<!-- ====== PART 6: 学习与推广 ====== -->
+<div class="slide chapter"><h2>Part 6 · Agent 学习与推广</h2><div class="num">06</div><p style="font-size:15px;opacity:.8;margin-top:8px">Agentic Readiness · 90天社区框架 · 组织采用路径</p></div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agentic Readiness — 组织准备度评估</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: AgenticReadinessFrameworkOverview.pdf · Microsoft Adoption</p>
+<div class="card" style="padding:16px;margin-bottom:12px"><h4>核心问题</h4><p style="font-size:12px;margin-top:4px">判断组织是否准备好<strong>从 Copilot 使用走向 Agent 采用</strong>。</p></div>
+<div class="grid2" style="gap:12px">
+<div class="card"><h4>评估维度</h4><table style="font-size:10px"><tr><th>维度</th><th>判断标准</th></tr>
+<tr><td>数据治理</td><td>组织数据是否已分类、权限是否清晰？</td></tr>
+<tr><td>业务场景</td><td>是否有明确的、可量化的 Agent 应用场景？</td></tr>
+<tr><td>人员能力</td><td>团队是否具备基本的 Copilot/AI 使用经验？</td></tr>
+<tr><td>治理机制</td><td>是否有 Agent 审批、监控、评估的流程？</td></tr>
+<tr><td>价值衡量</td><td>能否定义和追踪 Agent 的业务价值？</td></tr></table></div>
+<div class="card green"><h4>莱茵自评建议</h4><ul style="margin-top:6px"><li>先完成 30 天 Copilot Journey → 建立用户基础</li><li>从 Journey 完成者中识别 Agent 种子用户</li><li>选 2-3 个高价值场景做试点（不要贪多）</li><li>边试点边建立治理规则</li><li>6 个月后做正式的 Readiness 评估</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · Readiness</span><span>6.1</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>90-Day Community Framework — 种子用户社群运营</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: 90DayCommunityFramework.pdf · Microsoft Adoption</p>
+<div class="card" style="padding:16px;margin-bottom:12px"><h4>核心理念</h4><p style="font-size:12px;margin-top:4px">Agent 采用不应只依赖一次培训——需要<strong>持续社区、反馈和实践机制</strong>。90 天是一个完整的"建立→激活→自运转"周期。</p></div>
+<div class="grid3" style="gap:10px;margin-top:10px">
+<div class="card"><h4>第 1 个月 · 建立</h4><ul style="font-size:10px"><li>招募首批 Champion（从 Journey 完成者中选）</li><li>创建 Teams 频道</li><li>每周 1 次 Office Hour</li><li>发布第 1 批 Agent 模板</li></ul></div>
+<div class="card green"><h4>第 2 个月 · 激活</h4><ul style="font-size:10px"><li>搞 Agent 创作大赛</li><li>收集用户故事和案例</li><li>跨部门分享会</li><li>识别"超级 Champion"</li></ul></div>
+<div class="card orange"><h4>第 3 个月 · 自运转</h4><ul style="font-size:10px"><li>Champion 带新人</li><li>建立案例库和 FAQ</li><li>月度 Agent 质量评审</li><li>向管理层汇报成果</li></ul></div>
+</div>
+<div class="footer"><span>TÜV Rheinland · 90天社区</span><span>6.2</span></div>
+</div>
+
+<div class="slide content" style="padding:30px 50px">
+<h2>Agent Adoption Journey — 组织级采用路径</h2>
+<p style="font-size:10px;color:var(--muted);margin-bottom:16px">Source: MicrosoftFoundryAIAdoptionJourney.pdf · Microsoft Agent Factory white paper</p>
+<div class="card" style="padding:16px;margin-bottom:12px"><h4>从单点实验到组织级采用</h4><p style="font-size:12px;margin-top:4px">适合<strong>管理层和项目负责人</strong>阅读——帮助从单个 Agent 场景上升到组织级 Agent 采用路径。</p></div>
+<table style="font-size:10px">
+<tr><th style="width:80px">阶段</th><th>关键活动</th><th>产出</th></tr>
+<tr><td>1. 实验</td><td>选 2-3 个场景试点 · 用 Agent Builder 快速验证</td><td>POC Agent · 用户反馈</td></tr>
+<tr><td>2. 标准化</td><td>建立构建模板 · 培训种子用户 · 制定安全规则</td><td>Agent 构建指南 · 治理框架</td></tr>
+<tr><td>3. 规模化</td><td>推广到更多部门 · 连接后端系统 · 使用 Copilot Studio</td><td>部门 Agent 矩阵 · ROI 报告</td></tr>
+<tr><td>4. 优化</td><td>基于数据持续优化 · 退役低效 Agent · 培养内部专家</td><td>Agent 效能仪表板 · 自运转社区</td></tr>
+</table>
+<div class="highlight" style="margin-top:12px"><p style="font-size:11px"><strong>莱茵建议：</strong>当前处于"实验阶段"前期。30 天 Copilot Journey 完成后，可以从 Journey 的 W5（Create Agents）和 W6（Agent Builder）中识别有意愿的种子用户，启动第 1 批 Agent 试点。</p></div>
+<div class="footer"><span>TÜV Rheinland · 采用路径</span><span>6.3</span></div>
+</div>
+
+<!-- CLOSING -->
+<div class="slide cover" style="min-height:400px">
+<h1 style="font-size:32px">Agent 不是终点<br>是工作方式变革的起点</h1>
+<div class="sub" style="font-size:16px;margin-top:20px">从认识 Agent → 应用 Agent → 构建 Agent → 治理 Agent → 推广 Agent</div>
+<div style="margin-top:50px;font-size:13px;opacity:.6">
+<p>资料来源：Microsoft Learn · Microsoft Support · Microsoft Adoption</p>
+<p>22 个官方页面 · 9 份白皮书/PDF · 2 份场景 PPT</p>
+<p style="margin-top:16px">TÜV Rheinland BS.A West · June Zhu · 2026.07</p>
+</div>
+<svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;width:100%"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="var(--white)"/></svg>
+</div>
+
+</body>
+</html>
