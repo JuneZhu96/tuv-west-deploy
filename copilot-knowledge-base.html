@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilot 用户学习 — TÜV Rheinland 知识库</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f5f5;font-family:-apple-system,'Segoe UI','Arial','PingFang SC','Microsoft YaHei',sans-serif;padding:40px;color:#333;max-width:1200px;margin:0 auto;margin-left:260px}
+.sidebar{position:fixed;top:0;left:0;width:240px;height:100vh;background:#fff;border-right:1px solid #E8EDF2;padding:28px 0;overflow-y:auto;z-index:100}
+.sidebar .brand{padding:0 20px 20px;border-bottom:1px solid #E8EDF2;margin-bottom:16px}
+.sidebar .brand .logo{font-size:18px;font-weight:700;color:#0071B9}
+.sidebar .brand .sub{font-size:11px;color:#95A5A6;margin-top:4px;line-height:1.5}
+.sidebar a{display:block;padding:10px 20px;font-size:13px;color:#4A5568;text-decoration:none;transition:all .15s;border-left:3px solid transparent}
+.sidebar a:hover{background:#F0F7FC;color:#0071B9;border-left-color:#0071B9}
+.sidebar .ch{font-weight:600;color:#7F8C8D;font-size:11px;padding:14px 20px 6px;text-transform:uppercase;letter-spacing:.5px}
+.sidebar .kh{font-size:12px;color:#95A5A6;padding:8px 20px 2px;font-weight:600}
+.header{background:#0071B9;color:white;padding:52px 52px 44px;border-radius:14px 14px 0 0;margin-bottom:0;position:relative;overflow:hidden}
+.header h1{font-size:28px;font-weight:700;color:#fff;position:relative;z-index:1}
+.header .sub{opacity:.85;margin-top:6px;font-size:14px;position:relative;z-index:1;color:rgba(255,255,255,.85);line-height:1.5}
+.header .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.header .tags span{background:rgba(255,255,255,.15);padding:3px 12px;border-radius:14px;font-size:12px;color:#fff}
+.header .wave{position:absolute;bottom:0;left:0;width:100%;height:25px}
+.section{font-size:20px;font-weight:700;margin:32px 0 6px;padding-left:14px;border-left:4px solid #0071B9;color:#005A94}
+.section-desc{font-size:13px;color:#7F8C8D;margin-bottom:16px;margin-left:18px}
+.card{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:18px;border:1px solid #E8EDF2;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card h3{font-size:16px;font-weight:600;color:#0071B9;margin-bottom:8px}
+.card .meta{font-size:12px;color:#95A5A6;margin-bottom:12px}
+.insight{padding:16px 20px;background:#F0F7FC;border-radius:10px;margin-top:12px;border-left:3px solid #0071B9}
+.insight strong{color:#0071B9}
+.prompt-box{background:#F7F9FB;border:1px solid #D5E4F0;border-radius:10px;padding:16px 20px;margin:12px 0}
+.prompt-box .p-label{font-size:11px;color:#95A5A6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.prompt-box .p-text{font-size:14px;color:#2D3748;line-height:1.7;font-style:italic}
+.prompt-box .p-note{font-size:12px;color:#95A5A6;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+th{text-align:left;padding:10px 12px;background:#F0F7FC;color:#0071B9;border-bottom:2px solid #D5E4F0;font-weight:600}
+td{padding:10px 12px;color:#4A5568;border-bottom:1px solid #EDF2F7}
+.footer{text-align:center;color:#95A5A6;font-size:12px;margin-top:40px;padding-top:20px;border-top:1px solid #E8EDF2}
+.source-link{font-size:12px;color:#95A5A6;margin-top:8px}
+.source-link a{color:#0071B9;text-decoration:none}
+@media(max-width:900px){body{margin-left:0!important;padding:20px!important}.sidebar{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+<div class="brand"><div class="logo">TÜV Rheinland</div><div class="sub">Copilot 知识库</div></div>
+<div class="kh">01 · 用户学习</div>
+<a href="#m01-intro">应用能力地图</a>
+<a href="#m01-copilot-app">Copilot App</a>
+<a href="#m01-copilot-chat">Copilot Chat</a>
+<a href="#m01-outlook">Outlook</a>
+<a href="#m01-teams">Teams</a>
+<a href="#m01-word">Word</a>
+<a href="#m01-powerpoint">PowerPoint</a>
+<a href="#m01-excel">Excel</a>
+<a href="#m01-onenote">OneNote</a>
+<a href="#m01-onedrive">OneDrive</a>
+<a href="#m01-notebooks">Notebooks</a>
+<a href="#m01-ai-内容生成">AI 内容生成</a>
+<a href="#m01-videoclipchamp">Video/Clipchamp</a>
+<div class="kh">02 · Prompt 工程</div>
+<a href="#m02-craft">Craft Effective Prompts</a>
+<a href="#m02-gallery">Prompt Gallery</a>
+<a href="#m02-org">Organizational Prompts</a>
+<div class="kh">03 · 企业采用</div>
+<a href="#m03-success-kit">Success Kit</a>
+<a href="#m03-user-engagement-tools">User Engagement Tools</a>
+<a href="#m03-scenario-library">Scenario Library</a>
+<a href="#m03-30-day-skilling">30-Day Skilling</a>
+<a href="#m03-prompt-a-thon">Prompt-a-thon</a>
+<a href="#m03-virtual-skilling">Virtual Skilling</a>
+<a href="#m03-附件索引">附件索引</a>
+<div class="kh">04 · IT 与治理</div>
+<a href="#m04-it-admin">IT Admin</a>
+<a href="#m04-license-plans">License Plans</a>
+<a href="#m04-app--network">App & Network</a>
+<a href="#m04-reports">Reports</a>
+<a href="#m04-setup-guide">Setup Guide</a>
+<a href="#m04-sharepoint-gov">SharePoint Gov</a>
+<a href="#m04-agent-admin">Agent Admin</a>
+<div class="kh">05 · 安全隐私合规</div>
+<a href="#m05-data-privacy">Data Privacy</a>
+<a href="#m05-enterprise-protection">Enterprise Protection</a>
+<a href="#m05-architecture">Architecture</a>
+<a href="#m05-responsible-ai">Responsible AI</a>
+<div class="kh">06 · Agent 进阶</div>
+<a href="#m06-Agent-应用地图">Agent 应用地图</a>
+<a href="#m06-认识-Agent">认识 Agent</a>
+<a href="#m06-应用场景">应用场景</a>
+<a href="#m06-如何构建">如何构建</a>
+<a href="#m06-模板案例">模板案例</a>
+<a href="#m06-治理安全">治理安全</a>
+<a href="#m06-学习推广">学习推广</a>
+<div class="kh">07 · 扩展与开发</div>
+<a href="#m07-apis">APIs</a>
+<a href="#m07-connectors">Connectors</a>
+<a href="#m07-plugins">Plugins</a>
+<a href="#m07-work-iq">Work IQ</a>
+<div class="kh">99 · 索引与审计</div>
+<a href="#m99-downloads">下载清单</a>
+<a href="#m99-pending">待核对主题</a>
+</nav>
+
+<div class="header">
+<h1>Microsoft 365 Copilot · 用户学习</h1>
+<div class="sub">基于 Microsoft Support 官方资料整理 · 覆盖12个应用场景 · 持续更新</div>
+<div class="tags"><span>全员适用</span><span>12个应用</span><span>官方源</span><span>2026-07</span></div>
+<svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="#f5f5f5"/></svg>
+</div>
+
+
+<div class="section-desc" style="margin-top:28px">
+<div class="card" id="m01-intro">
+<h3>Microsoft 365 Copilot 应用能力地图</h3>
+<div class="meta">全景导航 · 12个应用的能力总览 · 按层级推荐学习路径</div>
+<div class="insight"><strong>使用建议：</strong>全员基础课优先覆盖 Copilot Chat、Outlook、Teams、Word、PowerPoint、Excel、OneDrive/SharePoint、Prompt。进阶用户可覆盖 Notebooks、AI 内容生成、Video/Clipchamp、Agents。IT/管理层附录覆盖 SharePoint 治理、Agent 管理、安全与合规。</div>
+<table>
+<tr><th>应用 / 入口</th><th>主要能力</th></tr>
+<tr><td><strong>Microsoft 365 Copilot App</strong></td><td>Chat、Notebooks、内容生成、Agents、工作资料入口</td></tr>
+<tr><td><strong>Copilot Chat</strong></td><td>跨应用问答、工作上下文、资料检索与生成</td></tr>
+<tr><td><strong>Word</strong></td><td>起草、补充、改写、总结文档</td></tr>
+<tr><td><strong>Excel</strong></td><td>表格理解、分析、洞察、公式和趋势</td></tr>
+<tr><td><strong>PowerPoint</strong></td><td>创建演示文稿、从资料生成汇报初稿</td></tr>
+<tr><td><strong>Outlook</strong></td><td>邮件问答、起草、总结和语气优化</td></tr>
+<tr><td><strong>Teams</strong></td><td>会议追赶、会议总结、行动项和协作内容整理</td></tr>
+<tr><td><strong>OneNote</strong></td><td>笔记总结、待办提取、项目记录整理</td></tr>
+<tr><td><strong>OneDrive / SharePoint</strong></td><td>文件问答、资料总结、知识发现</td></tr>
+<tr><td><strong>Copilot Notebooks</strong></td><td>将多个参考资料组织成 notebook 后进行问答</td></tr>
+<tr><td><strong>AI 内容生成</strong></td><td>图片、短视频、信息图生成</td></tr>
+<tr><td><strong>Video / Clipchamp</strong></td><td>对视频提问、总结视频内容</td></tr>
+<tr><td><strong>Word/Excel/PPT Agents</strong></td><td>从应用内 Copilot 走向应用 Agents</td></tr>
+<tr><td><strong>SharePoint Agents</strong></td><td>围绕 SharePoint 内容创建和使用 Agents</td></tr>
+<tr><td><strong>Employee Self-Service Agent</strong></td><td>员工自助服务场景中的 Agent 应用</td></tr>
+</table>
+<p style="font-size:12px;color:#0071B9;margin-top:12px"><strong>Agent 专题入口 →</strong> <a href="#m06-Agent-应用地图" style="color:#0071B9">06 · Agent 应用地图</a> | <a href="#m06-认识-Agent" style="color:#0071B9">认识 Agent</a> | <a href="#m06-应用场景" style="color:#0071B9">应用型 Agent</a></p>
+</div>
+
+本页整理 Microsoft 365 Copilot 在各应用中的官方使用指南。每个应用包含：核心能力、实操Prompt、学习要诀。数据来源：Microsoft Support 官方页面（2026-07 下载归档）。</div>
+
+<!-- ===== Copilot App ===== -->
+<div class="card" id="m01-copilot-app">
+<h3>Microsoft 365 Copilot App · 总入口</h3>
+<div class="meta">Windows 任务栏 · 浏览器 m365.cloud.microsoft · 移动端 · 官方页：support.microsoft.com/Microsoft-365-Copilot</div>
+
+<p>The Copilot App 是进入整个 Copilot 世界的<strong>统一大门</strong>。不是"又一个聊天工具"——它连接你的工作数据（邮件、文件、会议、联系人），给出的回答基于你的实际工作上下文。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px;text-align:center">
+<div style="font-size:28px;margin-bottom:4px"><svg width="24" height="24" viewBox="0 0 24 24" style="vertical-align:middle"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#0071B9"/></svg></div>
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">Chat</h5>
+<p style="font-size:11px;color:#4A5568;line-height:1.5">跨应用工作问答——搜邮件、找文件、问会议，一个对话窗口搞定</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px;text-align:center">
+<div style="font-size:28px;margin-bottom:4px"><svg width="24" height="24" viewBox="0 0 24 24" style="vertical-align:middle"><rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="#0071B9" stroke-width="1.5"/><line x1="8" y1="7" x2="16" y2="7" stroke="#0071B9" stroke-width="1.2"/><line x1="8" y1="11" x2="16" y2="11" stroke="#0071B9" stroke-width="1.2"/><line x1="8" y1="15" x2="13" y2="15" stroke="#0071B9" stroke-width="1.2"/></svg></div>
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">Notebooks</h5>
+<p style="font-size:11px;color:#4A5568;line-height:1.5">多文件深度研究——把散落资料放进一个 Notebook 综合分析</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px;text-align:center">
+<div style="font-size:28px;margin-bottom:4px"><svg width="24" height="24" viewBox="0 0 24 24" style="vertical-align:middle"><rect x="2" y="8" width="20" height="13" rx="3" fill="none" stroke="#0071B9" stroke-width="1.5"/><circle cx="9" cy="14" r="2" fill="#0071B9"/><circle cx="15" cy="14" r="2" fill="#0071B9"/><rect x="10" y="18" width="4" height="1.5" rx="0.75" fill="#0071B9"/><rect x="9" y="3" width="6" height="5" rx="2" fill="none" stroke="#0071B9" stroke-width="1.2"/><circle cx="9" cy="10" r="1" fill="#009537"/><circle cx="15" cy="10" r="1" fill="#009537"/></svg></div>
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">Agents</h5>
+<p style="font-size:11px;color:#4A5568;line-height:1.5">自动化助手——创建专属 Agent 处理重复任务</p>
+</div>
+</div>
+
+<div class="insight"><strong>关键认知：</strong>Copilot App 与 ChatGPT 的根本区别——ChatGPT 只知道互联网上的公开信息，Copilot App 知道你上周跟谁开了会、你的 OneDrive 里有什么文件、你收到了哪些邮件。<strong>工作上下文是 Copilot 的核心竞争力。</strong></div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Microsoft 365 Copilot App (2026-07)</a></div>
+</div>
+
+<!-- ===== Copilot Chat ===== -->
+<div class="card" id="m01-copilot-chat">
+<h3>Copilot Chat · 跨应用工作问答</h3>
+<div class="meta">所有人的每日入口 · 搜邮件 + 找文件 + 问会议 + 起草内容 · 一个对话窗搞定</div>
+
+<p>Copilot Chat 是<strong>最高频、最基础</strong>的 Copilot 使用方式。它连接你的 Microsoft 365 工作数据——邮件、文件、会议、联系人——像一个了解你工作全局的助手。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">信息检索型</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"找文件""查邮件""问会议"——Copilot 跨 Outlook/OneDrive/SharePoint/Teams 检索，不需要知道文件存在哪里。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">总结归纳型</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"总结本周邮件""提炼三场会议的共性"——从大量信息中提取要点，省去逐条阅读时间。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">创作生成型</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"起草一封邮件""写一份简短报告"——基于你的工作上下文生成内容，不是泛泛的模板。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">分析推理型</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"比较两个方案""分析这个趋势背后的原因"——结合多个数据源进行交叉分析。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">检索</div><div class="p-text">"帮我找上周张三发的那份合同。顺便告诉我合同金额和到期日期。"</div><div class="p-note">Copilot 搜索邮件+OneDrive，直接提取关键信息</div></div>
+<div class="prompt-box"><div class="p-label">总结</div><div class="p-text">"总结过去一周我收到的所有关于 Q3 预算的邮件，列出关键变化和建议。用表格。"</div></div>
+<div class="prompt-box"><div class="p-label">创作</div><div class="p-text">"基于今天讨论的会议纪要，给客户写一封跟进邮件。语气专业但不生硬。"</div></div>
+<div class="prompt-box"><div class="p-label">分析</div><div class="p-text">"比较一下 Q2 和 Q3 的供应商报价，找出价格变化最大的三项，分析可能的原因。"</div></div>
+
+<div class="insight"><strong>关键技巧：</strong>Chat 的能力上限取决于你给它的上下文。模糊的问题得到模糊的答案——"帮我看下合同"远不如"帮我找出跟XYZ公司签的那份服务合同，看看续约条款"。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Get instant answers with M365 Copilot Chat (2026-02)</a></div>
+</div>
+
+<!-- ===== Outlook ===== -->
+<div class="card" id="m01-outlook">
+<h3>Outlook · 邮件处理</h3>
+<div class="meta">读邮件 · 写回复 · 调语气 · 排日程 · 每天至少省 30 分钟</div>
+
+<p>Outlook Copilot 覆盖<strong>邮件的完整处理流程</strong>——从读、到理解、到回复、到跟进。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">快速阅读</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">20 段长的客户邮件→点 "Summary by Copilot" → 5 秒出 3 条要点。不用逐段读。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">智能起草</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">告诉 Copilot 你想说什么→它起草回复。可选语气：正式/友好/简洁/热情。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">邮件线程总结</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">20 封来回的邮件线程→"总结这个讨论，各方立场是什么，最后达成了什么共识。"</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">会邀与跟进</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"根据这封邮件的内容，帮我安排一个 30 分钟的跟进会议，附上讨论要点。"</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">多指令回复</div><div class="p-text">"回复这封邮件：感谢建议，同意前两点，第三点需再讨论——提出两个替代方案。语气礼貌但坚定。在回复开头附上原邮件的三点摘要。"</div><div class="p-note">Copilot 能同时处理多个指令——不是只做一件事</div></div>
+<div class="prompt-box"><div class="p-label">语气切换</div><div class="p-text">"把这段回复的语气改得更正式——这是给客户的。再生成一个内部版本，语气直接一些。"</div></div>
+<div class="prompt-box"><div class="p-label">日程安排</div><div class="p-text">"从这封邮件中提取所有提到的时间节点和截止日期，帮我创建对应的日历提醒。"</div></div>
+
+<div class="insight"><strong>关键技巧：</strong>只说"帮我回复"=模糊=结果随机。好指令=<strong>给立场 + 给结构 + 给语气</strong>——"帮我回复，表达感谢+同意前两点+对第三点提替代方案，语气礼貌但坚定。"</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Chat with Copilot in Outlook</a> | <a href="#">Email coaching with Copilot</a></div>
+</div>
+
+<!-- ===== Teams ===== -->
+<div class="card" id="m01-teams">
+<h3>Teams · 会议与协作</h3>
+<div class="meta">会前准备 · 会中实时 · 会后复盘 · 聊天总结 · 不只是"补会议"</div>
+
+<p style="font-size:14px;color:#4A5568;line-height:1.7;margin-bottom:12px">
+Teams 里的 Copilot 覆盖<strong>会议全生命周期</strong>——不只是追错过的东西。它是日常协作中最高频的 Copilot 入口。
+</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">会前</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">在会议聊天中提前问 Copilot："这次会议要讨论什么？有哪些材料我需要提前看？"——Copilot 会读取会议邀请、附件和会前 24 小时内的聊天记录。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">会中</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">实时提问："目前讨论了几种方案？""刚才谁提了关于预算的问题？"——不需要记笔记，Copilot 帮你捕捉关键瞬间。即使未开启转录也能使用基础功能。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">会后 · Recap 页</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">如果开启了转录，从 <strong>Recap 标签页</strong>访问 Copilot——获取带时间戳的摘要、谁说了什么、智能提取的行动项。<em>（Intelligent Recap 需 Teams Premium 或 M365 Copilot 许可证）</em></p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">聊天与频道</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">在任意聊天中让 Copilot 总结未读消息、提取关键决策、改写消息语气。频道中可添加 Channel Agent 自动回答常见问题。</p>
+</div>
+</div>
+
+<!-- Prompt examples -->
+<div class="prompt-box"><div class="p-label">会前准备</div><div class="p-text">"总结这次会议要讨论的内容，列出我需要提前看的所有材料。"</div><div class="p-note">Copilot 读取会议邀请 + 附件 + 会前聊天记录</div></div>
+<div class="prompt-box"><div class="p-label">会中实时</div><div class="p-text">"目前讨论了哪几个方案？各自的优缺点是什么？有没有还没被提到的重要风险？"</div></div>
+<div class="prompt-box"><div class="p-label">错过会议</div><div class="p-text">"总结我刚错过的这个会。列出所有决定、行动项和负责人。用表格，附时间戳。"</div></div>
+<div class="prompt-box"><div class="p-label">多会议回顾</div><div class="p-text">"总结本周我参加的三场客户会议的共同主题和待跟进事项。"</div><div class="p-note">需 Teams Premium — Multi-meeting audio recaps 功能</div></div>
+
+<!-- Extended tools -->
+<h5 style="font-size:13px;color:#0071B9;margin:16px 0 8px">更多 Teams Copilot 工具</h5>
+<table style="font-size:11px">
+<tr><th style="width:120px">功能</th><th>做什么</th><th>适用场景</th></tr>
+<tr><td><strong>Facilitator</strong></td><td>会议主持人——自动发送议程、记录发言时间</td><td>正式会议、工作坊</td></tr>
+<tr><td><strong>Interpreter</strong></td><td>实时翻译——会议中多语言互译</td><td>跨国团队会议</td></tr>
+<tr><td><strong>Channel Agent</strong></td><td>频道专属 Agent——基于频道文档自动答疑</td><td>项目频道、部门频道</td></tr>
+<tr><td><strong>Teams Phone Copilot</strong></td><td>通话中的 Copilot——总结通话内容、提取行动项</td><td>客户电话、一对一沟通</td></tr>
+<tr><td><strong>音频 Recap</strong></td><td>多会议音频摘要——通勤时"听"会议要点</td><td>忙碌的管理者、多会议日</td></tr>
+</table>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Copilot in Teams meetings (updated 2026-05)</a> | <a href="#">Catch up with Copilot in Teams chat and channels</a></div>
+</div>
+
+<!-- ===== Word ===== -->
+<div class="card" id="m01-word">
+<h3>Word · 文档起草与改写</h3>
+<div class="meta">从零起草 · 基于模板 · 改写润色 · 长文总结 · 告别"空白页恐惧症"</div>
+
+<p>Word Copilot 覆盖<strong>文档的全生命周期</strong>——从第一个字到最终版本。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">从零起草</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">打开空白文档→告诉 Copilot 主题+结构+字数→生成初稿。再也不盯空白页发呆。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">基于现有文件</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">引用已有文档为新版本的基础——"基于 Q2 报告写 Q3 版，保留结构，更新数据。"</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">改写与润色</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"改得更正式""缩短到 500 字""换个更积极的角度"——同一内容多版本输出。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">长文理解</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">30 页报告→"总结核心论点""列出所有数据来源""找出与其他文档的矛盾之处"。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">结构化起草</div><div class="p-text">"起草一份 Q3 销售回顾报告：①总体业绩（含同比环比）②区域对比 ③产品线分析 ④Q4 展望。语气正式，800-1000 字。附一个 Executive Summary。"</div></div>
+<div class="prompt-box"><div class="p-label">版本迭代</div><div class="p-text">"基于 /Q2销售报告.docx 写 Q3 版本——保留所有章节结构，用以下新数据替换：华东增长 12%、华南下降 3%、新品线贡献 18%。"</div></div>
+<div class="prompt-box"><div class="p-label">多版本输出</div><div class="p-text">"把这份技术白皮书改写成三个版本：①给高管的 1 页摘要 ②给客户的 3 页商务版 ③给工程师的完整版。"</div></div>
+<div class="prompt-box"><div class="p-label">深度分析</div><div class="p-text">"阅读这份 50 页行业报告，提取与我们业务最相关的 5 个趋势，每个附原文引用和我们的应对建议。"</div></div>
+
+<div class="insight"><strong>关键技巧：</strong>Word Copilot 的强大在于"引用现有文件"能力——不是从零生成，而是基于你的真实文档做版本迭代。给一个文件路径比给一段描述效果好得多。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Draft and add content with Copilot in Word</a> | <a href="#">Summarize a document with Copilot</a></div>
+</div>
+
+<!-- ===== PowerPoint ===== -->
+<div class="card" id="m01-powerpoint">
+<h3>PowerPoint · 演示文稿</h3>
+<div class="meta">一句话出 PPT · Word→PPT · 设计调整 · 图片生成 · 告别空白页</div>
+
+<p>PowerPoint Copilot 让你跳过<strong>"新建空白演示文稿"的痛苦</strong>。从大纲到完稿，从设计到演讲备注。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">从零生成</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">告诉 Copilot 主题+页数+风格→生成完整 PPT 初稿，含标题页、内容页、图片和演讲备注。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">从文档生成</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">给一份 Word 大纲→"基于这个文档生成 10 页 PPT，每页一个主题。"保留所有数据和图表。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">设计调整</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"把蓝色主题换成公司品牌色""第 5 页的图表换成柱状图""给所有页面加上公司 Logo 水印"。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">演讲辅助</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"给每页生成演讲备注""把第 3 页的内容提炼成 3 个 talking points""给这 20 页 PPT 生成一个 Agenda 页"。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">主题生成</div><div class="p-text">"创建一份关于数字化转型的 10 页 PPT：①现状分析②技术路线图③实施计划④预期收益⑤风险与应对。风格简洁专业，蓝色主题。"</div></div>
+<div class="prompt-box"><div class="p-label">文档转PPT</div><div class="p-text">"基于 /Q3业务回顾.docx 创建 PPT，每页一个章节，保留所有数据图表，加上一页 Executive Summary。"</div></div>
+<div class="prompt-box"><div class="p-label">快速迭代</div><div class="p-text">"把第 7 页拆成两页——一页讲数据，一页讲结论。给所有图表统一加上数据来源标注。"</div></div>
+<div class="prompt-box"><div class="p-label">演讲准备</div><div class="p-text">"给每页生成 3 个演讲要点。再生成一页 Q&A 预判——列出客户可能问的 5 个问题及建议回答。"</div></div>
+
+<div class="insight"><strong>关键技巧：</strong>PPT Copilot 的生成质量 = 输入的详细程度。只说"做个 PPT"=生成泛泛的模板。好输入=<strong>明确页数 + 每页主题 + 风格要求 + 数据来源</strong>。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Create a new presentation with Copilot in PowerPoint</a> | <a href="#">Add a slide or image with Copilot</a></div>
+</div>
+
+<!-- ===== Excel ===== -->
+<div class="card" id="m01-excel">
+<h3>Excel · 数据分析</h3>
+<div class="meta">自然语言替代公式 · 自动图表洞察 · 条件格式 · 让非技术人员也能做分析</div>
+
+<p>Excel Copilot 把<strong>"数据分析"从专业能力变成通用能力</strong>。你不需要知道 VLOOKUP 或 PivotTable——告诉 Copilot 你想要什么结果。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">探索与洞察</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"分析这个数据表""找出异常值""哪个产品线增长最快"——Copilot 自动生成图表+文字洞察。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">公式与计算</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"加一列同比增长率""计算加权平均""按区域分组求和"——自然语言替代公式。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">可视化</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"用柱状图展示区域对比""加一条趋势线""高亮增长率超过 20% 的行"——自动生成图表和条件格式。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">假设分析</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"如果价格下降 10%，对利润的影响？""各区域的盈亏平衡点在哪里？"——让数据回答"what if"。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">趋势分析</div><div class="p-text">"分析这个销售数据表：①找出增长最快和最慢的三个产品线 ②用图表展示月度趋势 ③解释可能的原因 ④给出 Q4 建议。"</div></div>
+<div class="prompt-box"><div class="p-label">异常检测</div><div class="p-text">"扫描这份财务报表，找出所有与去年同期偏差超过 15% 的科目，高亮标记并解释可能原因。"</div></div>
+<div class="prompt-box"><div class="p-label">批量计算</div><div class="p-text">"在表里加三列：同比增长率、环比增长率、YTD 累计。高亮所有负增长行。"</div></div>
+<div class="prompt-box"><div class="p-label">What-If</div><div class="p-text">"如果原材料成本上涨 8%，各产品线的毛利率变化如何？生成一张敏感性分析表。"</div></div>
+
+<div class="insight"><strong>限制说明：</strong>Copilot 在 Excel 中需要数据是<strong>结构化表格格式</strong>（Ctrl+T）。如果数据是散乱的非表格格式，需先整理。另外 Excel Copilot 目前仅支持英文 Prompt，中文支持正在推进。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Get started with Copilot in Excel</a></div>
+</div>
+
+<!-- ===== OneNote ===== -->
+<div class="card" id="m01-onenote">
+<h3>OneNote · 笔记整理</h3>
+<div class="meta">笔记总结 · 待办提取 · 知识整合 · 让散乱笔记变结构化文档</div>
+
+<p>OneNote Copilot 解决一个经典痛点：<strong>写了很多笔记，但从不再看。</strong>它把散乱的手写、打字、截图笔记变成可检索、可行动的结构化内容。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">总结与提炼</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"总结这几页会议笔记""提取所有讨论过的方案和各自优缺点"——把几页手写变几行要点。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">待办提取</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"列出所有待办事项，按优先级排序，标注负责人和截止日期"——从散乱笔记中提取 Action Items。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">知识整合</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"把这三页关于新员工入职流程的笔记整合成一个 SOP 文档"——多页笔记→一份结构化文档。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">创意展开</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"基于这些产品想法，展开每个想法的优劣势和可行性""帮我把这些零散点子组织成一份提案大纲"。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">会议笔记</div><div class="p-text">"总结这几页会议笔记：①讨论了哪几个议题 ②各方立场是什么 ③达成什么共识 ④列出所有行动项（负责人+截止日期）。"</div></div>
+<div class="prompt-box"><div class="p-label">知识归纳</div><div class="p-text">"把过去三个月所有关于'客户投诉处理'的笔记整合成一份最佳实践文档，包含：常见问题分类、处理流程、话术模板。"</div></div>
+<div class="prompt-box"><div class="p-label">项目复盘</div><div class="p-text">"整理这个项目的所有笔记：时间线、关键决策节点、遇到的问题和解决方案、经验教训。"</div></div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Summarize your notes with Copilot in OneNote</a></div>
+</div>
+
+<!-- ===== OneDrive / SharePoint ===== -->
+<div class="card" id="m01-onedrive">
+<h3>OneDrive / SharePoint · 文件知识发现</h3>
+<div class="meta">对文件提问 · 跨文件对比 · 公司知识检索 · Copilot 最被低估的能力</div>
+
+<p><strong>你的文件不再沉默。</strong>OneDrive 和 SharePoint 里的成百上千个文件——合同、报告、政策——Copilot 能读懂它们，让你用自然语言提问。这是 Copilot 最被低估的能力：不是帮你"写"，而是帮你"找到"和"理解"。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">单文件深度问答</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"这份 80 页的合同里，违约责任条款在哪里？如果我方延迟交付，最大赔偿是多少？"</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">跨文件对比分析</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"比较这三家供应商的报价：价格差异最大的三项、各自的交期承诺、付款条件对比。做成表。"</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">公司知识检索</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"公司关于远程办公的政策是什么？海外出差审批流程是什么？"——不用翻遍 SharePoint。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">历史追溯</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"这个客户过去三年签了哪些合同？合同金额趋势如何？有没有出现过变更或纠纷？"</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">合同分析</div><div class="p-text">"这份合同：①违约条款怎么说 ②甲方延迟付款超 30 天有什么后果 ③自动续约条款存在吗 ④相比我们标准条款模板，有哪些不利条款？"</div></div>
+<div class="prompt-box"><div class="p-label">跨文件对比</div><div class="p-text">"对比去年和今年的供应商报价——哪家价格变化最大？有没有新增供应商？用表格列出 Top 5 价格变动。"</div></div>
+<div class="prompt-box"><div class="p-label">政策查询</div><div class="p-text">"公司关于出差报销的最新政策是什么？国外出差和国内出差的报销标准和审批流程有什么区别？"</div></div>
+
+<div class="insight"><strong>关键认知：</strong>这个能力的前提是你的文件<strong>存放在 OneDrive/SharePoint 且你有访问权限</strong>。本地文件、邮件附件未保存到云端、或权限外的文件，Copilot 无法读取。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · OneDrive Copilot</a> | <a href="#">SharePoint Copilot · Ask questions about files</a></div>
+</div>
+
+<!-- ===== Notebooks ===== -->
+<div class="card" id="m01-notebooks">
+<h3>Copilot Notebooks · 多资料深度研究</h3>
+<div class="meta">多文件综合分析 · 交叉验证 · 研究助理 · Copilot 的"深度模式"</div>
+
+<p>Notebooks 是 Copilot 的<strong>"研究模式"</strong>——不同于 Chat 的快速问答，Notebooks 让你把多份不同类型文件放进去，做交叉分析和深度洞察。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">多源整合</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">把 Word/Excel/PPT/PDF/邮件放进一个 Notebook → 集中提问。支持最多几十个文件同时分析。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">交叉验证</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"这三份市场报告的数据有矛盾吗？哪个数据源最可信？"——AI 帮你找 inconsistency。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">结构化输出</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"把这五份客户反馈整合成一份 SWOT 分析""把所有数据汇总成一张对比表"——多文件→一份结构化文档。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">研究加速</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">竞品分析、市场研究、文献综述、行业扫描——把原来需要几天的资料整理压缩到几小时。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">竞品分析</div><div class="p-text">"把这三份竞品报告+两份市场数据整合分析：①我们的 Top 3 竞争优势 ②最大的 2 个威胁 ③建议的差异化策略。"</div></div>
+<div class="prompt-box"><div class="p-label">数据交叉验证</div><div class="p-text">"这四份行业报告引用的市场规模数据——哪些互相矛盾？差异的原因是什么？哪个数据源最可靠？"</div></div>
+<div class="prompt-box"><div class="p-label">方案对比</div><div class="p-text">"把这三份 IT 系统选型方案做对比：功能覆盖、实施周期、总成本、风险——输出一份对比评估表，附推荐排序。"</div></div>
+<div class="prompt-box"><div class="p-label">文献综述</div><div class="p-text">"阅读这 10 篇关于 ISO 45001 更新的文章，提取所有新要求、变化点和实施建议。按主题分类输出。"</div></div>
+
+<div class="insight"><strong>与 Chat 的区别：</strong>Chat 适合快速单问题（"找一份文件""总结一封邮件"），Notebooks 适合需要<strong>多文件上下文、持续追问、深度分析</strong>的场景。Notebooks 中的对话有"记忆"——前面问过的上下文会在后续问题中保留。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Copilot Notebooks - Get started / Add reference files / Ask Copilot</a></div>
+</div>
+
+<!-- ===== AI Content ===== -->
+<div class="card" id="m01-ai-内容生成">
+<h3>AI 内容生成 · 图片 / 视频 / 信息图</h3>
+<div class="meta">让培训材料和汇报不再只有文字 · 一句话生成视觉内容</div>
+
+<p>Copilot 不仅能写文档——<strong>能生成图片、短视频和信息图</strong>。对培训和汇报材料尤其有用：不用找设计师，不用买图库，一句话出视觉内容。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">图片生成</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"生成一张现代实验室场景的配图，用于认证服务介绍的 PPT 封面。"——不用图库，免版权。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">信息图</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"把 Q3 销售数据做成信息图——突出增长最快的产品和区域，用品牌蓝色主题。"</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">短视频</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"生成一段 30 秒的产品介绍短视频"——适合社交媒体、内部培训、客户简报。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">图片</div><div class="p-text">"生成一张 TÜV 莱茵认证审核场景的配图，用于培训 PPT 封面。风格：专业、现代、蓝白色调。"</div></div>
+<div class="prompt-box"><div class="p-label">信息图</div><div class="p-text">"把我们今年的服务线收入做成一张信息图：①各业务线占比 ②同比增长 ③Top 3 增长业务。用柱状图和饼图组合。"</div></div>
+<div class="prompt-box"><div class="p-label">短视频</div><div class="p-text">"创建一段 20 秒的产品介绍视频：ISO 9001 认证服务的价值和流程。适合发给潜在客户。"</div></div>
+
+<div class="insight"><strong>注意：</strong>图片/视频生成功能依赖 DALL-E 和 Microsoft Designer 集成，需要相应的服务权限。信息图功能需要在 Copilot Chat 中使用特定 Prompt 触发。生成内容需人工审核后使用。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Create AI-generated images</a> | <a href="#">Create a short video</a> | <a href="#">Create an infographic with Copilot</a></div>
+</div>
+
+<!-- ===== Video ===== -->
+<div class="card" id="m01-videoclipchamp">
+<h3>Video / Clipchamp · 视频理解</h3>
+<div class="meta">对视频提问 · 时间戳跳转 · 自动摘要 · 让视频像文档一样可检索</div>
+
+<p><strong>视频不再需要从头看到尾。</strong>Copilot 能理解视频内容——培训视频、产品演示、会议录播——让你用自然语言提问，直接跳到关键段落。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">内容检索</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"这个培训视频讲了哪些关键概念？""有没有提到 ISO 27001 的新要求？"——不用快进，直接问。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">时间戳跳转</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"从哪个时间点开始介绍新功能？""谁在什么时候提到了预算问题？"——附带可点击的时间戳。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">批量处理</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">"总结本周三场培训视频的共通主题""哪场提到了数据合规？"——跨视频检索。</p>
+</div>
+<div style="background:#F0F7FC;border-radius:10px;padding:14px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:4px">Clipchamp 编辑</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.6">在 Clipchamp 中可以直接用 Copilot 理解视频内容并辅助编辑——剪出关键片段、添加字幕。</p>
+</div>
+</div>
+
+<div class="prompt-box"><div class="p-label">培训视频</div><div class="p-text">"总结这个 45 分钟的培训视频：①讲了哪几个模块 ②每个模块的关键概念 ③最后 10 分钟的 Q&A 涉及哪些问题。"</div></div>
+<div class="prompt-box"><div class="p-label">产品演示</div><div class="p-text">"这个产品演示视频里，新功能从哪个时间点开始介绍？演示了什么场景？有没有提到已知限制？"</div></div>
+<div class="prompt-box"><div class="p-label">多视频对比</div><div class="p-text">"比较这两场客户演示的录制视频——哪个演示风格更有效？客户问了什么共同问题？"</div></div>
+
+<div class="insight"><strong>适用场景：</strong>培训视频复习、客户演示回顾、合规审计视频检索、会议录制追看。视频需上传到 OneDrive/SharePoint 或通过 Clipchamp 处理——本地未上传的视频无法被 Copilot 理解。</div>
+
+<div class="source-link">来源：<a href="#">Microsoft Support · Clipchamp - Ask questions, get summaries of any video with Copilot</a></div>
+</div>
+
+
+
+<div class="section-desc" style="margin-top:28px">
+本章节收集 Microsoft 官方关于 Copilot Prompt 的学习资料、示例库和组织级 Prompt 相关资料。当前阶段做官方资料归档和索引。
+</div>
+
+<div class="card" id="m02-craft">
+<h3>Craft Effective Prompts · 编写有效 Prompt</h3>
+<div class="meta">来源：Microsoft Support + Microsoft Learn Training · 2026-07-13 下载</div>
+<p>Microsoft 官方关于如何编写有效 Copilot Prompt 的学习资料，用于理解 Prompt 的基本构成、写法和优化方向。核心内容：</p>
+<ul style="margin:8px 0 8px 18px;color:#4A5568;font-size:14px;line-height:1.8">
+<li>介绍 Copilot Prompt 的基本概念和用途</li>
+<li>强调通过<strong>清晰目标、上下文、资料来源和期望输出</strong>提升回答质量</li>
+<li>适合作为 Prompt 方法论的官方依据</li>
+<li>可与 Prompt Gallery 中的示例结合使用</li>
+</ul>
+<div class="insight"><strong>适用对象：</strong>普通员工 · 培训讲师 · Champion / 种子用户 · 知识库维护者</div>
+<div class="source-note" style="margin-top:8px">
+官方链接：<br>
+· support.microsoft.com/en-us/Microsoft-365-Copilot/get-started-writing-prompts<br>
+· learn.microsoft.com/en-us/training/modules/write-effective-prompts-do-more-prompting
+</div>
+</div>
+
+<div class="card" id="m02-gallery">
+<h3>Prompt Gallery · Prompt 示例库</h3>
+<div class="meta">来源：Microsoft Adoption · 2026-07-14 下载（含历史入口补下载）</div>
+<p>Microsoft Adoption 提供的 Copilot Prompt Gallery，用于收集官方 Prompt 示例和不同工作场景下的提示词参考。核心内容：</p>
+<ul style="margin:8px 0 8px 18px;color:#4A5568;font-size:14px;line-height:1.8">
+<li>提供面向 Microsoft 365 Copilot 的 Prompt 示例集合</li>
+<li>适合用于理解不同工作场景下的 Prompt 写法</li>
+<li>可作为后续建设岗位 Prompt 模板库的官方参考来源</li>
+<li>当前阶段只收录官方示例入口，不改写成莱茵内部模板</li>
+</ul>
+<div class="insight"><strong>适用对象：</strong>普通员工 · 培训讲师 · Champion / 种子用户 · 知识库维护者</div>
+<div class="source-note" style="margin-top:8px">
+官方链接：adoption.microsoft.com/en-us/copilot/prompt-gallery/<br>
+说明：倒查时发现当前 Adoption 菜单使用新路径 `/en-us/copilot/prompt-gallery/`，已补下载当前 URL。
+</div>
+</div>
+
+<div class="card" id="m02-org">
+<h3>Organizational Prompts · 组织级 Prompt</h3>
+<div class="meta">来源：待核对 · 暂未下载</div>
+<p>组织级 Prompt 相关资料，用于后续研究企业是否可以创建、发布、管理统一的 Prompt 资产。</p>
+<div class="status-box">
+<strong>当前状态：待核对</strong><br>
+该主题保留在知识库结构中——关系到未来 Prompt Library、部门 Prompt 模板和组织级复用。但正式写入资料前需核对 Microsoft 官方文档中的准确页面、功能状态和适用范围。如后续功能仍处于 preview 或名称变化，应在本页明确标注版本状态和核对日期。
+</div>
+<div class="insight"><strong>适用对象：</strong>企业推广负责人 · IT / 管理员 · Champion / 种子用户 · 知识库维护者</div>
+<div class="source-note" style="margin-top:8px">相关资料：Craft Effective Prompts · Prompt Gallery · Copilot Studio Guidance</div>
+</div>
+
+<div class="card" id="sources">
+<h3>本地原始资料归档</h3>
+<div class="meta">_official_downloads/02_Prompt/</div>
+<table>
+<tr><th>文件名</th><th>来源平台</th><th>下载日期</th></tr>
+<tr><td>Craft Effective Prompts - Get started writing prompts - Microsoft Support.html</td><td>Microsoft Support</td><td>2026-07-13</td></tr>
+<tr><td>Write Effective Prompts to Achieve Optimal Results - Microsoft Learn.html</td><td>Microsoft Learn Training</td><td>2026-07-13</td></tr>
+<tr><td>Copilot Prompt Gallery - Microsoft Adoption.html</td><td>Microsoft Adoption（早期入口）</td><td>2026-07-14</td></tr>
+<tr><td>Copilot Prompt Gallery current URL - Microsoft Adoption.html</td><td>Microsoft Adoption（当前入口）</td><td>2026-07-14</td></tr>
+</table>
+</div>
+
+
+
+<div class="card" id="m03-success-kit">
+<h3>Copilot Success Kit · 企业采用框架</h3><div class="meta">Microsoft Adoption · 2026-07-13 下载</div>
+<p>Microsoft 365 Copilot 企业采用框架相关资料，用于理解组织如何规划、启动、推广和衡量 Copilot 采用。页面说明该指南用于简化实施框架，帮助组织更快开始 Copilot 采用。可以进一步使用完整的 Copilot Success Kit materials。</p>
+<ul><li>适合作为企业采用路径、项目阶段、角色协同和推广节奏的官方依据</li><li>已保存 Essential Guide 页面；完整 Success Kit 独立下载入口仍需后续核对</li></ul>
+<div class="insight"><strong>适用对象：</strong>企业推广负责人 · 培训项目负责人 · IT/管理层协同人员 · Champion/种子用户</div>
+<div class="sn">官方链接：adoption.microsoft.com/en-us/copilot/essential-guide/</div>
+</div>
+
+<div class="card" id="m03-user-engagement-tools">
+<h3>User Engagement Tools · 用户参与工具包</h3>
+<div class="meta">Microsoft Adoption · 官方链接：adoption.microsoft.com/copilot/user-engagement-tools-and-templates · 下载日期 2026-07-13</div>
+
+<p>Microsoft 官方的 <strong>用户推广与沟通工具箱</strong>——不是培训材料，而是一套帮助组织"把 Copilot 推出去"的现成沟通资源。<strong>这是莱茵内部 Copilot 推广最直接可用的官方素材。</strong></p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:6px">已下载资源包</h5>
+<p style="font-size:12px;color:#4A5568;line-height:1.7">简体中文版：<code>Microsoft365Copilot_UserEngagementToolsTemplates_zh-CN.zip</code></p>
+<p style="font-size:12px;color:#4A5568;line-height:1.7">内含三套模板：</p>
+<ul style="font-size:12px;color:#4A5568;margin:4px 0 0 16px;line-height:1.8">
+<li><strong>Copilot Chat onboarding</strong> — 面向 Chat 用户的欢迎邮件和上手引导</li>
+<li><strong>Microsoft 365 Copilot onboarding</strong> — 面向完整版用户的推广邮件模板</li>
+<li><strong>Agents onboarding</strong> — Agent 功能的介绍和首次使用引导</li>
+</ul>
+</div>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #009537">
+<h5 style="font-size:13px;color:#009537;margin-bottom:6px">适用场景</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>Copilot 上线通知</strong> — 首次向全员或部门推广 Copilot</li>
+<li><strong>领导沟通</strong> — 面向管理层的 Copilot 价值说明</li>
+<li><strong>持续用户跟进</strong> — 每周提示、技巧分享、社区帖子</li>
+<li><strong>Agent 推广</strong> — 当组织开始部署 Agent 时的用户引导</li>
+</ul>
+</div>
+</div>
+
+<div class="insight" style="margin-top:12px">
+<strong>使用建议：</strong><br>
+• 当前阶段保留官方模板原件，<strong>不改写为莱茵版本</strong>——保持与 Microsoft 官方一致的沟通口径<br>
+• 建议在启动 30-Day Skilling Journey 前 1 周发送 onboarding 邮件<br>
+• 与 <a href="#m03-success-kit">Copilot Success Kit</a> 配合使用：Success Kit 给管理层，Engagement Tools 给终端用户<br>
+• 领导沟通模板可与 <a href="#m02-org">Organizational Prompts</a> 结合，展示 Copilot 在具体业务场景中的价值
+</div>
+
+<div class="insight"><strong>适用对象：</strong>企业推广负责人 · 培训项目负责人 · 内部沟通/HR · Champion</div>
+
+<div class="sn">本地下载：_official_downloads/03_企业采用/Microsoft 365 Copilot user engagement tools and templates - Microsoft Adoption.html + attachments/Microsoft365Copilot_UserEngagementToolsTemplates_zh-CN.zip</div>
+</div>
+
+<div class="card" id="m03-scenario-library">
+<h3>Scenario Library · 场景库</h3><div class="meta">Microsoft Adoption · 2026-07-13 下载</div>
+<p>Copilot Scenario Library 收集不同行业和岗位的 Copilot 应用场景。可用于理解 Copilot 在不同业务场景下的价值，以及向不同角色展示 Copilot 的实用性。</p>
+<div class="insight"><strong>适用对象：</strong>企业推广负责人 · 培训项目负责人 · Champion/种子用户 · 讲师</div>
+<div class="sn">官方链接：adoption.microsoft.com/en-us/copilot/scenario-library/</div>
+</div>
+
+<div class="card" <div class="card" id="m03-30-day-skilling">
+<h3>30-Day Skilling Journey · 30 天学习旅程</h3>
+<div class="meta">Microsoft Adoption · 官方下载：aka.ms/Copilot/JourneyDownloadKit · 核对日期 2026-07-14</div>
+
+<p>30-Day Skilling Journey <strong>不是单次培训，而是一套按天推动用户持续练习 Copilot 的采用引擎</strong>。目标：从"知道 Copilot"到"每天能用 Copilot 完成具体工作"。</p>
+
+<h4 style="margin-top:20px;color:#0071B9">两个 Journey 版本</h4>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #0071B9">
+<h5 style="font-size:14px;color:#0071B9;margin-bottom:8px">Copilot Journey（完整版）</h5>
+<p style="font-size:12px;color:#637184;margin-bottom:6px">面向已部署 M365 Copilot 许可证的用户</p>
+<table style="font-size:11px">
+<tr><td style="color:#95A5A6;width:70px">总容量</td><td>80.5MB ZIP</td></tr>
+<tr><td style="color:#95A5A6">日邮件</td><td>30 封 — 覆盖 Word/Excel/PPT/Teams/Outlook/Agent</td></tr>
+<tr><td style="color:#95A5A6">周邮件</td><td>6 封 — 项目负责人驱动节奏</td></tr>
+<tr><td style="color:#95A5A6">附件</td><td>Overview PDF + Infographic + Day29 Project + Badges</td></tr>
+<tr><td style="color:#95A5A6">场景</td><td>会议→文档→邮件→数据→演示→Agent 全链路</td></tr>
+</table>
+</div>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #009537">
+<h5 style="font-size:14px;color:#009537;margin-bottom:8px">Chat Edition（轻量版）</h5>
+<p style="font-size:12px;color:#637184;margin-bottom:6px">面向仅有 Copilot Chat 权限的用户</p>
+<table style="font-size:11px">
+<tr><td style="color:#95A5A6;width:70px">总容量</td><td>71.8MB ZIP</td></tr>
+<tr><td style="color:#95A5A6">日邮件</td><td>30 封 — 翻译/起草/总结/构思/分析/图片</td></tr>
+<tr><td style="color:#95A5A6">周邮件</td><td>6 封 — 以周为单位组织练习</td></tr>
+<tr><td style="color:#95A5A6">附件</td><td>Overview PDF + Day29 Project + Badges</td></tr>
+<tr><td style="color:#95A5A6">场景</td><td>通用办公——不依赖特定 M365 许可证</td></tr>
+</table>
+</div>
+</div>
+
+<h4 style="margin-top:24px;color:#0071B9">6 周实施框架（莱茵适配版）</h4>
+<p style="font-size:12px;color:#637184;margin-bottom:12px">原版 30 天连续日不适合企业节奏。以下将 30 天内容重组为 <strong>6 周 × 每周 1 个主题 + 3-5 个微练习</strong>。</p>
+
+<table>
+<tr><th style="width:45px">周</th><th style="width:100px">主题</th><th>每日微练习 — Copilot Journey 版</th><th>每日微练习 — Chat 版</th></tr>
+
+<tr><td rowspan="5" style="text-align:center;font-weight:700;background:#F0F7FC">W1</td>
+<td rowspan="5" style="font-weight:700;background:#F0F7FC">建立习惯<br><span style="font-size:10px;color:#95A5A6">启动周</span></td>
+<td>Day 1: 欢迎 + 什么是 Copilot</td><td>Day 1: 欢迎 + 什么是 Copilot Chat</td></tr>
+<tr><td>Day 2: 用 Copilot Chat 做第一次搜索</td><td>Day 2: 用 Chat 翻译一段文字</td></tr>
+<tr><td>Day 3: 让 Copilot 总结一封长邮件</td><td>Day 3: 让 Chat 起草一封邮件</td></tr>
+<tr><td>Day 4: 用 Copilot 回顾最近一次会议</td><td>Day 4: 让 Chat 总结一份文档</td></tr>
+<tr><td>Day 5: 本周回顾 + 周末微挑战</td><td>Day 5: 探索 Chat 的边界</td></tr>
+
+<tr><td rowspan="5" style="text-align:center;font-weight:700;background:#F0F7FC">W2</td>
+<td rowspan="5" style="font-weight:700;background:#F0F7FC">邮件+文档<br><span style="font-size:10px;color:#95A5A6">高频场景</span></td>
+<td>Day 6: Outlook — 总结邮件线程</td><td>Day 6: 写一封正式回复</td></tr>
+<tr><td>Day 7: Outlook — 起草并优化语气</td><td>Day 7: 改进邮件的语气</td></tr>
+<tr><td>Day 8: Word — 从零起草文档</td><td>Day 8: 起草一份短报告</td></tr>
+<tr><td>Day 9: Word — 改写和润色</td><td>Day 9: 做一次写作反馈</td></tr>
+<tr><td>Day 10: Word — 基于旧文档生成新版</td><td>Day 10: 创建初稿并迭代</td></tr>
+
+<tr><td rowspan="5" style="text-align:center;font-weight:700;background:#F0F7FC">W3</td>
+<td rowspan="5" style="font-weight:700;background:#F0F7FC">数据+演示<br><span style="font-size:10px;color:#95A5A6">生产力提升</span></td>
+<td>Day 11: Excel — 自然语言分析</td><td>Day 11: 分析一组数据</td></tr>
+<tr><td>Day 12: Excel — 图表和洞察</td><td>Day 12: 解读图表趋势</td></tr>
+<tr><td>Day 13: PPT — 一句话生成演示文稿</td><td>Day 13: 构思演示大纲</td></tr>
+<tr><td>Day 14: PPT — 基于大纲生成</td><td>Day 14: 创意构思练习</td></tr>
+<tr><td>Day 15: PPT — 调整设计风格</td><td>Day 15: 规划一个项目</td></tr>
+
+<tr><td rowspan="5" style="text-align:center;font-weight:700;background:#F0F7FC">W4</td>
+<td rowspan="5" style="font-weight:700;background:#F0F7FC">协作+知识<br><span style="font-size:10px;color:#95A5A6">工作流嵌入</span></td>
+<td>Day 16: Teams — 追赶错过的会议</td><td>Day 16: 总结一段对话</td></tr>
+<tr><td>Day 17: Teams — 实时提取行动项</td><td>Day 17: 生成会议议程</td></tr>
+<tr><td>Day 18: OneDrive — 文件问答</td><td>Day 18: 做一个深度研究</td></tr>
+<tr><td>Day 19: OneNote — 笔记结构化</td><td>Day 19: 整理杂乱笔记</td></tr>
+<tr><td>Day 20: Notebooks — 多文件综合分析</td><td>Day 20: 比较多个方案</td></tr>
+
+<tr><td rowspan="5" style="text-align:center;font-weight:700;background:#F0F7FC">W5</td>
+<td rowspan="5" style="font-weight:700;background:#F0F7FC">进阶探索<br><span style="font-size:10px;color:#95A5A6">突破边界</span></td>
+<td>Day 21: AI 图片/信息图生成</td><td>Day 21: 生成一张图片</td></tr>
+<tr><td>Day 22: Clipchamp — 视频总结检索</td><td>Day 22: 做深入洞察分析</td></tr>
+<tr><td>Day 23: SharePoint — 站点问答</td><td>Day 23: 学习一个新概念</td></tr>
+<tr><td>Day 24: 发现更多功能场景</td><td>Day 24: 发现隐藏用法</td></tr>
+<tr><td>Day 25: 本周回顾 + 效率盘点</td><td>Day 25: 创建第一个 Agent</td></tr>
+
+<tr><td rowspan="5" style="text-align:center;font-weight:700;background:#0071B9;color:#fff">W6</td>
+<td rowspan="5" style="font-weight:700;background:#0071B9;color:#fff">Agent+项目<br><span style="font-size:10px;color:rgba(255,255,255,.7)">终极挑战</span></td>
+<td>Day 26: Agent 入门 — 认识 Agent</td><td>Day 26: 发现高频场景</td></tr>
+<tr><td>Day 27: 创建第一个 Agent</td><td>Day 27: 综合项目练习</td></tr>
+<tr><td>Day 28: 功能性场景探索</td><td>Day 28: 深度场景探索</td></tr>
+<tr><td>Day 29: <strong>终极项目</strong> — 综合运用所有技能</td><td>Day 29: <strong>终极项目</strong></td></tr>
+<tr><td>Day 30: 旅程回顾 + Badge + 下一步</td><td>Day 30: 完成 + Badge + 进阶路径</td></tr>
+</table>
+
+<h4 style="margin-top:24px;color:#0071B9">莱茵落地实施指南</h4>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#fff;border:1px solid #E8EDF2;border-radius:10px;padding:16px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:8px">推进节奏</h5>
+<ul style="font-size:12px;color:#4A5568;line-height:1.8;margin-left:16px">
+<li><strong>每周 1 封周报邮件</strong>（周一早）：本周主题 + 3-5 个微练习</li>
+<li><strong>每日 Slack/Teams 提示</strong>：当天练习卡</li>
+<li><strong>每周 1 次 15min Office Hour</strong>：答疑 + 晒成果</li>
+<li><strong>第 3、6 周各一次 30min 分享</strong>：进阶技巧 + 案例</li>
+</ul>
+</div>
+
+<div style="background:#fff;border:1px solid #E8EDF2;border-radius:10px;padding:16px">
+<h5 style="font-size:13px;color:#D20033;margin-bottom:8px">常见踩坑</h5>
+<ul style="font-size:12px;color:#4A5568;line-height:1.8;margin-left:16px">
+<li><strong>不要原样照搬英文邮件</strong>——翻译 + 本地化</li>
+<li><strong>不要只发邮件不跟进</strong>——无 Office Hour 的 Journey 完成率通常 &lt;15%</li>
+<li><strong>不要第 1 周就讲 Agent</strong>——先在日常场景建立信任</li>
+<li><strong>不要一次推全部 30 天</strong>——分批发布，每周解锁</li>
+</ul>
+</div>
+</div>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;margin:12px 0;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:8px">成功衡量指标</h5>
+<table style="font-size:12px">
+<tr><th style="width:100px">指标</th><th>定义</th><th>参考目标</th></tr>
+<tr><td>启动率</td><td>完成 Day 1 / 邀请总数</td><td>≥ 60%</td></tr>
+<tr><td>周活跃</td><td>每周 ≥1 次练习的人数</td><td>W1 ≥40% → W6 ≥20%</td></tr>
+<tr><td>完成率</td><td>完成 Day 29 / 启动人数</td><td>≥ 15%</td></tr>
+<tr><td>NPS</td><td>Journey 结束净推荐值</td><td>≥ 30</td></tr>
+<tr><td>Agent 转化</td><td>结束后 30 天内创建 Agent 的人数</td><td>≥ 5% 的完成者</td></tr>
+</table>
+</div>
+
+<h4 style="margin-top:24px;color:#0071B9">莱茵版本规划</h4>
+
+<table>
+<tr><th style="width:90px">版本</th><th>对象</th><th>形式</th><th>核心内容</th></tr>
+<tr>
+<td style="font-weight:700;color:#0071B9">全员版</td><td>所有 Copilot 用户</td><td>6 周邮件 + Office Hour</td><td>每周围绕一个高频场景（邮件→文档→数据→演示→协作→Agent）</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#009537">种子版</td><td>Champion / 种子用户</td><td>6 周 + Day 27-29 Agent 深度</td><td>增加 Agent 构建和项目练习，连接 <a href="#m06-Agent-应用地图" style="color:#009537">06 · Agent 进阶</a></td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#EB971B">管理层版</td><td>部门负责人</td><td>3 次 30min 短会</td><td>业务价值、ROI 跟踪、团队推广策略</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#637184">IT 附录</td><td>IT / 安全</td><td>随 Journey 同步</td><td>许可证、数据保护、SharePoint 权限、Agent 治理</td>
+</tr>
+</table>
+
+<div class="insight" style="margin-top:16px">
+<strong>与其他模块联动：</strong><br>
+• W1-2 → 配合 <a href="#m02-craft">02 · Prompt 工程</a>（在练习中植入 Prompt 技巧）<br>
+• W5-6 → 连接 <a href="#m06-Agent-应用地图">06 · Agent 进阶</a>（Day 26-29 是 Agent 的自然入口）<br>
+• 全程搭配 <a href="#m03-user-engagement-tools">User Engagement Tools</a> + <a href="#m03-prompt-a-thon">Prompt-a-thon</a> 做活动驱动<br>
+• 完成者优先进入 Champion 社群（90-Day Community Framework）
+</div>
+
+<div class="sn" style="margin-top:12px">本地下载：The-Great-Microsoft-365-Copilot-Journey-email-templates.zip (80.5MB) · Chat-edition.zip (71.8MB)</div>
+</div>
+<div class="card" id="m03-prompt-a-thon">
+<h3>Prompt-a-thon · Prompt 实践活动</h3><div class="meta">Microsoft Adoption · 待核对独立页面</div>
+<div class="status-box"><strong>状态：待核对</strong><br>暂未发现独立页面。已补充相关资料：Prompt Gallery（02_Prompt 目录）、Prompt 技能提升 PPT、Copilot Scavenger Hunt Activity PPTX。</div>
+<p>通过活动方式推动 Copilot Prompt 实践和场景发现。适合后续连接 Prompt Gallery 与企业采用活动设计。</p>
+<div class="insight"><strong>适用对象：</strong>企业推广负责人 · 培训项目负责人 · Champion/种子用户 · 讲师</div>
+</div>
+
+<div class="card" id="m03-virtual-skilling">
+<h3>Virtual Skilling Event · 线上培训活动</h3><div class="meta">Microsoft Adoption · 待补充</div>
+<p>线上培训活动相关资料主题。当前阶段保留为官方资料追踪项，待后续补充官方链接和本地下载。</p>
+</div>
+
+<div class="card" id="m03-附件索引">
+<h3>附件索引 · Adoption Attachments</h3><div class="meta">_official_downloads/03_企业采用/attachments/ · 19 个文件</div>
+<table>
+<tr><th>类别</th><th>文件</th><th>用途</th></tr>
+<tr><td>用户参与</td><td>UserEngagementToolsTemplates_zh-CN.zip</td><td>简体中文用户参与工具包</td></tr>
+<tr><td>活动</td><td>CopilotScavengerHuntActivity.pptx</td><td>互动练习素材</td></tr>
+<tr><td>Chat/Prompt</td><td>upgrade-your-prompting-skills.pptx · Chat-review.pptx · Maximize-Copilot-Chat.pptx</td><td>Prompt提升 / Chat复盘 / Chat体验最大化</td></tr>
+<tr><td>价值衡量</td><td>Defining-business-value.pptx · Copilot-analytics.pptx · CustomAnalysis.pptx</td><td>业务价值定义 / 影响力衡量 / 自定义分析</td></tr>
+<tr><td>Agent</td><td>AgentOverviewGuide.pptx · AppAgentsGuide.pptx · AppAgentsHandout.pptx</td><td>Agent概览 / App Agents指南与讲义</td></tr>
+<tr><td>角色指南</td><td>CFOGuide.pptx · CHROGuide.pptx · CMOGuide.pptx</td><td>CFO/CHRO/CMO 角色采用指南</td></tr>
+</table>
+<div class="insight"><strong>维护建议：</strong>后续教材开发时按莱茵岗位和培训对象筛选。管理层材料优先看"价值衡量"和"角色指南"。种子用户材料优先看"Chat/Prompt提升"和"Agent"。</div>
+</div>
+
+
+
+<div class="card" id="m04-it-admin"><h3>IT Admin Adoption Guide</h3><div class="meta">Microsoft Learn · 对应 Microsoft 365 Copilot hub 和 Setup/Requirements 文档</div>
+<p>IT 管理员采用指南。当前未找到同名独立页面，本知识库使用以下文档作为对应资料：</p>
+<ul><li>Microsoft 365 Copilot hub — 管理员总入口</li><li>Set Up Microsoft 365 Copilot and Assign Licenses — 部署与许可分配</li><li>App and network requirements — 应用与网络要求</li></ul>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · 项目负责人</div>
+</div>
+
+<div class="card" id="m04-license-plans"><h3>License Plans · 许可计划</h3><div class="meta">Microsoft Learn Service Description · 已下载</div>
+<p>Microsoft 365 Copilot 服务描述中的许可计划页面。说明 Copilot 的许可类型、适用范围和购买方式。</p>
+<ul><li>包含 Copilot 和 Copilot Chat 的许可区别</li><li>说明哪些 M365 订阅计划包含 Copilot 功能</li></ul>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · 采购负责人</div>
+</div>
+
+<div class="card" id="m04-app--network"><h3>App & Network Requirements · 应用与网络要求</h3><div class="meta">Microsoft Learn · 已下载</div>
+<p>面向 Microsoft 365 Copilot 管理员的应用程序和网络要求文档。说明部署 Copilot 所需的网络配置、端点、带宽和安全性要求。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · 网络管理员</div>
+</div>
+
+<div class="card" id="m04-reports"><h3>Reports & Dashboard · 使用报表与控制面板</h3><div class="meta">Microsoft Learn · 已下载</div>
+<ul><li><strong>Microsoft 365 Copilot Usage Report：</strong>查看组织内 Copilot 使用情况的官方报表</li><li><strong>Microsoft Copilot Dashboard：</strong>面向 Microsoft 365 客户的 Copilot 控制面板，提供使用趋势、活跃用户数、功能采用率等数据</li></ul>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · 管理层 · 项目负责人</div>
+</div>
+
+<div class="card" id="m04-setup-guide"><h3>Setup Guide · 设置指南</h3><div class="meta">Microsoft Learn · 已下载</div>
+<p>如何设置 Microsoft 365 Copilot 和分配许可的官方操作指南。覆盖从购买许可到用户激活的完整流程。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员</div>
+</div>
+
+<div class="card" id="m04-sharepoint-gov"><h3>SharePoint Governance · SharePoint 治理</h3><div class="meta">Microsoft Learn · 已下载</div>
+<p>限制发现 SharePoint 站点和内容的官方文档。控制 Copilot 可以访问哪些 SharePoint 内容，是 Copilot 数据治理的关键配置。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · SharePoint 管理员 · 合规负责人</div>
+</div>
+
+<div class="card" id="m04-agent-admin"><h3>Agent Admin Management · Agent 管理</h3><div class="meta">Microsoft Learn · 已下载</div>
+<p>在 Microsoft 365 管理中心管理 Agent 的官方文档。覆盖 Agent 的注册、审批、监控和下线流程。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · Agent 治理负责人</div>
+</div>
+
+
+
+<div class="warn-box"><strong>高敏感内容声明：</strong>安全、隐私、数据保护表述属于高敏感且会变化的内容。后续如要写教材或对外材料，必须重新核对这些官方页面，以最新版本为准。</div>
+
+<div class="card" id="m05-data-privacy"><h3>Data Privacy & Security · 数据隐私与安全</h3><div class="meta">Microsoft Learn · 已下载</div>
+<ul><li><strong>Microsoft 365 Copilot Chat Privacy and Protections：</strong>Copilot Chat 的隐私保护机制和数据处理方式</li><li><strong>Data privacy and security for web search：</strong>Web 搜索在 Copilot 中的数据隐私和安全——当 Copilot 使用公开互联网数据时如何保护企业信息</li><li><strong>Microsoft 365 Copilot Chat FAQ：</strong>常见安全问题官方解答</li></ul>
+<div class="insight"><strong>适用对象：</strong>合规负责人 · 安全管理员 · 法务 · 管理层</div>
+</div>
+
+<div class="card" id="m05-enterprise-protection"><h3>Enterprise Data Protection · 企业数据保护</h3><div class="meta">Microsoft Learn · 已下载</div>
+<ul><li><strong>Microsoft Purview protections：</strong>Microsoft Purview 为 Copilot 和生成式 AI 应用提供的保护功能——包括数据分类、敏感信息检测、数据丢失防护</li><li>企业数据的存储、传输和隔离机制</li></ul>
+<div class="insight"><strong>适用对象：</strong>合规负责人 · 安全管理员 · IT 管理员</div>
+</div>
+
+<div class="card" id="m05-architecture"><h3>Architecture & Auditing · 架构与审计</h3><div class="meta">Microsoft Learn · 已下载</div>
+<ul><li><strong>Microsoft 365 Copilot architecture：</strong>Copilot 的数据处理架构——数据如何在 Microsoft 365 租户内流动、如何与 Microsoft Graph 交互、如何调用大型语言模型</li><li>审计日志和合规报告机制</li></ul>
+<div class="insight"><strong>适用对象：</strong>安全架构师 · IT 管理员 · 审计负责人</div>
+</div>
+
+<div class="card" id="m05-responsible-ai"><h3>Responsible AI · 负责任 AI</h3><div class="meta">Microsoft 官方 · 待补充</div>
+<p>Microsoft 在 Copilot 中应用的负责任 AI 原则，包括公平性、可靠性、隐私、包容性、透明度和问责制。当前保留为官方资料追踪项，待核对独立官方页面。</p>
+<div class="insight"><strong>适用对象：</strong>管理层 · 合规负责人 · 项目负责人</div>
+</div>
+
+
+
+<div class="section">06 · Agent 进阶 — 六层知识体系</div>
+<div class="section-desc">从"认识 Agent"到"组织推广"的完整知识框架。目标不是泛泛收集链接，而是按六层组织官方资料，服务后续莱茵 Agent 教材、种子用户培训和管理层/IT 附录开发。</div>
+
+<!-- 推荐阅读路径 -->
+<div class="insight" style="margin:12px 0 24px">
+<strong>推荐阅读路径：</strong><br>
+① Agent 应用地图（下方）→ ② 认识 Agent → ③ 典型应用场景 → ④ 如何构建 Agent → ⑤ 模板与案例 → ⑥ 治理与安全 → ⑦ 学习与推广
+</div>
+
+<!-- ====== Agent 应用地图 ====== -->
+<div class="card" id="m06-Agent-应用地图">
+<h3>Agent 应用地图</h3>
+<div class="meta">回答三个问题：Agent 有哪些类型、适合哪些场景、应该由谁学习和管理</div>
+
+<table>
+<tr><th>层级</th><th>代表资料</th><th>适合对象</th><th>说明</th></tr>
+<tr><td><strong>认识 Agent</strong></td><td>Get Started with Agents · Agents in M365</td><td>全员进阶 · 讲师</td><td>先理解 Agent 与 Copilot Chat / Office Copilot 的区别</td></tr>
+<tr><td><strong>应用型 Agent</strong></td><td>Word/Excel/PPT Agents · SharePoint Agents · Employee Self-Service</td><td>种子用户 · 业务团队</td><td>重点看真实应用，不先讲技术架构</td></tr>
+<tr><td><strong>构建 Agent</strong></td><td>Build Agents · Agent Builder vs Copilot Studio</td><td>Champion · 业务负责人 · IT</td><td>判断用 Agent Builder 还是 Copilot Studio</td></tr>
+<tr><td><strong>模板与案例</strong></td><td>Agent Templates · Copilot Studio Scenarios</td><td>讲师 · 项目负责人</td><td>用官方案例帮助发现莱茵场景</td></tr>
+<tr><td><strong>治理与安全</strong></td><td>Agent Governance · Security · Registry · Evaluation</td><td>IT · 安全 · 管理层</td><td>Agent 不是只会创建，还要能管理、评估和下线</td></tr>
+<tr><td><strong>学习与推广</strong></td><td>Agentic Readiness · 90-Day Community · Adoption Journey</td><td>培训项目负责人</td><td>让 Agent 从单点实验变成组织采用</td></tr>
+</table>
+
+<div class="insight" style="margin-top:12px">
+<strong>莱茵后续教材建议：</strong><br>
+• <strong>全员基础课：</strong>只讲"Agent 是什么"和1-2个应用例子<br>
+• <strong>种子用户课：</strong>讲 SharePoint Agents、Office App Agents、Employee Self-Service Agent<br>
+• <strong>业务负责人课：</strong>讲场景发现、价值判断、模板案例<br>
+• <strong>IT/管理层附录：</strong>讲 Agent Registry、治理、安全、评估
+</div>
+<div class="sn">本地原始资料：_official_downloads/06_Agent进阶/ 含 16 个 HTML 页面 + 10 个 PDF/PPTX 附件</div>
+</div>
+
+<!-- ====== 第一层：认识 Agent ====== -->
+<div class="section" id="m06-认识-Agent">第一层 · 认识 Agent</div>
+<div class="section-desc">先理解 Agent 是什么，和 Copilot Chat / Office Copilot 有什么区别。资料来源：Microsoft Support、Learn、Adoption（2026-07 下载归档）。</div>
+
+<div class="card" id="agents-m365">
+<h3>Agents in Microsoft 365 · M365 中的 Agent</h3>
+<div class="meta">Microsoft Adoption · 官方链接：adoption.microsoft.com/ai-agents/agents-in-microsoft-365</div>
+<p>面向普通用户的 Agent 概述。介绍在 Microsoft 365 中什么是 Agent、用户如何发现和使用 Agent，以及 Agent 如何作为 Copilot 的扩展能力服务于不同任务和业务场景。</p>
+<div class="insight"><strong>适用对象：</strong>全员进阶 · Champion · 种子用户 · 讲师</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Agents in Microsoft 365 - Microsoft Adoption.html (179KB)</div>
+</div>
+
+<div class="card" id="get-started">
+<h3>Get Started with Agents · Agent 入门</h3>
+<div class="meta">Microsoft Support / Learn · 官方链接：support.microsoft.com/Microsoft-365-Copilot/get-started-with-agents</div>
+<p>面向所有用户的 Agent 入门指南。覆盖 Agent 的基本概念、如何在 Microsoft 365 Copilot App 中使用预构建的 Agent，以及如何开始探索 Agent 的能力。适合作为普通用户进阶认知和种子用户学习的资料入口。</p>
+<ul>
+<li>官方学习路径：Enhance productivity with prebuilt Microsoft 365 Copilot agents（Microsoft Learn Training）</li>
+<li>官方课程：Transform business processes with agents MS-4019（Microsoft Learn Training）</li>
+</ul>
+<div class="insight"><strong>适用对象：</strong>普通员工进阶用户 · Champion · 培训讲师 · IT/业务负责人</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Get started with agents in M365 Copilot app.html (126KB) + Agents for Microsoft 365 Copilot - Microsoft Learn.html</div>
+</div>
+
+<div class="card" id="office-agents">
+<h3>Word / Excel / PowerPoint Agents · 应用内 Agent</h3>
+<div class="meta">Microsoft Support · 官方链接：support.microsoft.com/Microsoft-365-Copilot/word-excel-powerpoint-agents</div>
+<p>在 Word、Excel 和 PowerPoint 中直接使用 Agent 的官方指南。从应用内 Copilot 走向应用 Agents——让 Agent 在文档和表格中直接工作，无需切换到 Copilot App。</p>
+<div class="insight"><strong>适用对象：</strong>种子用户 · 业务团队 · 日常深度使用 Office 的员工</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Word Excel and PowerPoint Agents.html (111KB)</div>
+</div>
+
+<!-- ====== 第二层：应用型 Agent ====== -->
+<div class="section" id="m06-应用场景">第二层 · 应用型 Agent</div>
+<div class="section-desc">重点看真实应用场景——SharePoint、员工自助、分析师、App Agents。不先讲技术架构，先让用户看到 Agent 能做什么。</div>
+
+<div class="card" id="sharepoint-agents">
+<h3>Agents in SharePoint · SharePoint Agent</h3>
+<div class="meta">Microsoft Adoption · adoption.microsoft.com/ai-agents/agents-in-sharepoint · 下载 2026-07-14</div>
+
+<p>SharePoint Agent 是最"低门槛高价值"的 Agent 类型——<strong>不需要任何技术能力</strong>，用户选择已有 SharePoint 站点作为知识源，Agent 就能基于站点内所有文档、列表和页面回答问题。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:6px">莱茵适用场景</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>认证标准库</strong> — ISO/行业标准的条款检索和解释</li>
+<li><strong>项目知识库</strong> — 某个客户项目的所有文档、邮件、会议纪要</li>
+<li><strong>部门 SOP</strong> — 操作手册、流程规范、模板文档</li>
+<li><strong>竞品情报</strong> — 市场分析报告、竞对信息的集中检索</li>
+</ul>
+</div>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #009537">
+<h5 style="font-size:13px;color:#009537;margin-bottom:6px">创建只需 3 步</h5>
+<ol style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li>在 Copilot Chat 中选择 "Create an agent"</li>
+<li>指定一个 SharePoint 站点作为知识来源</li>
+<li>给 Agent 命名 + 简短描述（如"莱茵 ISO 9001 标准助手"）</li>
+</ol>
+<p style="font-size:12px;color:#95A5A6;margin-top:8px">创建后立即可用——团队成员在同一 Copilot Chat 中 @Agent名称 即可提问。</p>
+</div>
+</div>
+
+<div style="background:#FFF8E1;border-radius:10px;padding:14px;margin-top:12px;border:1px solid #EB971B">
+<p style="font-size:12px;color:#4A5568;margin:0"><strong>注意事项：</strong>Agent 只能访问用户已有权限的文档。如果一个站点包含敏感信息，需先通过 SharePoint Governance 限制访问范围。Agent 创建后可通过 Agent Registry 集中管理。</p>
+</div>
+
+<div class="insight"><strong>适用对象：</strong>种子用户 · 业务团队 · 知识管理员 · 项目经理 · SharePoint 管理员</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Agents in SharePoint - Microsoft Adoption.html (145KB)</div>
+</div>
+
+<div class="card" id="self-service">
+<h3>Employee Self-Service Agent · 员工自助服务</h3>
+<div class="meta">Microsoft Adoption · adoption.microsoft.com/ai-agents/employee-self-service · 下载 2026-07-14</div>
+
+<p>这是<strong>莱茵内部 Agent 落地最直接、ROI 最可量化的应用场景</strong>。不需要复杂技术——只需将现有政策文档、FAQ、流程说明作为 Agent 的知识源，员工就能用自然语言自助查询。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:6px">典型知识源</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>HR 政策</strong> — 假期、报销、差旅、福利、入职离职流程</li>
+<li><strong>IT 支持</strong> — 账号申请、VPN 配置、软件安装、打印机</li>
+<li><strong>行政服务</strong> — 会议室预订、访客登记、办公用品</li>
+<li><strong>合规问答</strong> — 数据保护、反腐败、安全规范</li>
+</ul>
+</div>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #009537">
+<h5 style="font-size:13px;color:#009537;margin-bottom:6px">莱茵落地步骤</h5>
+<ol style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li>选择一个部门试点（HR 或 IT 支持）</li>
+<li>整理该部门的 Top 20 高频问题 + 对应文档</li>
+<li>用 Agent Builder 创建 Agent，指定 SharePoint 站点为知识源</li>
+<li>在部门内测 2 周，收集反馈和缺失问题</li>
+<li>迭代知识库 → 扩展到其他部门</li>
+</ol>
+</div>
+</div>
+
+<div style="background:#FFF8E1;border-radius:10px;padding:14px;margin-top:12px;border:1px solid #EB971B">
+<p style="font-size:12px;color:#4A5568;margin:0"><strong>关键成功因素：</strong>Agent 的质量 = 源文档的质量。如果政策文档本身混乱、过时或缺失，Agent 无法给出好答案。部署 Agent 之前先做一次文档审计和更新。</p>
+</div>
+
+<div class="insight"><strong>适用对象：</strong>HR · IT 支持 · 行政 · 部门负责人 · Champion/种子用户</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Employee Self-Service Agent in M365 Copilot.html (168KB) + 官方部署模板</div>
+</div>
+
+<div class="card" id="analyst">
+<h3>Analyst Researcher Agent · 分析师/研究员 Agent</h3>
+<div class="meta">Microsoft Adoption · 本地附件：AnalystResearcherOverviewDeck.pptx (68MB) · 下载日期 2026-07-14</div>
+
+<p>代表 <strong>"知识工作者增强型 Agent"</strong>方向——不是替代分析师，而是让分析师把精力从"找资料、整理、归纳"转移到"判断、洞察、决策"。</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:6px">核心能力方向</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>研究资料整理</strong> — 多源信息聚合、去重、结构化</li>
+<li><strong>分析报告初稿</strong> — 基于数据集和模板生成报告框架</li>
+<li><strong>信息归纳</strong> — 从大量文档中提取关键发现</li>
+<li><strong>业务洞察生成</strong> — 关联多维度数据发现模式</li>
+</ul>
+</div>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;border-left:3px solid #009537">
+<h5 style="font-size:13px;color:#009537;margin-bottom:6px">莱茵潜在应用场景</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>认证审核</strong> — 标准条款检索 + 案例匹配 + 差异分析</li>
+<li><strong>竞对分析</strong> — 公开信息收集 + 能力矩阵 + 趋势报告</li>
+<li><strong>销售支持</strong> — 客户背景研究 + 方案素材匹配</li>
+<li><strong>项目管理</strong> — 多项目进度汇总 + 风险识别</li>
+</ul>
+</div>
+</div>
+
+<div class="insight" style="margin-top:12px">
+<strong>适用对象：</strong>业务分析人员 · 咨询/项目团队 · 市场/销售支持 · Champion/种子用户<br>
+<strong>关联资料：</strong><a href="#templates" style="color:#0071B9">Agent Templates & Examples</a> · <a href="#readiness" style="color:#0071B9">Agentic Readiness</a>
+</div>
+
+<div class="sn">本地附件：_official_downloads/06_Agent进阶/attachments/AnalystResearcherOverviewDeck.pptx (68MB)</div>
+</div>
+
+<div class="card" id="app-agents">
+<h3>App Agents · 应用 Agent</h3>
+<div class="meta">Microsoft · 本地附件：AppAgentsGuide.pptx + AppAgentsHandout.pptx</div>
+<p>Microsoft 365 Copilot App 中的 Agents 指南和讲义。包含两份培训材料，适合用于内部 Agent 介绍和培训。</p>
+<div class="insight"><strong>适用对象：</strong>培训讲师 · Champion · 全员推广</div>
+</div>
+
+<!-- ====== 第三层：构建 Agent ====== -->
+<div class="section" id="m06-如何构建">第三层 · 构建 Agent</div>
+<div class="section-desc">理解如何从场景走向构建——何时用 Agent Builder（简单场景），何时用 Copilot Studio（复杂场景），以及如何分享和管理。</div>
+
+<div class="card" id="build">
+<h3>Build Agents with Microsoft 365 Copilot · 构建 Agent</h3>
+<div class="meta">Microsoft Adoption · adoption.microsoft.com/ai-agents/build-agents · 下载 2026-07-14</div>
+
+<p>官方构建指南——从"用 Agent"到"做 Agent"的路径。核心方法论：<strong>场景先行、工具后选。</strong></p>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;margin:12px 0;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:8px">构建 Agent 的 5 个阶段</h5>
+<table style="font-size:12px">
+<tr><th style="width:90px">阶段</th><th>做什么</th><th>关键产出</th></tr>
+<tr><td><strong>1. 场景发现</strong></td><td>识别业务中重复性高、规则明确、文档密集的任务</td><td>场景卡片（问题、受众、知识源、预期效果）</td></tr>
+<tr><td><strong>2. 知识准备</strong></td><td>整理和审核 Agent 需要的源文档——这一步决定 Agent 质量</td><td>审核后的文档集合（SharePoint/OneDrive）</td></tr>
+<tr><td><strong>3. 工具选择</strong></td><td>简单场景→Agent Builder；复杂场景→Copilot Studio</td><td>工具决策记录</td></tr>
+<tr><td><strong>4. 构建测试</strong></td><td>创建 Agent → 内部测试 → 收集反馈 → 迭代</td><td>测试报告 + 改进清单</td></tr>
+<tr><td><strong>5. 发布推广</strong></td><td>设定发布范围 → 用户通知 → 使用引导 → 持续监控</td><td>发布检查清单 + 用户引导材料</td></tr>
+</table>
+</div>
+
+<div class="insight"><strong>经验法则：</strong>80% 的莱茵内部 Agent 场景可以用 Agent Builder + SharePoint 知识源完成。只有需要多数据源、API 集成或自定义对话流程时才需要 Copilot Studio。优先低代码，降低维护成本。</div>
+
+<div class="insight"><strong>适用对象：</strong>Champion · 业务负责人 · IT · 种子用户</div>
+<div class="sn">本地附件：attachments/How-to-Build-Agents-with-Microsoft-white-paper-Feb-2026.pdf (489KB)</div>
+</div>
+
+<div class="card" id="builder-vs-studio">
+<h3>Agent Builder vs Copilot Studio · 工具选择</h3>
+<div class="meta">Microsoft Learn · 官方链接：learn.microsoft.com/microsoft-365/copilot/extensibility</div>
+<p><strong>Agent Builder：</strong>适合简单场景——设定数据源（SharePoint 站点/文件）即可，无需代码。<br>
+<strong>Copilot Studio：</strong>适合复杂场景——需要自定义对话逻辑、多数据源集成、API 调用、发布到多个渠道。<br>
+<strong>选择原则：</strong>能用 Agent Builder 做就不要上 Copilot Studio，降低维护成本。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · 业务负责人 · Champion</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Choose between Agent Builder and Copilot Studio.html (58KB)</div>
+</div>
+
+<div class="card" id="copilot-studio">
+<h3>Copilot Studio Guidance · Copilot Studio 指南</h3>
+<div class="meta">Microsoft Adoption / Learn · 官方链接：adoption.microsoft.com/ai-agents/copilot-studio</div>
+<p>Microsoft Copilot Studio 的完整指南——用于构建自定义 Agent 的低代码平台。覆盖 Agent 创建、对话设计、知识管理、发布渠道。附 Microsoft-Copilot-Studio-scenarios.pptx (34MB) 和 What's new 更新日志。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · 业务负责人 · 安全/治理人员</div>
+<div class="sn">本地附件：attachments/Microsoft-Copilot-Studio-scenarios.pptx + What's new in Copilot Studio.html</div>
+</div>
+
+<div class="card" id="share-manage">
+<h3>Share and Manage Agents · 分享与管理</h3>
+<div class="meta">Microsoft Learn · 官方链接：learn.microsoft.com/microsoft-365/copilot/extensibility/agent-builder-share-manage-agents</div>
+<p>如何分享和管理通过 Microsoft 365 Copilot 构建的 Agent。覆盖 Agent 的发布范围（个人/团队/组织）、权限设置、更新和下线流程。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · Agent 创建者 · 治理负责人</div>
+</div>
+
+<!-- ====== 第四层：模板与案例 ====== -->
+<div class="section" id="m06-模板案例">第四层 · 模板与案例</div>
+<div class="section-desc">用官方模板和场景帮助发现莱茵内部案例。AI Agents Hub 是总入口，Agent Factory 白皮书是方法论参考。</div>
+
+<div class="card" id="templates">
+<h3>Agent Templates & Examples · 模板与案例</h3>
+<div class="meta">Microsoft Adoption · 官方入口：adoption.microsoft.com/ai-agents</div>
+<p>Microsoft 官方 Agent 模板和案例集合的总入口（AI Agents Hub）。涵盖不同行业和场景下的 Agent 实现参考。包含 Agent 采用、治理、社区推进、准备度、评估、安全、平台等全链路资料。适合后续整理部门 Agent 场景库和种子用户进阶资料。</p>
+<div class="insight"><strong>适用对象：</strong>Champion · 业务负责人 · IT/安全/治理人员 · 培训项目负责人</div>
+<div class="sn">本地附件：Agent-governance-whitepaper.pdf · Agent-security-playbook.pdf · AgentEvaluationEbook.pdf · AgenticReadinessFrameworkOverview.pdf · 90DayCommunityFramework.pdf · The-Microsoft-Agent-Factory-white-paper-Feb-2026.pdf · MicrosoftIQAgentDataPlatform.pdf · How-to-Build-Agents-with-Microsoft-white-paper-Feb-2026.pdf · MicrosoftFoundryAIAdoptionJourney.pdf</div>
+</div>
+
+<div class="card" id="studio-scenarios">
+<h3>Copilot Studio Scenarios · Studio 场景</h3>
+<div class="meta">Microsoft · 本地附件：Microsoft-Copilot-Studio-scenarios.pptx (34MB)</div>
+<p>Microsoft Copilot Studio 在不同场景下的应用案例展示。适合用于启发莱茵内部 Agent 场景发现工作坊。</p>
+<div class="insight"><strong>适用对象：</strong>讲师 · 项目负责人 · 业务团队</div>
+</div>
+
+<!-- ====== 第五层：治理与安全 ====== -->
+<div class="section" id="m06-治理安全">第五层 · 治理与安全</div>
+<div class="section-desc">Agent 不是只会创建，还要能管理、评估和下线。以下四份资料是 Agent 上线前的必读项。</div>
+
+<div class="card" id="gov">
+<h3>Agent Governance · Agent 治理</h3>
+<div class="meta">Microsoft · 本地附件：Agent-governance-whitepaper.pdf (836KB)</div>
+<p>Agent 治理白皮书。覆盖 Agent 生命周期管理、合规要求、风险控制和最佳实践。<strong>莱茵内部 Agent 上线前，须基于本文档制定治理规则。</strong></p>
+<div class="insight"><strong>适用对象：</strong>IT · 安全 · 管理层 · 合规</div>
+</div>
+
+<div class="card" id="sec">
+<h3>Agent Security · Agent 安全</h3>
+<div class="meta">Microsoft · 本地附件：Agent-security-playbook.pdf (427KB)</div>
+<p>Agent 安全手册。覆盖 Agent 的安全边界、数据访问控制、威胁模型和防护措施。</p>
+<div class="insight"><strong>适用对象：</strong>安全管理员 · IT · 合规</div>
+</div>
+
+<div class="card" id="registry">
+<h3>Agent Registry · Agent 注册表</h3>
+<div class="meta">Microsoft Learn · 官方链接：learn.microsoft.com/microsoft-365/admin/manage/agent-registry</div>
+<p>在 Microsoft 365 管理中心管理 Agent 注册表的官方文档。IT 管理员可以查看、审批和管理组织内所有已创建的 Agent——这是 Agent 治理的<strong>技术执行层</strong>。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · Agent 治理负责人</div>
+<div class="sn">本地：_official_downloads/06_Agent进阶/Agent Registry in M365 admin center.html (91KB)</div>
+</div>
+
+<div class="card" id="eval">
+<h3>Agent Evaluation · Agent 评估</h3>
+<div class="meta">Microsoft · 本地附件：AgentEvaluationEbook.pdf (1.3MB)</div>
+<p>Agent 评估框架。如何评估 Agent 的质量、安全性和业务价值——覆盖 Agent 上线前和运行中的持续评估。</p>
+<div class="insight"><strong>适用对象：</strong>IT · 业务负责人 · 项目管理</div>
+</div>
+
+<!-- ====== 第六层：学习与推广 ====== -->
+<div class="section" id="m06-学习推广">第六层 · 学习与推广</div>
+<div class="section-desc">让 Agent 从单点实验变成组织采用。用准备度评估、采用路径和社区框架推动规模化。</div>
+
+<div class="card" id="readiness">
+<h3>Agentic Readiness · Agent 就绪度</h3>
+<div class="meta">Microsoft · 本地附件：AgenticReadinessFrameworkOverview.pdf (2.4MB) · 下载 2026-07-14</div>
+
+<p><strong>决定"现在能不能推 Agent"的评估框架。</strong>不是一次培训前的检查表——是组织级 Agent 战略的起点。建议莱茵在启动首个 Agent 项目前完成评估。</p>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;margin:12px 0;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:8px">五大评估维度</h5>
+<table style="font-size:12px">
+<tr><th style="width:100px">维度</th><th>评估问题</th><th>莱茵自查</th></tr>
+<tr><td><strong>数据治理</strong></td><td>源文档是否组织有序、权限清晰、内容最新？</td><td>SharePoint 站点结构、文档审核机制</td></tr>
+<tr><td><strong>业务场景</strong></td><td>是否有明确的高价值、可复现的 Agent 场景？</td><td>部门痛点访谈、高频重复任务清单</td></tr>
+<tr><td><strong>人员能力</strong></td><td>团队是否有基本的 Agent 认知和 Prompt 技能？</td><td>30-Day Journey 完成率、Champion 人数</td></tr>
+<tr><td><strong>治理机制</strong></td><td>是否定义了 Agent 的创建、审核、监控和下线流程？</td><td>Agent Registry 配置、审批流程</td></tr>
+<tr><td><strong>价值衡量</strong></td><td>如何衡量 Agent 的 ROI？省了多少时间/减少了多少工单？</td><td>基线数据 + 定期评估</td></tr>
+</table>
+</div>
+
+<div class="insight"><strong>建议路径：</strong>先用 30-Day Journey 建立基础认知 → 完成 Readiness 评估 → 选 1-2 个高价值低风险场景试点 → 用 90-Day Community 框架推广。</div>
+
+<div class="insight"><strong>适用对象：</strong>管理层 · 项目负责人 · IT/安全/合规 · 培训负责人</div>
+<div class="sn">关联：<a href="#m03-30-day-skilling" style="color:#0071B9">30-Day Skilling Journey</a> · <a href="#community" style="color:#0071B9">90-Day Community</a> · <a href="#eval" style="color:#0071B9">Agent Evaluation</a></div>
+</div>
+
+<div class="card" id="adoption">
+<h3>Agent Adoption Journey · Agent 采用之旅</h3>
+<div class="meta">Microsoft · 本地附件：MicrosoftFoundryAIAdoptionJourney.pdf (9MB) + Agent-Factory-white-paper.pdf (256KB) + How-to-Build-Agents-white-paper.pdf (489KB) · 下载 2026-07-14</div>
+
+<p>从<strong>单个 Agent 实验</strong>到<strong>组织级 Agent 能力</strong>的分阶段采用路径。适合放入管理层和项目负责人的决策材料。</p>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;margin:12px 0;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:8px">四阶段采用模型</h5>
+<table style="font-size:12px">
+<tr><th style="width:80px">阶段</th><th>核心问题</th><th>典型活动</th><th>莱茵参考</th></tr>
+<tr><td><strong>认知</strong></td><td>"Agent 能做什么？"</td><td>Demo 展示、案例分享、管理层 Briefing</td><td>全员基础课 + 30-Day Journey</td></tr>
+<tr><td><strong>实验</strong></td><td>"Agent 怎么在我们部门落地？"</td><td>1-2 个试点 Agent、种子用户验证</td><td>选 HR/IT 做 Employee Self-Service 试点</td></tr>
+<tr><td><strong>规模化</strong></td><td>"如何让更多人用？"</td><td>Champion 社群、部门路演、模板复制</td><td>90-Day Community Framework</td></tr>
+<tr><td><strong>优化</strong></td><td>"怎么持续变好？"</td><td>Agent 评估、反馈闭环、ROI 追踪</td><td>Agent Evaluation + Registry 治理</td></tr>
+</table>
+</div>
+
+<div class="insight"><strong>给管理层的核心信息：</strong>Agent 不是 IT 项目——是业务转型项目。技术成本低（Agent Builder 零代码），真正的投入是场景发现、知识整理和变革管理。80% 的成功取决于"人"和"流程"，不是技术。</div>
+
+<div class="insight"><strong>适用对象：</strong>管理层 · 项目负责人 · IT/架构负责人 · 业务负责人</div>
+<div class="sn">本地附件：MicrosoftFoundryAIAdoptionJourney.pdf (9MB) · Agent-Factory-white-paper.pdf · How-to-Build-Agents-white-paper.pdf</div>
+</div>
+
+<div class="card" id="community">
+<h3>90-Day Community Framework · 90天社区框架</h3>
+<div class="meta">Microsoft · 本地附件：90DayCommunityFramework.pdf (492KB) + MicrosoftIQAgentDataPlatform.pdf (1.4MB) · 下载 2026-07-14</div>
+
+<p>Agent 采用<strong>不能只靠一次培训</strong>。90 天社区框架提供了从"第一批种子用户"到"自运转 Champion 社群"的完整运营方案。</p>
+
+<div style="background:#F0F7FC;border-radius:10px;padding:16px;margin:12px 0;border-left:3px solid #0071B9">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:8px">三阶段推进</h5>
+<table style="font-size:12px">
+<tr><th style="width:80px">阶段</th><th style="width:70px">时间</th><th>核心动作</th><th>产出</th></tr>
+<tr><td><strong>启动</strong></td><td>Day 1-30</td><td>招募首批 10-20 名 Champion → 发放工具包 → 首次 Kickoff 会议</td><td>Champion 名单 + 社区章程</td></tr>
+<tr><td><strong>激活</strong></td><td>Day 31-60</td><td>每周微挑战 → 案例分享会 → 内部 Showcase → Peer 互评</td><td>10+ 个内部 Agent 案例</td></tr>
+<tr><td><strong>规模化</strong></td><td>Day 61-90</td><td>Champion 带教新人 → 部门路演 → 管理层汇报 → 季度规划</td><td>自运转机制 + Q2 路线图</td></tr>
+</table>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+<div style="background:#fff;border:1px solid #E8EDF2;border-radius:10px;padding:16px">
+<h5 style="font-size:13px;color:#0071B9;margin-bottom:6px">运营节奏</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>每周：</strong>1 个微挑战 + 1 次 15min 闪电分享</li>
+<li><strong>每两周：</strong>1 次案例深挖会（30min）</li>
+<li><strong>每月：</strong>Champion 月度回顾 + 管理层简报</li>
+<li><strong>第 90 天：</strong>成果展示会 + 优秀案例评选</li>
+</ul>
+</div>
+
+<div style="background:#fff;border:1px solid #E8EDF2;border-radius:10px;padding:16px">
+<h5 style="font-size:13px;color:#009537;margin-bottom:6px">成功衡量</h5>
+<ul style="font-size:12px;color:#4A5568;margin-left:16px;line-height:1.8">
+<li><strong>Champion 活跃率</strong> ≥ 60%（每周至少参与 1 次）</li>
+<li><strong>Agent 创建数</strong> ≥ 每个 Champion 1 个</li>
+<li><strong>案例收录数</strong> ≥ 10 个可复制的内部案例</li>
+<li><strong>NPS</strong> ≥ 40（社区成员满意度）</li>
+</ul>
+</div>
+</div>
+
+<div class="insight"><strong>适用对象：</strong>培训项目负责人 · Champion · 内部推广团队 · 业务负责人</div>
+<div class="sn">关联：<a href="#m03-user-engagement-tools" style="color:#0071B9">User Engagement Tools</a> · <a href="#readiness" style="color:#0071B9">Agentic Readiness</a> · <a href="#m03-scenario-library" style="color:#0071B9">Scenario Library</a></div>
+</div>
+
+<!-- ====== Agent 管理（IT 接口） ====== -->
+<div class="card" id="agent-admin">
+<h3>Agent Admin Management · Agent 管理</h3>
+<div class="meta">Microsoft Learn · 已下载</div>
+<p>在 Microsoft 365 管理中心管理 Agent 的官方文档。覆盖 Agent 的注册、审批、监控和下线流程——连接 04_IT与治理 和 05_安全隐私合规。</p>
+<div class="insight"><strong>适用对象：</strong>IT 管理员 · Agent 治理负责人</div>
+</div>
+
+</div>
+
+
+
+<div class="card" id="m07-apis"><h3>Copilot APIs Overview · API 总览</h3><div class="meta">Microsoft Learn · 2026-07-13 下载</div>
+<p>Microsoft 365 Copilot APIs 的总览页面。介绍可用于扩展 Copilot 的 API 接口——允许开发者将 Copilot 集成到自定义应用、自动化工作流和组织级解决方案中。</p>
+<div class="sn">本地下载：_official_downloads/07_扩展与开发/Microsoft 365 Copilot APIs Overview.html (60KB)</div>
+</div>
+
+<div class="card" id="m07-connectors"><h3>Copilot Connectors · 连接器</h3><div class="meta">Microsoft Learn · 2026-07-13 下载</div>
+<p>Microsoft 365 Copilot Connectors 概述。Connectors 允许 Copilot 接入外部数据源（如第三方 SaaS 应用、数据库、文件系统），让 Copilot 能够回答超出 Microsoft 365 范围的问题。</p>
+<div class="sn">本地下载：_official_downloads/07_扩展与开发/Microsoft 365 Copilot connectors overview.html (58KB)</div>
+</div>
+
+<div class="card" id="m07-plugins"><h3>Copilot Cowork Plugins · 协作插件</h3><div class="meta">Microsoft Learn · 2026-07-13 下载</div>
+<p>如何为 Copilot Cowork 构建插件的官方开发指南。Copilot Cowork 是面向团队协作场景的 Copilot 版本，插件可以扩展其功能和数据接入能力。</p>
+<div class="sn">本地下载：_official_downloads/07_扩展与开发/Build plugins for Copilot Cowork.html (83KB)</div>
+</div>
+
+<div class="card" id="m07-work-iq"><h3>Work IQ · 工作智能</h3><div class="meta">Microsoft Learn · 2026-07-13 下载</div>
+<p>Work IQ 概述页面。Work IQ 是 Microsoft 面向企业的工作智能平台，与 Copilot 深度集成，提供组织级的工作数据分析、模式识别和智能建议。</p>
+<div class="sn">本地下载：_official_downloads/07_扩展与开发/Work IQ overview.html (52KB)</div>
+</div>
+
+
+
+<div class="card" id="m99-downloads"><h3>官方资料下载清单</h3><div class="meta">_official_downloads/ 归档索引</div>
+<table>
+<tr><th>模块</th><th>文件数</th><th>类型</th><th>下载日期</th></tr>
+<tr><td>00_总入口</td><td>3</td><td>HTML（Microsoft Learn / Support / Adoption）</td><td>2026-07-13</td></tr>
+<tr><td>01_用户学习</td><td>15</td><td>HTML（Microsoft Support 各应用页面）</td><td>2026-07-13/14</td></tr>
+<tr><td>02_Prompt</td><td>4</td><td>HTML（Support / Learn / Adoption）</td><td>2026-07-13/14</td></tr>
+<tr><td>03_企业采用</td><td>5 HTML + 19 附件</td><td>HTML + PPTX + ZIP</td><td>2026-07-13/14</td></tr>
+<tr><td>04_IT与治理</td><td>8</td><td>HTML（Microsoft Learn）</td><td>2026-07-13/14</td></tr>
+<tr><td>05_安全隐私合规</td><td>5</td><td>HTML（Microsoft Learn）</td><td>2026-07-13/14</td></tr>
+<tr><td>06_Agent进阶</td><td>16 + 10 附件</td><td>HTML + PPTX + PDF</td><td>2026-07-13/14</td></tr>
+<tr><td>07_扩展与开发</td><td>4</td><td>HTML（Microsoft Learn）</td><td>2026-07-13</td></tr>
+</table>
+</div>
+
+<div class="card" id="m99-pending"><h3>待核对主题清单</h3><div class="meta">质量控制</div>
+<ul>
+<li><strong>Organizational Prompts</strong> — 未找到稳定公开官方页面；暂不使用未确认链接。如后续功能仍处于 preview 或名称变化，需明确标注版本状态。</li>
+<li><strong>30-Day Skilling Journey</strong> — <span style="color:#009537;font-weight:700"><svg width="14" height="14" viewBox="0 0 14 14" style="vertical-align:middle"><circle cx="7" cy="7" r="7" fill="#009537"/><path d="M4 7l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none"/></svg> 已确认</span>：本地存在两个官方 Journey 下载包（Copilot 版 + Chat 版），资料来源 aka.ms/Copilot/JourneyDownloadKit。已更新至知识页。</li>
+<li><strong>Prompt-a-thon</strong> — 暂未发现独立页面；已用 Prompt Gallery + 相关 PPTX 补充。</li>
+<li><strong>Virtual Skilling Event</strong> — 待补充官方链接和本地下载。</li>
+<li><strong>Responsible AI</strong> — 待核对独立官方页面。</li>
+</ul>
+<p style="font-size:12px;color:#95A5A6;margin-top:12px">维护规则：每次从 Microsoft 官方补充新内容后，更新下载清单。遇到没有稳定官方来源的主题，先放入待核对清单，不要硬写进正式知识页。</p>
+</div>
+
+
+<div class="footer">
+Microsoft 365 Copilot 知识库 · 01_用户学习 · 基于 Microsoft Support 官方资料 · 2026-07 归档 · TÜV Rheinland BS.A West
+</div>
+
+</body>
+</html>
