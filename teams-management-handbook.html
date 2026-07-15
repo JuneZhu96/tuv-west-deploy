@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Teams + Copilot 西区团队管理实战教材 — TÜV Rheinland</title>
+<style>
+:root {
+  --blue: #0071B9;
+  --ink: #142235;
+  --muted: #637184;
+  --light-bg: #F5F8FC;
+  --white: #FFFFFF;
+  --border: #E5E9F0;
+  --green: #009537;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, SimSun, sans-serif; color: var(--ink); background: var(--white); line-height: 1.8; }
+h1, h2, h3, h4 { font-family: Arial, SimHei, sans-serif; color: var(--blue); }
+h1 { font-size: 2.2em; margin-bottom: 0.3em; }
+h2 { font-size: 1.6em; margin-top: 2em; margin-bottom: 0.6em; padding-bottom: 0.3em; border-bottom: 3px solid var(--blue); }
+h3 { font-size: 1.25em; margin-top: 1.5em; margin-bottom: 0.5em; }
+h4 { font-size: 1.1em; margin-top: 1.2em; margin-bottom: 0.4em; color: var(--ink); }
+p { margin-bottom: 1em; }
+.container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, #002B46 0%, #0071B9 100%); color: var(--white); padding: 80px 24px; text-align: center; }
+.hero h1 { color: var(--white); font-size: 2.6em; margin-bottom: 0.3em; }
+.hero .subtitle { font-size: 1.2em; opacity: 0.9; margin-bottom: 0.5em; }
+.hero .meta { font-size: 0.95em; opacity: 0.7; }
+
+/* TOC */
+.toc { background: var(--light-bg); border-left: 4px solid var(--blue); padding: 28px 32px; margin: 40px 0; border-radius: 0 8px 8px 0; }
+.toc h3 { margin-top: 0; color: var(--blue); }
+.toc ol { padding-left: 20px; }
+.toc ol ol { padding-left: 20px; }
+.toc li { margin: 4px 0; }
+.toc a { color: var(--blue); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* Callout boxes */
+.callout { padding: 20px 24px; margin: 24px 0; border-radius: 8px; border-left: 4px solid; }
+.callout.important { background: #FFF8E1; border-color: #EB971B; }
+.callout.info { background: #E3F2FD; border-color: var(--blue); }
+.callout.warning { background: #FFEBEE; border-color: #D20033; }
+.callout.tip { background: #E8F5E9; border-color: var(--green); }
+.callout h4 { margin-top: 0; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
+th { background: var(--blue); color: var(--white); padding: 12px 16px; text-align: left; font-family: Arial, SimHei, sans-serif; }
+td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: var(--light-bg); }
+
+/* Steps */
+.step { background: var(--light-bg); padding: 16px 20px; margin: 12px 0; border-radius: 6px; }
+.step .num { display: inline-block; width: 28px; height: 28px; background: var(--blue); color: var(--white); text-align: center; line-height: 28px; border-radius: 50%; margin-right: 10px; font-weight: bold; font-size: 0.9em; }
+
+/* Scene cards */
+.scene-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--blue); border-radius: 8px; padding: 24px; margin: 20px 0; }
+.scene-card h3 { margin-top: 0; }
+.scene-card .roles { display: flex; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
+.scene-card .role-tag { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
+.role-tag.june { background: #0071B9; color: #fff; }
+.role-tag.team { background: #E3F2FD; color: #0071B9; }
+.role-tag.copilot { background: #E8F5E9; color: #009537; }
+
+/* Tags */
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin: 2px 4px; }
+.tag.ms { background: #E3F2FD; color: #0071B9; }
+.tag.premium { background: #FFF8E1; color: #F57F17; }
+
+/* Footer */
+.footer { background: var(--light-bg); padding: 40px 24px; text-align: center; color: var(--muted); margin-top: 60px; border-top: 3px solid var(--blue); }
+.footer p { margin-bottom: 0.4em; }
+
+/* App grid */
+.app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
+.app-card { border: 1px solid var(--border); border-radius: 8px; padding: 20px; background: var(--white); }
+.app-card h4 { margin-top: 0; color: var(--blue); }
+.app-card .app-icon { font-size: 2em; margin-bottom: 8px; }
+
+@media (max-width: 768px) {
+  .container { padding: 24px 16px; }
+  .hero { padding: 50px 16px; }
+  .hero h1 { font-size: 1.8em; }
+}
+
+/* Print-friendly */
+@media print {
+  .hero { background: var(--blue) !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Microsoft Teams + Copilot<br>西区团队管理实战教材</h1>
+<p class="subtitle">Microsoft Teams & Copilot for West China Team Management Handbook</p>
+<p class="meta">TÜV Rheinland BS.A West · June Zhu · 2026.07</p>
+<p class="meta">基于 Microsoft 官方教学内容（support.microsoft.com / learn.microsoft.com）</p>
+</section>
+
+<div class="container">
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h3>📑 目录 Contents</h3>
+<ol>
+<li><a href="#p1">Part 1：Teams 基础 —— 为分布式团队打好底盘</a>
+  <ol>
+  <li><a href="#p1-1">1.1 认识 Teams</a></li>
+  <li><a href="#p1-2">1.2 团队与频道设计</a></li>
+  <li><a href="#p1-3">1.3 聊天与协作</a></li>
+  <li><a href="#p1-4">1.4 会议全流程</a></li>
+  <li><a href="#p1-5">1.5 文件协作</a></li>
+  <li><a href="#p1-6">1.6 通知与状态管理</a></li>
+  </ol>
+</li>
+<li><a href="#p2">Part 2：Teams Apps 生态 —— 把 App 织进日常管理</a>
+  <ol>
+  <li><a href="#p2-1">2.1 Planner（任务管理）</a></li>
+  <li><a href="#p2-2">2.2 Approvals（审批流程）</a></li>
+  <li><a href="#p2-3">2.3 Lists（结构化列表）</a></li>
+  <li><a href="#p2-4">2.4 Loop（实时协作组件）</a></li>
+  <li><a href="#p2-5">2.5 OneNote（团队知识库）</a></li>
+  <li><a href="#p2-6">2.6 Praise（团队文化）</a></li>
+  <li><a href="#p2-7">2.7 Power Automate（自动化工作流）</a></li>
+  <li><a href="#p2-8">2.8 Forms（问卷与投票）</a></li>
+  <li><a href="#p2-9">2.9 Power BI（数据看板）</a></li>
+  <li><a href="#p2-10">2.10 Wiki（频道知识库）</a></li>
+  </ol>
+</li>
+<li><a href="#p3">Part 3：Copilot in Teams —— June 的 AI 增强层</a>
+  <ol>
+  <li><a href="#p3-1">3.1 会议智能</a></li>
+  <li><a href="#p3-2">3.2 聊天回顾</a></li>
+  <li><a href="#p3-3">3.3 文件问答</a></li>
+  <li><a href="#p3-4">3.4 跨应用联动</a></li>
+  <li><a href="#p3-5">3.5 Copilot Chat 通用对话</a></li>
+  </ol>
+</li>
+<li><a href="#p4">Part 4：西区管理实战 SOP</a>
+  <ol>
+  <li><a href="#p4-1">场景1：周一例会</a></li>
+  <li><a href="#p4-2">场景2：客户项目跟进</a></li>
+  <li><a href="#p4-3">场景3：跨城市信息同步</a></li>
+  <li><a href="#p4-4">场景4：周报半自动化</a></li>
+  <li><a href="#p4-5">场景5：审批流程</a></li>
+  <li><a href="#p4-6">场景6：新人入职</a></li>
+  </ol>
+</li>
+</ol>
+</div>
+
+<!-- ═══════════ PART 1 ═══════════ -->
+<h2 id="p1">Part 1：Teams 基础 —— 为分布式团队打好底盘</h2>
+
+<div class="callout info">
+<h4>🎯 本部分目标</h4>
+<p>掌握 Microsoft Teams 的核心功能，让分布在重庆、成都、西安的西区团队能在统一平台上高效协作。所有功能均为 M365 标准订阅自带，无需额外许可。</p>
+</div>
+
+<h3 id="p1-1">1.1 认识 Teams</h3>
+
+<p><strong>Microsoft Teams</strong> 是 Microsoft 365 中的团队协作中心——把人员、对话、内容汇集到一个统一平台。它不是一个孤立的 App，而是深度整合了聊天、会议、通话、文件协作的综合通信与协作系统。</p>
+
+<p><strong>Teams 的核心概念：</strong></p>
+<table>
+<tr><th>概念</th><th>说明</th><th>类比</th></tr>
+<tr><td><strong>Team（团队）</strong></td><td>一群人、对话、文件和工具的集合。通常对应一个组织单元（如"BS.A West"）。</td><td>公司里的一个部门</td></tr>
+<tr><td><strong>Channel（频道）</strong></td><td>团队内的讨论区，专门针对某个部门、项目或主题。每个 Team 可以有多个 Channel。</td><td>部门里的专项工作组</td></tr>
+<tr><td><strong>Chat（聊天）</strong></td><td>一对一或群组对话，更私密、更快速。最多 250 人群聊。</td><td>微信私聊/群聊</td></tr>
+<tr><td><strong>Meeting（会议）</strong></td><td>支持录制、转录、屏幕共享、白板的在线会议。</td><td>Zoom / 腾讯会议</td></tr>
+<tr><td><strong>Files（文件）</strong></td><td>与 SharePoint 和 OneDrive 深度集成的文件存储与协作。</td><td>企业网盘 + 协同编辑</td></tr>
+</table>
+
+<div class="callout info">
+<h4>📖 官方学习资源</h4>
+<p>Microsoft 提供了结构化的 Teams 学习路径：<br>
+→ <a href="https://learn.microsoft.com/en-us/training/teams/" target="_blank">Microsoft Learn: Training for Microsoft Teams</a><br>
+→ <a href="https://support.microsoft.com/en-us/teams" target="_blank">Microsoft Support: Teams help & learning</a></p>
+</div>
+
+<h3 id="p1-2">1.2 团队与频道设计</h3>
+
+<p><strong>Team（团队）</strong>是一群人员、对话、文件和工具的集合。一个<strong>Channel（频道）</strong>是团队内的专门讨论空间。</p>
+
+<h4>创建团队的两种方式</h4>
+
+<p><strong>方式一：从模板创建</strong></p>
+<div class="step"><span class="num">1</span>左侧面板选择 <strong>Teams</strong> → <strong>Create and join teams and channels</strong></div>
+<div class="step"><span class="num">2</span>选择 <strong>Create team</strong> → <strong>More create team options</strong></div>
+<div class="step"><span class="num">3</span>浏览模板，点击查看每个模板包含的频道和 App，选择 <strong>Use this template</strong></div>
+<div class="step"><span class="num">4</span>设置团队名称和描述 → 选择 <strong>Private</strong>（需批准加入）或 <strong>Public</strong>（组织中任何人可加入）</div>
+<div class="step"><span class="num">5</span>选择 <strong>Customize</strong> 调整频道 → <strong>Create</strong></div>
+
+<p><strong>方式二：从零创建</strong></p>
+<div class="step"><span class="num">1</span>左侧 <strong>Teams</strong> → <strong>Create and join teams and channels</strong> → <strong>Create team</strong></div>
+<div class="step"><span class="num">2</span>设置名称和描述 → 选择 Private 或 Public</div>
+<div class="step"><span class="num">3</span>命名第一个频道 → <strong>Create</strong></div>
+
+<h4>添加频道</h4>
+<p>在团队名旁选择 <strong>More options（⋯）</strong> → <strong>Add channel</strong> → 设置名称和描述 → 选择频道类型：</p>
+<table>
+<tr><th>频道类型</th><th>可见范围</th><th>适用场景</th></tr>
+<tr><td><strong>Standard（标准）</strong></td><td>团队内所有人可访问</td><td>日常讨论、全员通知</td></tr>
+<tr><td><strong>Private（私有）</strong></td><td>仅特定成员可访问</td><td>敏感项目、管理层讨论</td></tr>
+<tr><td><strong>Shared（共享）</strong></td><td>可邀请组织外人员</td><td>跨公司合作项目</td></tr>
+</table>
+
+<h4>添加成员</h4>
+<p>团队名旁 <strong>More options</strong> → <strong>Add member</strong> → 输入姓名添加。</p>
+
+<div class="callout tip">
+<h4>💡 西区 BS.A 推荐团队结构</h4>
+<table>
+<tr><th>Team</th><th>Channel（建议）</th><th>用途</th></tr>
+<tr><td rowspan="6"><strong>BS.A West</strong><br><span class="tag ms">Private</span></td><td>General</td><td>全员通知、团队公告</td></tr>
+<tr><td>Weekly-Meeting</td><td>周会议程、纪要、行动项</td></tr>
+<tr><td>Sales-Pipeline</td><td>商机讨论、客户动态</td></tr>
+<tr><td>Projects</td><td>各项目专属子频道</td></tr>
+<tr><td>Resources</td><td>方案模板、课程资料、竞对情报</td></tr>
+<tr><td>Fun</td><td>团队活动、生日庆祝</td></tr>
+</table>
+</div>
+
+<h3 id="p1-3">1.3 聊天与协作</h3>
+
+<h4>一对一聊天</h4>
+<div class="step"><span class="num">1</span>选择 <strong>Chat</strong> → <strong>New chat</strong> 图标</div>
+<div class="step"><span class="num">2</span>在 <strong>To</strong> 字段输入对方姓名</div>
+<div class="step"><span class="num">3</span>输入消息 → <strong>Send</strong></div>
+<p>也可以从频道中点击对方头像打开个人资料卡来发起聊天。</p>
+
+<h4>群组聊天</h4>
+<p>创建方式与一对一聊天相同，只需在 <strong>To</strong> 字段中添加多个人。群聊最多容纳 <strong>250 人</strong>。建议给群聊命名（点击群聊顶部→输入名称），方便后续查找。</p>
+
+<h4>频道帖子</h4>
+<p>频道内的对话以"帖子（Post）"形式组织。团队成员可以在频道中：</p>
+<ul>
+<li>发起新对话（New post）</li>
+<li>回复已有帖子（形成讨论串）</li>
+<li>@提及（@team 通知整个团队，@某人通知特定人员）</li>
+<li>附加文件、图片、链接</li>
+<li>使用格式工具（加粗、列表、代码块等）</li>
+</ul>
+
+<h4>Catch up（消息追赶）功能</h4>
+<p>Teams 提供 <strong>Catch up</strong> 视图帮助快速浏览所有未读和重要消息。每条对话以可滑动的卡片呈现，可以直接阅读、回复、反应，无需来回跳转。处理完所有消息后会显示"You're all caught up"。</p>
+
+<h3 id="p1-4">1.4 会议全流程</h3>
+
+<h4>加入会议的多种方式</h4>
+<table>
+<tr><th>方式</th><th>操作</th></tr>
+<tr><td><strong>通过链接</strong></td><td>点击邀请中的会议链接，Teams 自动打开</td></tr>
+<tr><td><strong>从日历</strong></td><td>选择 Calendar 标签 → 点击会议 → Join</td></tr>
+<tr><td><strong>通过会议 ID</strong></td><td>Calendar → Meet now 旁下拉 → Join with an ID → 输入 ID 和密码</td></tr>
+<tr><td><strong>从频道</strong></td><td>频道内的会议邀请直接显示 Join 按钮</td></tr>
+<tr><td><strong>从聊天</strong></td><td>已开始的会议，聊天顶部会出现 Join 按钮</td></tr>
+<tr><td><strong>电话拨入</strong></td><td>拨打邀请中的电话号码，输入会议 ID</td></tr>
+<tr><td><strong>匿名加入</strong></td><td>会前界面选择 Change → Join without signing in，输入名字即可</td></tr>
+</table>
+
+<h4>会议中的关键操作</h4>
+<table>
+<tr><th>功能</th><th>操作</th></tr>
+<tr><td><strong>录制会议</strong></td><td>More actions（⋯）→ Record and transcribe → 选择录制类型</td></tr>
+<tr><td><strong>开启转录</strong></td><td>More actions → Record and transcribe → Start transcription（Copilot 需要转录才能使用）</td></tr>
+<tr><td><strong>屏幕共享</strong></td><td>会议控制栏中的 Share 图标 → 选择窗口/屏幕/PowerPoint</td></tr>
+<tr><td><strong>会议笔记</strong></td><td>会议控制栏中的 Notes 图标</td></tr>
+<tr><td><strong>白板</strong></td><td>Share → Microsoft Whiteboard</td></tr>
+<tr><td><strong>举手/表情</strong></td><td>会议控制栏中的 Reactions</td></tr>
+<tr><td><strong>分组讨论</strong></td><td>Breakout rooms（需要组织者权限）</td></tr>
+</table>
+
+<h4>会议录制与存储</h4>
+<table>
+<tr><th>会议类型</th><th>录制存储位置</th></tr>
+<tr><td><strong>频道会议</strong></td><td>SharePoint → 该频道的 Files 标签中</td></tr>
+<tr><td><strong>其他会议</strong>（私人/群聊/一对一）</td><td>OneDrive → 组织者的 Recordings 文件夹</td></tr>
+</table>
+<p>会议结束后，录制链接也会出现在会议聊天或频道对话中。录制有默认过期时间，组织者和共同组织者可修改过期日期或移除过期限制。</p>
+
+<h4>谁能开始/停止录制</h4>
+<table>
+<tr><th>用户类型</th><th>开始录制</th><th>停止录制</th></tr>
+<tr><td>会议组织者</td><td>✅</td><td>✅</td></tr>
+<tr><td>同组织内参会者</td><td>✅</td><td>✅</td></tr>
+<tr><td>外部组织人员</td><td>❌</td><td>❌</td></tr>
+<tr><td>Guest（来宾）</td><td>❌</td><td>❌</td></tr>
+<tr><td>匿名参会者</td><td>❌</td><td>❌</td></tr>
+</table>
+
+<h3 id="p1-5">1.5 文件协作</h3>
+
+<p>Teams 中的文件功能深度集成了 <strong>OneDrive for work or school</strong> 和 <strong>SharePoint</strong>。每个频道自动拥有一个 SharePoint 文档库，团队上传的文件实际存储在那里。</p>
+
+<h4>文件入口</h4>
+<p>在 Teams 左侧选择 <strong>OneDrive</strong> 图标，可看到：</p>
+<table>
+<tr><th>视图</th><th>内容</th></tr>
+<tr><td><strong>Home</strong></td><td>最近查看/编辑的所有文件</td></tr>
+<tr><td><strong>My files</strong></td><td>个人 OneDrive 中的所有文件和文件夹</td></tr>
+<tr><td><strong>Shared</strong></td><td>与你共享 + 你共享给他人的文件</td></tr>
+<tr><td><strong>Favorites</strong></td><td>已收藏的文件</td></tr>
+<tr><td><strong>Recycle bin</strong></td><td>已删除的文件</td></tr>
+</table>
+
+<p><strong>快速浏览方式：</strong>Browse files by → 按分享者、会议、媒体类型筛选。Quick access → 直接进入特定频道文件。</p>
+
+<h4>上传和分享文件</h4>
+<div class="step"><span class="num">1</span>打开聊天/频道/会议 → 选择 <strong>Shared</strong> 或 <strong>Files</strong> 标签</div>
+<div class="step"><span class="num">2</span>选择 <strong>Upload</strong> → 选择文件来源 → 选择文件 → Open</div>
+<div class="step"><span class="num">3</span>文件自动上传，团队成员根据权限查看或编辑</div>
+
+<p><strong>从 OneDrive 分享：</strong>OneDrive → My files → 悬停文件 → More Actions → Share（直接发送）或 Copy link（复制链接）或 Manage access（调整权限）。</p>
+
+<div class="callout important">
+<h4>⚠️ 权限说明</h4>
+<p>Teams 文件的访问权限继承自 Team/Channel 的成员权限 + SharePoint 文档库权限。频道成员默认有编辑权限（除非单独设置只读）。分享给外部人员需单独授权。</p>
+</div>
+
+<h3 id="p1-6">1.6 通知与状态管理</h3>
+
+<h4>通知设置入口</h4>
+<p>Settings（⚙️）→ <strong>Notifications and activity</strong>（📣）。可分类型精细控制：</p>
+
+<table>
+<tr><th>通知类别</th><th>可选方式</th></tr>
+<tr><td>聊天消息</td><td>Banner and feed / Only show in feed / Off</td></tr>
+<tr><td>@提及</td><td>Banner and feed / Only show in feed / Off</td></tr>
+<tr><td>频道帖子</td><td>Banner and feed / Only show in feed / Off</td></tr>
+<tr><td>会议开始提醒</td><td>开关</td></tr>
+<tr><td>会议聊天（已接受）</td><td>下拉选择通知级别</td></tr>
+<tr><td>会议聊天（暂定/无回应）</td><td>默认：Mute until I join or send a message</td></tr>
+</table>
+
+<h4>全局控制</h4>
+<ul>
+<li><strong>静音所有通知</strong>（通话和会议除外）：Windows 专属开关</li>
+<li><strong>播放通知声音</strong>：可区分紧急消息和优先联系人</li>
+<li><strong>显示消息预览</strong>：通知横幅中显示内容片段</li>
+<li><strong>通知位置</strong>：右下/右上/左下/左上可选</li>
+<li><strong>未读活动邮件</strong>：定期发送错过了的活动摘要邮件</li>
+</ul>
+
+<h4>状态管理</h4>
+<p>点击头像 → 选择状态：Available（在线）、Busy（忙碌）、Do not disturb（勿扰）、Be right back（马上回来）、Appear away（显示离开）、Appear offline（显示离线）。可设置持续时间（如"1小时后恢复"）。</p>
+
+<h4>频道级别的通知</h4>
+<p>悬停频道名 → More options → <strong>Channel notifications</strong> → 可选择关注所有新帖或仅关注回复。</p>
+
+<!-- ═══════════ PART 2 ═══════════ -->
+<h2 id="p2">Part 2：Teams Apps 生态 —— 把 App 织进日常管理</h2>
+
+<div class="callout info">
+<h4>🎯 本部分目标</h4>
+<p>系统了解 Teams 中的应用生态，将合适的 App 嵌入西区日常管理流程。Teams 中的 App 分为四类：<strong>核心应用</strong>（开箱即用）、<strong>Microsoft 官方 App</strong>（Planner/Approvals 等，多数包含在 M365 订阅中）、<strong>第三方 App</strong>（经 Microsoft 验证）、<strong>自定义 App</strong>（组织内部开发）。本教材重点展开 Microsoft 官方 App——零额外成本、原生集成。</p>
+</div>
+
+<div class="app-grid">
+
+<div class="app-card" id="p2-1">
+<h4>📋 2.1 Planner</h4>
+<p><strong>任务管理中枢</strong>。统一了 Microsoft To Do（个人任务）、Planner（协作计划）和 Project for the web（高级项目）的体验。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>看板式任务管理（Buckets + Tasks）</li>
+<li>任务分配、截止日期、优先级、附件</li>
+<li>"My Tasks"视图聚合所有个人和共享任务</li>
+<li>频道内嵌 Tab，任务与讨论在同一上下文</li>
+<li>任务发布（Task Publishing）：总部向一线推送工作计划</li>
+</ul>
+<p><strong>西区场景：</strong>客户项目跟进看板、活动筹备检查清单、每人本周任务可视化。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/use-the-tasks-app-in-teams" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-2">
+<h4>✅ 2.2 Approvals</h4>
+<p><strong>电子审批流</strong>。直接在 Teams 中发起、跟踪和管理审批请求，数据存储在 Dataverse 中。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>创建审批请求（支持附件、多级审批）</li>
+<li>审批模板（团队级别 / 组织级别）</li>
+<li>实时通知（Banner + Activity feed）</li>
+<li>审计追踪（Microsoft Purview 集成）</li>
+<li>每个团队最多 400 个模板，每个模板最多 50,000 条请求</li>
+</ul>
+<p><strong>西区场景：</strong>培训方案审批、报价审批、出差/费用审批。</p>
+<p><span class="tag ms">M365 订阅自带</span> <span class="tag premium">需 Power Automate 许可</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/what-is-the-approvals-app-in-microsoft-teams" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-3">
+<h4>📊 2.3 Lists</h4>
+<p><strong>结构化列表管理</strong>。在 Teams 中创建、共享和跟踪结构化数据，支持多种视图。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>自定义字段（文本/数字/日期/选择/人员等）</li>
+<li>多视图：表格、日历、卡片、画廊</li>
+<li>频道内嵌 Tab，数据与讨论联动</li>
+<li>与 SharePoint Lists 数据互通</li>
+<li>支持导入 Excel 数据</li>
+</ul>
+<p><strong>西区场景：</strong>客户信息清单、公开课排期、讲师档期管理、设备清单。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/create-a-list-in-microsoft-teams" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-4">
+<h4>🔄 2.4 Loop</h4>
+<p><strong>实时协作组件</strong>。Loop 组件可以嵌入 Teams 聊天、Outlook 邮件、Word 文档中，且在所有位置<strong>实时同步</strong>。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>Loop 组件类型：列表、表格、任务清单、段落、投票</li>
+<li>一处编辑，处处同步（聊天/邮件/文档）</li>
+<li>Loop 工作区：独立的协作空间</li>
+<li>Copilot 可通过 Graph 检索 Loop 内容</li>
+</ul>
+<p><strong>西区场景：</strong>项目脑暴、周报协同草稿、会议议程实时协作、待办事项共享。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/get-started-with-microsoft-loop" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-5">
+<h4>📓 2.5 OneNote</h4>
+<p><strong>团队笔记本</strong>。结构化笔记管理，支持分区、页面、手写、录音等。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>团队笔记本（Shared Notebook）多人同时编辑</li>
+<li>分区组 → 分区 → 页面 三级结构</li>
+<li>支持手写、绘图、录音、文件附件</li>
+<li>频道内嵌 Tab，笔记与讨论同一上下文</li>
+<li>Copilot 通过 Microsoft Graph 可检索内容</li>
+</ul>
+<p><strong>西区场景：</strong>会议记录沉淀、项目知识库、客户访谈笔记、个人工作日志。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/onenote" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-6">
+<h4>🌟 2.6 Praise</h4>
+<p><strong>员工表扬与团队文化</strong>。在 Teams 中发送表扬信息，附上徽章和个性化消息。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>多种表扬徽章（团队协作、创新、领导力等）</li>
+<li>可附加个性化消息</li>
+<li>表扬发布到频道或私聊</li>
+<li>与 Viva Insights 集成</li>
+</ul>
+<p><strong>西区场景：</strong>月度最佳员工表扬、项目完成庆祝、跨城市同事感谢。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/send-praise-in-microsoft-teams" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-7">
+<h4>⚡ 2.7 Power Automate</h4>
+<p><strong>自动化工作流引擎</strong>。连接 1000+ 应用和服务，构建跨系统自动化流程。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>从 Teams 消息直接触发自动化流程</li>
+<li>预置模板（如"收到邮件→发 Teams 通知"）</li>
+<li>支持条件分支、循环、审批、定时触发</li>
+<li>可在 Teams 内创建和管理 Flow</li>
+</ul>
+<p><strong>西区场景：</strong>客户跟进提醒自动化、周报信息自动收集、文件审批流转、培训报名→自动发确认邮件。</p>
+<p><span class="tag premium">需 Power Automate 许可</span></p>
+<p>→ <a href="https://learn.microsoft.com/en-us/power-automate/" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-8">
+<h4>📝 2.8 Forms</h4>
+<p><strong>问卷、投票与测验</strong>。快速创建调查、收集反馈、进行知识测验。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>多种题型（选择/文本/评分/日期/排名等）</li>
+<li>实时结果统计和图表</li>
+<li>可嵌入 Teams 频道或会议</li>
+<li>与 Excel 联动导出数据</li>
+<li>匿名或实名收集</li>
+</ul>
+<p><strong>西区场景：</strong>课前问卷、培训后反馈、团队投票决策、客户满意度调查。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/forms" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-9">
+<h4>📈 2.9 Power BI</h4>
+<p><strong>商业智能仪表板</strong>。创建交互式数据报表并嵌入 Teams 频道。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>交互式可视化（图表/地图/矩阵等）</li>
+<li>频道内嵌 Tab，数据讨论在同一上下文</li>
+<li>实时数据刷新</li>
+<li>支持多数据源（Excel/数据库/云端服务）</li>
+</ul>
+<p><strong>西区场景：</strong>区域销售看板、公开课报名跟踪、项目进度可视化、客户行业分布分析。</p>
+<p><span class="tag premium">需 Power BI 许可</span></p>
+<p>→ <a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-10">
+<h4>📖 2.10 Wiki</h4>
+<p><strong>频道内嵌知识库</strong>。每个频道自带 Wiki 标签，用于结构化沉淀团队知识。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>多页面 + 子页面结构</li>
+<li>Markdown 格式编辑</li>
+<li>频道内所有成员可查看和编辑</li>
+<li>自动保存和版本历史</li>
+<li>支持 @提及和链接</li>
+</ul>
+<p><strong>西区场景：</strong>团队 SOP 文档、新人入职指南、客户沟通话术、常见问题 FAQ。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/create-and-use-a-wiki-tab-in-microsoft-teams" target="_blank">官方教程</a></p>
+</div>
+
+</div>
+
+<div class="callout tip">
+<h4>💡 App 选择建议：西区起步组合</h4>
+<p><strong>第一周就装：</strong>Planner + Wiki + OneNote —— 任务管理 + 知识沉淀 + 会议记录，三个搞定团队基础运转。</p>
+<p><strong>第一个月加装：</strong>Lists + Approvals + Forms —— 客户信息结构化 + 审批流程化 + 反馈收集。</p>
+<p><strong>成熟期探索：</strong>Power Automate + Power BI + Loop —— 自动化 + 数据可视化 + 实时协作。</p>
+</div>
+
+<!-- ═══════════ PART 3 ═══════════ -->
+<h2 id="p3">Part 3：Copilot in Teams —— June 的 AI 增强层</h2>
+
+<div class="callout warning">
+<h4>⚠️ 硬伤前置说明</h4>
+<p><strong>Microsoft 365 Copilot 需要额外许可。</strong>目前西区 BS.A 团队中，仅 June 拥有 M365 Copilot license。本章展示 June 能用 Copilot 做什么，以及如何将 AI 产出通过 Teams 分享给团队。团队成员虽然不能直接使用 Copilot，但可以享受 June + Copilot 加工后的成果。</p>
+<p>官方许可路径：M365 Copilot add-on license（约 $30/人/月）或通过 Pay-As-You-Go 按量计费。</p>
+</div>
+
+<h3 id="p3-1">3.1 会议智能（Copilot in Meetings）</h3>
+
+<p>Copilot 在 Teams 会议中使用<strong>转录（Transcript）</strong>和<strong>会议聊天</strong>作为数据源，实时回答问题和总结讨论。</p>
+
+<h4>会议组织者的控制</h4>
+<p>会议组织者可在会议选项中设置 Copilot 的使用范围：</p>
+<table>
+<tr><th>设置</th><th>Copilot 行为</th></tr>
+<tr><td><strong>During and after the meeting</strong></td><td>需要开启转录。Copilot 随转录启动，停止转录则 Copilot 停用。</td></tr>
+<tr><td><strong>Only during the meeting</strong></td><td>使用语音转文字数据（无需转录）。会议结束后，语音数据和 Copilot 交互历史不可用。</td></tr>
+<tr><td><strong>Off</strong></td><td>Copilot 禁用。同时禁用录制和转录以保护敏感信息。</td></tr>
+</table>
+
+<p><strong>关键：转录是 Copilot 的必需品。</strong>选"During and after"时，转录必须先开启。</p>
+
+<h4>会议中使用 Copilot</h4>
+<p>在会议控制栏中打开 Copilot 面板 → 选择 <strong>View prompts</strong> 获取建议，或直接输入自定义问题：</p>
+<ul>
+<li>"What ideas were discussed?"（讨论了哪些想法？）</li>
+<li>"What are the next steps?"（下一步是什么？）</li>
+<li>"What questions remain unanswered?"（还有哪些问题没解决？）</li>
+<li>"Summarize what's been discussed so far"（总结目前为止讨论的内容）</li>
+<li>"List action items with owners"（列出行动项和负责人）</li>
+</ul>
+
+<p>如果你<strong>迟到超过 5 分钟</strong>且 Copilot 已激活，系统会主动通知并提供"补课"摘要。</p>
+
+<h4>会后使用 Copilot</h4>
+<ul>
+<li><strong>从会议聊天：</strong>会议结束 → 聊天右上角 <strong>Open Copilot</strong> → Copilot 结合转录内容和聊天消息（含会议前 24 小时内的聊天）生成回答。</li>
+<li><strong>从 Recap 标签：</strong>如果转录已开启，Recap 标签中也可访问 Copilot。</li>
+<li><strong>导出回答：</strong>Copilot 回答可导出到 Word 或 Excel 供进一步协作（除非会议有敏感度标签或禁用了复制转发）。</li>
+</ul>
+
+<div class="callout important">
+<h4>⚠️ 注意事项</h4>
+<ul>
+<li>重复会议中，如果后续场次被转录，之前的 Copilot 对话历史会被清除。</li>
+<li>"Only during the meeting"模式下，会议结束后 Copilot 交互数据不可恢复。</li>
+<li>会议敏感度标签可能阻止 Copilot 回答导出。</li>
+</ul>
+</div>
+
+<h3 id="p3-2">3.2 聊天回顾（Copilot in Chats & Channels）</h3>
+
+<p>Copilot 可帮助你快速理解聊天和频道中的对话上下文，无需逐条翻阅。</p>
+
+<h4>在聊天中使用</h4>
+<ul>
+<li><strong>快速补课：</strong>"Catch me up on this conversation"（帮我回顾这段对话）</li>
+<li><strong>提取决策：</strong>"What decisions were made in this chat?"（这段聊天里做了哪些决定？）</li>
+<li><strong>找出关键信息：</strong>"What files were shared in this conversation?"（这段对话分享了哪些文件？）</li>
+<li><strong>总结要点：</strong>"Summarize the key points from this channel discussion"（总结这个频道讨论的关键点）</li>
+</ul>
+
+<p>Copilot 引用来源时会标注具体的消息，方便回溯验证。</p>
+
+<h3 id="p3-3">3.3 文件问答</h3>
+
+<p>在 Teams 中直接让 Copilot 分析和回答关于文件的问题，无需打开文件逐页翻阅。</p>
+
+<ul>
+<li>"What changed in the 通威 proposal since last week?"（通威方案上周以来改了什么？）</li>
+<li>"Summarize the key findings from this report"（总结这份报告的核心发现）</li>
+<li>"Compare the two versions of this contract"（比较合同的两个版本）</li>
+<li>"Extract all action items from this meeting's shared documents"（提取这次会议分享文件中的所有行动项）</li>
+</ul>
+
+<p>Copilot 读取文件内容是基于用户已有的文件访问权限。</p>
+
+<h3 id="p3-4">3.4 跨应用联动</h3>
+
+<p>Copilot 在 Teams 中不只是"聊天机器人"——它能串联多个 M365 应用的数据和操作：</p>
+
+<table>
+<tr><th>联动场景</th><th>操作示例</th></tr>
+<tr><td><strong>Teams → Outlook</strong></td><td>"Draft a follow-up email based on this meeting"（根据本次会议草拟跟进邮件）</td></tr>
+<tr><td><strong>Teams → Word</strong></td><td>"Create a project summary document from this channel's discussions"（从频道讨论生成项目总结文档）</td></tr>
+<tr><td><strong>Teams → Planner</strong></td><td>"Create Planner tasks from the action items in this meeting"（从会议行动项创建 Planner 任务）</td></tr>
+<tr><td><strong>Teams → Loop</strong></td><td>"Draft a meeting agenda in Loop based on last week's action items"（基于上周行动项在 Loop 中草拟议程）</td></tr>
+</table>
+
+<h3 id="p3-5">3.5 Copilot Chat 通用对话</h3>
+
+<p>Teams 中的 Copilot Chat App 是独立的通用 AI 对话入口——不只是聊 Teams 内的事，还可以：</p>
+<ul>
+<li>研究某个行业趋势、政策法规 → 生成摘要分享到频道</li>
+<li>草拟方案框架 → 复制到 Word 继续编辑</li>
+<li>翻译和润色文本 → 直接用于邮件或提案</li>
+<li>基于工作文件（Word/PPT/Excel/邮件/聊天）回答具体问题</li>
+</ul>
+
+<div class="callout info">
+<h4>📖 官方学习资源</h4>
+<p>→ <a href="https://support.microsoft.com/en-us/teams/copilot/catch-up-on-meetings-with-microsoft-365-copilot-in-teams" target="_blank">Copilot in Teams meetings 官方教程</a><br>
+→ <a href="https://support.microsoft.com/en-us/teams/copilot/start-a-conversation-with-microsoft-365-copilot-chat-in-teams" target="_blank">Copilot Chat in Teams 官方教程</a><br>
+→ <a href="https://copilot.cloud.microsoft/prompts" target="_blank">Copilot Prompt Gallery</a></p>
+</div>
+
+<!-- ═══════════ PART 4 ═══════════ -->
+<h2 id="p4">Part 4：西区管理实战 SOP</h2>
+
+<div class="callout info">
+<h4>🎯 本部分目标</h4>
+<p>将 Teams + Copilot 能力映射到西区 BS.A 团队的六个核心管理场景。每个场景标注清楚：<span class="role-tag june">🔷 June 操作</span> <span class="role-tag team">🔶 团队操作</span> <span class="role-tag copilot">🤖 Copilot 加持</span>。</p>
+<p><strong>核心原则：</strong>June 有 Copilot，团队没有。所以模式是"June + Copilot 产出 → Teams 频道分发 → 团队自助消费"。</p>
+</div>
+
+<!-- Scene 1 -->
+<div class="scene-card" id="p4-1">
+<h3>场景 1：周一例会</h3>
+<p><strong>频率：</strong>每周一次 &nbsp;|&nbsp; <strong>参与人：</strong>全员（重庆/成都/西安）</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四下班前在 Planner 更新本周完成事项</div>
+<div class="step"><span class="num">2</span><span class="role-tag june">June</span>周一上午在 Teams 预定会议（开启转录）→ 发到 Weekly-Meeting 频道</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>按时参会，按议程逐项讨论（销售进展 → 项目进展 → 问题与风险 → 下周计划）</div>
+<div class="step"><span class="num">4</span><span class="role-tag copilot">Copilot</span>会议中实时转录，June 用 Copilot 提取行动项："List action items with owners and deadlines"</div>
+<div class="step"><span class="num">5</span><span class="role-tag june">June</span>会后用 Copilot 生成会议纪要 → 审核 → 发布到 Weekly-Meeting 频道</div>
+<div class="step"><span class="num">6</span><span class="role-tag team">团队</span>查看纪要，认领 Planner 中的行动项任务</div>
+
+<h4>工具组合</h4>
+<p>Teams 会议（录制+转录） → Copilot（纪要+行动项） → Planner（任务分配） → 频道帖子（发布+讨论）</p>
+</div>
+
+<!-- Scene 2 -->
+<div class="scene-card" id="p4-2">
+<h3>场景 2：客户项目跟进</h3>
+<p><strong>频率：</strong>持续 &nbsp;|&nbsp; <strong>参与人：</strong>项目相关人员</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag june">June</span>为每个活跃客户项目在 Projects 下建私有频道（如 Projects/通威-IATF16949）</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在频道 Files 上传相关文档（方案/报价/合同/会议记录）</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>在频道 Planner Tab 维护任务看板（待办/进行中/已完成）</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>每周用 Copilot 在频道中查询项目进展："Summarize the latest updates in this channel"</div>
+<div class="step"><span class="num">5</span><span class="role-tag june">June</span>将 Copilot 生成的进展摘要发到频道，团队确认和补充</div>
+
+<h4>工具组合</h4>
+<p>Teams 私有频道 → Planner（任务看板） → Files（文档库） → Copilot（进展总结）</p>
+</div>
+
+<!-- Scene 3 -->
+<div class="scene-card" id="p4-3">
+<h3>场景 3：跨城市信息同步</h3>
+<p><strong>频率：</strong>日常 &nbsp;|&nbsp; <strong>参与人：</strong>全员（重庆/成都/西安）</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>各城市在对应频道分享本地动态（客户拜访/项目进展/市场情报）</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>重要客户信息同步到 Sales-Pipeline 频道，使用 @channel 确保全员可见</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>每周五用 Copilot 生成"本周团队动态摘要"："Summarize this week's key updates across all channels"</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>摘要发到 General 频道，作为周报的素材基础</div>
+
+<h4>工具组合</h4>
+<p>Teams 频道（日常沟通） → Copilot（周度汇总） → Loop（协作周报草稿） → General 频道（全员广播）</p>
+
+<div class="callout tip">
+<h4>💡 为什么不用微信群？</h4>
+<p>微信群聊有三个致命问题：(1) 信息流不可检索，3天前的消息找不到了；(2) 文件过期，换个手机就没了；(3) 新人入群看不到历史上下文。Teams 频道+PWA永久留存+结构化+可检索——更适合组织知识沉淀。</p>
+</div>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene-card" id="p4-4">
+<h3>场景 4：周报半自动化</h3>
+<p><strong>频率：</strong>每周四 &nbsp;|&nbsp; <strong>产出：</strong>提交给 Christina 的西区周报</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四前在 Planner 更新本周完成的任务（标记 Complete）</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在 Sales-Pipeline 频道更新本周客户动态</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>用 Copilot 汇总本周信息："Summarize this week's key activities from Planner tasks and channel discussions"</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>将 Copilot 初稿按周报模板整理（Key Updates / New Opps / Product & Operation Support / Market & Competitors / Team Management Support）</div>
+<div class="step"><span class="num">5</span><span class="role-tag june">June</span>审核定稿 → 提交 → 发到 General 频道存档</div>
+
+<h4>工具组合</h4>
+<p>Planner（任务状态） → Teams 频道（客户动态） → Copilot（信息汇总） → Word（周报定稿）</p>
+</div>
+
+<!-- Scene 5 -->
+<div class="scene-card" id="p4-5">
+<h3>场景 5：审批流程</h3>
+<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>参与人：</strong>June + 审批发起人</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>在 Approvals App 中发起审批（附上相关文件→选择审批人→提交）</div>
+<div class="step"><span class="num">2</span><span class="role-tag june">June</span>收到 Teams 通知 → 查看审批详情 → 批准/拒绝/要求修改</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>复杂审批可先用 Copilot 分析附件："Summarize this proposal and highlight any risks"</div>
+<div class="step"><span class="num">4</span><span class="role-tag team">团队</span>收到审批结果通知 → 按结果执行</div>
+
+<h4>适用审批类型</h4>
+<p>培训方案审批、报价审批、出差申请、费用报销、合同签署</p>
+<h4>工具组合</h4>
+<p>Approvals → Teams 通知 → Copilot（方案分析） → 审批决策</p>
+</div>
+
+<!-- Scene 6 -->
+<div class="scene-card" id="p4-6">
+<h3>场景 6：新人入职</h3>
+<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>对象：</strong>新加入的西区团队成员</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag june">June</span>将新人加入 BS.A West Team → 发送欢迎消息到 General 频道</div>
+<div class="step"><span class="num">2</span><span class="role-tag june">June</span>引导新人阅读 Wiki 标签中的"新人入职指南"（团队结构/SOP/常用工具/FAQ）</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>在 Planner 中为新人创建入职任务清单（学习资料→认识团队→系统权限→第一周任务）</div>
+<div class="step"><span class="num">4</span><span class="role-tag team">新人</span>按 Planner 清单逐项完成，完成后标记 Complete</div>
+<div class="step"><span class="num">5</span><span class="role-tag team">新人</span>用 Catch up 功能浏览各频道历史消息，快速了解团队上下文</div>
+
+<h4>工具组合</h4>
+<p>Teams 频道 → Wiki（入职指南） → Planner（任务清单） → Catch up（上下文补课）</p>
+</div>
+
+<!-- Summary -->
+<div class="callout tip" style="margin-top: 40px;">
+<h4>🎯 六个场景工具矩阵总览</h4>
+<table>
+<tr><th>场景</th><th>Teams 功能</th><th>Apps</th><th>June + Copilot</th></tr>
+<tr><td>周一例会</td><td>会议+频道</td><td>Planner</td><td>🤖 纪要+行动项</td></tr>
+<tr><td>客户项目</td><td>私有频道+文件</td><td>Planner</td><td>🤖 进展总结</td></tr>
+<tr><td>跨城市同步</td><td>频道+广播</td><td>Loop</td><td>🤖 周度汇总</td></tr>
+<tr><td>周报</td><td>频道+Planner</td><td>—</td><td>🤖 信息汇总初稿</td></tr>
+<tr><td>审批</td><td>通知</td><td>Approvals</td><td>🤖 方案分析</td></tr>
+<tr><td>新人入职</td><td>频道+Wiki</td><td>Planner</td><td>—</td></tr>
+</table>
+</div>
+
+</div><!-- .container -->
+
+<!-- FOOTER -->
+<section class="footer">
+<p><strong>Microsoft Teams + Copilot 西区团队管理实战教材</strong></p>
+<p>TÜV Rheinland BS.A West · June Zhu · 2026.07</p>
+<p style="margin-top: 12px;">基于 Microsoft 官方教学资源（support.microsoft.com / learn.microsoft.com）</p>
+<p>所有功能说明以 Microsoft 官方文档为准，许可和定价以 Microsoft 最新公布为准</p>
+<p style="margin-top: 12px; font-size: 0.85em;">TÜV, TUEV and TUV are registered trademarks. © TÜV Rheinland Group.</p>
+</section>
+
+</body>
+</html>
