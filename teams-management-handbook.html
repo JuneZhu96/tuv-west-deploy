@@ -126,7 +126,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <h4 style="color:#009537;margin-top:0;">今天可以是这样</h4>
 <ul style="margin:0;padding-left:18px;">
 <li>所有文件放在 Teams，永久留存、版本可追溯</li>
-<li>一个频道一个项目，讨论和文件在同一个上下文里</li>
+<li>一个频道、一套文件夹，所有讨论和文件在同一个上下文里</li>
 <li>会议自动录制+转录，Copilot 30秒出纪要</li>
 <li>重庆/成都/西安在同一个频道里同步信息</li>
 <li>新人进Team就能看到全部历史，自助补课</li>
@@ -151,7 +151,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 
 <div style="background:#E3F2FD;padding:14px;border-radius:6px;">
 <h4 style="color:#0071B9;margin-top:0;font-size:0.95em;">现在是这样</h4>
-<p style="font-size:0.9em;margin:0;">客户项目独立 Teams 频道。所有文件在 Files 里版本自动管理。每次会议 Copilot 转录→30秒出纪要→Planner 分配任务→频道通知全员。报价审批走 Approvals，June 手机上就能批。</p>
+<p style="font-size:0.9em;margin:0;">所有客户项目在同一个频道里，按文件夹区分。所有文件在 Files 里版本自动管理。每次会议 Copilot 转录→30秒出纪要→Planner 分配任务→频道通知全员。报价审批走 Approvals，June 手机上就能批。</p>
 </div>
 
 <div style="background:#E8F5E9;padding:14px;border-radius:6px;">
@@ -350,21 +350,29 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <p>团队名旁 <strong>More options</strong> → <strong>Add member</strong> → 输入姓名添加。</p>
 
 <div class="callout tip">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> 西区 BS.A 推荐团队结构</h4>
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> 西区 BS.A 架构：单频道 + 文件库</h4>
+
+<div style="background:#E8F5E9;padding:16px;border-radius:6px;margin:12px 0;">
+<p style="margin:0;font-size:0.95em;"><strong>设计原则：</strong>十个人的团队不需要八个频道。一个频道、一套文件库——所有人进来看同一个地方。信息不切碎，上下文不丢失。</p>
+</div>
+
+<h4>架构：1 Team → 1 Channel → 10 文件夹</h4>
 <table>
-<tr><th>频道</th><th>类型</th><th>用途</th></tr>
-<tr><td><strong>General</strong></td><td>Standard</td><td>Team 说明、频道导航、协作规则。不承担日常讨论。</td></tr>
-<tr><td><strong>00-公告与重要通知</strong></td><td>Standard + 审核</td><td>June 及指定 Moderator 发布重要通知。开启 Channel Moderation。</td></tr>
-<tr><td><strong>01-周会与行动</strong></td><td>Standard</td><td>周会议程、纪要、行动项、周度回顾。固定 Posts + Files + Planner 三个 Tab。</td></tr>
-<tr><td><strong>02-销售与商机</strong></td><td>Standard</td><td>全员可贡献商机线索和客户动态。销售负责人主维护。</td></tr>
-<tr><td><strong>03-项目总览</strong></td><td>Standard</td><td>全部项目清单、状态、负责人、各项目入口。轻量项目在此用 Planner 跟踪。</td></tr>
-<tr><td><strong>04-培训与交付</strong></td><td>Standard</td><td>公开课排期、KA 培训、TVET、讲师与排期协调。</td></tr>
-<tr><td><strong>05-知识与资源</strong></td><td>Standard</td><td>方案模板、课程目录、SOP、竞对与案例。关键目录由 Owner 控制权限。</td></tr>
-<tr><td><strong>06-团队空间</strong></td><td>Standard</td><td>生日、团建、轻松交流。非第一阶段必需，可按需创建。</td></tr>
+<tr><th style="width:5%;">#</th><th style="width:28%;">文件夹</th><th style="width:67%;">用途</th></tr>
+<tr><td><strong>00</strong></td><td><strong>团队入口</strong></td><td>团队说明、协作规则、新人指南、成员目录。所有新成员从这里开始。</td></tr>
+<tr><td><strong>01</strong></td><td><strong>业务发展与市场机会</strong></td><td>商机线索、市场情报、竞对动态、销售Pipeline。全员可贡献，销售负责人主维护。</td></tr>
+<tr><td><strong>02</strong></td><td><strong>产品方案与交付资产</strong></td><td>公开课排期、企业培训方案、TVET项目、讲师与排期、交付标准。</td></tr>
+<tr><td><strong>03</strong></td><td><strong>客户与合作知识库</strong></td><td>客户档案、合作备忘录、行业洞察、成功案例。</td></tr>
+<tr><td><strong>04</strong></td><td><strong>专家讲师·证书资源</strong></td><td>讲师资质、证书模板、认证标准、合作讲师库。</td></tr>
+<tr><td><strong>05</strong></td><td><strong>战略项目与创新中心</strong></td><td>AI/数字化转型试点、新产品孵化、跨区域协作项目。</td></tr>
+<tr><td><strong>06</strong></td><td><strong>品牌与销售工具库</strong></td><td>方案模板、报价模板、TÜV品牌素材、标准PPT、宣传物料。</td></tr>
+<tr><td><strong>07</strong></td><td><strong>会议以及活动</strong></td><td>周会议程与纪要、季度回顾、团建活动、行业展会。</td></tr>
+<tr><td><strong>08</strong></td><td><strong>Management and Finance</strong></td><td>预算、费用、管理层汇报、绩效考核、团队数据。</td></tr>
+<tr><td><strong>09</strong></td><td><strong>Internal Process and Workflow Materials</strong></td><td>SOP、审批流程、内部制度、合规文件。</td></tr>
 </table>
 
 <div style="background:#E3F2FD;padding:14px 18px;border-radius:6px;margin-top:12px;">
-<p style="margin:0;font-size:0.9em;"><strong>项目频道按需增加，不预先批量创建：</strong>轻量项目 → 03频道用Planner跟踪。一般项目 → 建 PRJ-前缀标准频道。复杂项目 → 独立 Team。机密项目 → Private Channel。项目结束后归档或隐藏。</p>
+<p style="margin:0;font-size:0.9em;"><strong>使用方式：</strong>日常讨论在频道 Posts 中进行，文件按主题放入对应文件夹。Planner 任务看板固定在频道顶部 Tab——一套 Planner 管所有任务，不按文件夹拆分。机密项目如需隔离，单独建 Private Channel。</p>
 </div>
 </div>
 
@@ -915,10 +923,10 @@ Agent 构建<br>
 
 <h4>SOP 流程</h4>
 <div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四下班前在 Planner 更新本周完成事项</div>
-<div class="step"><span class="num">2</span><span class="role-tag june">June</span>周一上午在 Teams 预定会议（开启转录）→ 发到 Weekly-Meeting 频道</div>
+<div class="step"><span class="num">2</span><span class="role-tag june">June</span>周一上午在 Teams 预定会议（开启转录）→ 发到频道 Posts</div>
 <div class="step"><span class="num">3</span><span class="role-tag team">团队</span>按时参会，按议程逐项讨论（销售进展 → 项目进展 → 问题与风险 → 下周计划）</div>
 <div class="step"><span class="num">4</span><span class="role-tag copilot">Copilot</span>会议中实时转录，June 用 Copilot 提取行动项："List action items with owners and deadlines"</div>
-<div class="step"><span class="num">5</span><span class="role-tag june">June</span>会后用 Copilot 生成会议纪要 → 审核 → 发布到 Weekly-Meeting 频道</div>
+<div class="step"><span class="num">5</span><span class="role-tag june">June</span>会后用 Copilot 生成会议纪要 → 审核 → 发布到频道 Posts</div>
 <div class="step"><span class="num">6</span><span class="role-tag team">团队</span>查看纪要，认领 Planner 中的行动项任务</div>
 
 <h4>工具组合</h4>
@@ -937,7 +945,7 @@ Agent 构建<br>
 
 <div class="callout tip" style="margin-top:16px;">
 <h4>June Tips</h4>
-<p>会议结束5分钟内，用 Copilot 出纪要 → 粘贴到 Weekly-Meeting 频道 → Planner 同步创建任务。团队到公司时，行动项已经分配好了。</p>
+<p>会议结束5分钟内，用 Copilot 出纪要 → 发布到频道 Posts → Planner 同步创建任务。团队到公司时，行动项已经分配好了。</p>
 </div>
 </div>
 
@@ -947,14 +955,14 @@ Agent 构建<br>
 <p><strong>频率：</strong>持续 &nbsp;|&nbsp; <strong>参与人：</strong>项目相关人员</p>
 
 <h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag june">June</span>为每个活跃客户项目在 Projects 下建私有频道（如 Projects/Projects/客户-IATF16949）</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在频道 Files 上传相关文档（方案/报价/合同/会议记录）</div>
-<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>在频道 Planner Tab 维护任务看板（待办/进行中/已完成）</div>
-<div class="step"><span class="num">4</span><span class="role-tag june">June</span>每周用 Copilot 在频道中查询项目进展："Summarize the latest updates in this channel"</div>
+<div class="step"><span class="num">1</span><span class="role-tag june">June</span>在频道 Files 的 <strong>03-客户与合作知识库</strong> 下为客户创建专属文件夹</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在对应文件夹上传相关文档（方案/报价/合同/会议记录）</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>在频道顶部 Planner Tab 维护项目任务看板（待办/进行中/已完成）</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>每周用 Copilot 在频道中查询项目进展："Summarize the latest updates about this client project"</div>
 <div class="step"><span class="num">5</span><span class="role-tag june">June</span>将 Copilot 生成的进展摘要发到频道，团队确认和补充</div>
 
 <h4>工具组合</h4>
-<p>Teams 标准频道/独立Team → Planner（任务看板） → Files（文档库） → Copilot（进展总结）</p>
+<p>Teams 频道 Files（项目文件夹） → Planner（任务看板） → Copilot（进展总结）</p>
 
 
 <div class="callout info" style="margin-top:16px;">
@@ -980,12 +988,12 @@ Agent 构建<br>
 
 <h4>SOP 流程</h4>
 <div class="step"><span class="num">1</span><span class="role-tag team">团队</span>各城市在对应频道分享本地动态（客户拜访/项目进展/市场情报）</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>重要客户信息同步到 Sales-Pipeline 频道，使用 @channel 确保全员可见</div>
-<div class="step"><span class="num">3</span><span class="role-tag june">June</span>每周五用 Copilot 生成"本周团队动态摘要"："Summarize this week's key updates across all channels"</div>
-<div class="step"><span class="num">4</span><span class="role-tag june">June</span>摘要发到 General 频道，作为周报的素材基础</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>重要客户信息和市场情报更新到频道 Files 的 <strong>01-业务发展与市场机会</strong> 文件夹，用 @channel 确保全员可见</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>每周五用 Copilot 生成"本周团队动态摘要"："Summarize this week's key updates from the team channel"</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>摘要发布到频道 Posts，作为周报的素材基础</div>
 
 <h4>工具组合</h4>
-<p>Teams 频道（日常沟通） → Copilot（周度汇总） → Loop（协作周报草稿） → General 频道（全员广播）</p>
+<p>Teams 频道（日常沟通） → Copilot（周度汇总） → Loop（协作周报草稿） → 频道 Posts（全员可见）</p>
 
 <div class="callout tip">
 <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> 为什么不用微信群？</h4>
