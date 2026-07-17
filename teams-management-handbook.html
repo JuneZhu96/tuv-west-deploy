@@ -674,7 +674,7 @@ Custom Agent<br>
 <tr><td>1</td><td><strong>SharePoint</strong></td><td>★★★★★</td><td>正式知识资产层</td><td>所有正式文件、方案、PPT、标准的存储与版本管理。Teams Files 的底层。</td></tr>
 <tr><td>2</td><td><strong>Lists</strong></td><td>★★★★★</td><td>知识索引层</td><td>Knowledge Index——Service/Customer/Partner/Project/Expert 结构化对象。</td></tr>
 <tr><td>3</td><td><strong>Teams</strong></td><td>★★★★★</td><td>统一入口</td><td>所有沟通、会议、App 入口。不做知识存储，只做入口和沟通。</td></tr>
-<tr><td>4</td><td><strong>Loop</strong></td><td>★★★★</td><td>临时共创</td><td>实时协作组件——脑暴、周报草稿、会议议程。</td></tr>
+<tr><td>4</td><td><strong>Loop</strong></td><td>★★★★</td><td>工作数据引擎</td><td>活数据同步——Pipeline追踪、报名统计、月度数据。嵌在频道帖子里实时编辑。</td></tr>
 <tr><td>5</td><td><strong>OneNote</strong></td><td>★★★</td><td>会议笔记</td><td>个人或小组笔记。非正式知识库。</td></tr>
 <tr><td>6</td><td><strong>Forms</strong></td><td>★★★</td><td>数据收集</td><td>问卷、投票、报名表。</td></tr>
 <tr><td>7</td><td><strong>Power BI</strong></td><td>★★★</td><td>管理看板</td><td>销售数据、课程数据可视化。</td></tr>
@@ -735,16 +735,26 @@ Custom Agent<br>
 </div>
 
 <div class="app-card" id="p2-4">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 4v6h6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M20 20v-6h-6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 10a8 8 0 0 1 14-3M20 14a8 8 0 0 1-14 3" stroke="#0071B9" stroke-width="2" fill="none"/></svg> 2.4 Loop <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
-<p><strong>实时协作组件</strong>。Loop 组件可以嵌入 Teams 聊天、Outlook 邮件、Word 文档中，且在所有位置<strong>实时同步</strong>。</p>
-<p><strong>核心功能：</strong></p>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 4v6h6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M20 20v-6h-6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 10a8 8 0 0 1 14-3M20 14a8 8 0 0 1-14 3" stroke="#0071B9" stroke-width="2" fill="none"/></svg> 2.4 Loop <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">工作数据</span></h4>
+<p><strong>活数据同步引擎。</strong>Loop 组件嵌在频道帖子里，多人在同一张表上实时编辑——重庆改了成都秒看到，不用保存、不用刷新。</p>
+
+<h4>Loop vs Lists vs Planner</h4>
+<table>
+<tr><th>工具</th><th>定位</th><th>生命周期</th></tr>
+<tr><td><strong>Loop</strong></td><td>工作数据——活数据、多人同时编辑、随业务流变</td><td>周/月度滚动</td></tr>
+<tr><td><strong>Lists</strong></td><td>知识资产——Knowledge Index、长期沉淀的结构化对象</td><td>长期</td></tr>
+<tr><td><strong>Planner</strong></td><td>任务卡——有Owner有Deadline的协作任务</td><td>项目周期</td></tr>
+</table>
+
+<p><strong>西区场景：</strong></p>
 <ul>
-<li>Loop 组件类型：列表、表格、任务清单、段落、投票</li>
-<li>一处编辑，处处同步（聊天/邮件/文档）</li>
-<li>Loop 工作区：独立的协作空间</li>
-<li>Copilot 可通过 Graph 检索 Loop 内容</li>
+<li><strong>销售Pipeline追踪：</strong>Loop表格嵌在频道——客户名/阶段/金额/下一步/更新人，谁签单直接改</li>
+<li><strong>公开课报名统计：</strong>课程/日期/已报名/剩余名额——Rina成都改了，Niko重庆秒看到</li>
+<li><strong>月度数据跟踪：</strong>各城市收入/客户数/新课数——各自填数，实时汇总</li>
+<li><strong>客户拜访周报：</strong>谁去了、见了谁、什么结果——Loop表格嵌频道帖子，一周一张</li>
 </ul>
-<p><strong>西区场景：</strong>项目脑暴、周报协同草稿、会议议程实时协作、待办事项共享。</p>
+
+<p><strong>嵌入方式：</strong>频道帖子编辑框点Loop图标→选组件类型（表格/列表/段落）→发布→团队成员直接在帖子里编辑数据。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/office/get-started-with-microsoft-loop" target="_blank">官方教程</a></p>
 </div>
