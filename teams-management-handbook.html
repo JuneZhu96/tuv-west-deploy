@@ -99,8 +99,10 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <!-- HERO -->
 <section class="hero">
 <h1>TÜV Rheinland BS.A West<br>数字化协同工作手册</h1>
-<p class="subtitle">Digital Collaboration Operating Manual · Microsoft 365 × Teams × Copilot</p>
-<p class="meta">TÜV Rheinland BS.A West · June Zhu · 2026.07</p>
+<p class="subtitle">Western Team Digital Workspace · Microsoft 365 × Teams × SharePoint × AI</p>
+<p class="meta">One Team. One Workspace. One Source of Truth.</p>
+<p class="meta" style="margin-top:14px;">Teams 是统一入口 · SharePoint 是正式知识资产层 · Lists 是结构化知识索引 · AI 是智能增强层</p>
+<p class="meta" style="margin-top:14px;">TÜV Rheinland BS.A West · June Zhu · 2026.07</p>
 <p class="meta">基于 Microsoft 官方教学内容（support.microsoft.com / learn.microsoft.com）</p>
 
 <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="#fff"></path></svg>
@@ -141,26 +143,26 @@ tr:nth-child(even) td { background: var(--light-bg); }
 
 <!-- TABLE OF CONTENTS -->
 <div class="toc" style="border-left-color:#009537;margin-top:32px;">
-<h3>真实场景：一个客户项目的协同升级</h3>
+<h3>真实场景：客户拜访准备</h3>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:12px;">
 
 <div style="background:#FFF3E0;padding:14px;border-radius:6px;">
 <h4 style="color:#D20033;margin-top:0;font-size:0.95em;">以前是这样</h4>
-<p style="font-size:0.9em;margin:0;">报价方案在微信群里来回传——"XX客户报价_v3_final_改.docx"。会议开完了没人记行动项，一周后忘了谁负责什么。合同审批靠邮件转发，每次都要翻半天找最新版本。</p>
+<p style="font-size:0.9em;margin:0;">同事明天要拜访一家新能源汽车客户。翻微信群找资料→翻邮件找方案→翻个人电脑找课程目录。不知道团队有没有做过类似客户、有没有相关专家、有没有现成案例。花半天拼凑，心里还是没底。</p>
 </div>
 
 <div style="background:#E3F2FD;padding:14px;border-radius:6px;">
 <h4 style="color:#0071B9;margin-top:0;font-size:0.95em;">现在是这样</h4>
-<p style="font-size:0.9em;margin:0;">所有客户项目在同一个频道里，按文件夹区分。所有文件在 Files 里版本自动管理。每次会议 Copilot 转录→30秒出纪要→Planner 分配任务→频道通知全员。报价审批走 Approvals，June 手机上就能批。</p>
+<p style="font-size:0.9em;margin:0;">在 Teams 打开 Knowledge Index → 按行业筛选"Automotive / Battery"→ 关联的 Service、Standard、Expert、Case 一目了然 → 点击 Reference Files 进入 SharePoint 查看正式资料 → AI 生成拜访简报+推荐产品清单+提问清单+跟进邮件草稿。</p>
 </div>
 
 <div style="background:#E8F5E9;padding:14px;border-radius:6px;">
 <h4 style="color:#009537;margin-top:0;font-size:0.95em;">效果</h4>
-<p style="font-size:0.9em;margin:0;">文件不再丢、不再过期。新人进频道就能看到全部项目历史，不需要任何人"交代上下文"。行动项有Owner有Deadline有跟踪。每人打开 Teams 就知道自己本周该干什么。</p>
+<p style="font-size:0.9em;margin:0;">不再拼凑碎片信息。每个客户拜访前，知识库自动告诉你"我们做过什么、谁能帮忙、有什么资料可用"。AI 把资料变成可用的简报和清单。新人也能独立完成高质量的客户拜访准备。</p>
 </div>
 
 </div>
-<p style="text-align:center;margin-top:12px;color:#637184;font-size:0.9em;"><strong>这本手册就是教你搭建这套体系。</strong>从今天开始，西区每一个项目都应该这样跑。</p>
+<p style="text-align:center;margin-top:12px;color:#637184;font-size:0.9em;"><strong>这本手册就是教你搭建这套"一个团队、一个工作空间、一个可信知识来源"的数字化工作体系。</strong></p>
 </div>
 
 
@@ -213,40 +215,55 @@ tr:nth-child(even) td { background: var(--light-bg); }
 </ol>
 </div>
 
-<!-- West Team Ecosystem Illustration -->
+<!-- West Team Ecosystem Illustration — 四层架构 -->
 <div style="background:var(--light-bg);padding:28px;border-radius:8px;margin:24px 0;text-align:center;">
-<h4 style="margin-top:0;color:#0071B9;">西区协同全景图：三城一体系</h4>
-<p style="color:#637184;margin-bottom:16px;">重庆 · 成都 · 西安 — 通过 Teams 统一入口，Copilot AI 增强，App 生态支撑。</p>
+<h4 style="margin-top:0;color:#0071B9;">西区数字化工作空间：四层架构</h4>
+<p style="color:#637184;margin-bottom:16px;">AI 层可以变化，SharePoint 和 Lists 数据层保持稳定——未来无需推倒重来。</p>
 
-<svg width="100%" height="300" viewBox="0 0 720 300" style="max-width:720px;">
-  <rect x="285" y="10" width="150" height="36" rx="18" fill="#0071B9"/>
-  <text x="360" y="33" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Copilot AI 智能层</text>
-  <rect x="260" y="85" width="200" height="50" rx="8" fill="#002B46"/>
-  <text x="360" y="108" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Teams 协同总入口</text>
-  <text x="360" y="125" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">聊天 · 会议 · 频道 · 文件</text>
-  <line x1="360" y1="46" x2="360" y2="85" stroke="#0071B9" stroke-width="2" stroke-dasharray="5,3"/>
-  <circle cx="100" cy="200" r="30" fill="#0071B9" opacity="0.9"/>
-  <text x="100" y="196" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">重庆</text>
-  <text x="100" y="212" text-anchor="middle" fill="#fff" font-size="9">Office</text>
-  <text x="100" y="248" text-anchor="middle" fill="#637184" font-size="9">June · Molly · Rina · Chris · Selina · Chongshi</text>
-  <circle cx="360" cy="200" r="30" fill="#009537" opacity="0.9"/>
-  <text x="360" y="196" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">成都</text>
-  <text x="360" y="212" text-anchor="middle" fill="#fff" font-size="9">Office</text>
-  <text x="360" y="248" text-anchor="middle" fill="#637184" font-size="9">Niko · Jerry</text>
-  <circle cx="620" cy="200" r="30" fill="#EB971B" opacity="0.9"/>
-  <text x="620" y="196" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">西安</text>
-  <text x="620" y="212" text-anchor="middle" fill="#fff" font-size="9">Office</text>
-  <text x="620" y="248" text-anchor="middle" fill="#637184" font-size="9">Jiajia</text>
-  <line x1="340" y1="135" x2="115" y2="175" stroke="#0071B9" stroke-width="1.5" opacity="0.5"/>
-  <line x1="360" y1="135" x2="360" y2="170" stroke="#009537" stroke-width="1.5" opacity="0.5"/>
-  <line x1="380" y1="135" x2="605" y2="175" stroke="#EB971B" stroke-width="1.5" opacity="0.5"/>
-  <rect x="10" y="270" width="660" height="25" rx="4" fill="none" stroke="#637184" stroke-width="1" stroke-dasharray="2,4"/>
-  <text x="360" y="287" text-anchor="middle" fill="#637184" font-size="9">Planner · Loop · Approvals · Lists · OneNote · Power Automate · Forms · Power BI · SharePoint · OneDrive · Outlook</text>
-</svg>
+<div style="text-align:left;max-width:660px;margin:0 auto;">
+
+<!-- L1: Entry -->
+<div style="background:linear-gradient(135deg,#002B46,#0071B9);color:#fff;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center;">
+<h5 style="color:#fff;margin:0 0 6px 0;font-size:1.1em;">Teams · Unified Work Entry</h5>
+<p style="margin:0;font-size:0.85em;opacity:0.85;">沟通 / 会议 / 频道 Posts / App 入口 / 页面</p>
+</div>
+<div style="text-align:center;color:#0071B9;font-size:1.2em;line-height:1;">↓</div>
+
+<!-- L2: Knowledge & Data -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+<div style="background:#005A8B;color:#fff;padding:16px 20px;border-radius:0 0 0 0;">
+<h5 style="color:#fff;margin:0 0 6px 0;">SharePoint · 正式知识资产层</h5>
+<p style="margin:0;font-size:0.82em;opacity:0.85;">文档 · 方案 · PPT · 标准 · 课程资料</p>
+</div>
+<div style="background:#006DA3;color:#fff;padding:16px 20px;border-radius:0 0 0 0;">
+<h5 style="color:#fff;margin:0 0 6px 0;">Lists · 结构化知识索引</h5>
+<p style="margin:0;font-size:0.82em;opacity:0.85;">Knowledge Index · Service/Customer/Project/Expert</p>
+</div>
+</div>
+<div style="text-align:center;color:#0071B9;font-size:1.2em;line-height:1;">↓</div>
+
+<!-- L3: AI -->
+<div style="background:linear-gradient(135deg,#0A1628,#1A3A5C);color:#fff;padding:16px 24px;text-align:center;">
+<h5 style="color:#fff;margin:0 0 8px 0;">AI Intelligence Layer · 智能增强层</h5>
+<div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:0.85em;">
+<div style="background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:4px;">M365 Copilot</div>
+<div style="background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:4px;">Copilot Studio</div>
+<div style="background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:4px;">Future Custom Agent</div>
+</div>
+</div>
+<div style="text-align:center;color:#0071B9;font-size:1.2em;line-height:1;">↓</div>
+
+<!-- L4: Use Cases -->
+<div style="background:var(--white);border:1px solid var(--border);padding:14px 24px;border-radius:0 0 8px 8px;text-align:center;">
+<p style="margin:0;font-size:0.9em;"><strong>Business Use Cases · 业务场景</strong></p>
+<p style="margin:4px 0 0 0;font-size:0.82em;color:#637184;">知识问答 / 客户拜访简报 / 方案制作 / 数据分析 / 管理看板</p>
+</div>
+
+</div>
 
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px;font-size:0.85em;">
 <div style="color:#0071B9;"><strong>一个入口</strong><br>Teams = 唯一的协同入口</div>
-<div style="color:#009537;"><strong>一套数据</strong><br>文件、聊天、会议在同一体系</div>
+<div style="color:#009537;"><strong>一套数据</strong><br>SharePoint + Lists = 可信知识来源</div>
 <div style="color:#EB971B;"><strong>一个节奏</strong><br>三座城、一个频道、周例会同步</div>
 </div>
 </div>
@@ -372,8 +389,33 @@ tr:nth-child(even) td { background: var(--light-bg); }
 </table>
 
 <div style="background:#E3F2FD;padding:14px 18px;border-radius:6px;margin-top:12px;">
-<p style="margin:0;font-size:0.9em;"><strong>使用方式：</strong>日常讨论在频道 Posts 中进行，文件按主题放入对应文件夹。Planner 任务看板固定在频道顶部 Tab——一套 Planner 管所有任务，不按文件夹拆分。机密项目如需隔离，单独建 Private Channel。</p>
+<p style="margin:0;font-size:0.9em;"><strong>使用方式：</strong>日常讨论在频道 Posts 中进行，文件按主题放入对应文件夹。Planner 为可选工具——当出现多人协作、明确负责人和截止日期的任务时启用，个人独立负责的项目无需强制使用。</p>
 </div>
+
+<!-- 顶部工作台 -->
+<h4>General 顶部固定 Tab</h4>
+<p>建议 General 频道顶部固定不超过 <strong>5 个 Tab</strong>，只放团队每天真正使用的：</p>
+<table>
+<tr><th style="width:25%;">Tab</th><th style="width:75%;">用途</th></tr>
+<tr><td><strong>Posts</strong></td><td>日常沟通与通知。全员可见、永久留存。</td></tr>
+<tr><td><strong>Shared</strong></td><td>频道内共享文件的快捷入口（指向 SharePoint）。</td></tr>
+<tr><td><strong>Knowledge Index</strong></td><td>结构化知识对象列表（Service/Customer/Project/Expert）。核心知识入口。</td></tr>
+<tr><td><strong>Planner（可选）</strong></td><td>多人协作任务看板。按需启用，不要求全员使用。</td></tr>
+<tr><td><strong>OneNote / Loop（可选）</strong></td><td>临时共创、会议笔记。二选一即可。</td></tr>
+</table>
+
+<!-- 资料分工表 -->
+<h4>资料分工：什么东西放哪里</h4>
+<table>
+<tr><th style="width:30%;">内容类型</th><th style="width:70%;">应放位置</th></tr>
+<tr><td>正式方案、PPT、标准、课程资料</td><td><strong>SharePoint</strong>（通过 Teams Files 上传）</td></tr>
+<tr><td>Service、Customer、Partner、Project、Expert 对象</td><td><strong>Knowledge Index List</strong></td></tr>
+<tr><td>日常讨论与通知</td><td><strong>Teams Posts</strong></td></tr>
+<tr><td>临时共创内容</td><td><strong>Loop / OneNote</strong></td></tr>
+<tr><td>多人协作任务</td><td><strong>Planner</strong>（按需启用）</td></tr>
+<tr><td>表单收集</td><td><strong>Forms</strong></td></tr>
+<tr><td>数据展示</td><td><strong>Power BI</strong></td></tr>
+</table>
 </div>
 
 <h3 id="p1-3">1.3 聊天与协作</h3>
@@ -585,23 +627,26 @@ Teams 会议<br>
 
 <div style="background:#fff;padding:16px;border-radius:6px;border-top:4px solid #009537;">
 <h5 style="margin:0 0 8px 0;color:#009537;">Level 2 · 第二周</h5>
-<div style="font-size:0.9em;color:#142235;font-weight:bold;margin-bottom:6px;">任务与流程</div>
+<div style="font-size:0.9em;color:#142235;font-weight:bold;margin-bottom:6px;">知识与数据结构化</div>
 <div style="font-size:0.85em;color:#637184;">
-Planner 任务管理<br>
-Lists 列表<br>
-Loop 协作<br>
-Forms 问卷
+SharePoint 文件库<br>
+Knowledge Index List<br>
+知识对象与标签<br>
+Reference Files 关联
 </div>
 </div>
 
 <div style="background:#fff;padding:16px;border-radius:6px;border-top:4px solid #EB971B;">
 <h5 style="margin:0 0 8px 0;color:#EB971B;">Level 3 · 第三~四周</h5>
-<div style="font-size:0.9em;color:#142235;font-weight:bold;margin-bottom:6px;">自动化与洞察</div>
+<div style="font-size:0.9em;color:#142235;font-weight:bold;margin-bottom:6px;">业务工具（按需选用）</div>
 <div style="font-size:0.85em;color:#637184;">
-Approvals 审批<br>
+Forms 问卷<br>
+Loop 协作<br>
+Planner 任务<br>
 Power Automate<br>
-OneNote 知识库<br>
-Power BI 看板
+Power BI 看板<br>
+Approvals 审批<br>
+<span style="font-size:0.8em;color:#637184;">不要求全员同时掌握</span>
 </div>
 </div>
 
@@ -610,12 +655,35 @@ Power BI 看板
 <div style="font-size:0.9em;color:#142235;font-weight:bold;margin-bottom:6px;">AI 增强层</div>
 <div style="font-size:0.85em;color:#637184;">
 Copilot 会议智能<br>
-Copilot 文档问答<br>
-Agent 构建<br>
-自定义工作流
+Knowledge Q&amp;A<br>
+Document Generation<br>
+Data Analysis<br>
+Custom Agent<br>
+<span style="font-size:0.8em;color:#637184;">从个人 Copilot 到团队 AI 能力</span>
 </div>
 </div>
 </div>
+</div>
+
+<!-- App Priority Matrix -->
+<div style="background:#fff;border:2px solid #0071B9;border-radius:8px;padding:24px;margin:24px 0;">
+<h4 style="margin-top:0;color:#0071B9;">App 优先级矩阵：按西区实际使用方式排序</h4>
+<p style="color:#637184;margin-bottom:16px;">不是所有 App 都要用——以下是推荐的优先级排序，工具越靠前越重要。</p>
+<table>
+<tr><th style="width:5%;">#</th><th style="width:18%;">App</th><th style="width:10%;">评级</th><th style="width:15%;">定位</th><th style="width:52%;">说明</th></tr>
+<tr><td>1</td><td><strong>SharePoint</strong></td><td>★★★★★</td><td>正式知识资产层</td><td>所有正式文件、方案、PPT、标准的存储与版本管理。Teams Files 的底层。</td></tr>
+<tr><td>2</td><td><strong>Lists</strong></td><td>★★★★★</td><td>知识索引层</td><td>Knowledge Index——Service/Customer/Partner/Project/Expert 结构化对象。</td></tr>
+<tr><td>3</td><td><strong>Teams</strong></td><td>★★★★★</td><td>统一入口</td><td>所有沟通、会议、App 入口。不做知识存储，只做入口和沟通。</td></tr>
+<tr><td>4</td><td><strong>Loop</strong></td><td>★★★★</td><td>临时共创</td><td>实时协作组件——脑暴、周报草稿、会议议程。</td></tr>
+<tr><td>5</td><td><strong>OneNote</strong></td><td>★★★</td><td>会议笔记</td><td>个人或小组笔记。非正式知识库。</td></tr>
+<tr><td>6</td><td><strong>Forms</strong></td><td>★★★</td><td>数据收集</td><td>问卷、投票、报名表。</td></tr>
+<tr><td>7</td><td><strong>Power BI</strong></td><td>★★★</td><td>管理看板</td><td>销售数据、课程数据可视化。</td></tr>
+<tr><td>8</td><td><strong>Planner</strong></td><td>★★★</td><td>多人任务</td><td>按需启用——有明确多人协作+截止日期时使用。</td></tr>
+<tr><td>9</td><td><strong>Power Automate</strong></td><td>★★★</td><td>自动化</td><td>成熟后引入，不要求团队初期掌握。</td></tr>
+<tr><td>10</td><td><strong>Approvals</strong></td><td>★★</td><td>审批流</td><td>有明确审批流程时使用。</td></tr>
+<tr><td>11</td><td><strong>Praise</strong></td><td>★</td><td>非核心</td><td>团队文化建设，按需使用。</td></tr>
+</table>
+<p style="font-size:0.85em;color:#637184;margin-top:12px;"><strong>不再推荐 Wiki 作为知识库。</strong>正式知识用 SharePoint，知识索引用 Lists，临时笔记用 OneNote/Loop。避免多套知识库并存。</p>
 </div>
 
 
@@ -627,17 +695,16 @@ Agent 构建<br>
 <div class="app-grid">
 
 <div class="app-card" id="p2-1">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="9" y1="8" x2="9" y2="8" stroke="#0071B9" stroke-width="3"/><line x1="9" y1="13" x2="17" y2="13" stroke="#0071B9" stroke-width="2"/><line x1="9" y1="17" x2="17" y2="17" stroke="#0071B9" stroke-width="2"/><circle cx="7" cy="8" r="1.5" fill="#0071B9"/></svg> 2.1 Planner <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
-<p><strong>任务管理中枢</strong>。统一了 Microsoft To Do（个人任务）、Planner（协作计划）和 Project for the web（高级项目）的体验。</p>
+★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
+<p><strong>多人任务协作。</strong>当出现明确负责人和截止日期的多人任务时启用。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
 <li>看板式任务管理（Buckets + Tasks）</li>
-<li>任务分配、截止日期、优先级、附件</li>
+<li>任务分配、截止日期、优先级</li>
 <li>"My Tasks"视图聚合所有个人和共享任务</li>
-<li>频道内嵌 Tab，任务与讨论在同一上下文</li>
-<li>任务发布（Task Publishing）：总部向一线推送工作计划</li>
+<li>频道内嵌 Tab</li>
 </ul>
-<p><strong>西区场景：</strong>客户项目跟进看板、活动筹备检查清单、每人本周任务可视化。</p>
+<p><strong>西区场景：</strong>按需启用——活动筹备、多人协作项目。个人独立负责的项目无需强制使用 Planner。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/office/use-the-tasks-app-in-teams" target="_blank">官方教程</a></p>
 </div>
@@ -659,17 +726,20 @@ Agent 构建<br>
 </div>
 
 <div class="app-card" id="p2-3">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="3" y="13" width="4" height="8" rx="1" fill="rgba(0,113,185,0.7)"/><rect x="10" y="7" width="4" height="14" rx="1" fill="rgba(0,113,185,0.7)"/><rect x="17" y="3" width="4" height="18" rx="1" fill="rgba(0,113,185,0.7)"/></svg> 2.3 Lists <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
-<p><strong>结构化列表管理</strong>。在 Teams 中创建、共享和跟踪结构化数据，支持多种视图。</p>
-<p><strong>核心功能：</strong></p>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="3" y="13" width="4" height="8" rx="1" fill="rgba(0,113,185,0.7)"/><rect x="10" y="7" width="4" height="14" rx="1" fill="rgba(0,113,185,0.7)"/><rect x="17" y="3" width="4" height="18" rx="1" fill="rgba(0,113,185,0.7)"/></svg> 2.3 Lists · Knowledge Index <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
+<p><strong>结构化知识索引。</strong>Knowledge Index 不是文件清单，而是 Knowledge Object Registry——每一行代表一个知识对象。</p>
+<p><strong>知识对象类型：</strong></p>
 <ul>
-<li>自定义字段（文本/数字/日期/选择/人员等）</li>
-<li>多视图：表格、日历、卡片、画廊</li>
-<li>频道内嵌 Tab，数据与讨论联动</li>
-<li>与 SharePoint Lists 数据互通</li>
-<li>支持导入 Excel 数据</li>
+<li>Service（服务产品）</li>
+<li>Customer（客户）</li>
+<li>Partner（合作伙伴）</li>
+<li>Project（项目）</li>
+<li>Expert（专家/讲师）</li>
+<li>Market（市场/行业）</li>
 </ul>
-<p><strong>西区场景：</strong>客户信息清单、公开课排期、讲师档期管理、设备清单。</p>
+<p><strong>建议字段：</strong>Title · Object Type · Summary · Industry Domain · Service Category · Region · Related Customers/Services/Experts · Reference Files（指向 SharePoint）· Owner · Status · Tags / AI Keywords · Last Reviewed</p>
+<p><strong>示例：</strong>ISO 21434 Automotive Cybersecurity | Object Type: Service | Industry: Automotive; InfoSec | Reference Files: SharePoint 文件夹链接 | Tags: ISO21434; 汽车网络安全; CSMS</p>
+<p><strong>核心理念：</strong>文件保存在 SharePoint，通过 Reference Files 字段关联。Knowledge Index 是"找东西的入口"，不是"存东西的地方"。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/office/create-a-list-in-microsoft-teams" target="_blank">官方教程</a></p>
 </div>
@@ -780,6 +850,10 @@ Agent 构建<br>
 <p><strong>西区场景：</strong>团队 SOP 文档、新人入职指南、客户沟通话术、常见问题 FAQ。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/office/add-and-use-a-wiki-tab-in-microsoft-teams" target="_blank">官方教程</a></p>
+<div class="callout warning" style="margin-top:12px;">
+<h4>不再推荐作为知识库</h4>
+<p>正式知识用 <strong>SharePoint</strong>，知识索引用 <strong>Lists Knowledge Index</strong>，临时笔记用 <strong>OneNote / Loop</strong>。避免多套知识库并存。</p>
+</div>
 </div>
 
 </div>
@@ -794,17 +868,21 @@ Agent 构建<br>
 
 <div class="callout tip">
 <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> App 选择建议
-<p><strong>第一周就装：</strong>Planner + Wiki + OneNote —— 任务管理 + 知识沉淀 + 会议记录，三个搞定团队基础运转。</p>
-<p><strong>第一个月加装：</strong>Lists + Approvals + Forms —— 客户信息结构化 + 审批流程化 + 反馈收集。</p>
-<p><strong>成熟期探索：</strong>Power Automate + Power BI + Loop —— 自动化 + 数据可视化 + 实时协作。</p>
+<p><strong>第一周：</strong>Teams 聊天+频道+会议+文件协作 —— 协作底盘先跑起来。</p>
+<p><strong>第二周：</strong>SharePoint 文件库 + Knowledge Index List —— 知识开始结构化沉淀。</p>
+<p><strong>按需启用：</strong>Forms（问卷收集）、Loop（实时共创）、Planner（多人任务）、Power BI（看板）、Approvals（审批）。不需要全员同时掌握。</p>
 </div>
 
 <!-- ═══════════ PART 3 ═══════════ -->
-<h2 id="p3">Part 3：Copilot in Teams —— June 的 AI 增强层</h2>
+<h2 id="p3">Part 3：AI in Western Team Digital Workspace</h2>
+<p style="color:#637184;font-size:0.95em;margin-bottom:24px;">从个人 Copilot 到团队 AI 能力。目前 June 拥有 M365 Copilot License，团队暂无个人许可——但两套数据基础（SharePoint + Knowledge Index）已就绪，无论未来走微软原生还是自定义 AI 路线，都无需重建知识库。</p>
 
 <div class="callout warning">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2L2 22h20L12 2z" stroke="#D20033" stroke-width="2" fill="none"/><line x1="12" y1="10" x2="12" y2="15" stroke="#D20033" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#D20033"/></svg> 硬伤前置说明</h4>
-<p><strong>Microsoft 365 Copilot 需要额外许可。</strong>目前西区 BS.A 团队中，仅 June 拥有 M365 Copilot license。本章展示 June 能用 Copilot 做什么，以及如何将 AI 产出通过 Teams 分享给团队。团队成员虽然不能直接使用 Copilot，但可以享受 June + Copilot 加工后的成果。</p>
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2L2 22h20L12 2z" stroke="#D20033" stroke-width="2" fill="none"/><line x1="12" y1="10" x2="12" y2="15" stroke="#D20033" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#D20033"/></svg> 当前状态与双轨路线</h4>
+<p><strong>当前：</strong>仅 June 拥有 M365 Copilot license。团队成员通过 June + Copilot 加工后的成果间接使用 AI（纪要、摘要、周报初稿）。</p>
+<p><strong>路线 A · 微软原生：</strong>M365 Copilot → Copilot Studio → Power Automate + Microsoft Graph → SharePoint + Lists。优势：原生集成、零开发。</p>
+<p><strong>路线 B · 自定义 AI：</strong>Teams 自定义 App/Bot → 腾讯云 AI 服务 → 自建 RAG 知识库 → SharePoint 或 Lists 数据同步。优势：灵活、可按西区需求定制。</p>
+<p><strong>共用基础：</strong>两条路线共用同一套 SharePoint + Knowledge Index 数据层。现在把数据整理好，未来接任何 AI 都不需要推倒重来。</p>
 <p>官方许可路径：M365 Copilot add-on license（约 $30/人/月）或通过 Pay-As-You-Go 按量计费。</p>
 </div>
 
@@ -905,6 +983,34 @@ Agent 构建<br>
 <p>→ <a href="https://support.microsoft.com/en-us/teams/copilot/catch-up-on-meetings-with-microsoft-365-copilot-in-teams" target="_blank">Copilot in Teams meetings 官方教程</a><br>
 → <a href="https://support.microsoft.com/en-us/teams/copilot/start-a-conversation-with-microsoft-365-copilot-chat-in-teams" target="_blank">Copilot Chat in Teams 官方教程</a><br>
 → <a href="https://copilot.cloud.microsoft/prompts" target="_blank">Copilot Prompt Gallery</a></p>
+</div>
+
+<h3 id="p3-6">3.6 AI 使用场景（未来能力）</h3>
+
+<p>以下场景在当前阶段为"概念预览"——Knowledge Index 和 SharePoint 数据基础就绪后，AI 可逐步实现：</p>
+
+<div class="app-grid">
+<div class="app-card">
+<h4>🔍 Knowledge Assistant</h4>
+<p>"我们有没有新能源汽车网络安全相关课程？""ISO 42001 有哪些资料？""有哪些专家做过 TISAX？"——基于 Knowledge Index + SharePoint 的知识问答。</p>
+</div>
+<div class="app-card">
+<h4>📋 Sales Assistant</h4>
+<p>"帮我准备明天拜访通威的简报。""推荐适合新能源客户的培训和咨询服务。"——基于客户对象+服务对象+案例的智能推荐。</p>
+</div>
+<div class="app-card">
+<h4>📄 Document Assistant</h4>
+<p>"基于现有模板生成一份客户培训方案初稿。""根据会议纪要草拟跟进邮件。"——基于 SharePoint 模板库的文档生成。</p>
+</div>
+<div class="app-card">
+<h4>📊 Data Assistant</h4>
+<p>"本季度新增了哪些 AI 机会？""哪些行业的知识资产最多？""哪些知识对象超过半年未审核？"——基于 Lists 数据的趋势分析。</p>
+</div>
+</div>
+
+<div class="callout tip">
+<h4>未来接入 AI 的前提</h4>
+<p>不是等有了 AI 再整理数据——是先把 SharePoint 文件结构和 Knowledge Index 建好。数据层稳定后，无论接微软 Copilot 还是腾讯云自定义 Agent，都是"接上线就能用"。</p>
 </div>
 
 <!-- ═══════════ PART 4 ═══════════ -->
