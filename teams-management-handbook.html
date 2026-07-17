@@ -203,14 +203,14 @@ tr:nth-child(even) td { background: var(--light-bg); }
   <li><a href="#p3-6">3.6 AI 使用场景（未来能力）</a></li>
   </ol>
 </li>
-<li><a href="#p4">Part 4：西区管理实战 SOP</a>
+<li><a href="#p4">Part 4：西区业务实战 SOP</a>
   <ol>
-  <li><a href="#p4-1">场景1：周一例会</a></li>
-  <li><a href="#p4-2">场景2：客户项目跟进</a></li>
-  <li><a href="#p4-3">场景3：跨城市信息同步</a></li>
-  <li><a href="#p4-4">场景4：周报半自动化</a></li>
-  <li><a href="#p4-5">场景5：审批流程</a></li>
-<li><a href="#p4-6">场景6：新人入职</a></li>
+  <li><a href="#p4-1">场景1：客户拜访准备</a></li>
+  <li><a href="#p4-2">场景2：Pipeline 周更新</a></li>
+  <li><a href="#p4-3">场景3：方案与报价制作</a></li>
+  <li><a href="#p4-4">场景4：公开课全流程</a></li>
+  <li><a href="#p4-5">场景5：跨城市业务协同</a></li>
+  <li><a href="#p4-6">场景6：周报</a></li>
   </ol>
 </li>
 </ol>
@@ -1015,180 +1015,149 @@ Custom Agent<br>
 </div>
 
 <!-- ═══════════ PART 4 ═══════════ -->
-<h2 id="p4">Part 4：西区管理实战 SOP</h2>
+<h2 id="p4">Part 4：西区业务实战 SOP</h2>
 
 <div class="callout info">
 <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#0071B9"/></svg> 本部分目标</h4>
-<p>将 Teams + Copilot 能力映射到西区 BS.A 团队的六个核心管理场景。每个场景标注清楚：<span class="role-tag june"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><polygon points="12,2 23,12 12,22 1,12" stroke="#0071B9" stroke-width="2" fill="rgba(0,113,185,0.15)"/></svg> June 操作</span> <span class="role-tag team"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><polygon points="12,2 23,12 12,22 1,12" stroke="#637184" stroke-width="2" fill="rgba(99,113,132,0.1)"/></svg> 团队操作</span> <span class="role-tag copilot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> Copilot 加持</span>。</p>
-<p><strong>核心原则：</strong>June 有 Copilot，团队没有。所以模式是"June + Copilot 产出 → Teams 频道分发 → 团队自助消费"。</p>
+<p>六个西区 BS.A 核心业务场景，覆盖从获客到交付的全流程。每个场景标注：<span class="role-tag june"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><polygon points="12,2 23,12 12,22 1,12" stroke="#0071B9" stroke-width="2" fill="rgba(0,113,185,0.15)"/></svg> June 操作</span> <span class="role-tag team"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><polygon points="12,2 23,12 12,22 1,12" stroke="#637184" stroke-width="2" fill="rgba(99,113,132,0.1)"/></svg> 团队操作</span> <span class="role-tag copilot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> Copilot 加持</span>。</p>
 </div>
 
-<!-- Scene 1 -->
+<!-- Scene 1: 客户拜访准备 -->
 <div class="scene-card" id="p4-1">
-<h3>场景 1：周一例会</h3>
-<p><strong>频率：</strong>每周一次 &nbsp;|&nbsp; <strong>参与人：</strong>全员（重庆/成都/西安）</p>
+<h3>场景 1：客户拜访准备</h3>
+<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>场景：</strong>明天拜访客户，需要快速拼装资料包</p>
 
 <h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四下班前在 Planner 更新本周完成事项</div>
-<div class="step"><span class="num">2</span><span class="role-tag june">June</span>周一上午在 Teams 预定会议（开启转录）→ 发到 Conversation</div>
-<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>按时参会，按议程逐项讨论（销售进展 → 项目进展 → 问题与风险 → 下周计划）</div>
-<div class="step"><span class="num">4</span><span class="role-tag copilot">Copilot</span>会议中实时转录，June 用 Copilot 提取行动项："List action items with owners and deadlines"</div>
-<div class="step"><span class="num">5</span><span class="role-tag june">June</span>会后用 Copilot 生成会议纪要 → 审核 → 发布到 Conversation</div>
-<div class="step"><span class="num">6</span><span class="role-tag team">团队</span>查看纪要，认领 Planner 中的行动项任务</div>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>在 Knowledge Index 按行业/客户名搜索——查有没有做过类似客户</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>点开关联的 Service（课程/认证）、Expert（讲师）、Case（案例）</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>点击 Reference Files 进入 SharePoint，下载方案、课程大纲、案例材料</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>用 Copilot 生成拜访简报：客户背景 + 推荐产品 + 提问清单 + 跟进邮件草稿</div>
+<div class="step"><span class="num">5</span><span class="role-tag team">团队</span>拜访完成后在 Conversation 回复结果：见了谁、什么反馈、下一步</div>
 
 <h4>工具组合</h4>
-<p>Teams 会议（录制+转录） → Copilot（纪要+行动项） → Planner（任务分配） → Conversation（发布+讨论）</p>
+<p>Knowledge Index（客户/服务关联） → SharePoint（正式资料） → Copilot（简报生成） → Conversation（结果沉淀）</p>
 
-
-<div class="callout info" style="margin-top:16px;">
-<h4>Prompt Library</h4>
+<div class="callout info" style="margin-top:16px;"><h4>Prompt Library</h4>
 <table>
 <tr><th style="width:50%;">Prompt（英文）</th><th>说明</th></tr>
-<tr><td><code>Summarize today's meeting in 5 bullet points.</code></td><td>总结今天会议的5个要点</td></tr>
-<tr><td><code>List all action items with owners and deadlines.</code></td><td>列出所有行动项、负责人和截止日期</td></tr>
-<tr><td><code>What risks or blockers were raised?</code></td><td>会议中提到了哪些风险或阻碍？</td></tr>
+<tr><td><code>Based on this client profile and our service catalog, create a one-page briefing with recommended products and key talking points.</code></td><td>基于客户档案和服务目录，生成一页简报</td></tr>
+<tr><td><code>List 5 questions to ask this automotive client about their quality management needs.</code></td><td>列出拜访汽车客户的5个提问要点</td></tr>
+<tr><td><code>Draft a follow-up email summarizing our discussion and next steps.</code></td><td>草拟跟进邮件</td></tr>
 </table>
 </div>
 
-<div class="callout tip" style="margin-top:16px;">
-<h4>June Tips</h4>
-<p>会议结束5分钟内，用 Copilot 出纪要 → 发布到 Conversation → Planner 同步创建任务。团队到公司时，行动项已经分配好了。</p>
+<div class="callout tip" style="margin-top:16px;"><h4>June Tips</h4>
+<p>拜访前一天花15分钟走完流程。Knowledge Index 能告诉你"我们做过什么、谁做过、有什么资料"——不用拼凑碎片信息。</p>
 </div>
 </div>
 
-<!-- Scene 2 -->
+<!-- Scene 2: Pipeline 周更新 -->
 <div class="scene-card" id="p4-2">
-<h3>场景 2：客户项目跟进</h3>
-<p><strong>频率：</strong>持续 &nbsp;|&nbsp; <strong>参与人：</strong>项目相关人员</p>
+<h3>场景 2：Pipeline 周更新</h3>
+<p><strong>频率：</strong>每周 &nbsp;|&nbsp; <strong>场景：</strong>三城Pipeline同步，June一目了然</p>
 
 <h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag june">June</span>在频道 Files 的 <strong>03_Customer &amp; Partnership Knowledge Base</strong> 下为客户创建专属文件夹</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在对应文件夹上传相关文档（方案/报价/合同/会议记录）</div>
-<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>在频道顶部 Planner Tab 维护项目任务看板（待办/进行中/已完成）</div>
-<div class="step"><span class="num">4</span><span class="role-tag june">June</span>每周用 Copilot 在频道中查询项目进展："Summarize the latest updates about this client project"</div>
-<div class="step"><span class="num">5</span><span class="role-tag june">June</span>将 Copilot 生成的进展摘要发到频道，团队确认和补充</div>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>每周五在频道 Conversation 里的 Loop 表格更新 Pipeline：客户名/阶段/金额/下一步/更新日期</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>新增商机直接加行，有进展改阶段列，丢了的标 Lost</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>打开频道看 Loop 表格——三城 Pipeline 一目了然，不用等邮件</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>月底用 Copilot 总结：\"Summarize this month's pipeline changes and highlight deals moved forward\"</div>
 
 <h4>工具组合</h4>
-<p>Teams 频道 Files（项目文件夹） → Planner（任务看板） → Copilot（进展总结）</p>
+<p>Loop 表格（Pipeline 数据） → Conversation（上下文讨论） → Copilot（月度总结）</p>
 
-
-<div class="callout info" style="margin-top:16px;">
-<h4>Prompt Library</h4>
-<table>
-<tr><th style="width:50%;">Prompt（英文）</th><th>说明</th></tr>
-<tr><td><code>Summarize the current status of this project based on channel discussions.</code></td><td>基于频道讨论总结项目当前状态</td></tr>
-<tr><td><code>What are the top 3 blockers mentioned this week?</code></td><td>本周提到的三大阻碍是什么？</td></tr>
-<tr><td><code>Compare the latest proposal with the previous version — what changed?</code></td><td>比较最新方案与上一版——改了哪些内容？</td></tr>
-</table>
-</div>
-
-<div class="callout tip" style="margin-top:16px;">
-<h4>June Tips</h4>
-<p>每周五下午固定在 General 频道跑一次 Copilot 项目总结，截图发频道。不是给团队增加工作——是告诉他们"项目在往前走"。</p>
+<div class="callout tip" style="margin-top:16px;"><h4>June Tips</h4>
+<p>Loop 表格嵌在 Conversation 里，谁改谁更新——不用开会，打开频道就知道全貌。重庆Rina改了、成都Niko改了，June在重庆秒看到。</p>
 </div>
 </div>
 
-<!-- Scene 3 -->
+<!-- Scene 3: 方案与报价 -->
 <div class="scene-card" id="p4-3">
-<h3>场景 3：跨城市信息同步</h3>
-<p><strong>频率：</strong>日常 &nbsp;|&nbsp; <strong>参与人：</strong>全员（重庆/成都/西安）</p>
+<h3>场景 3：方案与报价制作</h3>
+<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>场景：</strong>客户要方案，需要快速出标准报价</p>
 
 <h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>各城市在 General 频道分享本地动态（客户拜访/项目进展/市场情报）</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>重要客户信息和市场情报更新到频道 Files 的 <strong>01_Business Development &amp; Market Opportunities</strong> 文件夹，用 @channel 确保全员可见</div>
-<div class="step"><span class="num">3</span><span class="role-tag june">June</span>每周五用 Copilot 生成"本周团队动态摘要"："Summarize this week's key updates from the team channel"</div>
-<div class="step"><span class="num">4</span><span class="role-tag june">June</span>摘要发布到 Conversation，作为周报的素材基础</div>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>在 <strong>06_Branding & Sales Toolkit</strong> 文件夹找方案模板和报价模板</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在 <strong>02_Products & Delivery Assets</strong> 找对应课程大纲和讲师排期</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>填充方案内容 → 上传到 <strong>03_Customer & Partnership Knowledge Base</strong> 下客户文件夹</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>复杂方案用 Copilot 审读：\"Review this proposal and highlight any risks or missing sections\"</div>
+<div class="step"><span class="num">5</span><span class="role-tag team">团队</span>方案定稿后走内部审批流程</div>
 
 <h4>工具组合</h4>
-<p>Teams 频道（日常沟通） → Copilot（周度汇总） → Loop（协作周报草稿） → Conversation（全员可见）</p>
+<p>SharePoint 模板（06/02 文件夹） → Knowledge Index（客户背景） → Copilot（方案审读） → 内部审批</p>
 
-<div class="callout tip">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> 为什么不用微信群？</h4>
-<p>微信群聊有三个致命问题：(1) 信息流不可检索，3天前的消息找不到了；(2) 文件过期，换个手机就没了；(3) 新人入群看不到历史上下文。Teams 频道+PWA永久留存+结构化+可检索——更适合组织知识沉淀。</p>
-</div>
-
-<div class="callout info" style="margin-top:16px;">
-<h4>Prompt Library</h4>
-<table>
-<tr><th style="width:50%;">Prompt（英文）</th><th>说明</th></tr>
-<tr><td><code>Summarize this week's key updates in the General channel in 200 words.</code></td><td>用200字汇总本周各频道关键动态</td></tr>
-<tr><td><code>Which clients had the most activity this week?</code></td><td>本周哪些客户动态最多？</td></tr>
-<tr><td><code>Generate a "Friday Brief" covering sales, projects, and team updates.</code></td><td>生成一份"周五简报"：销售进展、项目动态、团队更新</td></tr>
-</table>
-</div>
-
-<div class="callout tip" style="margin-top:16px;">
-<h4>June Tips</h4>
-<p>周五下午让 Copilot 跑一次全频道摘要——这是周报的初稿素材，不是额外工作。</p>
+<div class="callout tip" style="margin-top:16px;"><h4>June Tips</h4>
+<p>方案模板统一放 06 文件夹，报价模板也放一起。团队做方案不需要从零写——打开模板、填客户名、改课程名，10分钟出初稿。</p>
 </div>
 </div>
 
-<!-- Scene 4 -->
+<!-- Scene 4: 公开课全流程 -->
 <div class="scene-card" id="p4-4">
-<h3>场景 4：周报半自动化</h3>
+<h3>场景 4：公开课全流程</h3>
+<p><strong>频率：</strong>持续 &nbsp;|&nbsp; <strong>场景：</strong>从排期到交付的公开课运营</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>公开课排期统一放在 <strong>02_Products & Delivery Assets</strong> 文件夹</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>报名统计用 Loop 表格嵌在 Conversation：课程/日期/已报名/满员否——实时更新</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>课前通知、课中反馈用 Forms 收集</div>
+<div class="step"><span class="num">4</span><span class="role-tag team">团队</span>课后资料（课件/证书/反馈汇总）上传到 SharePoint 对应课程文件夹</div>
+
+<h4>工具组合</h4>
+<p>SharePoint（排期+课件） → Loop（报名跟踪） → Forms（反馈收集） → Knowledge Index（课程对象沉淀）</p>
+
+<div class="callout tip" style="margin-top:16px;"><h4>Tips</h4>
+<p>每门公开课结束后，在 Knowledge Index 更新：学员数、反馈分、讲师。这是未来"推荐课程给客户"的数据基础。</p>
+</div>
+</div>
+
+<!-- Scene 5: 跨城市业务协同 -->
+<div class="scene-card" id="p4-5">
+<h3>场景 5：跨城市业务协同</h3>
+<p><strong>频率：</strong>日常 &nbsp;|&nbsp; <strong>场景：</strong>重庆客户需要成都讲师，成都商机需要重庆支持</p>
+
+<h4>SOP 流程</h4>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>需要跨城资源时，在 Knowledge Index 查专家（Expert）对象——看讲师所在地、资质、档期</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在 <strong>04_Tutors & Certification Resources</strong> 找讲师资质和联系方式</div>
+<div class="step"><span class="num">3</span><span class="role-tag team">团队</span>在 Conversation 发协调请求 → @讲师所在地同事 → 确认档期</div>
+<div class="step"><span class="num">4</span><span class="role-tag team">团队</span>客户信息同步到 <strong>03_Customer & Partnership Knowledge Base</strong>，对方城市同事直接看</div>
+
+<h4>工具组合</h4>
+<p>Knowledge Index（专家对象） → SharePoint（讲师资质） → Conversation（即时协调）</p>
+
+<div class="callout tip" style="margin-top:16px;"><h4>Tips</h4>
+<p>跨城最怕"信息不对称"——成都不知道重庆有什么讲师。Knowledge Index 解决这个问题：讲师对象里标了所在地、专长、档期，全团队可见。</p>
+</div>
+</div>
+
+<!-- Scene 6: 周报 -->
+<div class="scene-card" id="p4-6">
+<h3>场景 6：周报</h3>
 <p><strong>频率：</strong>每周四 &nbsp;|&nbsp; <strong>产出：</strong>提交给 Christina 的西区周报</p>
 
 <h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四前在 Planner 更新本周完成的任务（标记 Complete）</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在 General 频道更新本周客户动态</div>
-<div class="step"><span class="num">3</span><span class="role-tag june">June</span>用 Copilot 汇总本周信息："Summarize this week's key activities from Planner tasks and channel discussions"</div>
-<div class="step"><span class="num">4</span><span class="role-tag june">June</span>将 Copilot 初稿按周报模板整理（Key Updates / New Opps / Product & Operation Support / Market & Competitors / Team Management Support）</div>
-<div class="step"><span class="num">5</span><span class="role-tag june">June</span>审核定稿 → 提交 → 发到 General 频道存档</div>
+<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四前在 Pipeline Loop 表格更新数据和本周关键进展</div>
+<div class="step"><span class="num">2</span><span class="role-tag june">June</span>用 Copilot 汇总：\"Summarize this week's Pipeline updates, key client visits, and team highlights\"</div>
+<div class="step"><span class="num">3</span><span class="role-tag june">June</span>按周报模板五大板块整理（Key Updates / New Opps / Product & Operation Support / Market & Competitors / Team Management Support）</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>审核定稿 → 提交 → 发到 Conversation 存档</div>
 
 <h4>工具组合</h4>
-<p>Planner（任务状态） → Teams 频道（客户动态） → Copilot（信息汇总） → Word（周报定稿）</p>
+<p>Loop（Pipeline 数据） → Copilot（信息汇总初稿） → Word（周报定稿）</p>
 
-
-<div class="callout info" style="margin-top:16px;">
-<h4>Prompt Library</h4>
-<table>
-<tr><th style="width:50%;">Prompt（英文）</th><th>说明</th></tr>
-<tr><td><code>Summarize this week's completed tasks from Planner and key channel discussions.</code></td><td>汇总本周 Planner 完成的任务和频道关键讨论</td></tr>
-<tr><td><code>Draft a weekly report: Key Updates, New Opportunities, Risks, and Next Week Priorities.</code></td><td>草拟周报：关键更新、新商机、风险、下周重点</td></tr>
-<tr><td><code>Based on this week's activity, what should be the top 3 priorities for next week?</code></td><td>基于本周动态，下周三大重点应该是什么？</td></tr>
-</table>
+<div class="callout tip" style="margin-top:16px;"><h4>June Tips</h4>
+<p>Copilot 出初稿 → 审核增删 → 10分钟搞定。关键是把模板喂给 Copilot，让它按模板格式输出。</p>
 </div>
-
-<div class="callout tip" style="margin-top:16px;">
-<h4>June Tips</h4>
-<p>周报不是从零写——Copilot 出初稿 → 我审核增删 → 10分钟搞定。关键是把模板喂给 Copilot，让它按模板格式输出。</p>
-</div>
-</div>
-
-<!-- Scene 5 -->
-<div class="scene-card" id="p4-5">
-<h3>场景 5：审批流程</h3>
-<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>工具：</strong>TÜV 莱茵内部审批体系</p>
-<p>TÜV 莱茵内部有正式审批流程和体系。Teams Approvals 不做核心推荐。审批请走公司内部流程。</p>
-</div>
-
-<!-- Scene 6 -->
-<div class="scene-card" id="p4-6">
-<h3>场景 6：新人入职</h3>
-<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>对象：</strong>新加入的西区团队成员</p>
-
-<h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag june">June</span>将新人加入 BS.A West Team → 发送欢迎消息到 General 频道</div>
-<div class="step"><span class="num">2</span><span class="role-tag june">June</span>引导新人阅读 Wiki 标签中的"新人入职指南"（团队结构/SOP/常用工具/FAQ）</div>
-<div class="step"><span class="num">3</span><span class="role-tag june">June</span>在 Planner 中为新人创建入职任务清单（学习资料→认识团队→系统权限→第一周任务）</div>
-<div class="step"><span class="num">4</span><span class="role-tag team">新人</span>按 Planner 清单逐项完成，完成后标记 Complete</div>
-<div class="step"><span class="num">5</span><span class="role-tag team">新人</span>用 Catch up 功能浏览各频道历史消息，快速了解团队上下文</div>
-
-<h4>工具组合</h4>
-<p>Teams 频道 → Wiki（入职指南） → Planner（任务清单） → Catch up（上下文补课）</p>
 </div>
 
 <!-- Summary -->
 <div class="callout tip" style="margin-top: 40px;">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#0071B9"/></svg> 六个场景工具矩阵总览</h4>
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#0071B9"/></svg> 六个业务场景工具矩阵总览</h4>
 <table>
-<tr><th>场景</th><th>Teams 功能</th><th>Apps</th><th>June + Copilot</th></tr>
-<tr><td>周一例会</td><td>会议+频道</td><td>Planner</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 纪要+行动项</td></tr>
-<tr><td>客户项目</td><td>General频道+文件夹</td><td>Planner</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 进展总结</td></tr>
-<tr><td>跨城市同步</td><td>频道+广播</td><td>Loop</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 周度汇总</td></tr>
-<tr><td>周报</td><td>频道+Planner</td><td>—</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 信息汇总初稿</td></tr>
-<tr><td>审批</td><td>内部审批系统</td><td>—</td><td>—</td></tr>
-<tr><td>新人入职</td><td>频道+Wiki</td><td>Planner</td><td>—</td></tr>
+<tr><th>场景</th><th>核心工具</th><th>AI 加持</th></tr>
+<tr><td>客户拜访准备</td><td>Knowledge Index + SharePoint</td><td>Copilot 简报生成</td></tr>
+<tr><td>Pipeline 周更新</td><td>Loop 表格 + Conversation</td><td>Copilot 月度总结</td></tr>
+<tr><td>方案与报价</td><td>SharePoint 模板 + Knowledge Index</td><td>Copilot 方案审读</td></tr>
+<tr><td>公开课全流程</td><td>SharePoint + Loop + Forms</td><td>—</td></tr>
+<tr><td>跨城市业务协同</td><td>Knowledge Index + Conversation</td><td>—</td></tr>
+<tr><td>周报</td><td>Loop + Copilot</td><td>信息汇总初稿</td></tr>
 </table>
 </div>
 
