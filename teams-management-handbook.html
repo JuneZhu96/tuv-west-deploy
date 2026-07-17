@@ -226,7 +226,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <!-- L1: Entry -->
 <div style="background:linear-gradient(135deg,#002B46,#0071B9);color:#fff;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center;">
 <h5 style="color:#fff;margin:0 0 6px 0;font-size:1.1em;">Teams · Unified Work Entry</h5>
-<p style="margin:0;font-size:0.85em;opacity:0.85;">沟通 / 会议 / 频道 Posts / App 入口 / 页面</p>
+<p style="margin:0;font-size:0.85em;opacity:0.85;">沟通 / 会议 / Conversation / App 入口 / 页面</p>
 </div>
 <div style="text-align:center;color:#0071B9;font-size:1.2em;line-height:1;">↓</div>
 
@@ -390,7 +390,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 </table>
 
 <div style="background:#E3F2FD;padding:14px 18px;border-radius:6px;margin-top:12px;">
-<p style="margin:0;font-size:0.9em;"><strong>使用方式：</strong>日常讨论在频道 Posts 中进行，文件按主题放入对应文件夹。Planner 为可选工具——当出现多人协作、明确负责人和截止日期的任务时启用，个人独立负责的项目无需强制使用。</p>
+<p style="margin:0;font-size:0.9em;"><strong>使用方式：</strong>日常讨论在 Conversation 中进行，文件按主题放入对应文件夹。Planner 为可选工具——当出现多人协作、明确负责人和截止日期的任务时启用，个人独立负责的项目无需强制使用。</p>
 </div>
 
 <!-- 顶部工作台 -->
@@ -398,7 +398,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <p>建议 General 频道顶部固定不超过 <strong>5 个 Tab</strong>，只放团队每天真正使用的：</p>
 <table>
 <tr><th style="width:25%;">Tab</th><th style="width:75%;">用途</th></tr>
-<tr><td><strong>Posts</strong></td><td>日常沟通与通知。全员可见、永久留存。</td></tr>
+<tr><td><strong>Conversation</strong></td><td>日常沟通与通知。全员可见、永久留存。</td></tr>
 <tr><td><strong>Shared</strong></td><td>频道内共享文件的快捷入口（指向 SharePoint）。</td></tr>
 <tr><td><strong>Knowledge Index</strong></td><td>结构化知识对象列表（Service/Customer/Project/Expert）。核心知识入口。</td></tr>
 <tr><td><strong>Planner（可选）</strong></td><td>多人协作任务看板。按需启用，不要求全员使用。</td></tr>
@@ -411,7 +411,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <tr><th style="width:30%;">内容类型</th><th style="width:70%;">应放位置</th></tr>
 <tr><td>正式方案、PPT、标准、课程资料</td><td><strong>SharePoint</strong>（通过 Teams Files 上传）</td></tr>
 <tr><td>Service、Customer、Partner、Project、Expert 对象</td><td><strong>Knowledge Index List</strong></td></tr>
-<tr><td>日常讨论与通知</td><td><strong>Teams Posts</strong></td></tr>
+<tr><td>日常讨论与通知</td><td><strong>Conversation</strong></td></tr>
 <tr><td>临时共创内容</td><td><strong>Loop / OneNote</strong></td></tr>
 <tr><td>多人协作任务</td><td><strong>Planner</strong>（按需启用）</td></tr>
 <tr><td>表单收集</td><td><strong>Forms</strong></td></tr>
@@ -430,11 +430,11 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <h4>群组对话</h4>
 <p>创建方式与私聊相同，只需在 <strong>To</strong> 字段中添加多个人。群聊最多容纳 <strong>250 人</strong>。建议给群聊命名（点击群聊顶部→输入名称），方便后续查找。</p>
 
-<h4>频道帖子</h4>
-<p>频道内的对话以"帖子（Post）"形式组织。团队成员可以在频道中：</p>
+<h4>频道对话（Conversation）</h4>
+<p>频道内的对话以"Conversation"形式组织。团队成员可以在频道中：</p>
 <ul>
-<li>发起新对话（New post）</li>
-<li>回复已有帖子（形成讨论串）</li>
+<li>发起新对话</li>
+<li>回复已有对话（形成讨论串）</li>
 <li>@提及（@team 通知整个团队，@某人通知特定人员）</li>
 <li>附加文件、图片、链接</li>
 <li>使用格式工具（加粗、列表、代码块等）</li>
@@ -525,7 +525,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <tr><th>通知类别</th><th>可选方式</th></tr>
 <tr><td>聊天消息</td><td>Banner and feed / Only show in feed / Off</td></tr>
 <tr><td>@提及</td><td>Banner and feed / Only show in feed / Off</td></tr>
-<tr><td>频道帖子</td><td>Banner and feed / Only show in feed / Off</td></tr>
+<tr><td>频道对话</td><td>Banner and feed / Only show in feed / Off</td></tr>
 <tr><td>会议开始提醒</td><td>开关</td></tr>
 <tr><td>会议聊天（已接受）</td><td>下拉选择通知级别</td></tr>
 <tr><td>会议聊天（暂定/无回应）</td><td>默认：Mute until I join or send a message</td></tr>
@@ -593,7 +593,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <tr><th style="width:22%;">场景</th><th style="width:15%;">推荐工具</th><th>原则</th></tr>
 一对一快速确认</td><td><strong>Teams 私聊</strong></td><td>比邮件快，比微信有记录。私聊不打扰团队信息流。</td></tr>
 <tr><td>项目内讨论</td><td><strong>Teams Channel</strong></td><td>上下文永久留存。新人进频道就能看到全部历史。</td></tr>
-<tr><td>全员通知/公告</td><td><strong>Channel 帖子 + @team</strong></td><td>全员可见、不会被群聊淹没。重要通知必须沉淀。</td></tr>
+<tr><td>全员通知/公告</td><td><strong>Conversation 消息 + @team</strong></td><td>全员可见、不会被群聊淹没。重要通知必须沉淀。</td></tr>
 <tr><td>跨城市/跨部门协调</td><td><strong>Teams Meeting</strong></td><td>屏幕共享+录制+转录，异地无差别。会后Copilot出纪要。</td></tr>
 <tr><td>正式客户沟通</td><td><strong>Outlook 邮件</strong></td><td>邮件具有法律效力。外部客户不一定有Teams。</td></tr>
 <tr><td>合同/报价审批</td><td><strong>内部审批系统</strong></td><td>TÜV 莱茵内部有正式审批体系，不走 Teams Approvals。</td></tr>
@@ -675,7 +675,7 @@ Custom Agent<br>
 <tr><td>1</td><td><strong>SharePoint</strong></td><td>★★★★★</td><td>正式知识资产层</td><td>所有正式文件、方案、PPT、标准的存储与版本管理。Teams Files 的底层。</td></tr>
 <tr><td>2</td><td><strong>Lists</strong></td><td>★★★★★</td><td>知识索引层</td><td>Knowledge Index——Service/Customer/Partner/Project/Expert 结构化对象。</td></tr>
 <tr><td>3</td><td><strong>Teams</strong></td><td>★★★★★</td><td>统一入口</td><td>所有沟通、会议、App 入口。不做知识存储，只做入口和沟通。</td></tr>
-<tr><td>4</td><td><strong>Loop</strong></td><td>★★★★</td><td>工作数据引擎</td><td>活数据同步——Pipeline追踪、报名统计、月度数据。嵌在频道帖子里实时编辑。</td></tr>
+<tr><td>4</td><td><strong>Loop</strong></td><td>★★★★</td><td>工作数据引擎</td><td>活数据同步——Pipeline追踪、报名统计、月度数据。嵌在频道 Conversation 里实时编辑。</td></tr>
 <tr><td>5</td><td><strong>OneNote</strong></td><td>★★★</td><td>会议笔记</td><td>个人或小组笔记。非正式知识库。</td></tr>
 <tr><td>6</td><td><strong>Forms</strong></td><td>★★★</td><td>数据收集</td><td>问卷、投票、报名表。</td></tr>
 <tr><td>7</td><td><strong>Power BI</strong></td><td>★★★</td><td>管理看板</td><td>销售数据、课程数据可视化。</td></tr>
@@ -737,7 +737,7 @@ Custom Agent<br>
 
 <div class="app-card" id="p2-4">
 <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 4v6h6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M20 20v-6h-6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 10a8 8 0 0 1 14-3M20 14a8 8 0 0 1-14 3" stroke="#0071B9" stroke-width="2" fill="none"/></svg> 2.4 Loop <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">工作数据</span></h4>
-<p><strong>活数据同步引擎。</strong>Loop 组件嵌在频道帖子里，多人在同一张表上实时编辑——重庆改了成都秒看到，不用保存、不用刷新。</p>
+<p><strong>活数据同步引擎。</strong>Loop 组件嵌在频道 Conversation 里，多人在同一张表上实时编辑——重庆改了成都秒看到，不用保存、不用刷新。</p>
 
 <h4>Loop vs Lists vs Planner</h4>
 <table>
@@ -752,10 +752,10 @@ Custom Agent<br>
 <li><strong>销售Pipeline追踪：</strong>Loop表格嵌在频道——客户名/阶段/金额/下一步/更新人，谁签单直接改</li>
 <li><strong>公开课报名统计：</strong>课程/日期/已报名/剩余名额——Rina成都改了，Niko重庆秒看到</li>
 <li><strong>月度数据跟踪：</strong>各城市收入/客户数/新课数——各自填数，实时汇总</li>
-<li><strong>客户拜访周报：</strong>谁去了、见了谁、什么结果——Loop表格嵌频道帖子，一周一张</li>
+<li><strong>客户拜访周报：</strong>谁去了、见了谁、什么结果——Loop表格嵌频道 Conversation，一周一张</li>
 </ul>
 
-<p><strong>嵌入方式：</strong>频道帖子编辑框点Loop图标→选组件类型（表格/列表/段落）→发布→团队成员直接在帖子里编辑数据。</p>
+<p><strong>嵌入方式：</strong>频道 Conversation 编辑框点Loop图标→选组件类型（表格/列表/段落）→发布→团队成员直接在帖子里编辑数据。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/office/get-started-with-microsoft-loop" target="_blank">官方教程</a></p>
 </div>
@@ -1030,14 +1030,14 @@ Custom Agent<br>
 
 <h4>SOP 流程</h4>
 <div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四下班前在 Planner 更新本周完成事项</div>
-<div class="step"><span class="num">2</span><span class="role-tag june">June</span>周一上午在 Teams 预定会议（开启转录）→ 发到频道 Posts</div>
+<div class="step"><span class="num">2</span><span class="role-tag june">June</span>周一上午在 Teams 预定会议（开启转录）→ 发到 Conversation</div>
 <div class="step"><span class="num">3</span><span class="role-tag team">团队</span>按时参会，按议程逐项讨论（销售进展 → 项目进展 → 问题与风险 → 下周计划）</div>
 <div class="step"><span class="num">4</span><span class="role-tag copilot">Copilot</span>会议中实时转录，June 用 Copilot 提取行动项："List action items with owners and deadlines"</div>
-<div class="step"><span class="num">5</span><span class="role-tag june">June</span>会后用 Copilot 生成会议纪要 → 审核 → 发布到频道 Posts</div>
+<div class="step"><span class="num">5</span><span class="role-tag june">June</span>会后用 Copilot 生成会议纪要 → 审核 → 发布到 Conversation</div>
 <div class="step"><span class="num">6</span><span class="role-tag team">团队</span>查看纪要，认领 Planner 中的行动项任务</div>
 
 <h4>工具组合</h4>
-<p>Teams 会议（录制+转录） → Copilot（纪要+行动项） → Planner（任务分配） → 频道帖子（发布+讨论）</p>
+<p>Teams 会议（录制+转录） → Copilot（纪要+行动项） → Planner（任务分配） → Conversation（发布+讨论）</p>
 
 
 <div class="callout info" style="margin-top:16px;">
@@ -1052,7 +1052,7 @@ Custom Agent<br>
 
 <div class="callout tip" style="margin-top:16px;">
 <h4>June Tips</h4>
-<p>会议结束5分钟内，用 Copilot 出纪要 → 发布到频道 Posts → Planner 同步创建任务。团队到公司时，行动项已经分配好了。</p>
+<p>会议结束5分钟内，用 Copilot 出纪要 → 发布到 Conversation → Planner 同步创建任务。团队到公司时，行动项已经分配好了。</p>
 </div>
 </div>
 
@@ -1097,10 +1097,10 @@ Custom Agent<br>
 <div class="step"><span class="num">1</span><span class="role-tag team">团队</span>各城市在 General 频道分享本地动态（客户拜访/项目进展/市场情报）</div>
 <div class="step"><span class="num">2</span><span class="role-tag team">团队</span>重要客户信息和市场情报更新到频道 Files 的 <strong>01_Business Development &amp; Market Opportunities</strong> 文件夹，用 @channel 确保全员可见</div>
 <div class="step"><span class="num">3</span><span class="role-tag june">June</span>每周五用 Copilot 生成"本周团队动态摘要"："Summarize this week's key updates from the team channel"</div>
-<div class="step"><span class="num">4</span><span class="role-tag june">June</span>摘要发布到频道 Posts，作为周报的素材基础</div>
+<div class="step"><span class="num">4</span><span class="role-tag june">June</span>摘要发布到 Conversation，作为周报的素材基础</div>
 
 <h4>工具组合</h4>
-<p>Teams 频道（日常沟通） → Copilot（周度汇总） → Loop（协作周报草稿） → 频道 Posts（全员可见）</p>
+<p>Teams 频道（日常沟通） → Copilot（周度汇总） → Loop（协作周报草稿） → Conversation（全员可见）</p>
 
 <div class="callout tip">
 <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> 为什么不用微信群？</h4>
@@ -1211,7 +1211,7 @@ Custom Agent<br>
 <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:6px;">
 <div style="font-size:1.4em;font-weight:bold;margin-bottom:6px;">03</div>
 <h4 style="color:#fff;margin:0 0 4px 0;">决策必须沉淀到 Teams</h4>
-<p style="margin:0;font-size:0.9em;color:rgba(255,255,255,0.75);">会议上做的决定 → 发频道帖子。谁、什么时候、定了什么——三要素写清楚。不靠记忆。</p>
+<p style="margin:0;font-size:0.9em;color:rgba(255,255,255,0.75);">会议上做的决定 → 发频道 Conversation。谁、什么时候、定了什么——三要素写清楚。不靠记忆。</p>
 </div>
 <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:6px;">
 <div style="font-size:1.4em;font-weight:bold;margin-bottom:6px;">04</div>
