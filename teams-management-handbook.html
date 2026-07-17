@@ -1004,7 +1004,7 @@ Agent 构建<br>
 <h4>Prompt Library</h4>
 <table>
 <tr><th style="width:50%;">Prompt（英文）</th><th>说明</th></tr>
-<tr><td><code>Summarize this week's key updates across all channels in 200 words.</code></td><td>用200字汇总本周各频道关键动态</td></tr>
+<tr><td><code>Summarize this week's key updates in the General channel in 200 words.</code></td><td>用200字汇总本周各频道关键动态</td></tr>
 <tr><td><code>Which clients had the most activity this week?</code></td><td>本周哪些客户动态最多？</td></tr>
 <tr><td><code>Generate a "Friday Brief" covering sales, projects, and team updates.</code></td><td>生成一份"周五简报"：销售进展、项目动态、团队更新</td></tr>
 </table>
@@ -1023,7 +1023,7 @@ Agent 构建<br>
 
 <h4>SOP 流程</h4>
 <div class="step"><span class="num">1</span><span class="role-tag team">团队</span>周四前在 Planner 更新本周完成的任务（标记 Complete）</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在 Sales-Pipeline 频道更新本周客户动态</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>在 General 频道更新本周客户动态</div>
 <div class="step"><span class="num">3</span><span class="role-tag june">June</span>用 Copilot 汇总本周信息："Summarize this week's key activities from Planner tasks and channel discussions"</div>
 <div class="step"><span class="num">4</span><span class="role-tag june">June</span>将 Copilot 初稿按周报模板整理（Key Updates / New Opps / Product & Operation Support / Market & Competitors / Team Management Support）</div>
 <div class="step"><span class="num">5</span><span class="role-tag june">June</span>审核定稿 → 提交 → 发到 General 频道存档</div>
@@ -1103,7 +1103,7 @@ Agent 构建<br>
 <table>
 <tr><th>场景</th><th>Teams 功能</th><th>Apps</th><th>June + Copilot</th></tr>
 <tr><td>周一例会</td><td>会议+频道</td><td>Planner</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 纪要+行动项</td></tr>
-<tr><td>客户项目</td><td>私有频道+文件</td><td>Planner</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 进展总结</td></tr>
+<tr><td>客户项目</td><td>General频道+文件夹</td><td>Planner</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 进展总结</td></tr>
 <tr><td>跨城市同步</td><td>频道+广播</td><td>Loop</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 周度汇总</td></tr>
 <tr><td>周报</td><td>频道+Planner</td><td>—</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 信息汇总初稿</td></tr>
 <tr><td>审批</td><td>通知</td><td>Approvals</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 方案分析</td></tr>
@@ -1119,8 +1119,8 @@ Agent 构建<br>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
 <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:6px;">
 <div style="font-size:1.4em;font-weight:bold;margin-bottom:6px;">01</div>
-<h4 style="color:#fff;margin:0 0 4px 0;">所有项目必须建 Channel</h4>
-<p style="margin:0;font-size:0.9em;color:rgba(255,255,255,0.75);">每个活跃客户/项目独立频道。讨论、文件、决策、时间线——全在一个上下文。</p>
+<h4 style="color:#fff;margin:0 0 4px 0;">所有信息进 General，按文件夹归类</h4>
+<p style="margin:0;font-size:0.9em;color:rgba(255,255,255,0.75);">一个 Team、一个 General 频道、靠十类文件夹区分场景。不做多频道切碎信息。</p>
 </div>
 <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:6px;">
 <div style="font-size:1.4em;font-weight:bold;margin-bottom:6px;">02</div>
