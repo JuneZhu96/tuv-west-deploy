@@ -595,7 +595,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <tr><td>全员通知/公告</td><td><strong>Channel 帖子 + @team</strong></td><td>全员可见、不会被群聊淹没。重要通知必须沉淀。</td></tr>
 <tr><td>跨城市/跨部门协调</td><td><strong>Teams Meeting</strong></td><td>屏幕共享+录制+转录，异地无差别。会后Copilot出纪要。</td></tr>
 <tr><td>正式客户沟通</td><td><strong>Outlook 邮件</strong></td><td>邮件具有法律效力。外部客户不一定有Teams。</td></tr>
-<tr><td>合同/报价审批</td><td><strong>Approvals + Channel</strong></td><td>审批流+文件在同一上下文，审批历史可追溯。</td></tr>
+<tr><td>合同/报价审批</td><td><strong>内部审批系统</strong></td><td>TÜV 莱茵内部有正式审批体系，不走 Teams Approvals。</td></tr>
 <tr><td>紧急事项</td><td><strong>Teams 私聊 @某人</strong></td>
 <tr><td>个人工作草稿</td><td><strong>OneDrive + 私聊自己</strong></td><td>不影响团队信息流。草稿成熟了再发频道。</td></tr>
 <tr><td>微信群还保留吗</td><td><strong>保留</strong>，仅用于非工作社交</td><td>工作内容逐步迁移到Teams。微信=紧急联系+生活。</td></tr>
@@ -680,7 +680,7 @@ Custom Agent<br>
 <tr><td>7</td><td><strong>Power BI</strong></td><td>★★★</td><td>管理看板</td><td>销售数据、课程数据可视化。</td></tr>
 <tr><td>8</td><td><strong>Planner</strong></td><td>★★★</td><td>多人任务</td><td>按需启用——有明确多人协作+截止日期时使用。</td></tr>
 <tr><td>9</td><td><strong>Power Automate</strong></td><td>★★★</td><td>自动化</td><td>成熟后引入，不要求团队初期掌握。</td></tr>
-<tr><td>10</td><td><strong>Approvals</strong></td><td>★★</td><td>审批流</td><td>有明确审批流程时使用。</td></tr>
+<tr><td>10</td><td><strong>Approvals</strong></td><td>—</td><td>内部流程</td><td>TÜV 莱茵内部有审批体系，不走 Teams Approvals。仅供参考。</td></tr>
 <tr><td>11</td><td><strong>Praise</strong></td><td>★</td><td>非核心</td><td>团队文化建设，按需使用。</td></tr>
 </table>
 <p style="font-size:0.85em;color:#637184;margin-top:12px;"><strong>不再推荐 Wiki 作为知识库。</strong>正式知识用 SharePoint，知识索引用 Lists，临时笔记用 OneNote/Loop。避免多套知识库并存。</p>
@@ -710,19 +710,9 @@ Custom Agent<br>
 </div>
 
 <div class="app-card" id="p2-2">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#009537" stroke-width="2"/><path d="M7 12l3 3 7-7" stroke="#009537" stroke-width="2" fill="none" stroke-linecap="round"/></svg> 2.2 Approvals <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">重要</span></h4>
-<p><strong>电子审批流</strong>。直接在 Teams 中发起、跟踪和管理审批请求，数据存储在 Dataverse 中。</p>
-<p><strong>核心功能：</strong></p>
-<ul>
-<li>创建审批请求（支持附件、多级审批）</li>
-<li>审批模板（团队级别 / 组织级别）</li>
-<li>实时通知（Banner + Activity feed）</li>
-<li>审计追踪（Microsoft Purview 集成）</li>
-<li>每个团队最多 400 个模板，每个模板最多 50,000 条请求</li>
-</ul>
-<p><strong>西区场景：</strong>培训方案审批、报价审批、出差/费用审批。</p>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#637184" stroke-width="2"/><path d="M7 12l3 3 7-7" stroke="#637184" stroke-width="2" fill="none" stroke-linecap="round"/></svg> 2.2 Approvals <span style="color:#637184;font-size:0.85em;margin-left:6px;">—</span> <span style="color:#637184;font-size:0.75em;">内部流程</span></h4>
+<p><strong>TÜV 莱茵内部有审批体系和流程。</strong>Teams Approvals 为 Microsoft 原生审批工具，本手册不做核心推荐。西区团队审批请走公司内部流程。</p>
 <p><span class="tag ms">M365 订阅自带</span> <span class="tag premium">需 Power Automate 许可</span></p>
-<p>→ <a href="https://support.microsoft.com/en-us/office/what-is-the-approvals-app-in-microsoft-teams" target="_blank">官方教程</a></p>
 </div>
 
 <div class="app-card" id="p2-3">
@@ -1157,34 +1147,8 @@ Custom Agent<br>
 <!-- Scene 5 -->
 <div class="scene-card" id="p4-5">
 <h3>场景 5：审批流程</h3>
-<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>参与人：</strong>June + 审批发起人</p>
-
-<h4>SOP 流程</h4>
-<div class="step"><span class="num">1</span><span class="role-tag team">团队</span>在 Approvals App 中发起审批（附上相关文件→选择审批人→提交）</div>
-<div class="step"><span class="num">2</span><span class="role-tag june">June</span>收到 Teams 通知 → 查看审批详情 → 批准/拒绝/要求修改</div>
-<div class="step"><span class="num">3</span><span class="role-tag june">June</span>复杂审批可先用 Copilot 分析附件："Summarize this proposal and highlight any risks"</div>
-<div class="step"><span class="num">4</span><span class="role-tag team">团队</span>收到审批结果通知 → 按结果执行</div>
-
-<h4>适用审批类型</h4>
-<p>培训方案审批、报价审批、出差申请、费用报销、合同签署</p>
-<h4>工具组合</h4>
-<p>Approvals → Teams 通知 → Copilot（方案分析） → 审批决策</p>
-
-
-<div class="callout info" style="margin-top:16px;">
-<h4>Prompt Library</h4>
-<table>
-<tr><th style="width:50%;">Prompt（英文）</th><th>说明</th></tr>
-<tr><td><code>Summarize this proposal and highlight any risks or missing information.</code></td><td>总结这份方案，标出风险和缺失信息</td></tr>
-<tr><td><code>Compare this quote against our standard pricing guidelines.</code></td><td>将此报价与标准定价指南对比</td></tr>
-<tr><td><code>Draft an approval response with specific conditions if needed.</code></td><td>草拟审批回复，如需条件请注明</td></tr>
-</table>
-</div>
-
-<div class="callout tip" style="margin-top:16px;">
-<h4>June Tips</h4>
-<p>复杂方案审批前，让 Copilot 先读一遍方案文件，给我三个要点：风险点、价格合理性、跟之前项目的差异。审起来快很多。</p>
-</div>
+<p><strong>频率：</strong>按需 &nbsp;|&nbsp; <strong>工具：</strong>TÜV 莱茵内部审批体系</p>
+<p>TÜV 莱茵内部有正式审批流程和体系。Teams Approvals 不做核心推荐。审批请走公司内部流程。</p>
 </div>
 
 <!-- Scene 6 -->
@@ -1212,7 +1176,7 @@ Custom Agent<br>
 <tr><td>客户项目</td><td>General频道+文件夹</td><td>Planner</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 进展总结</td></tr>
 <tr><td>跨城市同步</td><td>频道+广播</td><td>Loop</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 周度汇总</td></tr>
 <tr><td>周报</td><td>频道+Planner</td><td>—</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 信息汇总初稿</td></tr>
-<tr><td>审批</td><td>通知</td><td>Approvals</td><td><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><rect x="4" y="7" width="16" height="12" rx="3" stroke="#009537" stroke-width="2" fill="none"/><circle cx="9" cy="12" r="1.5" fill="#009537"/><circle cx="15" cy="12" r="1.5" fill="#009537"/><line x1="12" y1="16" x2="12" y2="19" stroke="#009537" stroke-width="2"/><line x1="9" y1="5" x2="15" y2="5" stroke="#009537" stroke-width="2"/><circle cx="12" cy="5" r="2" fill="#009537"/></svg> 方案分析</td></tr>
+<tr><td>审批</td><td>内部审批系统</td><td>—</td><td>—</td></tr>
 <tr><td>新人入职</td><td>频道+Wiki</td><td>Planner</td><td>—</td></tr>
 </table>
 </div>
