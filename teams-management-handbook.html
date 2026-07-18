@@ -6,128 +6,147 @@
 <title>Microsoft Teams + Copilot 西区团队管理实战教材 — TÜV Rheinland</title>
 <style>
 :root {
-  --blue: #0071B9;
-  --ink: #142235;
-  --muted: #637184;
-  --light-bg: #F5F8FC;
-  --white: #FFFFFF;
-  --border: #E5E9F0;
-  --green: #009537;
+  --blue: #0071B9; --blue-glow: rgba(0,113,185,0.4);
+  --ink: #E0E6ED; --muted: #8899AA;
+  --dark: #0A1628; --dark2: #0F1F35; --dark3: #152840;
+  --card-bg: rgba(15,31,53,0.6); --card-border: rgba(0,113,185,0.15);
+  --white: #FFFFFF; --green: #009537;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, SimSun, sans-serif; color: var(--ink); background: var(--white); line-height: 1.8; }
-h1, h2, h3, h4 { font-family: Arial, SimHei, sans-serif; color: var(--blue); }
+body { font-family: Arial, SimSun, sans-serif; color: var(--ink); background: var(--dark); line-height: 1.8; overflow-x: hidden; }
+h1, h2, h3, h4 { font-family: Arial, SimHei, sans-serif; color: var(--white); }
 h1 { font-size: 2.2em; margin-bottom: 0.3em; }
-h2 { font-size: 1.6em; margin-top: 2em; margin-bottom: 0.6em; padding-bottom: 0.3em; border-bottom: 3px solid var(--blue); }
+h2 { font-size: 1.6em; margin-top: 2em; margin-bottom: 0.6em; padding-bottom: 0.3em; border-bottom: 2px solid rgba(0,113,185,0.4); position: relative; }
+h2::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 60px; height: 3px; background: var(--blue); border-radius: 2px; transition: width .4s; }
+h2:hover::after { width: 120px; }
 h3 { font-size: 1.25em; margin-top: 1.5em; margin-bottom: 0.5em; }
 h4 { font-size: 1.1em; margin-top: 1.2em; margin-bottom: 0.4em; color: var(--ink); }
 p { margin-bottom: 1em; }
-.container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+.container { max-width: 960px; margin: 0 auto; padding: 40px 24px; position: relative; z-index: 1; }
+a { color: #3399DD; }
+
+/* Canvas particles */
+#particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.35; }
 
 /* Hero */
-.hero { background: linear-gradient(135deg, #002B46 0%, #003B5C 40%, #0071B9 100%); color: var(--white); padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
-/* Aceternity-style animated dot grid */
+.hero { background: radial-gradient(ellipse at 30% 20%, #003B5C 0%, #0A1628 60%, #050D18 100%); color: var(--white); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; z-index: 1; }
 .hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: heroDotsDrift 20s linear infinite;
-  pointer-events: none;
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 50px 50px; opacity: 0.6;
+  animation: heroDotsDrift 25s linear infinite; pointer-events: none;
 }
-/* Floating glow orb */
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(0,150,255,0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  top: -100px; right: -100px;
-  animation: heroGlowFloat 12s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes heroDotsDrift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(40px, 20px); }
-}
-@keyframes heroGlowFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-40px, 20px) scale(1.1); }
-  66% { transform: translate(30px, -20px) scale(0.9); }
-}
-.hero .wave { position: absolute; bottom: 0; left: 0; width: 100%; height: 30px; z-index: 1; }
-.hero h1 { color: var(--white); font-size: 2.6em; margin-bottom: 0.3em; position: relative; z-index: 2; }
-.hero .subtitle { font-size: 1.2em; opacity: 0.9; margin-bottom: 0.5em; position: relative; z-index: 2; }
-.hero .meta { position: relative; z-index: 2; }
-.hero .meta { font-size: 0.95em; opacity: 0.7; }
+.hero-orb { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+.hero-orb.o1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,150,255,0.12) 0%, transparent 65%); top: -180px; right: -150px; animation: orbFloat1 14s ease-in-out infinite; }
+.hero-orb.o2 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,200,255,0.08) 0%, transparent 60%); bottom: -80px; left: -60px; animation: orbFloat2 16s ease-in-out infinite; }
+.hero-orb.o3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(0,113,185,0.1) 0%, transparent 60%); top: 30%; left: 60%; animation: orbFloat3 11s ease-in-out infinite; }
+@keyframes orbFloat1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-50px,30px) scale(1.15)} 66%{transform:translate(40px,-20px) scale(0.9)} }
+@keyframes orbFloat2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,-25px) scale(1.2)} }
+@keyframes orbFloat3 { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(-30px,-15px) scale(1.1)} 75%{transform:translate(20px,10px) scale(0.85)} }
+@keyframes heroDotsDrift { 0%{transform:translate(0,0)} 100%{transform:translate(50px,25px)} }
+.hero .wave { position: absolute; bottom: 0; left: 0; width: 100%; height: 30px; z-index: 3; }
+.hero h1 { color: var(--white); font-size: 2.8em; margin-bottom: 0.3em; position: relative; z-index: 2; text-shadow: 0 0 60px rgba(0,113,185,0.3); }
+.hero .subtitle { font-size: 1.15em; opacity: 0.85; margin-bottom: 0.5em; position: relative; z-index: 2; }
+.hero .meta { position: relative; z-index: 2; font-size: 0.9em; opacity: 0.6; }
 
 /* TOC */
-.toc { background: var(--light-bg); border-left: 4px solid var(--blue); padding: 28px 32px; margin: 40px 0; border-radius: 0 8px 8px 0; }
+.toc { background: var(--card-bg); border: 1px solid var(--card-border); border-left: 4px solid var(--blue); padding: 28px 32px; margin: 40px 0; border-radius: 0 8px 8px 0; backdrop-filter: blur(10px); }
 .toc h3 { margin-top: 0; color: var(--blue); }
 .toc ol { padding-left: 20px; }
 .toc ol ol { padding-left: 20px; }
 .toc li { margin: 4px 0; }
-.toc a { color: var(--blue); text-decoration: none; }
-.toc a:hover { text-decoration: underline; }
+.toc a { color: #3399DD; text-decoration: none; }
+.toc a:hover { text-decoration: underline; color: var(--blue); }
 
 /* Callout boxes */
 .callout { padding: 20px 24px; margin: 24px 0; border-radius: 8px; border-left: 4px solid; }
-.callout.important { background: #FFF8E1; border-color: #EB971B; }
-.callout.info { background: #E3F2FD; border-color: var(--blue); }
-.callout.warning { background: #FFEBEE; border-color: #D20033; }
-.callout.tip { background: #E8F5E9; border-color: var(--green); }
+.callout.important { background: rgba(235,151,27,0.1); border-color: #EB971B; }
+.callout.info { background: rgba(0,113,185,0.1); border-color: var(--blue); }
+.callout.warning { background: rgba(210,0,51,0.1); border-color: #D20033; }
+.callout.tip { background: rgba(0,149,55,0.1); border-color: var(--green); }
 .callout h4 { margin-top: 0; }
 
 /* Tables */
 table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
-th { background: var(--blue); color: var(--white); padding: 12px 16px; text-align: left; font-family: Arial, SimHei, sans-serif; }
-td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
-tr:nth-child(even) td { background: var(--light-bg); }
+th { background: var(--dark3); color: var(--white); padding: 12px 16px; text-align: left; font-family: Arial, SimHei, sans-serif; border-bottom: 2px solid var(--blue); }
+td { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--ink); }
+tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+tr:hover td { background: rgba(0,113,185,0.06); }
 
 /* Steps */
-.step { background: var(--light-bg); padding: 16px 20px; margin: 12px 0; border-radius: 6px; }
+.step { background: var(--card-bg); padding: 16px 20px; margin: 12px 0; border-radius: 6px; border: 1px solid var(--card-border); }
 .step .num { display: inline-block; width: 28px; height: 28px; background: var(--blue); color: var(--white); text-align: center; line-height: 28px; border-radius: 50%; margin-right: 10px; font-weight: bold; font-size: 0.9em; }
 
-/* Scene cards */
-.scene-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--blue); border-radius: 8px; padding: 24px; margin: 20px 0; }
+/* Scene cards - glow on hover */
+.scene-card { background: var(--card-bg); border: 1px solid var(--card-border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 24px; margin: 20px 0; transition: all .3s ease; position: relative; overflow: hidden; }
+.scene-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0,113,185,0.04), transparent); transition: left .6s; }
+.scene-card:hover { border-color: rgba(0,113,185,0.5); box-shadow: 0 0 30px rgba(0,113,185,0.1); transform: translateY(-2px); }
+.scene-card:hover::before { left: 100%; }
 .scene-card h3 { margin-top: 0; }
 .scene-card .roles { display: flex; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
 .scene-card .role-tag { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
 .role-tag.june { background: #0071B9; color: #fff; }
-.role-tag.team { background: #E3F2FD; color: #0071B9; }
-.role-tag.copilot { background: #E8F5E9; color: #009537; }
+.role-tag.team { background: rgba(0,113,185,0.2); color: #3399DD; }
+.role-tag.copilot { background: rgba(0,149,55,0.2); color: #009537; }
 
 /* Tags */
 .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin: 2px 4px; }
-.tag.ms { background: #E3F2FD; color: #0071B9; }
-.tag.premium { background: #FFF8E1; color: #F57F17; }
+.tag.ms { background: rgba(0,113,185,0.15); color: #3399DD; }
+.tag.premium { background: rgba(235,151,27,0.15); color: #EB971B; }
 
 /* Footer */
-.footer { background: var(--light-bg); padding: 40px 24px; text-align: center; color: var(--muted); margin-top: 60px; border-top: 3px solid var(--blue); }
+.footer { background: var(--dark2); padding: 40px 24px; text-align: center; color: var(--muted); margin-top: 60px; border-top: 2px solid rgba(0,113,185,0.3); }
 .footer p { margin-bottom: 0.4em; }
 
-/* App grid */
+/* App grid & cards */
 .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
-.app-card { border: 1px solid var(--border); border-radius: 8px; padding: 20px; background: var(--white); }
-.app-card h4 { margin-top: 0; color: var(--blue); }
+.app-card { border: 1px solid var(--card-border); border-radius: 10px; padding: 24px; background: var(--card-bg); transition: all .35s ease; position: relative; overflow: hidden; }
+.app-card::after { content: ''; position: absolute; inset: -1px; border-radius: 10px; padding: 1px; background: linear-gradient(135deg, transparent 40%, rgba(0,113,185,0.3) 60%, transparent); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; -webkit-mask-composite: xor; opacity: 0; transition: opacity .35s; }
+.app-card:hover { transform: translateY(-3px); border-color: rgba(0,113,185,0.4); box-shadow: 0 8px 32px rgba(0,113,185,0.12); }
+.app-card:hover::after { opacity: 1; }
+.app-card h4 { margin-top: 0; color: var(--white); }
 .app-card .app-icon { font-size: 2em; margin-bottom: 8px; }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(30px); transition: all .7s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Inline dark backgrounds for existing sections */
+div[style*="background:var(--light-bg)"] { background: var(--card-bg) !important; }
+div[style*="background:#E3F2FD"] { background: rgba(0,113,185,0.1) !important; }
+div[style*="background:#E8F5E9"] { background: rgba(0,149,55,0.1) !important; }
+div[style*="background:#FFF3E0"] { background: rgba(235,151,27,0.1) !important; }
+div[style*="background:#FFF8E1"] { background: rgba(235,151,27,0.1) !important; }
+div[style*="background:#FFEBEE"] { background: rgba(210,0,51,0.08) !important; }
+div[style*="background:#fff"] { background: var(--card-bg) !important; }
+div[style*="color:#637184"] { color: var(--muted) !important; }
+div[style*="color:#142235"] { color: var(--ink) !important; }
+div[style*="border:2px solid #0071B9"] { border-color: rgba(0,113,185,0.3) !important; }
 
 @media (max-width: 768px) {
   .container { padding: 24px 16px; }
-  .hero { padding: 50px 16px; }
+  .hero { padding: 60px 16px; }
   .hero h1 { font-size: 1.8em; }
 }
 
-/* Print-friendly */
 @media print {
+  body { background: #fff; color: #000; }
+  #particles-canvas { display: none; }
   .hero { background: var(--blue) !important; -webkit-print-color-adjust: exact; }
+  .hero-orb { display: none; }
 }
 </style>
 </head>
 <body>
 
+<!-- Particle canvas (global) -->
+<canvas id="particles-canvas"></canvas>
+
 <!-- HERO -->
 <section class="hero">
+<div class="hero-orb o1"></div>
+<div class="hero-orb o2"></div>
+<div class="hero-orb o3"></div>
 <h1>TÜV Rheinland BS.A West<br>数字化协同工作手册</h1>
 <p class="subtitle">Western Team Digital Workspace · Microsoft 365 × Teams × SharePoint × AI</p>
 <p class="meta">One Team. One Workspace. One Source of Truth.</p>
@@ -209,18 +228,18 @@ tr:nth-child(even) td { background: var(--light-bg); }
   <li><a href="#p1-6">1.6 通知与状态管理</a></li>
   </ol>
 </li>
-<li><a href="#p2">Part 2：Teams Apps 生态 —— 按西区实际优先级排序</a>
+<li><a href="#p2">Part 2：Teams Apps 生态 —— 按西区实际 App 清单排列</a>
   <ol>
-  <li><a href="#p2-1">2.1 Planner（多人任务，按需启用）</a></li>
-  <li><a href="#p2-2">2.2 Approvals（内部流程）</a></li>
+  <li><a href="#p2-1">2.1 SharePoint · 正式知识资产层</a></li>
+  <li><a href="#p2-2">2.2 SharePoint Pages · 频道内嵌页面</a></li>
   <li><a href="#p2-3">2.3 Lists · Knowledge Index</a></li>
-  <li><a href="#p2-4">2.4 Loop（工作数据引擎）</a></li>
-  <li><a href="#p2-5">2.5 OneNote（会议笔记）</a></li>
-  <li><a href="#p2-6">2.6 Praise（非核心）</a></li>
-  <li><a href="#p2-7">2.7 Power Automate（自动化）</a></li>
-  <li><a href="#p2-8">2.8 Forms（问卷与投票）</a></li>
-  <li><a href="#p2-9">2.9 Power BI（管理看板）</a></li>
-  <li><a href="#p2-10">2.10 Wiki（已弃用）</a></li>
+  <li><a href="#p2-4">2.4 OneNote · 会议笔记</a></li>
+  <li><a href="#p2-5">2.5 Planner · 多人任务</a></li>
+  <li><a href="#p2-6">2.6 Forms · 问卷与投票</a></li>
+  <li><a href="#p2-7">2.7 Channel Calendar · 频道日历</a></li>
+  <li><a href="#p2-8">2.8 Whiteboard · 白板协作</a></li>
+  <li><a href="#p2-9">2.9 Office 生产力套件（Word / Excel / PPT / PDF / Visio）</a></li>
+  <li><a href="#p2-10">2.10 Website · 外部网页嵌入</a></li>
   </ol>
 </li>
 <li><a href="#p3">Part 3：AI in Western Team Digital Workspace</a>
@@ -316,11 +335,11 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <div style="display:block;margin:6px 0;color:#142235;">协同总入口（对话 · 会议 · 频道 · 通话）</div>
 
 <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0;">
-<div style="border-top:2px solid #0071B9;padding:6px 12px;">Planner 任务</div>
-<div style="border-top:2px solid #0071B9;padding:6px 12px;">Loop 协作</div>
-<div style="border-top:2px solid #0071B9;padding:6px 12px;">Approvals 审批</div>
 <div style="border-top:2px solid #0071B9;padding:6px 12px;">Lists 列表</div>
+<div style="border-top:2px solid #0071B9;padding:6px 12px;">Planner 任务</div>
 <div style="border-top:2px solid #0071B9;padding:6px 12px;">Forms 问卷</div>
+<div style="border-top:2px solid #0071B9;padding:6px 12px;">OneNote 笔记</div>
+<div style="border-top:2px solid #0071B9;padding:6px 12px;">Whiteboard 白板</div>
 </div>
 <div style="border-bottom:2px solid #0071B9;width:60%;margin:10px auto;"></div>
 
@@ -432,7 +451,7 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <tr><td><strong>Shared</strong></td><td>频道内共享文件的快捷入口（指向 SharePoint）。</td></tr>
 <tr><td><strong>Knowledge Index</strong></td><td>结构化知识对象列表（Service/Customer/Project/Expert）。核心知识入口。</td></tr>
 <tr><td><strong>Planner（可选）</strong></td><td>多人协作任务看板。按需启用，不要求全员使用。</td></tr>
-<tr><td><strong>OneNote / Loop（可选）</strong></td><td>临时共创、会议笔记。二选一即可。</td></tr>
+<tr><td><strong>OneNote（可选）</strong></td><td>临时共创、会议笔记。</td></tr>
 </table>
 
 <!-- 资料分工表 -->
@@ -442,10 +461,10 @@ tr:nth-child(even) td { background: var(--light-bg); }
 <tr><td>正式方案、PPT、标准、课程资料</td><td><strong>SharePoint</strong>（通过 Teams Files 上传）</td></tr>
 <tr><td>Service、Customer、Partner、Project、Expert 对象</td><td><strong>Knowledge Index List</strong></td></tr>
 <tr><td>日常讨论与通知</td><td><strong>Conversation</strong></td></tr>
-<tr><td>临时共创内容</td><td><strong>Loop / OneNote</strong></td></tr>
+<tr><td>临时共创内容</td><td><strong>OneNote / Whiteboard</strong></td></tr>
 <tr><td>多人协作任务</td><td><strong>Planner</strong>（按需启用）</td></tr>
 <tr><td>表单收集</td><td><strong>Forms</strong></td></tr>
-<tr><td>数据展示</td><td><strong>Power BI</strong></td></tr>
+<tr><td>数据展示</td><td><strong>Excel</strong></td></tr>
 </table>
 </div>
 
@@ -672,11 +691,13 @@ Reference Files 关联
 <div style="font-size:0.9em;color:#142235;font-weight:bold;margin-bottom:6px;">业务工具（按需选用）</div>
 <div style="font-size:0.85em;color:#637184;">
 Forms 问卷<br>
-Loop 协作<br>
 Planner 任务<br>
-Power Automate<br>
-Power BI 看板<br>
-Approvals 审批<br>
+Channel Calendar<br>
+Whiteboard 白板<br>
+Word/Excel/PPT<br>
+PDF/Visio<br>
+SharePoint Pages<br>
+Website 嵌入<br>
 <span style="font-size:0.8em;color:#637184;">不要求全员同时掌握</span>
 </div>
 </div>
@@ -698,52 +719,62 @@ Custom Agent<br>
 
 <!-- App Priority Matrix -->
 <div style="background:#fff;border:2px solid #0071B9;border-radius:8px;padding:24px;margin:24px 0;">
-<h4 style="margin-top:0;color:#0071B9;">App 优先级矩阵：按西区实际使用方式排序</h4>
-<p style="color:#637184;margin-bottom:16px;">不是所有 App 都要用——以下是推荐的优先级排序，工具越靠前越重要。</p>
+<h4 style="margin-top:0;color:#0071B9;">App 优先级矩阵：按西区实际 App 清单排列</h4>
+<p style="color:#637184;margin-bottom:16px;">以下为 June 的 Teams 中实际可用的 14 个 App，按日常工作重要性排序。</p>
 <table>
 <tr><th style="width:5%;">#</th><th style="width:18%;">App</th><th style="width:10%;">评级</th><th style="width:15%;">定位</th><th style="width:52%;">说明</th></tr>
 <tr><td>1</td><td><strong>SharePoint</strong></td><td>★★★★★</td><td>正式知识资产层</td><td>所有正式文件、方案、PPT、标准的存储与版本管理。Teams Files 的底层。</td></tr>
 <tr><td>2</td><td><strong>Lists</strong></td><td>★★★★★</td><td>知识索引层</td><td>Knowledge Index——Service/Customer/Partner/Project/Expert 结构化对象。</td></tr>
 <tr><td>3</td><td><strong>Teams</strong></td><td>★★★★★</td><td>统一入口</td><td>所有沟通、会议、App 入口。不做知识存储，只做入口和沟通。</td></tr>
-<tr><td>4</td><td><strong>Loop</strong></td><td>★★★★</td><td>工作数据引擎</td><td>活数据同步——Pipeline追踪、报名统计、月度数据。嵌在频道 Conversation 里实时编辑。</td></tr>
-<tr><td>5</td><td><strong>OneNote</strong></td><td>★★★</td><td>会议笔记</td><td>个人或小组笔记。非正式知识库。</td></tr>
-<tr><td>6</td><td><strong>Forms</strong></td><td>★★★</td><td>数据收集</td><td>问卷、投票、报名表。</td></tr>
-<tr><td>7</td><td><strong>Power BI</strong></td><td>★★★</td><td>管理看板</td><td>销售数据、课程数据可视化。</td></tr>
-<tr><td>8</td><td><strong>Planner</strong></td><td>★★★</td><td>多人任务</td><td>按需启用——有明确多人协作+截止日期时使用。</td></tr>
-<tr><td>9</td><td><strong>Power Automate</strong></td><td>★★★</td><td>自动化</td><td>成熟后引入，不要求团队初期掌握。</td></tr>
-<tr><td>10</td><td><strong>Approvals</strong></td><td>—</td><td>内部流程</td><td>TÜV 莱茵内部有审批体系，不走 Teams Approvals。仅供参考。</td></tr>
-<tr><td>11</td><td><strong>Praise</strong></td><td>★</td><td>非核心</td><td>团队文化建设，按需使用。</td></tr>
+<tr><td>4</td><td><strong>SharePoint Pages</strong></td><td>★★★★</td><td>频道内嵌页面</td><td>在频道顶部固定展示重要信息——团队手册、排期表、公告。</td></tr>
+<tr><td>5</td><td><strong>OneNote</strong></td><td>★★★★</td><td>会议笔记</td><td>团队笔记本——会议记录、项目知识库、客户访谈笔记。</td></tr>
+<tr><td>6</td><td><strong>Channel Calendar</strong></td><td>★★★★</td><td>团队日程</td><td>频道内嵌日历——公开课排期、讲师档期、团队活动。</td></tr>
+<tr><td>7</td><td><strong>Forms</strong></td><td>★★★</td><td>数据收集</td><td>问卷、投票、报名表、培训反馈。</td></tr>
+<tr><td>8</td><td><strong>Word / Excel / PPT</strong></td><td>★★★</td><td>文档生产力</td><td>在 Teams 内协同编辑——方案、报价、数据分析、演示文稿。</td></tr>
+<tr><td>9</td><td><strong>Planner</strong></td><td>★★★</td><td>多人任务</td><td>按需启用——有明确多人协作+截止日期时使用。</td></tr>
+<tr><td>10</td><td><strong>Whiteboard</strong></td><td>★★★</td><td>视觉协作</td><td>头脑风暴、流程梳理、远程共创。</td></tr>
+<tr><td>11</td><td><strong>PDF / Visio</strong></td><td>★★</td><td>专业文档</td><td>PDF 批注查看、Visio 流程图与架构图。</td></tr>
+<tr><td>12</td><td><strong>Website</strong></td><td>★★</td><td>外部嵌入</td><td>嵌入外部网页到频道 Tab——看板、仪表盘、第三方工具。</td></tr>
 </table>
-<p style="font-size:0.85em;color:#637184;margin-top:12px;"><strong>不再推荐 Wiki 作为知识库。</strong>正式知识用 SharePoint，知识索引用 Lists，临时笔记用 OneNote/Loop。避免多套知识库并存。</p>
 </div>
 
 
 <div class="callout info">
 <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#0071B9"/></svg> 本部分目标</h4>
-<p>系统了解 Teams 中的应用生态，将合适的 App 嵌入西区日常管理流程。Teams 中的 App 分为四类：<strong>核心应用</strong>（开箱即用）、<strong>Microsoft 官方 App</strong>（Planner/Approvals 等，多数包含在 M365 订阅中）、<strong>第三方 App</strong>（经 Microsoft 验证）、<strong>自定义 App</strong>（组织内部开发）。本教材重点展开 Microsoft 官方 App——零额外成本、原生集成。</p>
+<p>系统了解 Teams 中的应用生态，将合适的 App 嵌入西区日常管理流程。Teams 中的 App 分为四类：<strong>核心应用</strong>（开箱即用）、<strong>Microsoft 官方 App</strong>（SharePoint/OneNote/Planner/Forms 等，多数包含在 M365 订阅中）、<strong>第三方 App</strong>（经 Microsoft 验证）、<strong>自定义 App</strong>（组织内部开发）。本教材重点展开 June 的 Teams 中实际可用的 App——零额外成本、原生集成。</p>
 </div>
 
 <div class="app-grid">
 
 <div class="app-card" id="p2-1">
-★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
-<p><strong>多人任务协作。</strong>当出现明确负责人和截止日期的多人任务时启用。</p>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 2h16v20H4z" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 2h8v20H4z" stroke="#0071B9" stroke-width="2" fill="rgba(0,113,185,0.1)"/><line x1="12" y1="6" x2="16" y2="6" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="10" x2="16" y2="10" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="14" x2="16" y2="14" stroke="#0071B9" stroke-width="1.5"/></svg> 2.1 SharePoint <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★★</span> <span style="color:#637184;font-size:0.75em;">核心</span></h4>
+<p><strong>正式知识资产层。</strong>每个 Teams 频道自动拥有一个 SharePoint 文档库——文件上传到 Teams Files，实际存储在 SharePoint。支持版本历史、权限管理、协同编辑。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
-<li>看板式任务管理（Buckets + Tasks）</li>
-<li>任务分配、截止日期、优先级</li>
-<li>"My Tasks"视图聚合所有个人和共享任务</li>
-<li>频道内嵌 Tab</li>
+<li>文档库：按文件夹分类（00-09 十类），团队全员可访问</li>
+<li>版本控制：自动保存历史版本，随时回滚</li>
+<li>协同编辑：多人同时在线编辑 Word/Excel/PPT，无需来回传文件</li>
+<li>权限管理：频道成员默认编辑权限，可设只读或外部共享</li>
+<li>元数据与搜索：文件可按客户/行业/服务类型打标签，Copilot 可检索</li>
 </ul>
-<p><strong>西区场景：</strong>按需启用——活动筹备、多人协作项目。个人独立负责的项目无需强制使用 Planner。</p>
+<p><strong>西区场景：</strong>十类文件夹覆盖全部工作——从商机（01）到产品（02）到客户（03）到讲师（04）到项目（05）到素材（06）到会议（07）到管理（08）到流程（09）到团队门户（00）。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
-<p>→ <a href="https://support.microsoft.com/en-us/office/use-the-tasks-app-in-teams" target="_blank">官方教程</a></p>
+<p>→ <a href="https://support.microsoft.com/en-us/sharepoint" target="_blank">官方教程</a></p>
 </div>
 
 <div class="app-card" id="p2-2">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#637184" stroke-width="2"/><path d="M7 12l3 3 7-7" stroke="#637184" stroke-width="2" fill="none" stroke-linecap="round"/></svg> 2.2 Approvals <span style="color:#637184;font-size:0.85em;margin-left:6px;">—</span> <span style="color:#637184;font-size:0.75em;">内部流程</span></h4>
-<p><strong>TÜV 莱茵内部有审批体系和流程。</strong>Teams Approvals 为 Microsoft 原生审批工具，本手册不做核心推荐。西区团队审批请走公司内部流程。</p>
-<p><span class="tag ms">M365 订阅自带</span> <span class="tag premium">需 Power Automate 许可</span></p>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="4" y1="8" x2="20" y2="8" stroke="#0071B9" stroke-width="1.5"/><circle cx="7" cy="6" r="0.8" fill="#D20033"/><circle cx="9.5" cy="6" r="0.8" fill="#EB971B"/><circle cx="12" cy="6" r="0.8" fill="#009537"/></svg> 2.2 SharePoint Pages <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">重要</span></h4>
+<p><strong>频道内嵌页面。</strong>在 Teams 频道顶部用 SharePoint Page 做固定展示——团队手册、公开课排期、公告板、关键指标一览——进频道第一眼就能看到。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>富文本编辑：标题、正文、图片、表格、链接</li>
+<li>嵌入 Web Part：可嵌入文档库、列表、视频等</li>
+<li>频道 Tab 固定：添加为频道顶部 Tab，全员可见</li>
+<li>权限继承：页面权限跟随频道成员权限</li>
+</ul>
+<p><strong>西区场景：</strong>把团队协作规则、公开课排期表、月度关键指标做成 SharePoint Page，固定在 General 频道顶部——新成员入队第一眼就能看到"怎么协作 + 现在在做什么"。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/create-and-use-modern-pages-on-a-sharepoint-site" target="_blank">官方教程</a></p>
 </div>
 
 <div class="app-card" id="p2-3">
@@ -759,39 +790,13 @@ Custom Agent<br>
 <li>Market（市场/行业）</li>
 </ul>
 <p><strong>建议字段：</strong>Title · Object Type · Summary · Industry Domain · Service Category · Region · Related Customers/Services/Experts · Reference Files（指向 SharePoint）· Owner · Status · Tags / AI Keywords · Last Reviewed</p>
-<p><strong>示例：</strong>ISO 21434 Automotive Cybersecurity | Object Type: Service | Industry: Automotive; InfoSec | Reference Files: SharePoint 文件夹链接 | Tags: ISO21434; 汽车网络安全; CSMS</p>
 <p><strong>核心理念：</strong>文件保存在 SharePoint，通过 Reference Files 字段关联。Knowledge Index 是"找东西的入口"，不是"存东西的地方"。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/office/create-a-list-in-microsoft-teams" target="_blank">官方教程</a></p>
 </div>
 
 <div class="app-card" id="p2-4">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 4v6h6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M20 20v-6h-6" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 10a8 8 0 0 1 14-3M20 14a8 8 0 0 1-14 3" stroke="#0071B9" stroke-width="2" fill="none"/></svg> 2.4 Loop <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">工作数据</span></h4>
-<p><strong>活数据同步引擎。</strong>Loop 组件嵌在频道 Conversation 里，多人在同一张表上实时编辑——重庆改了成都秒看到，不用保存、不用刷新。</p>
-
-<h4>Loop vs Lists vs Planner</h4>
-<table>
-<tr><th>工具</th><th>定位</th><th>生命周期</th></tr>
-<tr><td><strong>Loop</strong></td><td>工作数据——活数据、多人同时编辑、随业务流变</td><td>周/月度滚动</td></tr>
-<tr><td><strong>Lists</strong></td><td>知识资产——Knowledge Index、长期沉淀的结构化对象</td><td>长期</td></tr>
-<tr><td><strong>Planner</strong></td><td>任务卡——有Owner有Deadline的协作任务</td><td>项目周期</td></tr>
-</table>
-
-<p><strong>西区场景：</strong></p>
-<ul>
-<li><strong>销售Pipeline追踪：</strong>Loop表格嵌在频道——客户名/阶段/金额/下一步/更新人，谁签单直接改</li>
-<li><strong>公开课报名统计：</strong>课程/日期/已报名/剩余名额——Rina重庆改了，Niko成都秒看到</li>
-<li><strong>月度数据跟踪：</strong>各城市收入/客户数/新课数——各自填数，实时汇总</li>
-<li><strong>客户拜访周报：</strong>谁去了、见了谁、什么结果——Loop表格嵌频道 Conversation，一周一张</li>
-</ul>
-
-<p><strong>嵌入方式：</strong>频道 Conversation 编辑框点Loop图标→选组件类型（表格/列表/段落）→发布→团队成员直接在帖子里编辑数据。</p>
-<p><span class="tag ms">M365 订阅自带</span></p>
-<p>→ <a href="https://support.microsoft.com/en-us/office/get-started-with-microsoft-loop" target="_blank">官方教程</a></p>
-</div>
-
-<div class="app-card" id="p2-5">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="4" y="2" width="14" height="20" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="18" y1="2" x2="18" y2="22" stroke="#0071B9" stroke-width="2"/><line x1="12" y1="7" x2="16" y2="7" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="11" x2="16" y2="11" stroke="#0071B9" stroke-width="1.5"/></svg> 2.5 OneNote <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">重要</span></h4>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="4" y="2" width="14" height="20" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="18" y1="2" x2="18" y2="22" stroke="#0071B9" stroke-width="2"/><line x1="12" y1="7" x2="16" y2="7" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="11" x2="16" y2="11" stroke="#0071B9" stroke-width="1.5"/></svg> 2.4 OneNote <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">重要</span></h4>
 <p><strong>团队笔记本</strong>。结构化笔记管理，支持分区、页面、手写、录音等。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
@@ -799,45 +804,29 @@ Custom Agent<br>
 <li>分区组 → 分区 → 页面 三级结构</li>
 <li>支持手写、绘图、录音、文件附件</li>
 <li>频道内嵌 Tab，笔记与讨论同一上下文</li>
-<li>Copilot 通过 Microsoft Graph 可检索内容</li>
 </ul>
 <p><strong>西区场景：</strong>会议记录沉淀、项目知识库、客户访谈笔记、个人工作日志。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
 <p>→ <a href="https://support.microsoft.com/en-us/onenote" target="_blank">官方教程</a></p>
 </div>
 
-<div class="app-card" id="p2-6">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14l-6-4.5h7.5L12 2z" stroke="#EB971B" stroke-width="1.5" fill="none"/></svg> 2.6 Praise <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★</span> <span style="color:#637184;font-size:0.75em;">可选</span></h4>
-<p><strong>员工表扬与团队文化</strong>。在 Teams 中发送表扬信息，附上徽章和个性化消息。</p>
+<div class="app-card" id="p2-5">
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="3" y="3" width="18" height="6" rx="1" stroke="#0071B9" stroke-width="2" fill="none"/><rect x="3" y="11" width="18" height="6" rx="1" stroke="#0071B9" stroke-width="2" fill="none"/><rect x="3" y="19" width="12" height="2" rx="1" stroke="#0071B9" stroke-width="2" fill="none"/></svg> 2.5 Planner <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★</span> <span style="color:#637184;font-size:0.75em;">推荐</span></h4>
+<p><strong>多人任务协作。</strong>当出现明确负责人和截止日期的多人任务时启用。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
-<li>多种表扬徽章（团队协作、创新、领导力等）</li>
-<li>可附加个性化消息</li>
-<li>表扬发布到频道或私聊</li>
-<li>与 Viva Insights 集成</li>
+<li>看板式任务管理（Buckets + Tasks）</li>
+<li>任务分配、截止日期、优先级</li>
+<li>"My Tasks"视图聚合所有个人和共享任务</li>
+<li>频道内嵌 Tab</li>
 </ul>
-<p><strong>西区场景：</strong>月度最佳员工表扬、项目完成庆祝、跨城市同事感谢。</p>
+<p><strong>西区场景：</strong>按需启用——活动筹备、多人协作项目。个人独立负责的项目无需强制使用 Planner。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
-<p>→ <a href="https://support.microsoft.com/en-us/office/send-praise-in-microsoft-teams" target="_blank">官方教程</a></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/use-the-tasks-app-in-teams" target="_blank">官方教程</a></p>
 </div>
 
-<div class="app-card" id="p2-7">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M13 2L4 13h6l-2 9 10-11h-6l2-9z" stroke="#EB971B" stroke-width="2" fill="none"/></svg> 2.7 Power Automate <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">重要</span></h4>
-<p><strong>自动化工作流引擎</strong>。连接 1000+ 应用和服务，构建跨系统自动化流程。</p>
-<p><strong>核心功能：</strong></p>
-<ul>
-<li>从 Teams 消息直接触发自动化流程</li>
-<li>预置模板（如"收到邮件→发 Teams 通知"）</li>
-<li>支持条件分支、循环、审批、定时触发</li>
-<li>可在 Teams 内创建和管理 Flow</li>
-</ul>
-<p><strong>西区场景：</strong>客户跟进提醒自动化、周报信息自动收集、文件审批流转、培训报名→自动发确认邮件。</p>
-<p><span class="tag premium">需 Power Automate 许可</span></p>
-<p>→ <a href="https://learn.microsoft.com/en-us/power-automate/" target="_blank">官方教程</a></p>
-</div>
-
-<div class="app-card" id="p2-8">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="8" y1="8" x2="16" y2="8" stroke="#0071B9" stroke-width="1.5"/><line x1="8" y1="12" x2="16" y2="12" stroke="#0071B9" stroke-width="1.5"/><line x1="8" y1="16" x2="12" y2="16" stroke="#0071B9" stroke-width="1.5"/><path d="M16 14l2 2 4-4" stroke="#009537" stroke-width="2" fill="none"/></svg> 2.8 Forms <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★</span> <span style="color:#637184;font-size:0.75em;">推荐</span></h4>
+<div class="app-card" id="p2-6">
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="8" y1="8" x2="16" y2="8" stroke="#0071B9" stroke-width="1.5"/><line x1="8" y1="12" x2="16" y2="12" stroke="#0071B9" stroke-width="1.5"/><line x1="8" y1="16" x2="12" y2="16" stroke="#0071B9" stroke-width="1.5"/><path d="M16 14l2 2 4-4" stroke="#009537" stroke-width="2" fill="none"/></svg> 2.6 Forms <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★</span> <span style="color:#637184;font-size:0.75em;">推荐</span></h4>
 <p><strong>问卷、投票与测验</strong>。快速创建调查、收集反馈、进行知识测验。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
@@ -852,39 +841,66 @@ Custom Agent<br>
 <p>→ <a href="https://support.microsoft.com/en-us/forms" target="_blank">官方教程</a></p>
 </div>
 
-<div class="app-card" id="p2-9">
-<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><polyline points="3,17 9,11 13,13 21,5" stroke="#0071B9" stroke-width="2" fill="none"/><circle cx="21" cy="5" r="2" fill="#0071B9"/><line x1="3" y1="21" x2="21" y2="21" stroke="#142235" stroke-width="1.5"/><line x1="3" y1="3" x2="3" y2="21" stroke="#142235" stroke-width="1.5"/></svg> 2.9 Power BI <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★</span> <span style="color:#637184;font-size:0.75em;">推荐</span></h4>
-<p><strong>商业智能仪表板</strong>。创建交互式数据报表并嵌入 Teams 频道。</p>
+<div class="app-card" id="p2-7">
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="3" y="4" width="18" height="17" rx="2" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="3" y1="10" x2="21" y2="10" stroke="#0071B9" stroke-width="1.5"/><line x1="8" y1="4" x2="8" y2="10" stroke="#0071B9" stroke-width="1.5"/><line x1="16" y1="4" x2="16" y2="10" stroke="#0071B9" stroke-width="1.5"/></svg> 2.7 Channel Calendar <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★★</span> <span style="color:#637184;font-size:0.75em;">重要</span></h4>
+<p><strong>频道日历。</strong>在频道顶部添加共享日历——团队全员可见，公开课排期、讲师档期、团队活动一目了然。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
-<li>交互式可视化（图表/地图/矩阵等）</li>
-<li>频道内嵌 Tab，数据讨论在同一上下文</li>
-<li>实时数据刷新</li>
-<li>支持多数据源（Excel/数据库/云端服务）</li>
+<li>频道内嵌 Tab，全员可见同一份日历</li>
+<li>与 Outlook 日历同步，不冲突</li>
+<li>支持多日历叠加（排期日历 + 活动日历）</li>
+<li>点击日历事件直接加入 Teams 会议</li>
 </ul>
-<p><strong>西区场景：</strong>区域销售看板、公开课报名跟踪、项目进度可视化、客户行业分布分析。</p>
-<p><span class="tag premium">需 Power BI 许可</span></p>
-<p>→ <a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank">官方教程</a></p>
+<p><strong>西区场景：</strong>公开课排期（哪门课、哪天、哪个城市、谁讲）、讲师档期管理、团队季度活动安排——所有人打开频道就能看到"接下来一个月有什么"。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/add-a-shared-calendar-to-a-teams-channel" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-8">
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#0071B9" stroke-width="2" fill="none"/><line x1="3" y1="12" x2="21" y2="12" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="3" x2="12" y2="21" stroke="#0071B9" stroke-width="1.5"/></svg> 2.8 Whiteboard <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★</span> <span style="color:#637184;font-size:0.75em;">推荐</span></h4>
+<p><strong>自由画布协作。</strong>会议中或频道里开启白板——画流程图、头脑风暴、思维导图，多人同时写画。</p>
+<p><strong>核心功能：</strong></p>
+<ul>
+<li>无限画布，手写+绘图+便签+形状+文字</li>
+<li>多人实时协作，光标可见</li>
+<li>会议中一键开启，会后保存在频道</li>
+<li>支持模板（SWOT分析、鱼骨图、项目规划等）</li>
+</ul>
+<p><strong>西区场景：</strong>培训方案头脑风暴、客户需求梳理、项目流程设计、跨城市远程共创——成都画、重庆改、西安加意见，同屏实时。</p>
+<p><span class="tag ms">M365 订阅自带</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/microsoft-whiteboard-help" target="_blank">官方教程</a></p>
+</div>
+
+<div class="app-card" id="p2-9">
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><rect x="2" y="3" width="8" height="10" rx="1" stroke="#0071B9" stroke-width="2" fill="none"/><rect x="14" y="7" width="8" height="6" rx="1" stroke="#009537" stroke-width="2" fill="none"/><rect x="8" y="16" width="6" height="5" rx="1" stroke="#EB971B" stroke-width="2" fill="none"/></svg> 2.9 Office 生产力套件 <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★★</span> <span style="color:#637184;font-size:0.75em;">推荐</span></h4>
+<p><strong>Word · Excel · PowerPoint · PDF · Visio</strong>——五件套全部可在 Teams 频道内直接打开和协同编辑，不用跳出到桌面应用。</p>
+<p><strong>各 App 在 Teams 中的用法：</strong></p>
+<table>
+<tr><th>App</th><th>Teams 内协同场景</th></tr>
+<tr><td><strong>Word</strong></td><td>方案书、合同、会议纪要——多人同时编辑，版本自动保存</td></tr>
+<tr><td><strong>Excel</strong></td><td>报价表、报名统计、销售数据——频道内嵌表格，公式实时计算</td></tr>
+<tr><td><strong>PowerPoint</strong></td><td>培训课件、客户提案——在线编辑+频道共享，无需传文件</td></tr>
+<tr><td><strong>PDF</strong></td><td>标准文档、证书模板——在线查看、批注，不离开 Teams</td></tr>
+<tr><td><strong>Visio</strong></td><td>流程图、组织架构图、认证路径图——嵌入频道 Tab 展示</td></tr>
+</table>
+<p><strong>核心理念：</strong>所有文档都在 Teams 里——上传到频道 Files 即进入 SharePoint，团队成员点开就编辑，不用下载→改→上传→版本混乱。</p>
+<p><span class="tag ms">M365 订阅自带（Visio 需额外许可）</span></p>
+<p>→ <a href="https://support.microsoft.com/en-us/office/work-with-office-files-in-teams" target="_blank">官方教程</a></p>
 </div>
 
 <div class="app-card" id="p2-10">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 2h16v20H4z" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 2h8v20H4z" stroke="#0071B9" stroke-width="2" fill="rgba(0,113,185,0.1)"/><line x1="12" y1="6" x2="16" y2="6" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="10" x2="16" y2="10" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="14" x2="16" y2="14" stroke="#0071B9" stroke-width="1.5"/></svg> 2.10 Wiki <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★</span> <span style="color:#637184;font-size:0.75em;">可选</span></h4>
-<p><strong>频道内嵌知识库</strong>。每个频道自带 Wiki 标签，用于结构化沉淀团队知识。</p>
+<h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M12 6v6l4 2" stroke="#0071B9" stroke-width="2"/><path d="M2 12h2m16 0h2M12 2v2m0 16v2" stroke="#0071B9" stroke-width="1.5"/></svg> 2.10 Website <span style="color:#EB971B;font-size:0.85em;margin-left:6px;">★★</span> <span style="color:#637184;font-size:0.75em;">可选</span></h4>
+<p><strong>外部网页嵌入。</strong>把外部网页或仪表盘固定为频道 Tab——团队成员直接在 Teams 内查看，不用跳出到浏览器。</p>
 <p><strong>核心功能：</strong></p>
 <ul>
-<li>多页面 + 子页面结构</li>
-<li>Markdown 格式编辑</li>
-<li>频道内所有成员可查看和编辑</li>
-<li>自动保存和版本历史</li>
-<li>支持 @提及和链接</li>
+<li>嵌入任意 HTTPS 网页到频道 Tab</li>
+<li>支持动态内容（仪表盘、看板、报表）</li>
+<li>Tab 名称可自定义</li>
+<li>刷新即更新内容</li>
 </ul>
-<p><strong>西区场景：</strong>团队 SOP 文档、新人入职指南、客户沟通话术、常见问题 FAQ。</p>
+<p><strong>西区场景：</strong>嵌入 TÜV 内部系统入口、行业数据看板、课程排期网页——打开 Teams 就全看到了，不用在各个系统间跳来跳去。</p>
 <p><span class="tag ms">M365 订阅自带</span></p>
-<p>→ <a href="https://support.microsoft.com/en-us/office/add-and-use-a-wiki-tab-in-microsoft-teams" target="_blank">官方教程</a></p>
-<div class="callout warning" style="margin-top:12px;">
-<h4>不再推荐作为知识库</h4>
-<p>正式知识用 <strong>SharePoint</strong>，知识索引用 <strong>Lists Knowledge Index</strong>，临时笔记用 <strong>OneNote / Loop</strong>。避免多套知识库并存。</p>
-</div>
+<p>→ <a href="https://support.microsoft.com/en-us/office/add-a-website-tab-in-teams" target="_blank">官方教程</a></p>
 </div>
 
 </div>
@@ -901,7 +917,7 @@ Custom Agent<br>
 <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2a7 7 0 0 0-2 13.6V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.4A7 7 0 0 0 12 2z" stroke="#009537" stroke-width="2" fill="none"/><line x1="10" y1="21" x2="14" y2="21" stroke="#009537" stroke-width="2"/><line x1="9" y1="18" x2="15" y2="18" stroke="#009537" stroke-width="2"/></svg> App 选择建议
 <p><strong>第一周：</strong>Teams 对话+频道+会议+文件协作 —— 协作底盘先跑起来。</p>
 <p><strong>第二周：</strong>SharePoint 文件库 + Knowledge Index List —— 知识开始结构化沉淀。</p>
-<p><strong>按需启用：</strong>Forms（问卷收集）、Loop（工作数据）、Planner（多人任务）、Power BI（看板）、Approvals（审批）。不需要全员同时掌握。</p>
+<p><strong>按需启用：</strong>Forms（问卷收集）、Planner（多人任务）、Channel Calendar（团队日程）、Whiteboard（白板协作）、Word/Excel/PPT（协同编辑）、SharePoint Pages（频道页面）、Website（外部嵌入）。不需要全员同时掌握。</p>
 </div>
 
 <!-- ═══════════ PART 3 ═══════════ -->
@@ -996,7 +1012,7 @@ Custom Agent<br>
 <tr><td><strong>Teams → Outlook</strong></td><td>"Draft a follow-up email based on this meeting"（根据本次会议草拟跟进邮件）</td></tr>
 <tr><td><strong>Teams → Word</strong></td><td>"Create a project summary document from this channel's discussions"（从频道讨论生成项目总结文档）</td></tr>
 <tr><td><strong>Teams → Planner</strong></td><td>"Create Planner tasks from the action items in this meeting"（从会议行动项创建 Planner 任务）</td></tr>
-<tr><td><strong>Teams → Loop</strong></td><td>"Draft a meeting agenda in Loop based on last week's action items"（基于上周行动项在 Loop 中草拟议程）</td></tr>
+<tr><td><strong>Teams → Excel</strong></td><td>"Draft a meeting agenda in Excel based on last week's action items"（基于上周行动项在 Excel 中草拟议程）</td></tr>
 </table>
 
 <h3 id="p3-5">3.5 Copilot Chat 通用对话</h3>
@@ -1107,12 +1123,12 @@ Custom Agent<br>
 
 <h4>SOP 流程</h4>
 <div class="step"><span class="num">1</span><span class="role-tag team">团队</span>公开课排期统一放在 <strong>02_Products & Delivery Assets</strong> 文件夹</div>
-<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>报名统计用 Loop 表格嵌在 Conversation：课程/日期/已报名/满员否——实时更新</div>
+<div class="step"><span class="num">2</span><span class="role-tag team">团队</span>报名统计用 Excel 表格嵌在 Conversation：课程/日期/已报名/满员否——实时更新</div>
 <div class="step"><span class="num">3</span><span class="role-tag team">团队</span>课前通知、课中反馈用 Forms 收集</div>
 <div class="step"><span class="num">4</span><span class="role-tag team">团队</span>课后资料（课件/证书/反馈汇总）上传到 SharePoint 对应课程文件夹</div>
 
 <h4>工具组合</h4>
-<p>SharePoint（排期+课件） → Loop（报名跟踪） → Forms（反馈收集） → Knowledge Index（课程对象沉淀）</p>
+<p>SharePoint（排期+课件） → Excel（报名跟踪） → Forms（反馈收集） → Knowledge Index（课程对象沉淀）</p>
 
 <div class="callout tip" style="margin-top:16px;"><h4>Tips</h4>
 <p>每门公开课结束后，在 Knowledge Index 更新：学员数、反馈分、讲师。这是未来"推荐课程给客户"的数据基础。</p>
@@ -1182,7 +1198,7 @@ Custom Agent<br>
 <tr><th>场景</th><th>核心工具</th><th>AI 加持</th></tr>
 <tr><td>客户拜访准备</td><td>Knowledge Index + SharePoint</td><td>Copilot 简报生成</td></tr>
 <tr><td>客户项目跟进</td><td>SharePoint + Conversation</td><td>Copilot 月度汇总</td></tr>
-<tr><td>公开课全流程</td><td>SharePoint + Loop + Forms</td><td>—</td></tr>
+<tr><td>公开课全流程</td><td>SharePoint + Excel + Forms</td><td>—</td></tr>
 <tr><td>跨城市业务协同</td><td>Knowledge Index + Conversation</td><td>—</td></tr>
 <tr><td>周报</td><td>Conversation + Copilot</td><td>信息汇总初稿</td></tr>
 <tr><td>新人业务上手</td><td>Team Portal + Knowledge Index + SharePoint</td><td>—</td></tr>
@@ -1238,6 +1254,53 @@ Custom Agent<br>
 <p>所有功能说明以 Microsoft 官方文档为准，许可和定价以 Microsoft 最新公布为准</p>
 <p style="margin-top: 12px; font-size: 0.85em;">TÜV, TUEV and TUV are registered trademarks. © TÜV Rheinland Group.</p>
 </section>
+
+<script>
+// ═══════ Particle System (inspired by React Bits) ═══════
+(function(){
+  var c=document.getElementById('particles-canvas'),ctx=c.getContext('2d');
+  var w,h,particles=[],NUM=80;
+  function resize(){ w=c.width=window.innerWidth; h=c.height=window.innerHeight; }
+  resize(); window.addEventListener('resize',resize);
+  for(var i=0;i<NUM;i++) particles.push({
+    x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*0.4,vy:(Math.random()-.5)*0.4,
+    r:Math.random()*1.5+0.5,alpha:Math.random()*0.5+0.2
+  });
+  var mouse={x:-1000,y:-1000};
+  window.addEventListener('mousemove',function(e){mouse.x=e.clientX;mouse.y=e.clientY;});
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<NUM;i++){
+      var p=particles[i];
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,150,255,'+p.alpha+')';ctx.fill();
+      for(var j=i+1;j<NUM;j++){
+        var p2=particles[j],dx=p.x-p2.x,dy=p.y-p2.y,dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p2.x,p2.y);
+        ctx.strokeStyle='rgba(0,150,255,'+(0.08*(1-dist/120))+')';ctx.lineWidth=0.5;ctx.stroke();}
+      }
+      var mdx=mouse.x-p.x,mdy=mouse.y-p.y,mdist=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(mdist<180){
+        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);
+        ctx.strokeStyle='rgba(0,180,255,'+(0.15*(1-mdist/180))+')';ctx.lineWidth=0.8;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ═══════ Scroll Reveal ═══════
+(function(){
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.1});
+  document.querySelectorAll('.app-card,.scene-card,.callout,h2,.toc').forEach(function(el){
+    el.classList.add('reveal');observer.observe(el);
+  });
+})();
+</script>
 
 </body>
 </html>
