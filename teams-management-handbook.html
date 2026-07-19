@@ -166,9 +166,27 @@ tr:hover td { background: rgba(0,113,185,0.04); }
 }
 
 @media (max-width: 768px) {
-  .container { padding: 24px 16px; }
-  .hero { padding: 60px 16px; }
-  .hero h1 { font-size: 1.8em; }
+  .container { padding: 20px 12px; }
+  .hero { padding: 48px 12px; }
+  .hero h1 { font-size: 1.6em; }
+  .hero .subtitle { font-size: 0.95em; }
+  h2 { font-size: 1.3em; }
+  h3 { font-size: 1.1em; }
+  /* Grid全改单列 */
+  div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* 表格横向滚动 */
+  table { display: block; overflow-x: auto; white-space: nowrap; font-size: 0.85em; }
+  th, td { padding: 8px 10px; }
+  /* TOC */
+  .toc { padding: 16px; }
+  .toc ol { padding-left: 16px; }
+  /* Cards */
+  .scene-card, .app-card { padding: 16px; }
+  .app-grid { grid-template-columns: 1fr; }
+  /* Footer */
+  .footer { padding: 24px 12px; }
 }
 
 @media print {
