@@ -82,12 +82,24 @@ animation:beamsRotate 50s linear infinite}
 @media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.app{padding:24px 16px}.kpi{grid-template-columns:repeat(2,1fr)}.header h1{font-size:1.7em}}
 @media(max-width:600px){.grid{grid-template-columns:1fr}.grid .cd:nth-child(5n+1),.grid .cd:nth-child(7n+3){grid-column:span 1;grid-row:span 1}}
+
+/* === React Bits: Cursor Lens === */
+.lens{position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(0,152,240,.12) 0%,rgba(0,113,185,.05) 30%,transparent 60%);transform:translate(-50%,-50%);transition:opacity .4s;opacity:0}
+.lens.active{opacity:1}
+
+/* === React Bits: Glitch === */
+@keyframes glitch{0%{transform:translate(0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,-1px)}80%{transform:translate(1px,1px)}100%{transform:translate(0)}}
+.glitch{animation:glitch .15s ease-in-out}
+
+/* === React Bits: Decrypted Text === */
+.dt{display:inline-block}
 </style></head><body>
 <div class="beams"></div>
 <canvas id="pc"></canvas>
+<div class="lens" id="lens"></div>
 <div class="shooting-stars" id="ss"></div>
 <div class="app">
-<header class="header"><div class="tag">Intelligence Dashboard</div><h1><strong>Market & Competitor</strong> Intelligence</h1><p class="sub">May &mdash; July 2026 &middot; 240 Signals &middot; 6 Business Lenses</p></header>
+<header class="header"><div class="tag">Intelligence Dashboard</div><h1><strong class="dt" data-text="Market &amp; Competitor"></strong> <span class="dt" data-text="Intelligence"></span></h1><p class="sub">May &mdash; July 2026 &middot; 240 Signals &middot; 6 Business Lenses</p></header>
 <div class="kpi">
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0071B9" stroke-width="1.5" style="margin-bottom:14px"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div class="kv">240</div><div class="kl">Total Signals</div></div>
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0098F0" stroke-width="1.5" style="margin-bottom:14px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="kv">224</div><div class="kl">Market</div></div>
@@ -149,4 +161,15 @@ setInterval(spawn,2800);spawn();spawn()})();
 
 /* === COUNTER ANIMATION === */
 (function(){document.querySelectorAll('.kv[data-target]').forEach(function(el){var t=parseInt(el.getAttribute('data-target')),d=1200,s=Math.ceil(d/(t||1)),c=0,i=setInterval(function(){c+=Math.ceil((t-c)/3);if(c>=t){c=t;clearInterval(i);el.classList.remove('counting')}el.textContent=c},s);el.classList.add('counting')})})();
+
+/* === React Bits: Decrypted Text === */
+(function(){var chars='!@#$%^&*()_+-=[]{}|;:,.<>?/~`ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+document.querySelectorAll('.dt').forEach(function(el){var t=el.getAttribute('data-text'),l=t.length,c=Array(l).fill(''),i=0,f=setInterval(function(){var d='';for(var j=0;j<l;j++){if(c[j]===t[j]){d+=t[j]}else{if(Math.random()<.15){c[j]=t[j]}d+='<span style="color:rgba(0,152,240,.3)">'+chars[Math.floor(Math.random()*chars.length)]+'</span>'}
+}el.innerHTML=d;i++;if(i>20||c.join('')===t){el.textContent=t;clearInterval(f)}},60)})})();
+
+/* === React Bits: Cursor Lens === */
+(function(){var l=document.getElementById('lens'),t=0;document.addEventListener('mousemove',function(e){l.style.left=e.clientX+'px';l.style.top=e.clientY+'px';if(!l.classList.contains('active')){l.classList.add('active')}clearTimeout(t);t=setTimeout(function(){l.classList.remove('active')},2000)})})();
+
+/* === React Bits: Glitch on Card Hover === */
+(function(){document.addEventListener('mouseover',function(e){var c=e.target.closest('.cd');if(c&&!c.dataset.glitched){c.dataset.glitched=1;c.classList.add('glitch');setTimeout(function(){c.classList.remove('glitch');delete c.dataset.glitched},150)}})})();
 </script></body></html>
