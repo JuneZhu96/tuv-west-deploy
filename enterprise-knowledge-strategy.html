@@ -171,7 +171,44 @@ tr:hover td{background:rgba(0,113,185,.04)}
 <div class="phase"><div class="phase-num">Layer 3</div><div class="phase-content"><h4>Relationship Layer 关系层</h4><p>知识对象之间的关联网络：客户&#8596;案例&#8596;标准&#8596;专家&#8596;方案。Microsoft Graph 提供底层关系图谱。</p></div></div>
 <div class="phase"><div class="phase-num">Layer 4</div><div class="phase-content"><h4>Intelligence Layer 智能层</h4><p>AI 在知识对象和关系之上进行检索（Retrieval）、推理（Reasoning）、行动（Action）。Copilot 和 Agent 工作在这一层。</p></div></div>
 
-<h3>2.5 From Knowledge Repository to Knowledge Intelligence</h3>
+<h3>2.5 From Documents to Knowledge Objects: The Enrichment Pipeline</h3>
+<p style="color:var(--muted)">从文件到知识对象：知识充实管道</p>
+
+<p>Ch2.3 阐述了 Document 与 Knowledge Object 的对照模型。但企业每天产生大量文件——如何自动化地将原始文档转化为携带业务上下文的知识对象？答案是一个基于 M365 原生能力的<strong>知识充实管道（Knowledge Enrichment Pipeline）</strong>。</p>
+
+<h4>Pipeline 架构概览</h4>
+<table>
+<tr><th>阶段</th><th>组件</th><th>职责</th></tr>
+<tr><td><strong>1. 触发</strong></td><td>General Documents (SharePoint Library)</td><td>团队日常工作文件入口，所有项目文档的存储层</td></tr>
+<tr><td><strong>2. 编排</strong></td><td>Power Automate</td><td>监听文件创建/修改事件，获取文件链接与基础属性，编排整个工作流</td></tr>
+<tr><td><strong>3. 充实</strong></td><td>Knowledge Enrichment Agent</td><td>读取文档内容，提取客户、行业、服务、标准、文档类型等业务上下文——不做文档改写，只输出结构化元数据</td></tr>
+<tr><td><strong>4. 写入</strong></td><td>Power Automate</td><td>接收 Agent 的结构化 JSON 输出，写入或更新 Knowledge Metadata List</td></tr>
+<tr><td><strong>5. 存储</strong></td><td>Knowledge Metadata List</td><td>保存文档链接、基础属性、业务元数据和处理状态——成为结构化知识索引</td></tr>
+<tr><td><strong>6. 消费</strong></td><td>Work IQ</td><td>结合原始文档、元数据、用户权限和业务上下文，为上层提供企业级语义理解</td></tr>
+</table>
+
+<h4>工作流：六步从文件到可消费知识</h4>
+<ol>
+<li>文档在 General Documents 中被创建或修改</li>
+<li>Power Automate 自动触发，收集文件 URL、名称、路径、修改时间</li>
+<li>Knowledge Enrichment Agent 读取文档，提取：客户、行业、服务、标准、文档类型、保密等级、关键词、摘要</li>
+<li>Agent 返回结构化 JSON（不修改原始文档）</li>
+<li>Power Automate 将结构化元数据写入 Knowledge Metadata List</li>
+<li>Work IQ 结合文档 + 元数据 + 权限 → Copilot 和 Business Agent 可直接消费</li>
+</ol>
+
+<div class="callout action">
+<h4>Phase 1 MVP 实施范围</h4>
+<ul>
+<li><strong>数据源：</strong>Teams General Documents（单一试点团队，如西区办公室）</li>
+<li><strong>组件：</strong>一个 Power Automate 流程 + 一个 Knowledge Enrichment Agent + 一个 Knowledge Metadata List</li>
+<li><strong>成功标准：</strong>自动同步、元数据提取准确、Copilot/Work IQ 搜索明显改善</li>
+</ul>
+</div>
+
+<p><strong>这个管道的战略意义：</strong>它不是"又一个自动化工具"，而是将 Ch2.3 的知识对象模型<strong>工程化、自动化、规模化</strong>。没有这个管道，知识对象模型只是纸上的理论；有了它，每个新文件从创建那一刻起就自动成为企业知识网络的一部分。</p>
+
+<h3>2.6 From Knowledge Repository to Knowledge Intelligence</h3>
 <table>
 <tr><th>Level</th><th>能力</th><th>示例</th></tr>
 <tr><td>Search</td><td>找到文件</td><td>"搜索'ISO 9001 内审'"</td></tr>
@@ -381,7 +418,7 @@ tr:hover td{background:rgba(0,113,185,.04)}
 
 <h3>7.2 Enterprise Knowledge Foundation Roadmap</h3>
 
-<div class="phase"><div class="phase-num">Phase 1</div><div class="phase-content"><h4>Foundation 基础建设</h4><p>搭建 SharePoint 内容架构、Teams 频道体系、Lists 结构化知识索引。建立知识分类框架和元数据标准。<br><strong>关键产出：</strong>统一的知识存储和基础的检索能力。</p></div></div>
+<div class="phase"><div class="phase-num">Phase 1</div><div class="phase-content"><h4>Foundation 基础建设</h4><p>搭建 SharePoint 内容架构、Teams 频道体系、Lists 结构化知识索引。建立知识分类框架和元数据标准。部署 <strong>Knowledge Enrichment Pipeline</strong>（详见 Ch2.5），实现文件的自动分类和业务元数据提取。<br><strong>关键产出：</strong>统一的知识存储和基础的检索能力。</p></div></div>
 <div class="phase"><div class="phase-num">Phase 2</div><div class="phase-content"><h4>Intelligence 智能激活</h4><p>引入 Copilot，连接知识基础与 AI。建设 Knowledge Object 体系和关系图谱。启动 Work IQ 语义索引。<br><strong>关键产出：</strong>AI 辅助的知识检索、总结、推荐。知识从"存了"到"能用"。</p></div></div>
 <div class="phase"><div class="phase-num">Phase 3</div><div class="phase-content"><h4>Agent 自主执行</h4><p>部署 Sales Agent、Training Agent、Compliance Agent 等专用 Agent。Agent 基于企业知识自主完成多步骤任务。<br><strong>关键产出：</strong>AI 从"辅助"到"执行"。企业成为 Knowledge-powered Organization。</p></div></div>
 
