@@ -15,12 +15,17 @@ animation:beamsRotate 50s linear infinite}
 /* Dot grid overlay */
 .beams::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,113,185,.03) 1px,transparent 1px);background-size:45px 45px;opacity:.6}
 
-/* Glow orb */
-.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(100px);opacity:.15}
-.orb.o1{width:600px;height:600px;background:radial-gradient(circle,#0071B9,transparent 70%);top:-200px;right:-150px;animation:orb1 15s ease-in-out infinite}
-.orb.o2{width:400px;height:400px;background:radial-gradient(circle,#0098F0,transparent 70%);bottom:-100px;left:-100px;animation:orb2 18s ease-in-out infinite}
-@keyframes orb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,30px) scale(1.2)}}
-@keyframes orb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.15)}}
+/* === PARTICLE CANVAS === */
+#pc{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* === SHOOTING STARS (Aceternity-style) === */
+.shooting-stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;height:1.5px;background:linear-gradient(90deg,var(--blue-bright),transparent);border-radius:2px;animation:shoot linear forwards;opacity:0}
+.star::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:var(--blue-bright);border-radius:50%;box-shadow:0 0 12px 4px rgba(0,152,240,.8),0 0 30px 8px rgba(0,152,240,.4)}
+@keyframes shoot{0%{opacity:0;transform:translateX(0) translateY(0) rotate(var(--a))}2%{opacity:1}60%{opacity:1}100%{opacity:0;transform:translateX(1200px) translateY(-200px) rotate(var(--a))}}
+
+/* === COUNTER ANIMATION === */
+.kv.counting{transition:none}
 
 .app{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:40px 48px}
 .header{text-align:center;padding:60px 0 48px}
@@ -79,13 +84,14 @@ animation:beamsRotate 50s linear infinite}
 @media(max-width:600px){.grid{grid-template-columns:1fr}.grid .cd:nth-child(5n+1),.grid .cd:nth-child(7n+3){grid-column:span 1;grid-row:span 1}}
 </style></head><body>
 <div class="beams"></div>
-<div class="orb o1"></div><div class="orb o2"></div>
+<canvas id="pc"></canvas>
+<div class="shooting-stars" id="ss"></div>
 <div class="app">
 <header class="header"><div class="tag">Intelligence Dashboard</div><h1><strong>Market & Competitor</strong> Intelligence</h1><p class="sub">May &mdash; July 2026 &middot; 240 Signals &middot; 6 Business Lenses</p></header>
 <div class="kpi">
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0071B9" stroke-width="1.5" style="margin-bottom:14px"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div class="kv">240</div><div class="kl">Total Signals</div></div>
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0098F0" stroke-width="1.5" style="margin-bottom:14px"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="kv">224</div><div class="kl">Market</div></div>
-<div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="1.5" style="margin-bottom:14px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><div class="kv">16</div><div class="kl">Competitor</div></div>
+<div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="1.5" style="margin-bottom:14px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><div class="kv" data-target="7">0</div><div class="kl">Competitor</div></div>
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F0A030" stroke-width="1.5" style="margin-bottom:14px"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><div class="kv">6</div><div class="kl">Themes</div></div>
 </div>
 <div class="nav"><button class="nb on" onclick="f('all')">All<span class="c">240</span></button>
@@ -118,4 +124,29 @@ document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemo
 
 // Nav spotlight
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
+/* === PARTICLE NETWORK CANVAS === */
+(function(){var c=document.getElementById('pc'),x=c.getContext('2d'),w,h,pts=[],N=60;
+function rs(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+rs();window.addEventListener('resize',rs);
+for(var i=0;i<N;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.5+.5});
+function draw(){x.clearRect(0,0,w,h);
+for(var i=0;i<pts.length;i++){var p=pts[i];
+p.x+=p.vx;p.y+=p.vy;
+if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle='rgba(0,152,240,.35)';x.fill();
+for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+if(d<120){x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.strokeStyle='rgba(0,152,240,'+(.08*(1-d/120))+')';x.lineWidth=.4;x.stroke()}}}
+requestAnimationFrame(draw)}
+draw()})();
+
+/* === SHOOTING STARS === */
+(function(){var ss=document.getElementById('ss');
+function spawn(){var s=document.createElement('div');s.className='star';
+var y=Math.random()*60;var d=2.5+Math.random()*4;s.style.cssText='top:'+y+'%;left:-5%;width:'+(80+Math.random()*200)+'px;--a:'+(-8+Math.random()*16)+'deg;animation-duration:'+d+'s';
+ss.appendChild(s);setTimeout(function(){s.remove()},d*1000)}
+setInterval(spawn,2800);spawn();spawn()})();
+
+/* === COUNTER ANIMATION === */
+(function(){document.querySelectorAll('.kv[data-target]').forEach(function(el){var t=parseInt(el.getAttribute('data-target')),d=1200,s=Math.ceil(d/(t||1)),c=0,i=setInterval(function(){c+=Math.ceil((t-c)/3);if(c>=t){c=t;clearInterval(i);el.classList.remove('counting')}el.textContent=c},s);el.classList.add('counting')})})();
 </script></body></html>
