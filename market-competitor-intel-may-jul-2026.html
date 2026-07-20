@@ -140,7 +140,27 @@ animation:beamsRotate 50s linear infinite}
 
 .loadmore{grid-column:1/-1;text-align:center;padding:24px;color:var(--muted);font-size:.82em;cursor:pointer;transition:all .3s;border:1px dashed var(--border);border-radius:12px;margin-top:8px}
 .loadmore:hover{color:var(--blue-bright);border-color:rgba(0,113,185,.3);background:rgba(0,113,185,.04)}
-.loadmore strong{color:var(--blue-bright)}</style></head><body>
+.loadmore strong{color:var(--blue-bright)}
+/* === Key Takeaways & Opps/Risks === */
+.kto{max-width:1440px;margin:0 auto 36px;padding:0 48px;position:relative;z-index:1}
+.kto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.kto-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .3s}
+.kto-card:hover{border-color:rgba(0,113,185,.2)}
+.kto-card.full{grid-column:1/-1}
+.kto-card .kto-tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:.7em;font-weight:600;margin-bottom:16px;letter-spacing:1px}
+.kto-card .kto-tag.key{background:rgba(0,152,240,.15);color:#0098F0}
+.kto-card .kto-tag.opp{background:rgba(0,200,150,.15);color:#00C896}
+.kto-card .kto-tag.risk{background:rgba(255,100,120,.12);color:#FF6478}
+.kto-card h3{font-size:.95em;color:#fff;font-weight:500;margin-bottom:16px;line-height:1.6}
+.kto-card ol,.kto-card ul{margin:0;padding:0;list-style:none}
+.kto-card ol li,.kto-card ul li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.82em;color:var(--text);line-height:1.55;position:relative;padding-left:32px}
+.kto-card ol li:last-child,.kto-card ul li:last-child{border-bottom:none}
+.kto-card ol li::before{content:attr(data-n);position:absolute;left:0;top:10px;width:22px;height:22px;border-radius:50%;background:rgba(0,152,240,.15);color:#0098F0;font-size:.75em;font-weight:700;display:flex;align-items:center;justify-content:center}
+.kto-card ul li::before{content:'';position:absolute;left:8px;top:17px;width:6px;height:6px;border-radius:50%}
+.kto-card.opp-card ul li::before{background:#00C896}
+.kto-card.risk-card ul li::before{background:#FF6478}
+@media(max-width:900px){.kto-grid{grid-template-columns:1fr}.kto{padding:0 16px}}
+</style></head><body>
 <div class="beams"></div>
 <canvas id="pc"></canvas>
 <div class="lens" id="lens"></div>
@@ -155,6 +175,48 @@ animation:beamsRotate 50s linear infinite}
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="1.5" style="margin-bottom:14px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><div class="kv" id="kv-comp">12</div><div class="kl">Competitor</div></div>
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F0A030" stroke-width="1.5" style="margin-bottom:14px"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><div class="kv">6</div><div class="kl">Themes</div></div>
 </div>
+
+<div class="kto">
+<div class="kto-grid">
+
+<div class="kto-card full">
+<div class="kto-tag key">本期五个关键判断 · May—July 2026</div>
+<ol>
+<li data-n="1">ISO 9001:2026（9月发布+3年过渡期）与ISO 14001:2026（已发布）构成"绿色质量"双轮换版潮，全球120万+证书面临换版，培训与咨询需求确定性强。</li>
+<li data-n="2">AI正从三个方向同时渗透TIC行业：教育培训（AI认证进入热搜TOP10）、人员认证（AI素养标准萌芽）、服务产品（南德已开"AI基础与智能体开发"公开课）。</li>
+<li data-n="3">竞对正在从单次审核向"培训＋工具＋审核＋持续数字服务"延伸。BV收购Lotusworks进入半导体TIC、LRQA全球上线eLearning换版课、Intertek推8小时工作坊——全链条服务能力在拉大。</li>
+<li data-n="4">西区半导体、汽车信息安全及功能安全是竞对集中投入方向。DEKRA重庆建检测中心（2025.12动工）、SGS取得亚洲TISAX认可、南德在重庆开ISO 26262和EHS公开课。</li>
+<li data-n="5">莱茵拥有认证技术能力（全球首张SOTIF管理体系认证、电池法规公告机构），但部分能力尚未转化为标准化培训产品。SOTIF公开课缺失是典型——有认证没课程。</li>
+</ol>
+</div>
+
+<div class="kto-card opp-card">
+<div class="kto-tag opp">西区机会 · Opportunities</div>
+<ul>
+<li><strong>换版培训</strong> — ISO 9001:2026（9月发布）+ISO 14001:2026，西区制造业密集，内审员+标准理解课程需求即将爆发</li>
+<li><strong>AI+质量</strong> — 南德在郑州已开AI课程但西南空白，莱茵可在成渝抢先布局AI素养+AI管理体系培训</li>
+<li><strong>SOTIF产品化</strong> — 莱茵有全球首张SOTIF认证（广汽2022），西区汽车产业集群（川渝产量占全国11%）是天然市场</li>
+<li><strong>TISAX汽车信息安全</strong> — SGS在亚洲布局但西区尚未深耕，莱茵可借重庆/成都汽车产业链切入</li>
+<li><strong>半导体供应链合规</strong> — 西安芯业时代190亿、重庆安意法碳化硅量产线、成都IC PARK，全链条测试认证需求</li>
+<li><strong>线上认知+线下工作坊</strong> — 对标LRQA纯eLearning的短板，打"线上普及+线下深度"组合产品</li>
+</ul>
+</div>
+
+<div class="kto-card risk-card">
+<div class="kto-tag risk">竞争风险 · Risks</div>
+<ul>
+<li><strong>BV × 半导体</strong> — 收购Lotusworks后在数据中心和半导体TIC领域建立约3亿欧元增长平台，直接触及西区半导体客户</li>
+<li><strong>SGS × TISAX</strong> — 成为印度首家TISAX认可服务商，亚洲汽车信息安全认证布局加速</li>
+<li><strong>TÜV南德 × 公开课</strong> — 500+门课程、重庆有IATF 16949+EHS+ISO 26262开课记录，西部覆盖密度高于莱茵</li>
+<li><strong>BSI × 重庆</strong> — 在渝有认证分公司，管理体系+数字化培训的标准制定者身份构成天然品牌壁垒</li>
+<li><strong>LRQA × 换版抢先</strong> — 基于DIS版全球上线ISO 9001:2026认知课程，抢占换版培训第一波认知红利</li>
+<li><strong>DEKRA × 新进入</strong> — 2025.12在两江新区开建西部首个检测中心，德国最大检测机构首次在西区建立实体据点</li>
+</ul>
+</div>
+
+</div>
+</div>
+
 <div class="nav"><button class="nb on" onclick="f('all')">All<span class="c" id="nc-all">240</span></button>
 <button class="nb" onclick="f('培训咨询市场')">培训咨询市场<span class="c" id="nc-theme-培训咨询市场">20</span></button>
 <button class="nb" onclick="f('TIC行业')">TIC行业<span class="c" id="nc-theme-TIC行业">88</span></button>
