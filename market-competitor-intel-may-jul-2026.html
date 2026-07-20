@@ -18,11 +18,10 @@ animation:beamsRotate 50s linear infinite}
 /* === PARTICLE CANVAS === */
 #pc{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* === SHOOTING STARS (Aceternity-style) === */
+/* === SHOOTING STARS === */
 .shooting-stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.star{position:absolute;height:1.5px;background:linear-gradient(90deg,var(--blue-bright),transparent);border-radius:2px;animation:shoot linear forwards;opacity:0}
-.star::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:var(--blue-bright);border-radius:50%;box-shadow:0 0 12px 4px rgba(0,152,240,.8),0 0 30px 8px rgba(0,152,240,.4)}
-@keyframes shoot{0%{opacity:0;transform:translateX(0) translateY(0) rotate(var(--a))}2%{opacity:1}60%{opacity:1}100%{opacity:0;transform:translateX(1200px) translateY(-200px) rotate(var(--a))}}
+.star{position:absolute;height:.7px;background:linear-gradient(90deg,rgba(0,152,240,.35),transparent);border-radius:1px;animation:shoot linear forwards;opacity:0}
+@keyframes shoot{0%{opacity:0;transform:translateX(0) translateY(0) rotate(var(--a))}5%{opacity:1}50%{opacity:.6}100%{opacity:0;transform:translateX(1200px) translateY(-200px) rotate(var(--a))}}
 
 /* === COUNTER ANIMATION === */
 .kv.counting{transition:none}
