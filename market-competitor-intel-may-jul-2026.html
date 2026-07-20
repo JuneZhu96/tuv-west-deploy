@@ -168,7 +168,4 @@ document.querySelectorAll('.dt').forEach(function(el){var t=el.getAttribute('dat
 
 /* === React Bits: Cursor Lens === */
 (function(){var l=document.getElementById('lens'),t=0;document.addEventListener('mousemove',function(e){l.style.left=e.clientX+'px';l.style.top=e.clientY+'px';if(!l.classList.contains('active')){l.classList.add('active')}clearTimeout(t);t=setTimeout(function(){l.classList.remove('active')},2000)})})();
-
-/* === React Bits: Glitch on Card Hover === */
-(function(){document.addEventListener('mouseover',function(e){var c=e.target.closest('.cd');if(c&&!c.dataset.glitched){c.dataset.glitched=1;c.classList.add('glitch');setTimeout(function(){c.classList.remove('glitch');delete c.dataset.glitched},150)}})})();
 </script></body></html>
