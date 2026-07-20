@@ -137,7 +137,7 @@
     "source": "来源：ISO官网（iso.org，2026-04） / Bureau Veritas / LRQA | 可信度：⭐⭐⭐⭐⭐（国际标准组织官方发布）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "competitor",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-08",
@@ -147,7 +147,7 @@
     "source": "来源：COMPUTEX Daily（2026-06-03） | 可信度：⭐⭐⭐⭐⭐（官方展会新闻）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-08",
@@ -157,7 +157,7 @@
     "source": "来源：TÜV莱茵官网（tuv.com）/ Bureau Veritas官网（2026） | 可信度：⭐⭐⭐⭐⭐（官方培训日程）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-06-08",
@@ -167,7 +167,7 @@
     "source": "来源：NewsByWire / SGS官网（2026-06-04） | 可信度：⭐⭐⭐⭐（官方公告）",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-09",
@@ -177,7 +177,7 @@
     "source": "来源：LRQA / DNV官网（2026-06） | 可信度：⭐⭐⭐⭐⭐（认证机构官方公告）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "competitor",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-09",
@@ -237,7 +237,7 @@
     "source": "来源：Carnegie Mellon University Heinz College（2026） | 可信度：⭐⭐⭐⭐⭐（CMU官方课程发布）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "AI与数字化"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-06-10",
@@ -257,7 +257,7 @@
     "source": "来源：综合（6月10-11日） | 可信度：⭐⭐⭐⭐⭐",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "TIC行业"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-11",
@@ -277,7 +277,7 @@
     "source": "来源：China Daily（6月11日）| 可信度：⭐⭐⭐⭐⭐ 官方认证+权威媒体",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-12",
@@ -287,7 +287,7 @@
     "source": "来源：China Daily（6月11日）| 可信度：⭐⭐⭐⭐⭐ 官方渠道",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "AI与数字化"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-06-12",
@@ -367,7 +367,7 @@
     "source": "来源：The Verge（6月12日）| 可信度：⭐⭐⭐⭐⭐ 司法判决+权威科技媒体",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "competitor",
-    "primary_theme": "TIC行业"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-14",
@@ -377,7 +377,7 @@
     "source": "来源：China Daily / PwC（6月11日）| 可信度：⭐⭐⭐⭐ 行业调研+银行官方数据",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-06-15",
@@ -427,7 +427,7 @@
     "source": "来源：DW / Ars Technica / The Verge / The Decoder（6月10-15日）| 可信度：⭐⭐⭐⭐⭐ 德国法院官方裁决+多源交叉验证",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "competitor",
-    "primary_theme": "其他"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-16",
@@ -487,7 +487,7 @@
     "source": "来源：每经网 / 腾讯新闻（5-6月）| 可信度：⭐⭐⭐⭐ 权威财经媒体+公司公告",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-17",
@@ -507,7 +507,7 @@
     "source": "来源：Morgan Lewis / CISA / G7联合公报（2026年6月）| 可信度：⭐⭐⭐⭐⭐ 国际法律事务所+CISA官方文件",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-18",
@@ -517,7 +517,7 @@
     "source": "来源：White House / Federal Register Vol.91 / A&O Sherman / 全球政策观察（6月2日签署，6月持续解读）| 可信度：⭐⭐⭐⭐⭐ 美国政府官方行政令",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "competitor",
-    "primary_theme": "TIC行业"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-06-18",
@@ -537,7 +537,7 @@
     "source": "来源：ISO.org / A3 / UL（2026年持续更新）| 可信度：⭐⭐⭐⭐⭐ 国际标准组织官方",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-19",
@@ -577,7 +577,7 @@
     "source": "来源：Mind Foundry / Legalithm / CSET Georgetown（2026年）| 可信度：⭐⭐⭐⭐ 专业AI治理研究机构多源交叉",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-20",
@@ -587,7 +587,7 @@
     "source": "来源：新浪财经（6月19日）/ 中国检验检测学会 / TIC Council | 可信度：⭐⭐⭐⭐⭐ 行业官方发布",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-20",
@@ -607,7 +607,7 @@
     "source": "来源：工信部/每日经济新闻（6月18日）| 可信度：⭐⭐⭐⭐⭐ 五部委官方通知",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-21",
@@ -647,7 +647,7 @@
     "source": "来源：中国合格评定国家认可委员会（CNAS）/人民网（6月9日报道）| 可信度：⭐⭐⭐⭐⭐ 国家级官方活动",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-22",
@@ -687,7 +687,7 @@
     "source": "来源：Global Market Insights / Fortune Business Insights / Markets and Markets（2026年报告）| 可信度：⭐⭐⭐⭐ 权威市场研究机构",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-06-24",
@@ -717,7 +717,7 @@
     "source": "来源：MarketsandMarkets / Fortune Business Insights / Mordor Intelligence（6月）| 可信度：⭐⭐⭐⭐ 多家国际研究机构交叉验证",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-25",
@@ -767,7 +767,7 @@
     "source": "来源：36氪/工信部公告（6月27日） | 可信度：⭐⭐⭐⭐⭐ 工信部官方公示",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-27",
@@ -797,7 +797,7 @@
     "source": "来源：欧盟委员会官网/中国质量报（6月26-27日） | 可信度：⭐⭐⭐⭐⭐ 欧盟官方法规文件",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-29",
@@ -837,7 +837,7 @@
     "source": "来源：东莞市政务服务和数据管理局官网（7月1日） | 可信度：⭐⭐⭐⭐⭐ 地方政府 official文件",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-01",
@@ -867,7 +867,7 @@
     "source": "来源：SIS Certifications官网（2026年7月） | 可信度：⭐⭐⭐⭐ 印度TIC机构官方排期",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "TIC行业"
+    "primary_theme": "培训咨询市场"
   },
   {
     "date": "2026-07-03",
@@ -887,7 +887,7 @@
     "source": "来源：China Daily（7月2日） | 可信度：⭐⭐⭐⭐⭐ China Daily官方报道",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-07-04",
@@ -897,7 +897,7 @@
     "source": "来源：Globe Newswire / Research and Markets（7月1日）| 可信度：⭐⭐⭐⭐⭐ 国际权威市场研究机构官方发布",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-04",
@@ -907,7 +907,7 @@
     "source": "来源：DNV / SGS / NQA / 9001simplified（2026年上半年综合）| 可信度：⭐⭐⭐⭐⭐ 多家头部认证机构基于FDIS草案的官方解读",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-04",
@@ -957,7 +957,7 @@
     "source": "来源：GlobeNewswire / ResearchAndMarkets.com（7月1日） | 可信度：⭐⭐⭐⭐ 权威市场研究机构",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-06",
@@ -1007,7 +1007,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-12",
@@ -1047,7 +1047,7 @@
     "source": "",
     "credibility": "",
     "type": "competitor",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-14",
@@ -1087,7 +1087,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-16",
@@ -1117,7 +1117,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-17",
@@ -1127,7 +1127,7 @@
     "source": "",
     "credibility": "",
     "type": "competitor",
-    "primary_theme": "其他"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-17",
@@ -1137,7 +1137,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-17",
@@ -1157,7 +1157,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-18",
@@ -1177,7 +1177,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "竞对情报"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-19",
@@ -1197,7 +1197,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-05-30",
@@ -1207,7 +1207,7 @@
     "source": "https://www.scjjrb.com/2026/05/29/99465011.html",
     "credibility": "",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-05-30",
@@ -1287,7 +1287,7 @@
     "source": "来源：证券时报 / 四川经济网 / 成都发布（2026-06-01） | 可信度：⭐⭐⭐⭐⭐（官方政策文件）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-06",
@@ -1407,7 +1407,7 @@
     "source": "来源：Xinhua English / SCMP（2026-06-08） | 可信度：⭐⭐⭐⭐⭐（官方发布+主流媒体）",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-09",
@@ -1527,7 +1527,7 @@
     "source": "来源：China Daily / 商务部（6月11日）| 可信度：⭐⭐⭐⭐⭐ 官方发布",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-06-13",
@@ -1567,7 +1567,7 @@
     "source": "来源：China Daily（6月11日）| 可信度：⭐⭐⭐⭐⭐ 工信部+市监局官方行动",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-14",
@@ -1657,7 +1657,7 @@
     "source": "来源：China Daily / 中国证监会（6月15日）| 可信度：⭐⭐⭐⭐⭐ 证监会官方公告",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-17",
@@ -1717,7 +1717,7 @@
     "source": "来源：腾讯新闻/每经网/Chargerlab（6月11-17日，持续跟踪）| 可信度：⭐⭐⭐⭐ 上市公司公告+财经媒体多源交叉",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-19",
@@ -1727,7 +1727,7 @@
     "source": "来源：China Daily（6月17日）/ 国家发改委新闻发布会 | 可信度：⭐⭐⭐⭐⭐ 中国政府官方+世界经济论坛",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "其他"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-19",
@@ -1767,7 +1767,7 @@
     "source": "来源：四川经济网（6月18日）| 可信度：⭐⭐⭐⭐⭐ 四川省发改委官方发布",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-20",
@@ -1777,7 +1777,7 @@
     "source": "来源：国家市场监管总局（6月18日）| 可信度：⭐⭐⭐⭐⭐ 国家市场监管总局官方公告",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-20",
@@ -1837,7 +1837,7 @@
     "source": "来源：重庆市人民政府官网（6月13日发布）| 可信度：⭐⭐⭐⭐⭐ 市政府官方文件",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-23",
@@ -1847,7 +1847,7 @@
     "source": "来源：重庆市人民政府网（6月21日）| 可信度：⭐⭐⭐⭐⭐ 市政府官方发布",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-24",
@@ -1867,7 +1867,7 @@
     "source": "来源：澎湃新闻·能见度（6月23日）| 可信度：⭐⭐⭐⭐⭐ 宁德时代官方信息披露",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-25",
@@ -1917,7 +1917,7 @@
     "source": "来源：iChongqing（6月26日） | 可信度：⭐⭐⭐⭐ 官方科技合作会议+政府背书",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-06-27",
@@ -2007,7 +2007,7 @@
     "source": "来源：澎湃新闻/成都发布（6月30日） | 可信度：⭐⭐⭐⭐⭐ 官方城市发布平台",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-06-30",
@@ -2057,7 +2057,7 @@
     "source": "来源：新华社/中国政府网（7月2日前后） | 可信度：⭐⭐⭐⭐⭐ 国家五年规划纲要原文",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-02",
@@ -2137,7 +2137,7 @@
     "source": "来源：Yahoo Finance / GlobeNewswire（7月2日） | 可信度：⭐⭐⭐⭐ GlobeNewswire国际财经通讯社",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-07-05",
@@ -2147,7 +2147,7 @@
     "source": "来源：每日经济新闻（7月3日23:27） | 可信度：⭐⭐⭐⭐ 每经官方报道",
     "credibility": "⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "TIC行业"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-07-06",
@@ -2167,7 +2167,7 @@
     "source": "来源：重庆市人民政府网 / 重庆日报（7月3日） | 可信度：⭐⭐⭐⭐⭐ 官方发布",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-07-06",
@@ -2177,7 +2177,7 @@
     "source": "来源：36氪（7月5日氪星晚报）/ 重庆市人民政府网 | 可信度：⭐⭐⭐⭐⭐ 国务院文件+重庆官方数据",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-10",
@@ -2187,7 +2187,7 @@
     "source": "来源：四川在线（2026-07-08）| 可信度：⭐⭐⭐⭐⭐ 省政府新闻办官方发布会",
     "credibility": "⭐⭐⭐⭐⭐",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "AI与数字化"
   },
   {
     "date": "2026-07-10",
@@ -2217,7 +2217,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-12",
@@ -2227,7 +2227,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-07-14",
@@ -2257,7 +2257,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "政策与投资"
+    "primary_theme": "TIC行业"
   },
   {
     "date": "2026-07-15",
@@ -2357,7 +2357,7 @@
     "source": "",
     "credibility": "",
     "type": "market",
-    "primary_theme": "西区重点产业"
+    "primary_theme": "政策与投资"
   },
   {
     "date": "2026-07-18",
