@@ -232,22 +232,6 @@ animation:beamsRotate 50s linear infinite}
 <div class="comp-grid">
 
 <div class="comp-card full">
-<div class="ctag tuv">ISO 21448 SOTIF · 预期功能安全</div>
-<h3>TÜV南德 vs TÜV莱茵 — 汽车功能安全培训能力对比</h3>
-<div class="corg">关键战场：智能网联汽车 · ADAS/自动驾驶 · 数据来源：tuvsud.cn / tuv.com 官网课程页 2026-06</div>
-<table class="ctbl">
-<tr><th>维度</th><th>TÜV南德</th><th>TÜV莱茵</th></tr>
-<tr><td>ISO 21448 公开课</td><td class="win">✓ 独立课程 · 9模块体系</td><td class="lose">✗ 无公开课 · 仅贾国平内训</td></tr>
-<tr><td>ISO 21448 认证</td><td>大中华首张SOTIF流程认证（2024.3 ASENSING）</td><td class="win">全球首张SOTIF管理体系认证（2022 广汽研究院）</td></tr>
-<tr><td>ISO 26262 公开课</td><td class="win">3级资质体系 · 5天×多城市 · 每期限15人</td><td>12门课程 · FSCP线上考试已落地</td></tr>
-<tr><td>ISO/PAS 8800</td><td class="win">工程师资质培训</td><td>含部分SOTIF内容</td></tr>
-<tr><td>ISO/SAE 21434</td><td>有公开课</td><td>有对应课程</td></tr>
-<tr><td>西部开课记录</td><td class="win">重庆(ISO 26262已结·IATF 16949·EHS)</td><td class="tie">成渝西南区布局</td></tr>
-</table>
-<div class="cinsight"><strong>⚡ 业务建议：</strong>莱茵拥有全球首张SOTIF管理体系认证背书（2022广汽），但培训产品化落后南德。短期以贾国平内训为基础包装定制产品，中期参考南德9模块大纲开发标准化公开课，打"培训+认证一体化"差异化牌。</div>
-</div>
-
-<div class="comp-card full">
 <div class="ctag tuv">TÜV南德 2026公开课全景</div>
 <h3>8大领域 · 500+门课程 · 2,500名培训师 · 年培训160,000+人次</h3>
 <div class="corg">数据来源：tuvsud.cn 各课程子页面逐一爬取汇总 · 2026-06-07</div>
@@ -406,7 +390,7 @@ g.innerHTML=i.slice(0,showing).map(function(d){var c=d.content.replace(/<[^>]*>/
 if(i.length===0)g.innerHTML='<div class="emp">No signals</div>';}
 function lm(){var g=document.getElementById('grid');var i=D;if(cur!=='all')i=D.filter(function(d){return d.primary_theme===cur});i.sort(function(a,b){return b.date.localeCompare(a.date)});var nxt=Math.min(showing+PAGE_SIZE,i.length);var more=i.slice(showing,nxt).map(function(d){var c=d.content.replace(/<[^>]*>/g,'').substring(0,250);var b=d.type==='competitor'?'cpt':'mkt';var u='';var m=(d.source||'')+(d.content||'');var mu=m.match(/https?:\/\/[^\s,\<\>\"\']+/);if(mu)u=mu[0];var lk=u?'<a href="'+u+'" target="_blank" class="clink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Read Original</a>':'';return'<div class="cd" onmousemove="s(this,event)" onmouseleave="rt(this)"><div class="spotlight"></div><div class="cm"><span class="cdate">'+d.date+'</span><span class="cb '+b+'">'+(d.type==='competitor'?'Competitor':'Market')+'</span></div><h3>'+d.title+'</h3><p>'+c+'</p><div class="cs">'+(d.source||'').substring(0,80)+'</div>'+lk+'</div>'}).join('');showing=nxt;g.innerHTML=g.innerHTML.replace(/<div class="loadmore">[\s\S]*?<\/div>/,'')+more+(showing<i.length?'<div class="loadmore" onclick="lm()">Showing '+showing+' of '+i.length+' signals · <strong>Load More ↓</strong></div>':'<div class="loadmore">All '+i.length+' signals shown</div>')}
 // Re-bind spotlight for nav buttons
-document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})})}r();
+document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})})r();
 
 // Nav spotlight
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})});
