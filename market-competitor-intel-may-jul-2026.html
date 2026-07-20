@@ -73,6 +73,10 @@ animation:beamsRotate 50s linear infinite}
 .cd h3{font-size:1em;color:var(--white);margin-bottom:10px;line-height:1.4;font-weight:500;position:relative;z-index:2}
 .cd p{font-size:.84em;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;position:relative;z-index:2}
 .cd .cs{font-size:.7em;color:rgba(107,123,141,.4);margin-top:14px;padding-top:14px;border-top:1px solid var(--border);position:relative;z-index:2}
+.clink{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:.72em;color:var(--blue-bright);text-decoration:none;opacity:0;transition:opacity .3s;position:relative;z-index:2}
+.cd:hover .clink{opacity:1}
+.clink:hover{text-decoration:underline}
+.clink svg{width:12px;height:12px}
 
 .emp{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--muted)}
 .ft{text-align:center;padding:60px 0 30px;color:var(--muted);font-size:.8em;border-top:1px solid var(--border);margin-top:60px}
@@ -130,7 +134,7 @@ function rt(el){el.style.transform='';el.style.setProperty('--mx','50%');el.styl
 function f(t){cur=t;document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on')});event.target.classList.add('on');r()}
 
 function r(){var g=document.getElementById('grid');var i=D;if(cur!=='all')i=D.filter(function(d){return d.primary_theme===cur});i.sort(function(a,b){return b.date.localeCompare(a.date)});
-g.innerHTML=i.slice(0,120).map(function(d){var c=d.content.replace(/<[^>]*>/g,'').substring(0,250);var b=d.type==='competitor'?'cpt':'mkt';return'<div class="cd" onmousemove="s(this,event)" onmouseleave="rt(this)"><div class="spotlight"></div><div class="cm"><span class="cdate">'+d.date+'</span><span class="cb '+b+'">'+(d.type==='competitor'?'Competitor':'Market')+'</span></div><h3>'+d.title+'</h3><p>'+c+'</p><div class="cs">'+(d.source||'').substring(0,80)+'</div></div>'}).join('');
+g.innerHTML=i.slice(0,120).map(function(d){var c=d.content.replace(/<[^>]*>/g,'').substring(0,250);var b=d.type==='competitor'?'cpt':'mkt';var u='';var m=d.source.match(/https?:\/\/[^\s,\)]+/);if(m)u=m[0];var lk=u?'<a href="'+u+'" target="_blank" class="clink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Read Original</a>':'';return'<div class="cd" onmousemove="s(this,event)" onmouseleave="rt(this)"><div class="spotlight"></div><div class="cm"><span class="cdate">'+d.date+'</span><span class="cb '+b+'">'+(d.type==='competitor'?'Competitor':'Market')+'</span></div><h3>'+d.title+'</h3><p>'+c+'</p><div class="cs">'+(d.source||'').substring(0,80)+'</div>'+lk+'</div>'}).join('');
 if(i.length===0)g.innerHTML='<div class="emp">No signals</div>';
 // Re-bind spotlight for nav buttons
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})})}r();
