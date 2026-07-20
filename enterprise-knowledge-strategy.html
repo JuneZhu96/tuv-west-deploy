@@ -209,33 +209,52 @@ tr:hover td{background:rgba(0,113,185,.04)}
 <h3>3.4 Microsoft Lists as Structured Knowledge Layer</h3>
 <p>Lists 是结构化知识的轻量级数据库：客户数据库、专家库、案例库、标准库。与 SharePoint 文件配合：List 提供结构化索引，SharePoint 提供深度内容，Copilot 连接两者&mdash;&mdash;实现"结构化搜索+深度内容检索"的一体化体验。</p>
 
-<h3>3.5 Microsoft Graph as Knowledge Relationship Layer</h3>
-<p style="color:var(--muted)">Microsoft Graph作为企业知识关系层</p>
-<p>在企业环境中，知识价值不仅来自内容本身，更来自内容之间的关系。一个客户案例文件本身可能只包含项目描述，但如果 AI 能够理解：谁参与过这个项目；哪些专家贡献过关键知识；哪些类似案例曾经成功交付；哪些团队拥有相关经验——那么企业知识才能真正转化为可行动的智能。<strong>Microsoft Graph 承担的正是这一层关系连接能力。</strong></p>
-<p>它连接 Microsoft 365 生态中的：用户（People）、文件（Files）、Teams 协作空间（Teams）、邮件与沟通记录（Emails &amp; Messages）、日历与会议（Calendar）、任务与项目资源（Planner）——形成企业数字工作环境中的关系网络。</p>
+<h3>3.5 Microsoft Graph as Enterprise Knowledge Context Layer</h3>
+<p style="color:var(--muted)">Microsoft Graph作为企业知识上下文层</p>
 
-<h3>3.5.1 People-to-People Relationship 人与人的关系</h3>
-<p>Graph 可以帮助识别：组织关系、团队成员关系、协作关系、工作交互模式。例如：某项目需要汽车网络安全专家。AI 不仅搜索"Cybersecurity"关键词，而可以结合：谁参与过相关项目；谁拥有相关文档；谁经常与该领域专家协作——推荐最合适的人选。</p>
-
-<h3>3.5.2 People-to-Content Relationship 人与知识内容的关系</h3>
-<p>企业知识的重要价值在于：知道什么知识由谁创造、维护和验证。Graph 连接：创建者、修改者、访问者、协作者。例如：一个标准解释文件，不仅是一个 PDF。AI 可以理解：作者是谁；哪个团队使用最多；哪些项目引用过；哪些专家最熟悉该内容。</p>
-
-<h3>3.5.3 Content-to-Content Relationship 知识内容之间的关系</h3>
-<p>企业知识不是孤立文件，而是网络。例如：一个客户项目关联客户案例 → 技术方案 → 标准要求 → 专家 → 培训材料 → 历史项目。Graph 帮助建立这些关联，使 AI 能够理解知识之间的上下文。</p>
-
-<h3>3.5.4 Project-to-Resource Relationship 项目与资源关系</h3>
-<p>企业工作通常围绕项目展开。Graph 可以连接：Teams 项目空间、SharePoint 文件、Planner 任务、会议记录、项目成员。使 AI 能够回答："这个项目目前有哪些资源？""过去类似项目采用了什么方法？"</p>
-
-<h3>Graph-driven AI Value Graph驱动的AI价值</h3>
-<p>传统搜索：找到包含关键词的文件。Graph 增强后的 AI：理解企业内部关系，并找到最相关的人、知识和经验。</p>
-<p>例如问题："这个客户像我们之前做过的哪个案例？"传统搜索：搜索客户名称。AI Agent：结合行业、客户特征、项目类型、专家经验、历史交付结果——推荐相似案例。问题："哪位专家最适合支持这个项目？"AI：结合专业领域、历史项目、文档贡献、协作网络——形成专家推荐。</p>
+<p>在 Copilot 和 AI Agent 架构中，知识不仅来自内容本身，更来自内容之间的关系与上下文。<strong>Microsoft Graph 是 Microsoft 365 的统一 API 层</strong>，为 Copilot 和 Agent 提供企业数据的访问、上下文组装和权限管控——它不是"自动连接知识"的 AI 引擎，而是让 AI 能够在安全边界内理解企业环境的<strong>数据基础设施</strong>。</p>
 
 <div class="callout insight">
-<h4>核心观点</h4>
-<p><strong>Microsoft Graph 不是知识库，而是连接企业知识的关系网络。</strong>它让 Copilot 和 AI Agent 从"搜索信息"升级为"理解企业环境并辅助决策"。在整体架构中：SharePoint = 内容基础层，Microsoft Lists = 结构化知识层，Microsoft Graph = 关系上下文层，Copilot / Agent = 智能应用层。</p>
+<h4>Graph 在 Copilot 架构中的角色：Grounding</h4>
+<p>根据 Microsoft 官方 Copilot 架构文档，当用户在 M365 应用中输入提示词时，Copilot 首先通过 Microsoft Graph 执行 <strong>Grounding（上下文组装）</strong>——从用户的租户中拉取相关文件、邮件、聊天记录等内容，将提示词与企业数据上下文结合后再发送给大模型。这个过程称为 Grounding，它让 Copilot 的回答不再基于通用知识，而是<strong>基于用户有权访问的企业真实数据</strong>。</p>
+<p>关键原则：Copilot 只能访问当前用户已获得授权的内容。Graph 继承并执行 M365 现有的 RBAC、Conditional Access 和 MFA 安全策略。</p>
 </div>
 
-<h3>3.6 Copilot and Agent Intelligence Layer</h3>
+<h3>3.5.1 Graph 连接的企业数据类型</h3>
+<p>Microsoft Graph 通过统一 REST API 和 SDK，暴露以下 M365 生态中的数据：</p>
+<table>
+<tr><th>数据类别</th><th>具体内容</th><th>知识价值</th></tr>
+<tr><td><strong>用户与组织</strong></td><td>用户画像、组织结构、团队成员、协作频率</td><td>AI 理解"谁是谁"</td></tr>
+<tr><td><strong>文件与内容</strong></td><td>SharePoint 文档、OneDrive 文件、页面、列表</td><td>AI 理解"有什么知识"</td></tr>
+<tr><td><strong>沟通记录</strong></td><td>邮件（Outlook）、聊天（Teams）、会议记录</td><td>AI 理解"讨论过什么"</td></tr>
+<tr><td><strong>日程与任务</strong></td><td>日历、Planner 任务、To Do</td><td>AI 理解"在做什么"</td></tr>
+<tr><td><strong>安全与合规</strong></td><td>权限模型、合规标签、审计日志</td><td>AI 在安全边界内运作</td></tr>
+</table>
+
+<h3>3.5.2 People-to-Content：人与知识的关系</h3>
+<p>Graph 帮助企业 AI 理解知识的社会维度：一个文件不仅是一个文档，更是由特定人员创建、被特定团队使用、被某些项目引用的知识载体。例如：一个标准解释 PDF——AI 可以理解：作者是谁、哪个团队访问最多、哪些项目引用过、哪些专家最熟悉——从而在需要时<strong>推荐最相关的人+最有用的文档</strong>。</p>
+
+<h3>3.5.3 Content-to-Content：知识之间的关系</h3>
+<p>企业知识不是孤立文件，而是网络。Graph 帮助建立内容之间的关联线索——一个客户案例关联技术方案、标准要求、参与专家、培训材料和历史项目。AI 基于这些关联线索进行推理：<strong>"这个客户像我们之前做过的哪个案例？基于什么标准？哪位专家最适合支持？"</strong></p>
+
+<h3>3.5.4 Graph 的新能力：MCP Server for Enterprise（Preview）</h3>
+<p>2026 年，微软推出了 <strong>Microsoft MCP Server for Enterprise</strong>（预览版）——基于 Model Context Protocol 开放标准，让 AI Agent 能够通过自然语言直接查询 Microsoft Graph 中的企业数据。Agent 不再需要逐一调用细粒度的 Graph API——MCP Server 将自然语言请求翻译为 Graph API 调用，大幅降低了 Agent 开发复杂度，同时保持用户权限管控和日志审计。</p>
+
+<div class="callout insight">
+<h4>Graph 在整体架构中的定位</h4>
+<table>
+<tr><th>层级</th><th>组件</th><th>角色</th></tr>
+<tr><td>内容基础层</td><td>SharePoint</td><td>存储文档、页面、列表——企业知识的内容载体</td></tr>
+<tr><td>结构化知识层</td><td>Microsoft Lists</td><td>结构化索引——客户库、专家库、案例库</td></tr>
+<tr><td><strong>上下文与关系层</strong></td><td><strong>Microsoft Graph</strong></td><td><strong>统一 API，为 Copilot 和 Agent 提供数据访问、上下文组装和权限管控</strong></td></tr>
+<tr><td>智能应用层</td><td>Copilot / Agent</td><td>基于前三层进行检索、推理和行动</td></tr>
+</table>
+</div>
+
+<h3>核心观点</h3>
+<blockquote><strong>Microsoft Graph 不是知识库，也不是自动建图引擎。</strong>它是连接企业数字工作环境的统一 API 层。它让 Copilot 和 AI Agent 从"搜索关键词"升级为"理解企业上下文并做出基于真实数据的决策"。</blockquote>
+
+<h3><h3>3.6 Copilot and Agent Intelligence Layer</h3>
 <p>在 M365 知识架构的最顶层：Copilot（AI 助手）帮人检索知识、回答问题、生成内容；Agent（AI 员工）在知识基础上自主执行多步骤任务；Work IQ（中间件智能层）提供语义理解、工具集成、权限感知治理。</p>
 
 <!-- ═══ CHAPTER 4 ═══ -->
