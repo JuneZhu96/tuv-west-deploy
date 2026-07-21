@@ -177,6 +177,19 @@ animation:beamsRotate 50s linear infinite}
 <div class="kc" onmousemove="s(this,event)"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F0A030" stroke-width="1.5" style="margin-bottom:14px"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><div class="kv">6</div><div class="kl">Themes</div></div>
 </div>
 
+
+
+<div id="today-update" style="max-width:1440px;margin:0 auto 20px;padding:0 48px;position:relative;z-index:1">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+<span style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:.7em;font-weight:600;background:rgba(0,200,150,.15);color:#00C896;letter-spacing:1px">TODAY</span>
+<span id="today-date" style="font-size:1.1em;color:#fff;font-weight:500"></span>
+</div>
+<div id="today-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px"></div>
+<div id="today-empty" style="display:none;color:var(--muted);font-size:.84em;padding:8px 0">今日无更新 · 明天见</div>
+</div>
+</div>
+
 <div class="kto">
 <div class="kto-grid">
 
@@ -392,7 +405,9 @@ if(i.length===0)g.innerHTML='<div class="emp">No signals</div>';}
 function lm(){var g=document.getElementById('grid');var i=D;if(cur!=='all')i=D.filter(function(d){return d.primary_theme===cur});i.sort(function(a,b){return b.date.localeCompare(a.date)});var nxt=Math.min(showing+PAGE_SIZE,i.length);var more=i.slice(showing,nxt).map(function(d){var c=d.content.replace(/<[^>]*>/g,'').substring(0,250);var b=d.type==='competitor'?'cpt':'mkt';var w=(d.west||'')?'<div class=\"cwest\">'+d.west+'</div>':"";var u='';var m=(d.source||'')+(d.content||'');var mu=m.match(/https?:\/\/[^\s,\<\>\"\']+/);if(mu)u=mu[0];var lk=u?'<a href="'+u+'" target="_blank" class="clink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Read Original</a>':'';return'<div class="cd" onmousemove="s(this,event)" onmouseleave="rt(this)"><div class="spotlight"></div><div class="cm"><span class="cdate">'+d.date+'</span><span class="cb '+b+'">'+(d.type==='competitor'?'Competitor':'Market')+'</span></div><h3>'+d.title+'</h3><p>'+c+'</p>'+w+'<div class="cs">'+(d.source||'').substring(0,80)+'</div>'+lk+'</div>'}).join('');showing=nxt;g.innerHTML=g.innerHTML.replace(/<div class="loadmore">[\s\S]*?<\/div>/,'')+more+(showing<i.length?'<div class="loadmore" onclick="lm()">Showing '+showing+' of '+i.length+' signals · <strong>Load More ↓</strong></div>':'<div class="loadmore">All '+i.length+' signals shown</div>')}
 // Re-bind spotlight for nav buttons
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
 r();
+updateToday();
 
 // Nav spotlight
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px')})});
@@ -442,4 +457,5 @@ document.querySelectorAll('.dt').forEach(function(el){var t=el.getAttribute('dat
 
 /* === React Bits: Cursor Lens === */
 (function(){var l=document.getElementById('lens'),t=0;document.addEventListener('mousemove',function(e){l.style.left=e.clientX+'px';l.style.top=e.clientY+'px';if(!l.classList.contains('active')){l.classList.add('active')}clearTimeout(t);t=setTimeout(function(){l.classList.remove('active')},2000)})})();
+function updateToday(){var t=new Date().toISOString().slice(0,10);var td=D.filter(function(d){return d.date===t});document.getElementById('today-date').textContent=t;var c=document.getElementById('today-cards');var e=document.getElementById('today-empty');if(td.length===0){e.style.display='block';c.innerHTML='';return}e.style.display='none';c.innerHTML=td.slice(0,6).map(function(d){var x=d.content.replace(/<[^>]*>/g,'').substring(0,120);var b=d.type==='competitor'?'cpt':'mkt';var ww=d.west?'<div class=\"cwest\" style=\"font-size:.72em;margin-top:6px\">'+d.west.substring(0,100)+'</div>':'';return'<div class=\"cd\" onmousemove=\"s(this,event)\" onmouseleave=\"rt(this)\"><div class=\"spotlight\"></div><div class=\"cm\"><span class=\"cb '+b+'\">'+(d.type==='competitor'?'Competitor':'Market')+'</span></div><h3 style=\"font-size:.9em\">'+d.title+'</h3><p style=\"font-size:.78em\">'+x+'</p>'+ww+'</div>'}).join('')}
 </script></body></html>
