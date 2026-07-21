@@ -161,7 +161,7 @@ animation:beamsRotate 50s linear infinite}
 .kto-card.risk-card ul li::before{background:#FF6478}
 @media(max-width:900px){.kto-grid{grid-template-columns:1fr}.kto{padding:0 16px}}
 .cwest{font-size:.76em;color:#0098F0;margin-top:8px;padding:8px 12px;background:rgba(0,152,240,.06);border-left:2px solid rgba(0,152,240,.4);border-radius:0 6px 6px 0;line-height:1.5}
-.tcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.tcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color .3s,box-shadow .3s;position:relative;overflow:hidden;min-height:120px}
 .tcard:hover{border-color:rgba(0,113,185,.3);box-shadow:0 12px 32px rgba(0,0,0,.4)}
 .tcard .spotlight{position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(0,113,185,.06),transparent 40%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:1}
 .tcard:hover .spotlight{opacity:1}
@@ -196,11 +196,11 @@ animation:beamsRotate 50s linear infinite}
 
 <div id="today-update" style="max-width:1440px;margin:0 auto 20px;padding:0 48px;position:relative;z-index:1">
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)">
 <span style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:.7em;font-weight:600;background:rgba(0,200,150,.15);color:#00C896;letter-spacing:1px">TODAY</span>
 <span id="today-date" style="font-size:1.1em;color:#fff;font-weight:500"></span>
 </div>
-<div id="today-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px"></div>
+<div id="today-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:4px"></div>
 <div id="today-empty" style="display:none;color:var(--muted);font-size:.84em;padding:8px 0">今日无更新 · 明天见</div>
 </div>
 </div>
