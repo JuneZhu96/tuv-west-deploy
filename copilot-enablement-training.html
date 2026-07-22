@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Copilot 企业应用与未来数字协同平台 — TÜV Rheinland BS.A West</title>
+<style>
+:root {
+  --blue: #0071B9; --blue-glow: rgba(0,113,185,0.4);
+  --ink: #142235; --muted: #637184;
+  --light-bg: #F5F8FC;
+  --card-bg: #FFFFFF; --card-border: rgba(0,113,185,0.12);
+  --dark2: #0A1628;
+  --white: #FFFFFF; --green: #009537;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Arial,SimSun,sans-serif; color:var(--ink); background:#F8FAFD; line-height:1.8; overflow-x:hidden; }
+h1,h2,h3,h4 { font-family:Arial,SimHei,sans-serif; }
+h1 { font-size:2em; margin-bottom:0.3em; color:var(--blue); }
+h2 { font-size:1.5em; margin-top:2.5em; margin-bottom:0.8em; padding-bottom:0.3em; border-bottom:2px solid var(--card-border); position:relative; color:var(--ink); }
+h2::after { content:''; position:absolute; left:0; bottom:-2px; width:60px; height:3px; background:var(--blue); border-radius:2px; transition:width .4s; }
+h2:hover::after { width:120px; }
+h3 { font-size:1.2em; margin-top:1.8em; margin-bottom:0.5em; color:var(--blue); }
+h4 { font-size:1.05em; margin-top:1.2em; margin-bottom:0.4em; color:var(--ink); }
+p { margin-bottom:1em; }
+.container { max-width:1100px; margin:0 auto; padding:40px 24px; position:relative; z-index:1; }
+a { color:#0071B9; }
+a:hover { color:#005A8B; }
+
+/* Hero */
+.hero { background:linear-gradient(135deg, #0A1628 0%, #142235 40%, #0071B9 100%); color:#fff; padding:60px 24px; text-align:center; margin-bottom:40px; border-radius:0 0 24px 24px; }
+.hero h1 { color:#fff; font-size:2.4em; margin-bottom:12px; }
+.hero .subtitle { font-size:1.1em; opacity:0.85; margin-bottom:8px; }
+.hero .meta { font-size:0.85em; opacity:0.65; margin-top:16px; }
+
+/* Callouts */
+.callout { padding:16px 20px; border-radius:6px; margin:16px 0; }
+.callout h4 { margin-top:0; }
+.callout.info { background:#E3F0FA; border-left:4px solid #0071B9; }
+.callout.warning { background:#FFF3E0; border-left:4px solid #EB971B; }
+.callout.important { background:#FFEBEE; border-left:4px solid #D20033; }
+.callout.tip { background:#E8F5E9; border-left:4px solid #009537; }
+
+/* Tables */
+table { width:100%; border-collapse:collapse; margin:16px 0; font-size:0.92em; }
+th { background:var(--dark2); color:#fff; padding:10px 14px; text-align:left; font-weight:bold; }
+td { padding:10px 14px; border-bottom:1px solid #E5E9F0; }
+tr:last-child td { border-bottom:none; }
+tr:nth-child(even) td { background:#F8FAFD; }
+
+/* Steps / Flow */
+.flow-row { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin:20px 0; font-size:0.9em; }
+.flow-step { background:var(--light-bg); padding:14px 18px; border-radius:8px; text-align:center; min-width:100px; }
+.flow-step strong { color:var(--blue); display:block; margin-bottom:4px; font-size:1.05em; }
+.flow-arrow { color:var(--blue); font-size:1.3em; font-weight:bold; }
+
+/* Architecture stack */
+.arch-stack { max-width:700px; margin:20px auto; }
+.arch-layer { color:#fff; padding:14px 20px; text-align:center; font-size:0.9em; }
+.arch-layer h5 { margin:0 0 4px 0; font-size:1em; }
+.arch-layer p { margin:0; font-size:0.82em; opacity:0.85; }
+.arch-arrow { text-align:center; color:var(--blue); font-size:0.9em; padding:2px 0; }
+
+/* Comparison grid */
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0; }
+.compare-card { padding:20px; border-radius:8px; }
+.compare-card.left { background:#FFEBEE; border:1px solid #EF9A9A; }
+.compare-card.right { background:#E8F5E9; border:1px solid #A5D6A7; }
+.compare-card h4 { margin-top:0; }
+
+/* Agent types */
+.agent-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
+.agent-card { background:var(--light-bg); padding:18px; border-radius:8px; border:1px solid var(--card-border); text-align:center; }
+.agent-card h4 { color:var(--blue); margin-top:8px; }
+.agent-card .level { font-size:0.78em; color:var(--muted); margin-bottom:6px; }
+
+/* Scenario cards */
+.scenario-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin:20px 0; }
+.scenario-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:8px; padding:20px; transition:box-shadow .3s; }
+.scenario-card:hover { box-shadow:0 4px 20px rgba(0,113,185,0.12); }
+.scenario-card .app-icon { font-size:1.4em; font-weight:bold; color:var(--blue); margin-bottom:8px; }
+.scenario-card h4 { margin-top:0; color:var(--ink); }
+
+/* Phase cards */
+.phase-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:16px 0; }
+.phase-card { padding:18px; border-radius:8px; text-align:center; }
+.phase-card.phase1 { background:#E3F0FA; }
+.phase-card.phase2 { background:#D5E8FA; }
+.phase-card.phase3 { background:#0D3B66; color:#fff; }
+.phase-card .phase-label { font-weight:bold; font-size:1.1em; margin-bottom:8px; }
+.phase-card .phase-desc { font-size:0.85em; opacity:0.85; }
+
+/* Nav */
+.nav-toc { background:var(--card-bg); border:1px solid var(--card-border); border-radius:8px; padding:20px; margin:24px 0; }
+.nav-toc h4 { margin-top:0; color:var(--blue); }
+.nav-toc ol { margin-left:20px; }
+.nav-toc li { margin:4px 0; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .compare-grid, .agent-grid, .phase-grid { grid-template-columns:1fr; }
+  .flow-row { flex-direction:column; }
+  .flow-arrow { transform:rotate(90deg); }
+  .hero h1 { font-size:1.6em; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+<h1>Microsoft Copilot 企业应用与未来数字协同平台</h1>
+<p class="subtitle">Microsoft Copilot Enterprise Application &amp; AI Workforce Vision</p>
+<p class="subtitle" style="font-size:0.95em;">From Personal Productivity to Enterprise AI Workforce</p>
+<div class="meta">TÜV Rheinland BS.A West · Copilot Enablement Training V2.0 · 60分钟</div>
+</div>
+
+<div class="container">
+
+<!-- 课程概览 -->
+<div class="nav-toc">
+<h4>课程结构 · 60分钟</h4>
+<ol>
+<li><a href="#p1">What is Microsoft Copilot? — 10分钟</a></li>
+<li><a href="#p2">Microsoft 365 Copilot Work Scenarios — 25分钟</a></li>
+<li><a href="#p3">Enterprise Knowledge Foundation — 10分钟</a></li>
+<li><a href="#p4">Copilot Agent &amp; Copilot Studio — 10分钟</a></li>
+<li><a href="#p5">BS.A West Digital Collaboration Vision — 5分钟</a></li>
+</ol>
+</div>
+
+<!-- 培训定位 -->
+<div class="callout info">
+<h4>培训定位</h4>
+<p>本培训<strong>不是软件功能介绍</strong>，而是帮助团队理解：</p>
+<ol>
+<li>Copilot 如何改变个人工作方式</li>
+<li>Microsoft 365 应用如何结合 AI 提升效率</li>
+<li>为什么企业 AI 需要知识基础</li>
+<li>如何从 Copilot 使用走向 Agent 应用</li>
+<li>BS.A West 未来如何构建数字协同平台</li>
+</ol>
+</div>
+
+<!-- 核心逻辑转变 -->
+<h3>核心逻辑转变</h3>
+<div class="compare-grid">
+<div class="compare-card left">
+<h4>过去</h4>
+<p>Employee → Search Information → Read Documents → Complete Work</p>
+</div>
+<div class="compare-card right">
+<h4>未来</h4>
+<p>Employee → <strong>Copilot</strong> → Enterprise Knowledge → <strong>AI Agent</strong> → Business Action → Digital Organization</p>
+</div>
+</div>
+
+<!-- ═══════════ PART 1 ═══════════ -->
+<h2 id="p1">Part 1：What is Microsoft Copilot?</h2>
+<p style="color:var(--muted);">⏱ 10分钟 · Copilot 是什么？</p>
+
+<h3>1.1 从传统工具到 AI 助手</h3>
+<div class="compare-grid">
+<div class="compare-card left">
+<h4>过去</h4>
+<p>Word = 写文档<br>Excel = 算数据<br>Teams = 沟通</p>
+</div>
+<div class="compare-card right">
+<h4>现在</h4>
+<p><strong>Copilot 成为工作伙伴。</strong><br>它理解你的工作上下文，帮你更快地完成从信息整理到内容创作的全过程。</p>
+</div>
+</div>
+
+<h3>1.2 Copilot 不是 ChatGPT</h3>
+<table>
+<tr><th></th><th>ChatGPT</th><th>Microsoft Copilot</th></tr>
+<tr><td><strong>知识</strong></td><td>公共知识</td><td>企业知识 + 公共知识</td></tr>
+<tr><td><strong>数据</strong></td><td>开放数据</td><td>Microsoft 365 数据</td></tr>
+<tr><td><strong>权限</strong></td><td>个人环境</td><td>企业权限体系</td></tr>
+<tr><td><strong>目标</strong></td><td>回答问题</td><td>辅助工作</td></tr>
+</table>
+
+<h3>1.3 Copilot 三个核心能力</h3>
+<div class="flow-row">
+<div class="flow-step"><strong>Understand</strong>理解内容、上下文、工作目标</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><strong>Create</strong>生成文档、分析、汇报</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><strong>Act</strong>执行流程、任务、Agent 行动</div>
+</div>
+
+<!-- ═══════════ PART 2 ═══════════ -->
+<h2 id="p2">Part 2：Microsoft 365 Copilot Work Scenarios</h2>
+<p style="color:var(--muted);">⏱ 25分钟 · 从一天工作流程理解 Copilot</p>
+<p>不按 App 列表讲——<strong>按员工工作过程讲。</strong></p>
+
+<div class="scenario-grid">
+
+<div class="scenario-card">
+<div class="app-icon">📧 Outlook</div>
+<h4>场景1：信息管理</h4>
+<p><strong>业务问题：</strong>"我每天收到大量邮件，如何快速理解重点？"</p>
+<p><strong>Copilot：</strong>总结邮件线程 · 提取关键决定 · 生成回复</p>
+<p><strong>价值：</strong>减少信息处理时间，不再被邮件淹没。</p>
+</div>
+
+<div class="scenario-card">
+<div class="app-icon">💬 Teams</div>
+<h4>场景2：团队协作</h4>
+<p><strong>业务问题：</strong>"会议结束后，如何确保事情推进？"</p>
+<p><strong>Copilot：</strong>Meeting Summary · Action Items · Decision Tracking · Chat Summary</p>
+<p><strong>关键观点：</strong>Teams 不是聊天工具——它是未来数字工作入口。</p>
+</div>
+
+<div class="scenario-card">
+<div class="app-icon">📝 Word</div>
+<h4>场景3：内容创作</h4>
+<p><strong>场景：</strong>创建 Proposal · Report · SOP · 培训材料</p>
+<p><strong>能力：</strong>Draft（初稿）→ Rewrite（改写）→ Summary（摘要）</p>
+<p><strong>价值：</strong>从空白页到成文，Copilot 帮你迈出第一步。</p>
+</div>
+
+<div class="scenario-card">
+<div class="app-icon">📊 PowerPoint</div>
+<h4>场景3b：汇报生成</h4>
+<p><strong>场景：</strong>从 Word 报告直接生成 Management Presentation</p>
+<p><strong>能力：</strong>自动抽取要点 → 匹配模板 → 生成幻灯片</p>
+<p><strong>价值：</strong>告别"复制粘贴做PPT"的重复劳动。</p>
+</div>
+
+<div class="scenario-card">
+<div class="app-icon">📈 Excel</div>
+<h4>场景4：业务分析</h4>
+<p><strong>场景：</strong>销售数据分析</p>
+<p><strong>Copilot 帮助：</strong>发现趋势 · 解释数据 · 创建分析图表</p>
+<p><strong>价值：</strong>不需要精通公式，用自然语言提问即可获得洞察。</p>
+</div>
+
+<div class="scenario-card">
+<div class="app-icon">📁 OneDrive / SharePoint</div>
+<h4>场景5：知识与研究</h4>
+<p><strong>场景：</strong>整理个人和团队知识</p>
+<p><strong>能力：</strong>文件问答 · 跨文档检索 · 知识关联</p>
+<p><strong>引出：</strong>下一阶段——企业需要 <strong>Knowledge Foundation</strong>。</p>
+</div>
+
+</div>
+
+<!-- ═══════════ PART 3 ═══════════ -->
+<h2 id="p3">Part 3：Enterprise Knowledge Foundation</h2>
+<p style="color:var(--muted);">⏱ 10分钟 · 为什么企业 AI 需要知识基础？</p>
+
+<h3>3.1 普通 AI vs 企业 AI</h3>
+<div class="compare-grid">
+<div class="compare-card left">
+<h4>普通 AI</h4>
+<p>知道世界。</p>
+<p>通用知识、公开数据、无企业上下文。</p>
+</div>
+<div class="compare-card right">
+<h4>企业 AI</h4>
+<p>需要知道：<br>我们是谁 · 我们做过什么 · 谁拥有经验 · 哪些方案成功</p>
+</div>
+</div>
+
+<h3>3.2 Knowledge Journey</h3>
+<div class="flow-row">
+<div class="flow-step"><strong>Document</strong>原始文档</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><strong>Knowledge Object</strong>结构化知识</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step"><strong>AI Intelligence</strong>可用智能</div>
+</div>
+
+<h3>3.3 BS.A West Knowledge Platform Architecture</h3>
+<p style="text-align:center;color:var(--muted);">六层企业知识平台架构</p>
+
+<div class="arch-stack">
+
+<div style="background:linear-gradient(135deg,#0071B9,#0095D0);color:#fff;padding:14px 20px;border-radius:8px 8px 0 0;text-align:center;">
+<h4 style="color:#fff;margin:0 0 4px 0;font-size:1em;">L6 · Shared Business AI Agents</h4>
+<p style="margin:0;font-size:0.8em;opacity:0.85;">Sales Agent / Project Agent / Training Agent · <strong>使用知识</strong></p>
+</div>
+<div style="text-align:center;color:var(--blue);font-size:0.85em;padding:2px 0;">↑</div>
+
+<div style="background:#005A8B;color:#fff;padding:12px 20px;text-align:center;">
+<h4 style="color:#fff;margin:0 0 4px 0;font-size:0.95em;">L5 · Enterprise Knowledge Intelligence (Work IQ)</h4>
+<p style="margin:0;font-size:0.8em;opacity:0.85;">语义理解 · 上下文关联 · <strong>理解知识</strong></p>
+</div>
+<div style="text-align:center;color:var(--blue);font-size:0.85em;padding:2px 0;">↑</div>
+
+<div style="background:#0D3B66;color:#fff;padding:12px 20px;text-align:center;">
+<h4 style="color:#fff;margin:0 0 4px 0;font-size:0.95em;">L4 · Knowledge Relationship Layer (Microsoft Graph)</h4>
+<p style="margin:0;font-size:0.8em;opacity:0.85;">身份 · 权限 · 关系 · <strong>连接知识</strong></p>
+</div>
+<div style="text-align:center;color:var(--blue);font-size:0.85em;padding:2px 0;">↑</div>
+
+<div style="background:#142235;color:#fff;padding:12px 20px;text-align:center;">
+<h4 style="color:#fff;margin:0 0 4px 0;font-size:0.95em;">L3 · Knowledge Object Layer (Microsoft Lists)</h4>
+<p style="margin:0;font-size:0.8em;opacity:0.85;">Customer / Project / Service / Expert · <strong>结构化知识</strong></p>
+</div>
+<div style="text-align:center;color:var(--blue);font-size:0.85em;padding:2px 0;">↑</div>
+
+<div style="background:#1A2A44;color:#fff;padding:12px 20px;text-align:center;">
+<h4 style="color:#fff;margin:0 0 4px 0;font-size:0.95em;">L2 · Knowledge Automation Pipeline</h4>
+<p style="margin:0;font-size:0.8em;opacity:0.85;">Power Automate + AI · 自动提取 · <strong>生产知识</strong></p>
+</div>
+<div style="text-align:center;color:var(--blue);font-size:0.85em;padding:2px 0;">↑</div>
+
+<div style="background:linear-gradient(135deg,#1E3048,#243B55);color:#fff;padding:12px 20px;border-radius:0 0 8px 8px;text-align:center;">
+<h4 style="color:#fff;margin:0 0 4px 0;font-size:0.95em;">L1 · Enterprise Content Foundation</h4>
+<p style="margin:0;font-size:0.8em;opacity:0.85;">SharePoint · Teams · OneDrive · <strong>保存内容</strong></p>
+</div>
+</div>
+
+<div class="callout important">
+<h4>关键认知</h4>
+<p>没有知识基础，Agent 无法发挥价值。<strong>先建知识，再建 Agent。</strong></p>
+</div>
+
+<!-- ═══════════ PART 4 ═══════════ -->
+<h2 id="p4">Part 4：Copilot Agent &amp; Copilot Studio</h2>
+<p style="color:var(--muted);">⏱ 10分钟 · 从 AI 助手到数字员工</p>
+
+<h3>4.1 什么是 Agent？</h3>
+<p>Agent <strong>不是聊天机器人</strong>——它是具有<strong>知识、目标和行动能力</strong>的 AI 助手。它可以理解特定业务场景、访问指定数据源、执行预定义任务。</p>
+
+<h3>4.2 Agent 三种方式</h3>
+<div class="agent-grid">
+<div class="agent-card">
+<div class="level">方式一</div>
+<h4>Pre-built Agent</h4>
+<p>微软提供，开箱即用</p>
+<p style="color:var(--muted);font-size:0.85em;">如 Research Agent、Visual Creator Agent</p>
+<p style="font-size:0.8em;color:var(--green);">👤 所有用户</p>
+</div>
+<div class="agent-card">
+<div class="level">方式二</div>
+<h4>Agent Builder</h4>
+<p>业务用户快速创建</p>
+<p style="color:var(--muted);font-size:0.85em;">FAQ Agent · Knowledge Agent · SharePoint Agent</p>
+<p style="font-size:0.8em;color:var(--green);">👤 业务人员</p>
+</div>
+<div class="agent-card">
+<div class="level">方式三</div>
+<h4>Copilot Studio</h4>
+<p>企业级 Agent 部署</p>
+<p style="color:var(--muted);font-size:0.85em;">多系统连接 · 自动流程 · 业务执行</p>
+<p style="font-size:0.8em;color:var(--green);">👤 IT 和专业团队</p>
+</div>
+</div>
+
+<h3>4.3 Agent 的组成要素</h3>
+<div class="flow-row">
+<div class="flow-step"><strong>Instructions</strong>指令</div>
+<div class="flow-arrow">+</div>
+<div class="flow-step"><strong>Knowledge</strong>知识来源</div>
+<div class="flow-arrow">+</div>
+<div class="flow-step"><strong>Connectors</strong>数据连接</div>
+<div class="flow-arrow">+</div>
+<div class="flow-step"><strong>Guardrails</strong>行为边界</div>
+<div class="flow-arrow">+</div>
+<div class="flow-step"><strong>Governance</strong>治理</div>
+</div>
+
+<h3>4.4 Agent 应用案例</h3>
+<div class="agent-grid">
+<div class="agent-card">
+<h4>Sales Agent</h4>
+<p style="font-size:0.85em;">知识：Customer · Project · Service</p>
+<p style="font-size:0.85em;">能力：客户准备 · Proposal 支持</p>
+</div>
+<div class="agent-card">
+<h4>Project Agent</h4>
+<p style="font-size:0.85em;">能力：项目总结 · 风险分析 · Lessons Learned</p>
+</div>
+<div class="agent-card">
+<h4>Marketing Agent</h4>
+<p style="font-size:0.85em;">能力：内容生成 · 市场分析</p>
+</div>
+</div>
+
+<!-- ═══════════ PART 5 ═══════════ -->
+<h2 id="p5">Part 5：BS.A West Digital Collaboration Vision</h2>
+<p style="color:var(--muted);">⏱ 5分钟 · 从 Copilot 到智能组织</p>
+
+<h3>最终愿景</h3>
+<div class="flow-row" style="flex-direction:column;align-items:center;">
+<div class="flow-step"><strong>Teams</strong>协同入口</div>
+<div class="flow-arrow" style="transform:none;">↓</div>
+<div class="flow-step"><strong>SharePoint</strong>知识资产</div>
+<div class="flow-arrow" style="transform:none;">↓</div>
+<div class="flow-step"><strong>Knowledge Platform</strong>六层架构</div>
+<div class="flow-arrow" style="transform:none;">↓</div>
+<div class="flow-step"><strong>Work IQ</strong>知识理解</div>
+<div class="flow-arrow" style="transform:none;">↓</div>
+<div class="flow-step"><strong>Copilot Studio</strong>Agent 编排</div>
+<div class="flow-arrow" style="transform:none;">↓</div>
+<div class="flow-step"><strong>Business AI Agents</strong>数字员工</div>
+<div class="flow-arrow" style="transform:none;">↓</div>
+<div class="flow-step" style="background:var(--dark2);color:#fff;"><strong>Intelligent Organization</strong>智能组织</div>
+</div>
+
+<h3>AI 成熟度路径</h3>
+<div class="phase-grid">
+<div class="phase-card phase1">
+<div class="phase-label">今天</div>
+<div class="phase-desc">员工使用 Copilot<br>提升个人效率</div>
+</div>
+<div class="phase-card phase2">
+<div class="phase-label">明天</div>
+<div class="phase-desc">团队共享知识<br>和 Agent 能力</div>
+</div>
+<div class="phase-card phase3">
+<div class="phase-label">未来</div>
+<div class="phase-desc">组织形成<br>数字员工团队</div>
+</div>
+</div>
+
+<div class="callout tip" style="margin-top:40px;">
+<h4>一句话总结</h4>
+<p style="font-size:1.1em;"><strong>Copilot 不是一个新的软件工具，而是企业从信息管理走向知识管理，再走向 AI 驱动组织的重要入口。</strong></p>
+</div>
+
+<div style="text-align:center;margin:40px 0;color:var(--muted);font-size:0.85em;">
+<p>TÜV Rheinland BS.A West · Copilot Enablement Training V2.0</p>
+<p>基于 Copilot Agent Advanced &amp; Copilot Knowledge Base 研究成果</p>
+</div>
+
+</div>
+</body>
+</html>
