@@ -309,14 +309,13 @@ tr:hover td { background: rgba(0,113,185,0.04); }
   <li><a href="#p2-10">2.10 Website · 外部网页嵌入</a></li>
   </ol>
 </li>
-<li><a href="#p3">Part 3：AI in Western Team Digital Workspace</a>
+<li><a href="#p3">Part 3：AI Adoption Journey — 从通用智能到业务 Agent</a>
   <ol>
-  <li><a href="#p3-1">3.1 会议智能</a></li>
-  <li><a href="#p3-2">3.2 对话回顾</a></li>
-  <li><a href="#p3-3">3.3 文件问答</a></li>
-  <li><a href="#p3-4">3.4 跨应用联动</a></li>
-  <li><a href="#p3-5">3.5 Copilot Chat 通用对话</a></li>
-  <li><a href="#p3-6">3.6 AI 使用场景（未来能力）</a></li>
+  <li><a href="#p3-1">3.1 Copilot Chat · 通用智能入口</a></li>
+  <li><a href="#p3-2">3.2 Knowledge Usage · 知识检索与问答</a></li>
+  <li><a href="#p3-3">3.3 Agent Builder · 业务人员快速创建</a></li>
+  <li><a href="#p3-4">3.4 Copilot Studio · 企业级生产部署</a></li>
+  <li><a href="#p3-5">3.5 Enterprise Agent Governance · 治理与规模化</a></li>
   </ol>
 </li>
 <li><a href="#p4">Part 4：西区业务实战 SOP</a>
@@ -1027,144 +1026,200 @@ Custom Agent<br>
 </div>
 
 <!-- ═══════════ PART 3 ═══════════ -->
-<h2 id="p3">Part 3：AI in Western Team Digital Workspace</h2>
-<p style="color:#637184;font-size:0.95em;margin-bottom:24px;">从个人 Copilot 到团队 AI 能力。目前 June 拥有 M365 Copilot License，团队暂无个人许可——但两套数据基础（SharePoint + Knowledge Index）已就绪，无论未来走微软原生还是自定义 AI 路线，都无需重建知识库。</p>
+<h2 id="p3">Part 3：AI Adoption Journey — 从通用智能到业务 Agent</h2>
+<p style="color:#637184;font-size:0.95em;margin-bottom:24px;">不是"功能介绍课"，而是团队的 AI 成熟度路径——从每个人都能用的 Copilot Chat 开始，到业务人员创建简单 Agent，再到企业级 Agent 治理。五级递进，每一步都建立在六层架构的知识基础之上。</p>
 
 <div class="callout warning">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2L2 22h20L12 2z" stroke="#D20033" stroke-width="2" fill="none"/><line x1="12" y1="10" x2="12" y2="15" stroke="#D20033" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#D20033"/></svg> 当前状态与双轨路线</h4>
-<p><strong>当前：</strong>仅 June 拥有 M365 Copilot license。团队成员通过 June + Copilot 加工后的成果间接使用 AI（纪要、摘要、周报初稿）。</p>
-<p><strong>路线 A · 微软原生：</strong>M365 Copilot → Copilot Studio → Power Automate + Microsoft Graph → SharePoint + Lists。优势：原生集成、零开发。</p>
-<p><strong>路线 B · 自定义 AI：</strong>Teams 自定义 App/Bot → 腾讯云 AI 服务 → 自建 RAG 知识库 → SharePoint 或 Lists 数据同步。优势：灵活、可按西区需求定制。</p>
-<p><strong>共用基础：</strong>两条路线共用同一套 SharePoint + Knowledge Index 数据层。现在把数据整理好，未来接任何 AI 都不需要推倒重来。</p>
-<p>官方许可路径：M365 Copilot add-on license（约 $30/人/月）或通过 Pay-As-You-Go 按量计费。</p>
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2L2 22h20L12 2z" stroke="#D20033" stroke-width="2" fill="none"/><line x1="12" y1="10" x2="12" y2="15" stroke="#D20033" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#D20033"/></svg> 当前状态</h4>
+<p><strong>当前：</strong>仅 June 拥有 M365 Copilot license。团队通过 June + Copilot 加工后的成果间接使用 AI（纪要、摘要、周报初稿）。两套数据基础（SharePoint 文档库 + Knowledge Index）已就绪——无论未来走微软原生还是自定义 AI 路线，都无需重建知识库。</p>
+<p><strong>核心原则：不是每个人都要学开发 Agent，而是每个人都能在适合自己的层级上使用 AI。</strong></p>
 </div>
 
-<h3 id="p3-1">3.1 会议智能（Copilot in Meetings）</h3>
-
-<p>Copilot 在 Teams 会议中使用<strong>转录（Transcript）</strong>和<strong>会议聊天</strong>作为数据源，实时回答问题和总结讨论。</p>
-
-<h4>会议组织者的控制</h4>
-<p>会议组织者可在会议选项中设置 Copilot 的使用范围：</p>
-<table>
-<tr><th>设置</th><th>Copilot 行为</th></tr>
-<tr><td><strong>During and after the meeting</strong></td><td>需要开启转录。Copilot 随转录启动，停止转录则 Copilot 停用。</td></tr>
-<tr><td><strong>Only during the meeting</strong></td><td>使用语音转文字数据（无需转录）。会议结束后，语音数据和 Copilot 交互历史不可用。</td></tr>
-<tr><td><strong>Off</strong></td><td>Copilot 禁用。同时禁用录制和转录以保护敏感信息。</td></tr>
-</table>
-
-<p><strong>关键：转录是 Copilot 的必需品。</strong>选"During and after"时，转录必须先开启。</p>
-
-<h4>会议中使用 Copilot</h4>
-<p>在会议控制栏中打开 Copilot 面板 → 选择 <strong>View prompts</strong> 获取建议，或直接输入自定义问题：</p>
-<ul>
-<li>"What ideas were discussed?"（讨论了哪些想法？）</li>
-<li>"What are the next steps?"（下一步是什么？）</li>
-<li>"What questions remain unanswered?"（还有哪些问题没解决？）</li>
-<li>"Summarize what's been discussed so far"（总结目前为止讨论的内容）</li>
-<li>"List action items with owners"（列出行动项和负责人）</li>
-</ul>
-
-<p>如果你<strong>迟到超过 5 分钟</strong>且 Copilot 已激活，系统会主动通知并提供"补课"摘要。</p>
-
-<h4>会后使用 Copilot</h4>
-<ul>
-<li><strong>从会议聊天：</strong>会议结束 → 聊天右上角 <strong>Open Copilot</strong> → Copilot 结合转录内容和聊天消息（含会议前 24 小时内的聊天）生成回答。</li>
-<li><strong>从 Recap 标签：</strong>如果转录已开启，Recap 标签中也可访问 Copilot。</li>
-<li><strong>导出回答：</strong>Copilot 回答可导出到 Word 或 Excel 供进一步协作（除非会议有敏感度标签或禁用了复制转发）。</li>
-</ul>
-
-<div class="callout important">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2L2 22h20L12 2z" stroke="#D20033" stroke-width="2" fill="none"/><line x1="12" y1="10" x2="12" y2="15" stroke="#D20033" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#D20033"/></svg> 注意事项</h4>
-<ul>
-<li>重复会议中，如果后续场次被转录，之前的 Copilot 对话历史会被清除。</li>
-<li>"Only during the meeting"模式下，会议结束后 Copilot 交互数据不可恢复。</li>
-<li>会议敏感度标签可能阻止 Copilot 回答导出。</li>
-</ul>
+<!-- Adoption Journey 五级递进图 -->
+<div style="background:var(--light-bg);padding:24px;border-radius:8px;margin:24px 0;text-align:center;">
+<h4 style="margin-top:0;color:#0071B9;">AI Adoption Journey：五级递进</h4>
+<div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:0.85em;">
+<div style="background:#E3F0FA;padding:12px 16px;border-radius:6px;text-align:center;min-width:120px;">
+<div style="font-weight:bold;color:#0071B9;">L1</div>
+<div>Copilot Chat</div>
+<div style="color:#999;font-size:0.8em;">全员基础</div>
+</div>
+<div style="color:#0071B9;font-size:1.2em;">→</div>
+<div style="background:#E3F0FA;padding:12px 16px;border-radius:6px;text-align:center;min-width:120px;">
+<div style="font-weight:bold;color:#0071B9;">L2</div>
+<div>Knowledge Usage</div>
+<div style="color:#999;font-size:0.8em;">知识检索</div>
+</div>
+<div style="color:#0071B9;font-size:1.2em;">→</div>
+<div style="background:#D5E8FA;padding:12px 16px;border-radius:6px;text-align:center;min-width:120px;">
+<div style="font-weight:bold;color:#005A8B;">L3</div>
+<div>Agent Builder</div>
+<div style="color:#999;font-size:0.8em;">业务创建</div>
+</div>
+<div style="color:#0071B9;font-size:1.2em;">→</div>
+<div style="background:#C0DCF5;padding:12px 16px;border-radius:6px;text-align:center;min-width:120px;">
+<div style="font-weight:bold;color:#0D3B66;">L4</div>
+<div>Copilot Studio</div>
+<div style="color:#999;font-size:0.8em;">企业部署</div>
+</div>
+<div style="color:#0071B9;font-size:1.2em;">→</div>
+<div style="background:#0D3B66;padding:12px 16px;border-radius:6px;text-align:center;min-width:120px;color:#fff;">
+<div style="font-weight:bold;">L5</div>
+<div>Governance</div>
+<div style="opacity:0.7;font-size:0.8em;">治理规模化</div>
+</div>
+</div>
 </div>
 
-<h3 id="p3-2">3.2 对话回顾（Copilot in Conversations & Channels）</h3>
+<!-- 3.1 Copilot Chat -->
+<h3 id="p3-1">3.1 Copilot Chat · 通用智能入口</h3>
 
-<p>Copilot 可帮助你快速理解聊天和频道中的对话上下文，无需逐条翻阅。</p>
+<p>Copilot Chat 是 Microsoft 365 的通用 AI 对话入口——不是某个应用的附加功能，而是贯穿所有工作场景的智能层。</p>
 
-<h4>在聊天中使用</h4>
-<ul>
-<li><strong>快速补课：</strong>"Catch me up on this conversation"（帮我回顾这段对话）</li>
-<li><strong>提取决策：</strong>"What decisions were made in this chat?"（这段聊天里做了哪些决定？）</li>
-<li><strong>找出关键信息：</strong>"What files were shared in this conversation?"（这段对话分享了哪些文件？）</li>
-<li><strong>总结要点：</strong>"Summarize the key points from this channel discussion"（总结这个频道讨论的关键点）</li>
-</ul>
-
-<p>Copilot 引用来源时会标注具体的消息，方便回溯验证。</p>
-
-<h3 id="p3-3">3.3 文件问答</h3>
-
-<p>在 Teams 中直接让 Copilot 分析和回答关于文件的问题，无需打开文件逐页翻阅。</p>
-
-<ul>
-<li>"What changed in the client proposal since last week?"（客户方案上周以来改了什么？）</li>
-<li>"Summarize the key findings from this report"（总结这份报告的核心发现）</li>
-<li>"Compare the two versions of this contract"（比较合同的两个版本）</li>
-<li>"Extract all action items from this meeting's shared documents"（提取这次会议分享文件中的所有行动项）</li>
-</ul>
-
-<p>Copilot 读取文件内容是基于用户已有的文件访问权限。</p>
-
-<h3 id="p3-4">3.4 跨应用联动</h3>
-
-<p>Copilot 在 Teams 中不只是"聊天机器人"——它能串联多个 M365 应用的数据和操作：</p>
-
+<h4>日常工作中 Copilot Chat 能做什么</h4>
 <table>
-<tr><th>联动场景</th><th>操作示例</th></tr>
-<tr><td><strong>Teams → Outlook</strong></td><td>"Draft a follow-up email based on this meeting"（根据本次会议草拟跟进邮件）</td></tr>
-<tr><td><strong>Teams → Word</strong></td><td>"Create a project summary document from this channel's discussions"（从频道讨论生成项目总结文档）</td></tr>
-<tr><td><strong>Teams → Planner</strong></td><td>"Create Planner tasks from the action items in this meeting"（从会议行动项创建 Planner 任务）</td></tr>
-<tr><td><strong>Teams → Excel</strong></td><td>"Draft a meeting agenda in Excel based on last week's action items"（基于上周行动项在 Excel 中草拟议程）</td></tr>
+<tr><th>场景</th><th>示例</th></tr>
+<tr><td><strong>会议智能</strong></td><td>"总结这次会议的要点和行动项" / "我迟到了，帮我补课" / "还有哪些问题没解决？"</td></tr>
+<tr><td><strong>对话回顾</strong></td><td>"帮我回顾这段聊天的关键决策" / "这个频道最近讨论了什么？"</td></tr>
+<tr><td><strong>信息搜索</strong></td><td>"查一下 ISO 42001 最新动态" / "新能源汽车出口欧盟需要哪些认证？"</td></tr>
+<tr><td><strong>文本处理</strong></td><td>"把这封邮件翻译成英文" / "根据这些要点写一段方案摘要"</td></tr>
+<tr><td><strong>文档起草</strong></td><td>"起草一份客户跟进邮件" / "整理本周工作要点"</td></tr>
 </table>
-
-<h3 id="p3-5">3.5 Copilot Chat 通用对话</h3>
-
-<p>Teams 中的 Copilot Chat App 是独立的通用 AI 对话入口——不只是聊 Teams 内的事，还可以：</p>
-<ul>
-<li>研究某个行业趋势、政策法规 → 生成摘要分享到频道</li>
-<li>草拟方案框架 → 复制到 Word 继续编辑</li>
-<li>翻译和润色文本 → 直接用于邮件或提案</li>
-<li>基于工作文件（Word/PPT/Excel/邮件/聊天）回答具体问题</li>
-</ul>
 
 <div class="callout info">
-<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M4 2h16v20H4z" stroke="#0071B9" stroke-width="2" fill="none"/><path d="M4 2h8v20H4z" stroke="#0071B9" stroke-width="2" fill="rgba(0,113,185,0.1)"/><line x1="12" y1="6" x2="16" y2="6" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="10" x2="16" y2="10" stroke="#0071B9" stroke-width="1.5"/><line x1="12" y1="14" x2="16" y2="14" stroke="#0071B9" stroke-width="1.5"/></svg> 官方学习资源</h4>
-<p>→ <a href="https://support.microsoft.com/en-us/teams/copilot/catch-up-on-meetings-with-microsoft-365-copilot-in-teams" target="_blank">Copilot in Teams meetings 官方教程</a><br>
-→ <a href="https://support.microsoft.com/en-us/teams/copilot/start-a-conversation-with-microsoft-365-copilot-chat-in-teams" target="_blank">Copilot Chat in Teams 官方教程</a><br>
-→ <a href="https://copilot.cloud.microsoft/prompts" target="_blank">Copilot Prompt Gallery</a></p>
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#0071B9"/></svg> 会议中使用 Copilot 的关键设置</h4>
+<p>会议组织者可在选项中设置 Copilot 的使用范围：<strong>"During and after"</strong>（需开启转录，会后可回看）/ <strong>"Only during"</strong>（无需转录，语音实时处理）/ <strong>"Off"</strong>（完全禁用）。转录是 Copilot 的必需品——选"During and after"时转录必须先开启。</p>
 </div>
 
-<h3 id="p3-6">3.6 AI 使用场景（未来能力）</h3>
+<h4>Copilot Chat 的使用心态</h4>
+<p>把它当成团队里那个"什么都懂一点的聪明同事"——不是替你决策，而是帮你更快地整理信息、发现盲区、节省时间。关键习惯：<strong>养成"先问 Copilot"的条件反射。</strong></p>
 
-<p>以下场景在当前阶段为"概念预览"——Knowledge Index 和 SharePoint 数据基础就绪后，AI 可逐步实现：</p>
+<p>→ <a href="https://copilot.cloud.microsoft/prompts" target="_blank">Copilot Prompt Gallery 官方提示词库</a></p>
 
-<div class="app-grid">
-<div class="app-card">
-<h4>🔍 Knowledge Assistant</h4>
-<p>"我们有没有新能源汽车网络安全相关课程？""ISO 42001 有哪些资料？""有哪些专家做过 TISAX？"——基于 Knowledge Index + SharePoint 的知识问答。</p>
+<!-- 3.2 Knowledge Usage -->
+<h3 id="p3-2">3.2 Knowledge Usage · 知识检索与问答</h3>
+
+<p>当团队习惯用 Copilot Chat 处理日常工作后，下一步是让它<strong>利用团队已有的知识资产</strong>——而不仅仅是通用搜索。</p>
+
+<h4>知识检索的三个层次</h4>
+<table>
+<tr><th>层次</th><th>数据源</th><th>典型场景</th></tr>
+<tr><td><strong>个人文件</strong></td><td>OneDrive、最近文件</td><td>"总结我上周修改的方案"</td></tr>
+<tr><td><strong>团队知识</strong></td><td>SharePoint 文档库</td><td>"我们有没有新能源汽车网络安全相关课程？"</td></tr>
+<tr><td><strong>结构化知识</strong></td><td>Knowledge Index (Lists)</td><td>"哪些专家做过 TISAX？""通威做过哪些项目？"</td></tr>
+</table>
+
+<h4>文件问答</h4>
+<ul>
+<li>"这份客户方案的要点是什么？"</li>
+<li>"合同两个版本之间改了哪里？"</li>
+<li>"这份报告里提到的所有行动项列出来"</li>
+<li>"比较这三个方案的差异"</li>
+</ul>
+
+<h4>跨应用知识联动</h4>
+<p>Copilot 不只是"聊天机器人"——它能串联多个 M365 应用的数据：</p>
+<table>
+<tr><th>联动场景</th><th>示例</th></tr>
+<tr><td><strong>Teams → Outlook</strong></td><td>"根据这次会议草拟跟进邮件"</td></tr>
+<tr><td><strong>Teams → Word</strong></td><td>"从频道讨论生成项目总结文档"</td></tr>
+<tr><td><strong>Teams → Planner</strong></td><td>"从会议行动项创建 Planner 任务"</td></tr>
+<tr><td><strong>Teams → SharePoint</strong></td><td>"找一下最近上传的 TISAX 相关资料"</td></tr>
+</table>
+
+<div class="callout important">
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><path d="M12 2L2 22h20L12 2z" stroke="#D20033" stroke-width="2" fill="none"/><line x1="12" y1="10" x2="12" y2="15" stroke="#D20033" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#D20033"/></svg> 为什么这一步不能跳过</h4>
+<p>没有知识基础，Agent 无法发挥价值。这也是六层架构从 L1（Content Foundation）开始的原因——先把文档放好、知识对象建好，AI 才有"可用的脑粮"。<strong>先建知识，再建 Agent。</strong></p>
 </div>
-<div class="app-card">
-<h4>📋 Sales Assistant</h4>
-<p>"帮我准备明天拜访通威的简报。""推荐适合新能源客户的培训和咨询服务。"——基于客户对象+服务对象+案例的智能推荐。</p>
+
+<!-- 3.3 Agent Builder -->
+<h3 id="p3-3">3.3 Agent Builder · 业务人员快速创建</h3>
+
+<p>Agent <strong>不是独立应用</strong>，而是 Microsoft 365 Copilot 的扩展能力。它运行在 Copilot 生态中，可以理解特定业务场景、访问指定数据源、执行预定义任务。</p>
+
+<h4>三类 Agent：按复杂度递进</h4>
+<table>
+<tr><th>类型</th><th>创建方式</th><th>适用场景</th><th>创建者</th></tr>
+<tr><td><strong>预构建 Agent</strong></td><td>开箱即用</td><td>常见业务场景（如 Visual Creator Agent）</td><td>所有用户</td></tr>
+<tr><td><strong>Agent Builder Agent</strong></td><td>自然语言描述</td><td>简单 FAQ / 知识检索 / 标准化流程</td><td>业务人员</td></tr>
+<tr><td><strong>Copilot Studio Agent</strong></td><td>低代码/专业开发</td><td>复杂业务逻辑 / 外部系统连接 / 企业级部署</td><td>IT 和专业团队</td></tr>
+</table>
+
+<h4>Agent Builder 的核心价值</h4>
+<p>业务人员可以用<strong>自然语言描述</strong>创建 Agent——不需要写代码。例如：</p>
+<ul>
+<li>"帮我创建一个 Agent，当同事询问课程信息时，从课程目录中查找并推荐合适课程"</li>
+<li>"创建一个 Agent，帮销售团队在拜访客户前自动准备简报"</li>
+<li>"建一个 Agent，每周五自动汇总团队的项目进展"</li>
+</ul>
+
+<div class="callout tip">
+<h4>Agent 的组成要素</h4>
+<p>每个 Agent 都需要五个要素：<strong>指令（Instructions）</strong>——它要做什么 / <strong>知识来源（Knowledge）</strong>——它从哪里获取信息 / <strong>数据连接（Connectors）</strong>——它连接哪些系统 / <strong>行为边界（Guardrails）</strong>——它不能做什么 / <strong>治理（Governance）</strong>——谁负责管理它。</p>
 </div>
-<div class="app-card">
-<h4>📄 Document Assistant</h4>
-<p>"基于现有模板生成一份客户培训方案初稿。""根据会议纪要草拟跟进邮件。"——基于 SharePoint 模板库的文档生成。</p>
+
+<!-- 3.4 Copilot Studio -->
+<h3 id="p3-4">3.4 Copilot Studio · 企业级生产部署</h3>
+
+<p>当 Agent Builder 无法满足需求时——比如需要复杂业务逻辑、外部系统连接、或跨系统自动化——就需要 Copilot Studio。</p>
+
+<h4>Copilot Studio 的定位</h4>
+<div style="background:var(--light-bg);padding:16px;border-radius:6px;margin:12px 0;">
+<p style="margin:0;"><strong>Copilot Chat</strong> = 通用智能入口 → <strong>Agent Builder</strong> = 业务快速创建 → <strong>Copilot Studio</strong> = 企业级生产部署</p>
 </div>
-<div class="app-card">
-<h4>📊 Data Assistant</h4>
-<p>"本季度新增了哪些 AI 机会？""哪些行业的知识资产最多？""哪些知识对象超过半年未审核？"——基于 Lists 数据的趋势分析。</p>
+
+<h4>Copilot Studio 能做什么（Agent Builder 做不到的）</h4>
+<table>
+<tr><th>能力</th><th>说明</th></tr>
+<tr><td><strong>复杂业务逻辑</strong></td><td>多步骤条件判断、分支流程、动态变量</td></tr>
+<tr><td><strong>外部系统连接</strong></td><td>通过 Connector 连接 SAP、Salesforce、自建 API 等</td></tr>
+<tr><td><strong>跨系统自动化</strong></td><td>Copilot Studio + Power Automate = 端到端业务流程</td></tr>
+<tr><td><strong>安全合规治理</strong></td><td>权限管理、数据保护、审计日志、版本控制</td></tr>
+<tr><td><strong>多 Agent 编排</strong></td><td>多个 Agent 协同工作，各自负责不同领域</td></tr>
+</table>
+
+<div class="callout info">
+<h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align:-3px"><circle cx="12" cy="12" r="10" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#0071B9" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#0071B9"/></svg> 与六层架构的关系</h4>
+<p>Copilot Studio Agent 对应六层架构的 <strong>L6（Shared Business AI Agents）</strong>——它调用 L5 Work IQ 的知识理解能力，基于 L4 Graph 的关系网络和 L3 Lists 的结构化知识对象，完成跨系统的业务动作。L2（Knowledge Automation Pipeline）则为它持续提供新鲜的结构化知识。</p>
+</div>
+
+<!-- 3.5 Enterprise Agent Governance -->
+<h3 id="p3-5">3.5 Enterprise Agent Governance · 治理与规模化</h3>
+
+<p>当 Agent 从一个变成多个，从个人使用变成团队共享——治理就不是可选项，而是基础要求。</p>
+
+<h4>Agent 治理的五个维度</h4>
+<table>
+<tr><th>维度</th><th>关键问题</th><th>对应六层架构</th></tr>
+<tr><td><strong>知识治理</strong></td><td>Agent 能访问哪些数据？数据质量如何保证？</td><td>L1-L3</td></tr>
+<tr><td><strong>权限治理</strong></td><td>谁能创建 Agent？谁能使用 Agent？谁能修改 Agent？</td><td>L4 (Graph)</td></tr>
+<tr><td><strong>行为治理</strong></td><td>Agent 能执行哪些操作？边界在哪里？</td><td>L6 (Agent)</td></tr>
+<tr><td><strong>质量治理</strong></td><td>Agent 的回答是否准确？如何评估和改进？</td><td>L5 (Work IQ)</td></tr>
+<tr><td><strong>生命周期治理</strong></td><td>Agent 从创建、测试、发布、监控到退役的完整流程</td><td>全六层</td></tr>
+</table>
+
+<h4>BS.A West 的 AI 成熟度路径</h4>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;font-size:0.85em;">
+<div style="background:#E3F0FA;padding:14px;border-radius:6px;text-align:center;">
+<div style="font-weight:bold;color:#0071B9;margin-bottom:6px;">Phase 1 · 当前</div>
+<div style="color:#637184;">June 一人 Copilot<br>团队间接使用<br>数据基础建设</div>
+</div>
+<div style="background:#D5E8FA;padding:14px;border-radius:6px;text-align:center;">
+<div style="font-weight:bold;color:#005A8B;margin-bottom:6px;">Phase 2 · 团队扩展</div>
+<div style="color:#637184;">全员 Copilot Chat<br>Agent Builder 试点<br>Knowledge Index 完善</div>
+</div>
+<div style="background:#C0DCF5;padding:14px;border-radius:6px;text-align:center;">
+<div style="font-weight:bold;color:#0D3B66;margin-bottom:6px;">Phase 3 · 平台化</div>
+<div style="color:#637184;">Copilot Studio<br>共享业务 Agent<br>治理体系建立</div>
 </div>
 </div>
 
 <div class="callout tip">
-<h4>未来接入 AI 的前提</h4>
-<p>不是等有了 AI 再整理数据——是先把 SharePoint 文件结构和 Knowledge Index 建好。数据层稳定后，无论接微软 Copilot 还是腾讯云自定义 Agent，都是"接上线就能用"。</p>
+<h4>关键认知</h4>
+<p><strong>不是每个人都要学开发 Agent。</strong>大多数人停留在 L1-L2（Copilot Chat + 知识检索）就足够高效工作。少数业务骨干可以进阶到 L3（Agent Builder）创建简单 Agent。L4-L5（Copilot Studio + Governance）是 IT 和专业团队的事。整个团队的 AI 能力是有阶梯、有分工的——各司其职，共同进化。</p>
 </div>
+
+<p style="margin-top:24px;color:#637184;font-size:0.9em;">→ 下一步：<a href="https://support.microsoft.com/en-us/copilot-studio" target="_blank">Copilot Studio 官方文档</a> | <a href="https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/" target="_blank">M365 Copilot 扩展性文档</a></p>
 
 <!-- ═══════════ PART 4 ═══════════ -->
 <h2 id="p4">Part 4：西区业务实战 SOP</h2>
