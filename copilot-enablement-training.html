@@ -351,7 +351,7 @@ tr:nth-child(even) td{background:#F8FAFD}
 
 <!-- ═══════════ Part 2B：✅ 官方确认 Copilot 支持应用深度指南 ═══════════ -->
 <h2 id="p2b" style="margin-top:1.5em">Part 2B：官方确认 Copilot 支持应用 · 深度指南</h2>
-<div class="section-time"><span class="badge">参考</span> 14个应用逐一展开——官方能力、操作方法、西区场景</div>
+<div class="section-time"><span class="badge">参考</span> 17个应用逐一展开——官方能力、操作方法、西区场景</div>
 
 <!-- Copilot App -->
 <h3 id="app-copilot">Microsoft 365 Copilot App</h3>
@@ -454,8 +454,31 @@ tr:nth-child(even) td{background:#F8FAFD}
 <p><strong>西区应用：</strong>竞对调研——打开 SGS 官网→让 Copilot 总结其课程体系→切换到 Work 模式对比我们的课程；合同条款对比——两个网页并排→Copilot 分析差异。</p>
 <p style="color:var(--muted);font-size:.82em"><strong>Prompt示例：</strong>"Summarize this competitor's training offerings and compare with our catalog."</p>
 
+<!-- Agent Builder -->
+<h3 id="app-agentbuilder">Agent Builder</h3>
+<p><strong>官方定位：</strong>Copilot Chat 内置的 Agent 创建工具，允许业务用户用自然语言描述需求，无需代码即可创建和发布 Agent（Copilot Chat 内置功能）。</p>
+<p><strong>核心能力：</strong>自然语言定义 Agent 行为 · 指向 SharePoint/OneDrive 数据源 · 一键发布到团队 · 管理员审批流程。</p>
+<p><strong>操作方式：</strong>Copilot Chat → "Create an agent" → 用自然语言描述 Agent 要做什么（如"创建一个课程顾问Agent，当有人问培训相关问题时，从我们的课程目录和客户案例中查找匹配信息"）→ 指定知识来源（SharePoint文件夹/Lists）→ 测试 → 发布到团队。</p>
+<p><strong>与Copilot Studio的区别：</strong>Agent Builder 是"轻量版"——适合标准化场景、单一数据源、简单逻辑。Copilot Studio 是"专业版"——适合复杂业务逻辑、多系统连接、企业级治理。</p>
+<p><strong>西区应用：</strong>Rina 创建"成都公开课顾问Agent"指向本地课程文件夹；Molly 创建"KA客户简报Agent"指向KA客户档案。</p>
+<p style="color:var(--muted);font-size:.82em"><strong>Prompt示例：</strong>"Create an agent that helps team members find relevant training courses based on customer industry and requirements."</p>
+
+<!-- Copilot Studio -->
+<h3 id="app-studio">Copilot Studio</h3>
+<p><strong>官方定位：</strong>Microsoft 官方 Agent 开发平台，支持企业级 Agent 创建、多数据源连接、复杂业务逻辑编排和安全合规治理（Microsoft Copilot Studio）。</p>
+<p><strong>核心能力：</strong>多数据源连接（SharePoint/外部API/数据库）· 复杂对话流设计 · Action 定义和执行 · 多 Agent 编排 · 安全与治理策略 · 分析仪表板。</p>
+<p><strong>操作方式：</strong>访问 Copilot Studio 门户 → 创建 Agent → 定义 Instructions（行为指令）和 Knowledge（知识来源）→ 配置 Actions（可执行的操作，如创建Planner任务、发邮件）→ 设置 Guardrails（行为边界）→ 发布到 Teams/M365 Copilot。</p>
+<p><strong>西区应用：</strong>June 在 Copilot Studio 中创建 BS.A West 的三个共享业务 Agent——Sales Agent（拜访准备+方案生成）、Project Agent（项目总结+风险分析）、Training Agent（课程推荐+讲师匹配）。这三个 Agent 共享同一套知识底座（六层架构的L1-L3），由团队共同使用和维护。</p>
+
+<!-- Work IQ -->
+<h3 id="app-workiq">Work IQ</h3>
+<p><strong>官方定位：</strong>Microsoft 365 Copilot 的企业知识理解引擎——不是独立 App，而是 Copilot 的底层智能层。通过 Graph Connector 接入企业内外的知识源，提供语义搜索、知识关联和智能推荐能力。</p>
+<p><strong>核心能力：</strong>语义理解（不只是关键词匹配）· 知识关联（"通威"与"新能源行业"自动关联）· Graph Connector 接入（外部系统数据进入M365知识图谱）· 跨系统知识检索。</p>
+<p><strong>与Agent的关系：</strong>Work IQ 是 Agent 的"大脑"。Agent Builder 和 Copilot Studio 创建的是 Agent 的"外壳"（Instructions + Actions），Work IQ 提供的是 Agent 的"知识"——让它真正理解企业的业务上下文。</p>
+<p><strong>西区应用：</strong>当 Sales Agent 收到"准备拜访通威"的指令时，Work IQ 从 Knowledge Index 中理解"通威=新能源行业=ISO 42001潜在客户=历史做过3个项目"，然后将这些语义关联传递给 Agent 用于生成拜访简报。</p>
+
 <div class="callout tip" style="margin-top:30px">
-<h4>这14个应用的共同使用原则</h4>
+<h4>这17个应用的共同使用原则</h4>
 <p><strong>① 先问再找——</strong>不要先翻文件，先问 Copilot。<br>
 <strong>② Work > Web——</strong>工作场景优先用 Work 模式，回答基于企业数据。<br>
 <strong>③ 权限即边界——</strong>你看不到的文件，Copilot 也看不到；Copilot 的回答遵循你的权限。<br>
