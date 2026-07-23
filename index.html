@@ -1,112 +1,93 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>June Directory — Exact 1:1 Single File</title>
-  <style>
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      background: #ede7dc;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      overflow-x: hidden;
-    }
-    .page {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: linear-gradient(180deg, #ece5d9 0%, #e9e2d7 100%);
-    }
-    .board {
-      position: relative;
-      width: min(100vw, 1402px);
-      aspect-ratio: 1402 / 1122;
-      overflow: hidden;
-      background: #f2ede4;
-    }
-    .mockup {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center top;
-      display: block;
-      user-select: none;
-      -webkit-user-drag: none;
-      pointer-events: none;
-    }
-    .hotspot {
-      position: absolute;
-      border-radius: 16px;
-      text-decoration: none;
-      color: transparent;
-      background: rgba(10, 86, 255, 0);
-      transition: .18s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .hotspot:hover, .hotspot:focus-visible {
-      background: rgba(10, 86, 255, .08);
-      box-shadow: inset 0 0 0 2px rgba(10, 86, 255, .18);
-    }
-    @media (max-width: 780px) {
-      .board { width: 100vw; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BS.A West 数字协同平台 — TÜV Rheinland</title>
+<style>
+:root{--blue:#0071B9;--ink:#142235;--muted:#637184;--dark:#0A1628;--green:#009537}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,SimHei,sans-serif;color:var(--ink);background:#F8FAFD;line-height:1.8}
+.hero{background:linear-gradient(135deg,#0A1628 0%,#142235 40%,#0071B9 100%);color:#fff;text-align:center;padding:60px 24px 50px}
+.hero h1{font-size:2em;margin-bottom:8px}
+.hero p{opacity:.75;font-size:1em}
+.container{max-width:900px;margin:0 auto;padding:30px 24px}
+.card{background:#fff;border:1px solid rgba(0,113,185,.1);border-radius:10px;padding:24px;margin:16px 0;display:flex;align-items:center;gap:16px;transition:box-shadow .3s}
+.card:hover{box-shadow:0 4px 24px rgba(0,113,185,.12)}
+.card-icon{flex-shrink:0;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4em}
+.card-body{flex:1}
+.card-body h3{margin:0 0 4px 0;font-size:1.1em;color:var(--ink)}
+.card-body p{margin:0;color:var(--muted);font-size:.88em}
+.card a{color:var(--blue);text-decoration:none;font-weight:bold}
+.card a:hover{text-decoration:underline}
+.footer{text-align:center;padding:30px;color:var(--muted);font-size:.82em}
+@media(max-width:600px){.hero h1{font-size:1.4em}}
+</style>
 </head>
 <body>
-  <div class="page">
-    <main class="board" aria-label="June Directory exact single file 1:1 restoration">
-      <img class="mockup" src="mockup.jpg" alt="June Directory approved mockup" />
 
-      <a class="hotspot" href="#brand" aria-label="Brand" style="left:7%;top:1.8%;width:15.5%;height:6%;"></a>
-      <a class="hotspot" href="#my-space" aria-label="My Space" style="left:88%;top:1.8%;width:10%;height:6%;"></a>
+<div class="hero">
+<h1>BS.A West 数字协同平台</h1>
+<p>TÜV Rheinland · junezhu.com.cn</p>
+</div>
 
-      <a class="hotspot" href="#home" aria-label="Home" style="left:0%;top:18%;width:6.5%;height:11%;"></a>
-      <a class="hotspot" href="#projects" aria-label="Projects" style="left:0%;top:31.5%;width:6.5%;height:11%;"></a>
-      <a class="hotspot" href="#library" aria-label="Library" style="left:0%;top:45%;width:6.5%;height:11%;"></a>
-      <a class="hotspot" href="#notes" aria-label="Notes" style="left:0%;top:58.5%;width:6.5%;height:11%;"></a>
-      <a class="hotspot" href="#favorites" aria-label="Favorites" style="left:0%;top:72%;width:6.5%;height:11%;"></a>
+<div class="container">
 
-      <a class="hotspot" href="#hero" aria-label="Hero section" style="left:9.6%;top:9.2%;width:34%;height:31%;"></a>
-      <a class="hotspot" href="#moodboard" aria-label="Moodboard" style="left:47.5%;top:7%;width:44.5%;height:40%;"></a>
-      <a class="hotspot" href="#greeting" aria-label="Greeting card" style="left:10%;top:42.5%;width:27.5%;height:9.5%;"></a>
+<div class="card">
+<div class="card-icon" style="background:#E3F0FA">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0071B9" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+</div>
+<div class="card-body">
+<h3><a href="/copilot-enablement-training.html">Copilot 企业应用培训教材 V2.0</a></h3>
+<p>60分钟5模块 · 32个M365应用覆盖地图 · 17个应用深度指南 · 六层知识架构</p>
+</div>
+</div>
 
-      <a class="hotspot" href="#projects-card" aria-label="Projects card" style="left:10%;top:55.1%;width:16.8%;height:27%;"></a>
-      <a class="hotspot" href="#knowledge-card" aria-label="Knowledge Library card" style="left:27.4%;top:55.1%;width:16.8%;height:27%;"></a>
-      <a class="hotspot" href="#notes-card" aria-label="Notes and Ideas card" style="left:44.8%;top:55.1%;width:16.8%;height:27%;"></a>
-      <a class="hotspot" href="#resources-card" aria-label="Resources card" style="left:62.2%;top:55.1%;width:16.8%;height:27%;"></a>
-      <a class="hotspot" href="#favorites-card" aria-label="Favorites card" style="left:79.5%;top:55.1%;width:16.4%;height:27%;"></a>
+<div class="card">
+<div class="card-icon" style="background:#E3F0FA">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0071B9" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+<div class="card-body">
+<h3><a href="/teams-management-handbook.html">Microsoft Teams 协同管理手册</a></h3>
+<p>六层企业数字化架构 · AI Adoption Journey五级路径 · 西区团队协作规范</p>
+</div>
+</div>
 
-      <a class="hotspot" href="#quote" aria-label="Bottom quote section" style="left:10%;top:84.3%;width:86%;height:13.3%;"></a>
+<div class="card">
+<div class="card-icon" style="background:#FFF3E0">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EB971B" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+</div>
+<div class="card-body">
+<h3><a href="/market-competitor-intel-may-jul-2026.html">竞对情报 &amp; 市场信号</a></h3>
+<p>西区产业动态 · 竞对动态追踪 · TIC行业趋势 · 269条信号持续更新</p>
+</div>
+</div>
 
-      <script type="application/json" id="hermes-layout">
-      {
-        "project": "June Directory",
-        "mode": "exact_1to1_single_file",
-        "canvas": {"width": 1402, "height": 1122},
-        "note": "This file embeds the approved mockup directly as a base64 image so it opens correctly by itself on mobile and desktop. Invisible hotspots are preserved so Hermes/Codex can still understand the page sections.",
-        "sections": [
-          {"id": "sidebar", "role": "left navigation"},
-          {"id": "brand", "role": "top brand area"},
-          {"id": "hero", "role": "hero copy"},
-          {"id": "moodboard", "role": "image collage"},
-          {"id": "greeting", "role": "status/date card"},
-          {"id": "cards", "role": "five directory cards"},
-          {"id": "quote", "role": "bottom quote strip"}
-        ]
-      }
-      </script>
-    </main>
-  </div>
+<div class="card">
+<div class="card-icon" style="background:#E8F5E9">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009537" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+</div>
+<div class="card-body">
+<h3><a href="/copilot-agent-advanced.html">Copilot Agent 进阶指南</a></h3>
+<p>Agent Builder vs Copilot Studio · 六层架构知识底座 · 企业级Agent开发</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-icon" style="background:#E8F5E9">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009537" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+</div>
+<div class="card-body">
+<h3><a href="/copilot-knowledge-base.html">Copilot 知识库研究</a></h3>
+<p>M365全应用研究 · Prompt工程 · 企业AI采用路径 · 官方资料索引</p>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+TÜV Rheinland BS.A West · junezhu.com.cn · 重庆 · 成都 · 西安
+</div>
+
 </body>
 </html>
