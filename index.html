@@ -3,90 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BS.A West 数字协同平台 — TÜV Rheinland</title>
+<title>June Zhu · 个人首页</title>
 <style>
-:root{--blue:#0071B9;--ink:#142235;--muted:#637184;--dark:#0A1628;--green:#009537}
+:root {
+  --coral: #FF6B6B;
+  --gold: #FEC260;
+  --mint: #4ECDC4;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --sky: #60A5FA;
+  --ink: #1E1B2E;
+  --soft: #F9F7FC;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,SimHei,sans-serif;color:var(--ink);background:#F8FAFD;line-height:1.8}
-.hero{background:linear-gradient(135deg,#0A1628 0%,#142235 40%,#0071B9 100%);color:#fff;text-align:center;padding:60px 24px 50px}
-.hero h1{font-size:2em;margin-bottom:8px}
-.hero p{opacity:.75;font-size:1em}
-.container{max-width:900px;margin:0 auto;padding:30px 24px}
-.card{background:#fff;border:1px solid rgba(0,113,185,.1);border-radius:10px;padding:24px;margin:16px 0;display:flex;align-items:center;gap:16px;transition:box-shadow .3s}
-.card:hover{box-shadow:0 4px 24px rgba(0,113,185,.12)}
-.card-icon{flex-shrink:0;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4em}
-.card-body{flex:1}
-.card-body h3{margin:0 0 4px 0;font-size:1.1em;color:var(--ink)}
-.card-body p{margin:0;color:var(--muted);font-size:.88em}
-.card a{color:var(--blue);text-decoration:none;font-weight:bold}
-.card a:hover{text-decoration:underline}
-.footer{text-align:center;padding:30px;color:var(--muted);font-size:.82em}
-@media(max-width:600px){.hero h1{font-size:1.4em}}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--soft);color:var(--ink);overflow-x:hidden}
+/* 背景装饰 */
+.bg-blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;animation:float 20s infinite ease-in-out}
+.blob:nth-child(1){width:500px;height:500px;background:var(--coral);top:-10%;left:-5%;animation-delay:0s}
+.blob:nth-child(2){width:400px;height:400px;background:var(--purple);top:40%;right:-8%;animation-delay:-7s}
+.blob:nth-child(3){width:350px;height:350px;background:var(--mint);bottom:-5%;left:20%;animation-delay:-14s}
+.blob:nth-child(4){width:300px;height:300px;background:var(--gold);top:60%;left:50%;animation-delay:-10s}
+.blob:nth-child(5){width:280px;height:280px;background:var(--pink);top:20%;right:25%;animation-delay:-4s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(30px,-30px) scale(1.1)}
+  66%{transform:translate(-20px,20px) scale(.9)}
+}
+/* Hero */
+.hero{position:relative;z-index:1;text-align:center;padding:80px 24px 60px}
+.hero-tag{display:inline-block;background:linear-gradient(135deg,var(--coral),var(--pink));color:#fff;padding:6px 18px;border-radius:20px;font-size:.82em;font-weight:600;letter-spacing:1px;margin-bottom:20px;animation:fadeInUp .6s ease}
+.hero h1{font-size:3.2em;font-weight:800;background:linear-gradient(135deg,var(--coral) 0%,var(--purple) 50%,var(--sky) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;animation:fadeInUp .6s ease .1s both}
+.hero .sub{font-size:1.15em;color:#6B6880;margin-bottom:8px;animation:fadeInUp .6s ease .2s both}
+.hero .motto{font-size:.95em;color:#9B98AD;font-style:italic;animation:fadeInUp .6s ease .3s both}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+/* 卡片区 */
+.grid{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{position:relative;background:rgba(255,255,255,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:20px;padding:32px;border:1px solid rgba(0,0,0,.06);transition:all .4s cubic-bezier(.4,0,.2,1);overflow:hidden;cursor:pointer}
+.card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;transition:width .4s cubic-bezier(.4,0,.2,1)}
+.card:nth-child(1)::before{background:var(--coral)}
+.card:nth-child(2)::before{background:var(--purple)}
+.card:nth-child(3)::before{background:var(--mint)}
+.card:nth-child(4)::before{background:var(--gold)}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.card:hover::before{width:6px}
+.card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5em;margin-bottom:16px;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.card:hover .card-icon{transform:scale(1.1) rotate(-5deg)}
+.card:nth-child(1) .card-icon{background:linear-gradient(135deg,#FFE8E8,#FFD4D4);color:var(--coral)}
+.card:nth-child(2) .card-icon{background:linear-gradient(135deg,#EDE9FE,#DDD6FE);color:var(--purple)}
+.card:nth-child(3) .card-icon{background:linear-gradient(135deg,#D1FAE5,#A7F3D0);color:#059669}
+.card:nth-child(4) .card-icon{background:linear-gradient(135deg,#FFF7E0,#FEF3C7);color:#D97706}
+.card h3{font-size:1.25em;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.card .desc{font-size:.88em;color:#8B88A0;margin-bottom:16px;line-height:1.6}
+.card .links{display:flex;flex-wrap:wrap;gap:8px}
+.card .links a{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:20px;text-decoration:none;font-size:.82em;font-weight:600;transition:all .3s}
+.card:nth-child(1) .links a{background:#FFF0F0;color:var(--coral)}
+.card:nth-child(1) .links a:hover{background:var(--coral);color:#fff}
+.card:nth-child(2) .links a{background:#F5F0FF;color:var(--purple)}
+.card:nth-child(2) .links a:hover{background:var(--purple);color:#fff}
+.card:nth-child(3) .links a{background:#ECFDF5;color:#059669}
+.card:nth-child(3) .links a:hover{background:#059669;color:#fff}
+.card:nth-child(4) .links a{background:#FFFBF0;color:#D97706}
+.card:nth-child(4) .links a:hover{background:#D97706;color:#fff}
+/* 装饰线条 */
+.decor{position:relative;z-index:1;text-align:center;padding:0 0 40px}
+.decor svg{width:120px;height:auto}
+.footer{position:relative;z-index:1;text-align:center;padding:30px;color:#B8B5CC;font-size:.8em}
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:2em}
+  .hero{padding:50px 20px 40px}
+}
 </style>
 </head>
 <body>
 
+<div class="bg-blobs">
+  <div class="blob"></div><div class="blob"></div><div class="blob"></div>
+  <div class="blob"></div><div class="blob"></div>
+</div>
+
 <div class="hero">
-<h1>BS.A West 数字协同平台</h1>
-<p>TÜV Rheinland · junezhu.com.cn</p>
+  <div class="hero-tag">TÜV Rheinland · BS.A West</div>
+  <h1>June Zhu</h1>
+  <p class="sub">数字化培训架构师 · 西区业务负责人</p>
+  <p class="motto">Building bridges between technology & talent</p>
 </div>
 
-<div class="container">
-
-<div class="card">
-<div class="card-icon" style="background:#E3F0FA">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0071B9" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-</div>
-<div class="card-body">
-<h3><a href="/copilot-enablement-training.html">Copilot 企业应用培训教材 V2.0</a></h3>
-<p>60分钟5模块 · 32个M365应用覆盖地图 · 17个应用深度指南 · 六层知识架构</p>
-</div>
+<div class="decor">
+  <svg viewBox="0 0 120 12" fill="none"><path d="M0 6 Q30 0 60 6 T120 6" stroke="url(#g1)" stroke-width="2" fill="none"/><defs><linearGradient id="g1"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="50%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#4ECDC4"/></linearGradient></defs></svg>
 </div>
 
-<div class="card">
-<div class="card-icon" style="background:#E3F0FA">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0071B9" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-</div>
-<div class="card-body">
-<h3><a href="/teams-management-handbook.html">Microsoft Teams 协同管理手册</a></h3>
-<p>六层企业数字化架构 · AI Adoption Journey五级路径 · 西区团队协作规范</p>
-</div>
-</div>
+<div class="grid">
 
-<div class="card">
-<div class="card-icon" style="background:#FFF3E0">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EB971B" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-</div>
-<div class="card-body">
-<h3><a href="/market-competitor-intel-may-jul-2026.html">竞对情报 &amp; 市场信号</a></h3>
-<p>西区产业动态 · 竞对动态追踪 · TIC行业趋势 · 269条信号持续更新</p>
-</div>
-</div>
+  <div class="card">
+    <div class="card-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+    </div>
+    <h3>课程开发</h3>
+    <p class="desc">企业AI培训课程体系，M365 Copilot全应用覆盖，17个深度指南</p>
+    <div class="links">
+      <a href="/copilot-enablement-training.html">Copilot 培训教材 →</a>
+    </div>
+  </div>
 
-<div class="card">
-<div class="card-icon" style="background:#E8F5E9">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009537" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-</div>
-<div class="card-body">
-<h3><a href="/copilot-agent-advanced.html">Copilot Agent 进阶指南</a></h3>
-<p>Agent Builder vs Copilot Studio · 六层架构知识底座 · 企业级Agent开发</p>
-</div>
-</div>
+  <div class="card">
+    <div class="card-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <h3>知识产品</h3>
+    <p class="desc">Agent进阶指南、知识库研究、M365全应用深度解析</p>
+    <div class="links">
+      <a href="/copilot-agent-advanced.html">Agent 进阶 →</a>
+      <a href="/copilot-knowledge-base.html">知识库 →</a>
+    </div>
+  </div>
 
-<div class="card">
-<div class="card-icon" style="background:#E8F5E9">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009537" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-</div>
-<div class="card-body">
-<h3><a href="/copilot-knowledge-base.html">Copilot 知识库研究</a></h3>
-<p>M365全应用研究 · Prompt工程 · 企业AI采用路径 · 官方资料索引</p>
-</div>
-</div>
+  <div class="card">
+    <div class="card-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    </div>
+    <h3>市场情报</h3>
+    <p class="desc">西区产业动态 · 竞对追踪 · TIC行业趋势 · 300+信号持续更新</p>
+    <div class="links">
+      <a href="/market-competitor-intel-may-jul-2026.html">竞对情报报告 →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <h3>数字协同</h3>
+    <p class="desc">Teams管理手册 · 六层企业数字化架构 · 西区团队协作规范</p>
+    <div class="links">
+      <a href="/teams-management-handbook.html">协同手册 →</a>
+    </div>
+  </div>
 
 </div>
 
 <div class="footer">
-TÜV Rheinland BS.A West · junezhu.com.cn · 重庆 · 成都 · 西安
+  junezhu.com.cn · 重庆 · 成都 · 西安
 </div>
 
 </body>
