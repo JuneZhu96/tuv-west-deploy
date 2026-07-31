@@ -1,0 +1,311 @@
+#!/usr/bin/env python3
+"""Write the Copilot Teams Meeting Intelligence Report HTML file."""
+import os
+
+HTML_CONTENT = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Teams Copilot - Redefining Intelligent Meetings</title>
+<style>
+  :root {
+    --bg: #06080D;
+    --surface: #0A0F18;
+    --surface2: #0D1320;
+    --surface3: #111827;
+    --blue: #0071B9;
+    --blue-bright: #0091E5;
+    --blue-glow: rgba(0,113,185,0.15);
+    --border: rgba(107,123,141,.15);
+    --border-light: rgba(107,123,141,.25);
+    --text: #E8ECF1;
+    --text-muted: #6B7B8D;
+    --text-dim: #4B5B6D;
+    --green: #00C896;
+    --green-glow: rgba(0,200,150,0.12);
+    --red: #FF6478;
+    --red-glow: rgba(255,100,120,0.12);
+    --orange: #F0A030;
+    --orange-glow: rgba(240,160,48,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .header { padding: 48px 0 32px; text-align: center; border-bottom: 1px solid var(--border); }
+  .badge { display: inline-block; background: var(--blue-glow); color: var(--blue-bright); border: 1px solid rgba(0,145,229,0.3); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+  .header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 12px; background: linear-gradient(135deg, var(--text) 0%, #A0B4CC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .header .subtitle { color: var(--text-muted); font-size: 0.95rem; letter-spacing: 0.3px; }
+  .hero { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center; padding: 48px 0; }
+  .hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; }
+  .hero-card.old { border-left: 3px solid var(--red); }
+  .hero-card.new { border-left: 3px solid var(--green); }
+  .hero-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; font-weight: 700; }
+  .hero-card.old h3 { color: var(--red); }
+  .hero-card.new h3 { color: var(--green); }
+  .hero-card ul { list-style: none; padding: 0; }
+  .hero-card li { padding: 6px 0; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; }
+  .hero-card.old li::before { content: '\2715'; color: var(--red); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .hero-card.new li::before { content: '\2713'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .hero-arrow { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--blue-bright); }
+  .hero-arrow svg { width: 36px; height: 36px; }
+  .hero-arrow span { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; white-space: nowrap; }
+  .quote-block { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 0 var(--radius) var(--radius) 0; padding: 28px 32px; margin: 20px 0; }
+  .quote-block p { font-size: 1.15rem; font-style: italic; color: var(--text); line-height: 1.7; }
+  .quote-block .attribution { color: var(--text-muted); font-size: 0.8rem; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; font-style: normal; }
+  .section-title { font-size: 1.5rem; font-weight: 700; margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--blue); display: inline-block; }
+  .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+  .pillar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; position: relative; overflow: hidden; }
+  .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .pillar-card:nth-child(1)::before { background: var(--blue); }
+  .pillar-card:nth-child(2)::before { background: var(--orange); }
+  .pillar-card:nth-child(3)::before { background: var(--green); }
+  .pillar-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 22px; }
+  .pillar-card:nth-child(1) .pillar-icon { background: var(--blue-glow); color: var(--blue-bright); }
+  .pillar-card:nth-child(2) .pillar-icon { background: var(--orange-glow); color: var(--orange); }
+  .pillar-card:nth-child(3) .pillar-icon { background: var(--green-glow); color: var(--green); }
+  .pillar-card h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; font-weight: 700; }
+  .pillar-card:nth-child(1) h4 { color: var(--blue-bright); }
+  .pillar-card:nth-child(2) h4 { color: var(--orange); }
+  .pillar-card:nth-child(3) h4 { color: var(--green); }
+  .pillar-card .timing { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 10px; }
+  .pillar-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+  .detail-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; margin: 28px 0; }
+  .detail-section h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+  .detail-section .accent-bar { width: 48px; height: 3px; border-radius: 2px; margin-bottom: 20px; }
+  .detail-section .accent-bar.blue { background: var(--blue-bright); }
+  .detail-section .accent-bar.orange { background: var(--orange); }
+  .detail-section .accent-bar.green { background: var(--green); }
+  .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
+  .feature-item { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .feature-item h5 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 700; color: var(--blue-bright); }
+  .feature-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+  .step-guide { margin: 20px 0; }
+  .step { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--blue-glow); color: var(--blue-bright); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .step-content { flex: 1; }
+  .step-content strong { display: block; font-size: 0.9rem; color: var(--text); margin-bottom: 4px; }
+  .step-content span { font-size: 0.82rem; color: var(--text-muted); }
+  .screenshot-box { background: var(--surface3); border: 1px dashed var(--border-light); border-radius: var(--radius); padding: 18px 20px; margin: 16px 0; text-align: center; color: var(--text-dim); font-size: 0.82rem; font-style: italic; }
+  .extensions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .ext-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; }
+  .ext-card .ext-icon { font-size: 28px; margin-bottom: 12px; }
+  .ext-card h5 { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .ext-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+  .final-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 36px 0; }
+  .final-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+  .final-card.past { border-top: 3px solid var(--red); }
+  .final-card.future { border-top: 3px solid var(--green); }
+  .final-card h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; font-weight: 700; }
+  .final-card.past h4 { color: var(--red); }
+  .final-card.future h4 { color: var(--green); }
+  .flow-steps { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+  .flow-step { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 16px; font-size: 0.8rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .flow-arrow { color: var(--blue-bright); font-weight: 700; font-size: 1.1rem; }
+  .final-card ul { list-style: none; padding: 0; margin-top: 12px; }
+  .final-card li { padding: 5px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .final-card.past li::before { content: '\2014 '; color: var(--red); }
+  .final-card.future li::before { content: '\2192 '; color: var(--green); font-weight: 700; }
+  .footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; margin-top: 48px; }
+  .footer p { color: var(--text-dim); font-size: 0.8rem; }
+  .footer .brand { font-weight: 700; color: var(--text-muted); }
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-arrow { transform: rotate(90deg); }
+    .pillar-grid { grid-template-columns: 1fr; }
+    .extensions-grid { grid-template-columns: 1fr; }
+    .final-comparison { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.7rem; }
+    .feature-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+<div class="badge">INTELLIGENCE REPORT</div>
+<h1>Microsoft Teams Copilot<br>Redefining Intelligent Meetings</h1>
+<p class="subtitle">Official Demo Video (12:04) &nbsp;|&nbsp; TUV Rheinland BS.A West &middot; 2026</p>
+</header>
+
+<section class="hero">
+<div class="hero-card old">
+<h3>Traditional Meetings</h3>
+<ul>
+<li>Manual note-taking distracts participants</li>
+<li>Late joiners miss context entirely</li>
+<li>Language barriers fragment global teams</li>
+<li>Action items lost in unstructured chat</li>
+<li>No searchable institutional memory</li>
+</ul>
+</div>
+<div class="hero-arrow">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+<span>Copilot</span>
+</div>
+<div class="hero-card new">
+<h3>Copilot Meetings</h3>
+<ul>
+<li>AI captures notes in real time &mdash; stay present</li>
+<li>Instant catch-up summaries for late joiners</li>
+<li>Real-time cross-language interpretation</li>
+<li>Structured recaps with action items &amp; owners</li>
+<li>Full meeting knowledge base, queryable anytime</li>
+</ul>
+</div>
+</section>
+
+<div class="quote-block">
+<p>&ldquo;Copilot transforms meetings from conversations into structured organizational knowledge.&rdquo;</p>
+<div class="attribution">&mdash; Microsoft Teams Copilot Vision</div>
+</div>
+
+<h2 class="section-title">Three Pillars of Meeting Intelligence</h2>
+<div class="pillar-grid">
+<div class="pillar-card">
+<div class="pillar-icon">&#x1F399;</div>
+<h4>Facilitator</h4>
+<p class="timing">During the meeting</p>
+<p>Real-time note capture, live summaries, and intelligent queue management so every participant stays engaged with the conversation, not their notepad.</p>
+</div>
+<div class="pillar-card">
+<div class="pillar-icon">&#x1F310;</div>
+<h4>Interpreter</h4>
+<p class="timing">Cross-language communication</p>
+<p>Real-time speech-to-speech translation across multiple languages, breaking down barriers in global, multilingual Teams meetings.</p>
+</div>
+<div class="pillar-card">
+<div class="pillar-icon">&#x26A1;</div>
+<h4>Recap + Audio</h4>
+<p class="timing">After the meeting</p>
+<p>Structured recaps with chapters, action items, and an audio briefing &mdash; query your meeting history with natural language via Ask Copilot.</p>
+</div>
+</div>
+
+<section class="detail-section">
+<h3>&#x1F399; Facilitator &mdash; During the Meeting</h3>
+<div class="accent-bar blue"></div>
+<div class="feature-list">
+<div class="feature-item"><h5>Live Notes</h5><p>Copilot captures meeting notes in real time within the Teams pane. Every key point, decision, and question is logged automatically &mdash; no human scribe needed.</p></div>
+<div class="feature-item"><h5>Intelligent Queue</h5><p>Copilot tracks raised hands and speaking order, ensuring fair turn-taking. It surfaces who wants to speak next and keeps the conversation flowing.</p></div>
+<div class="feature-item"><h5>Late-Join Recap</h5><p>Participants who join late receive an instant AI-generated summary of what they missed, so they can contribute immediately without disrupting the flow.</p></div>
+<div class="feature-item"><h5>Task Extraction</h5><p>Action items are identified and assigned in real time as they are discussed. Tasks appear in the meeting pane with owners &mdash; no post-meeting guesswork.</p></div>
+</div>
+<h4 style="margin-top:24px; color: var(--text); font-size: 0.95rem;">How It Works</h4>
+<div class="step-guide">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Join or start a Teams meeting with Copilot enabled</strong><span>Copilot activates automatically when the meeting begins. The Copilot icon appears in the meeting toolbar and side panel.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Open the Copilot pane during the meeting</strong><span>Click the Copilot icon to reveal the side panel. Notes, tasks, and summaries appear here in real time as the conversation unfolds.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Copilot captures notes &amp; action items automatically</strong><span>As participants speak, Copilot transcribes, summarizes, and extracts tasks. The Follow button keeps the panel synced to the live conversation.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Late joiners are caught up instantly</strong><span>Copilot detects a late arrival and offers a Catch up summary of the meeting so far &mdash; key topics, decisions, and current discussion point.</span></div></div>
+</div>
+<div class="screenshot-box">&#x1F4F8; Screenshot guide: Copilot pane &#x2192; Follow mode &#x2192; Live notes &#x2192; Catch me up for late joiners &#x2192; Intelligent queue with hand-raise tracking</div>
+</section>
+
+<section class="detail-section">
+<h3>&#x1F310; Interpreter &mdash; Real-Time Cross-Language Communication</h3>
+<div class="accent-bar orange"></div>
+<div class="feature-list">
+<div class="feature-item"><h5>Speech-to-Speech Translation</h5><p>Copilot translates spoken language in near real-time. A presenter speaking English is heard in Mandarin, German, or any supported language by every participant &mdash; each in their own tongue.</p></div>
+<div class="feature-item"><h5>Voice Personalization</h5><p>The interpreter uses a simulated voice that preserves the speaker's tone, pace, and emphasis &mdash; not a flat robotic translation, but a natural-sounding rendition.</p></div>
+<div class="feature-item"><h5>Meeting Transcript</h5><p>In addition to audio, Copilot provides a full multilingual transcript in the meeting pane. Every word is captured and searchable in the original and translated languages.</p></div>
+<div class="feature-item"><h5>Global Team Enablement</h5><p>Eliminates the need for human interpreters in routine meetings. Teams across China, Germany, and the US can collaborate seamlessly without language friction.</p></div>
+</div>
+<h4 style="margin-top:24px; color: var(--text); font-size: 0.95rem;">How It Works</h4>
+<div class="step-guide">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Enable Interpreter in meeting options</strong><span>The meeting organizer activates the Interpreter feature before or during the meeting. Language pairs are configured (e.g., English &#x2192; Chinese, Chinese &#x2192; English).</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Each participant selects their preferred language</strong><span>In the meeting toolbar, each attendee chooses the language they want to hear. Copilot routes the translated audio stream individually.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Speaker talks; Copilot translates in real time</strong><span>When a speaker begins, Copilot transcribes, translates, and synthesizes the audio in the listener's chosen language. Latency is kept to a minimum.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Transcript appears in the meeting pane</strong><span>The full bilingual transcript is available alongside the audio. Participants can review what was said in either language after the meeting.</span></div></div>
+</div>
+<div class="screenshot-box">&#x1F4F8; Screenshot guide: Meeting options &#x2192; Interpreter toggle &#x2192; Language selector per participant &#x2192; Bilingual transcript pane &#x2192; Simulated voice indicator</div>
+</section>
+
+<section class="detail-section">
+<h3>&#x26A1; Recap &middot; Ask Copilot &middot; Audio Recap &mdash; After the Meeting</h3>
+<div class="accent-bar green"></div>
+<div class="feature-list">
+<div class="feature-item"><h5>Structured Recap</h5><p>After the meeting ends, Copilot generates a comprehensive recap: meeting name, date/time, participants, AI-generated notes, follow-up tasks with assignees, and a chapter breakdown of topics discussed.</p></div>
+<div class="feature-item"><h5>Ask Copilot</h5><p>Query any past meeting with natural language. Ask &ldquo;What did we decide about the Q3 budget?&rdquo; or &ldquo;Who was assigned the supplier audit?&rdquo; &mdash; Copilot searches across all your meeting history.</p></div>
+<div class="feature-item"><h5>Audio Recap</h5><p>Generate a spoken summary of any meeting. Listen to key points, decisions, and action items as a podcast-style briefing &mdash; ideal for commute or multitasking.</p></div>
+<div class="feature-item"><h5>Persistent Knowledge Base</h5><p>All recaps, transcripts, and notes are stored in the meeting's chat thread and integrated with Microsoft Graph. Meeting intelligence becomes a searchable organizational asset, not a fleeting moment.</p></div>
+</div>
+<h4 style="margin-top:24px; color: var(--text); font-size: 0.95rem;">How It Works</h4>
+<div class="step-guide">
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Meeting ends &#x2192; Recap auto-generated</strong><span>Copilot processes the full transcript and produces a structured recap with chapters, key points, and action items. This appears in the meeting chat thread.</span></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>Review and refine the Recap</strong><span>Participants can review, edit, and share the recap. Action items can be pushed to Planner, To Do, or any connected task system.</span></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>Ask Copilot follow-up questions</strong><span>In the meeting chat or Copilot chat, ask any question about the meeting &mdash; past or present. Copilot searches transcripts, recaps, and shared files to answer.</span></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>Generate an Audio Recap</strong><span>Click Audio Recap and Copilot produces a spoken summary. Share it with stakeholders who could not attend or listen on the go.</span></div></div>
+</div>
+<div class="screenshot-box">&#x1F4F8; Screenshot guide: Post-meeting recap card &#x2192; Chapters &amp; action items &#x2192; Ask Copilot chat &#x2192; Audio Recap playback &#x2192; Search across meeting history</div>
+</section>
+
+<h2 class="section-title">Enterprise Extensions</h2>
+<div class="extensions-grid">
+<div class="ext-card"><div class="ext-icon">&#x1F4CB;</div><h5>License Model</h5><p>Microsoft 365 Copilot add-on license (per user/month). Included with Microsoft 365 E3/E5 + Copilot, or standalone via CSP. Requires Teams Premium for select features.</p></div>
+<div class="ext-card"><div class="ext-icon">&#x1F512;</div><h5>Security &amp; Compliance</h5><p>All meeting data is encrypted at rest and in transit. Copilot respects existing Microsoft 365 compliance boundaries &mdash; retention policies, eDiscovery, and sensitivity labels apply to meeting intelligence.</p></div>
+<div class="ext-card"><div class="ext-icon">&#x1F9E0;</div><h5>Knowledge Management</h5><p>Meeting recaps integrate with Microsoft Graph, SharePoint, and Viva Topics. Meeting intelligence is indexed and discoverable across the Microsoft 365 knowledge fabric &mdash; not siloed in Teams.</p></div>
+</div>
+
+<h2 class="section-title">The Transformation</h2>
+<div class="final-comparison">
+<div class="final-card past">
+<h4>Past &mdash; Meetings as Ephemeral Events</h4>
+<ul>
+<li>Information evaporates when the call ends</li>
+<li>Notes are scattered, inconsistent, or missing</li>
+<li>Follow-ups rely on memory and goodwill</li>
+<li>Language barriers limit global participation</li>
+<li>No institutional learning across meetings</li>
+</ul>
+</div>
+<div class="final-card future">
+<h4>Future &mdash; Meetings as Organizational Knowledge</h4>
+<ul>
+<li>Every meeting contributes to a searchable knowledge base</li>
+<li>AI-generated recaps are consistent and complete</li>
+<li>Action items are tracked with clear ownership</li>
+<li>Real-time translation enables truly global teams</li>
+<li>Meeting intelligence compounds over time</li>
+</ul>
+</div>
+</div>
+
+<div style="text-align: center; margin: 40px 0 20px;">
+<div class="flow-steps" style="justify-content: center;">
+<div class="flow-step">Conversation</div>
+<div class="flow-arrow">&#x2192;</div>
+<div class="flow-step">Understanding</div>
+<div class="flow-arrow">&#x2192;</div>
+<div class="flow-step">Knowledge</div>
+<div class="flow-arrow">&#x2192;</div>
+<div class="flow-step" style="border-color: var(--green); color: var(--green);">Action</div>
+</div>
+<p style="margin-top: 16px; color: var(--text-muted); font-size: 0.85rem;">Source: Microsoft Teams Copilot official demo (12:04) &mdash; Feature availability subject to Microsoft roadmap and licensing.</p>
+</div>
+
+<footer class="footer">
+<p><span class="brand">TUV Rheinland BS.A West</span> &middot; Intelligence Report &middot; 2026</p>
+<p style="margin-top: 4px;">Microsoft Teams Copilot &mdash; Redefining Intelligent Meetings</p>
+</footer>
+</div>
+</body>
+</html>'''
+
+OUTPUT_PATH = r'D:\tuv-west-deploy\copilot-teams-meetings-report.html'
+
+os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
+    f.write(HTML_CONTENT)
+
+size = os.path.getsize(OUTPUT_PATH)
+print(f'Written {size:,} bytes to {OUTPUT_PATH}')

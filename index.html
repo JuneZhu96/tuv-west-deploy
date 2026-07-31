@@ -38,12 +38,13 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--soft);color:var(--
 .hero .motto{font-size:.95em;color:#9B98AD;font-style:italic;animation:fadeInUp .6s ease .3s both}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 /* 卡片区 */
-.grid{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{position:relative;background:rgba(255,255,255,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:20px;padding:32px;border:1px solid rgba(0,0,0,.06);transition:all .4s cubic-bezier(.4,0,.2,1);overflow:hidden;cursor:pointer}
 .card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;transition:width .4s cubic-bezier(.4,0,.2,1)}
 .card:nth-child(1)::before{background:var(--coral)}
 .card:nth-child(2)::before{background:var(--purple)}
 .card:nth-child(3)::before{background:var(--mint)}
+.card:nth-child(5)::before{background:var(--sky)}
 .card:nth-child(4)::before{background:var(--gold)}
 .card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
 .card:hover::before{width:6px}
@@ -52,6 +53,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--soft);color:var(--
 .card:nth-child(1) .card-icon{background:linear-gradient(135deg,#FFE8E8,#FFD4D4);color:var(--coral)}
 .card:nth-child(2) .card-icon{background:linear-gradient(135deg,#EDE9FE,#DDD6FE);color:var(--purple)}
 .card:nth-child(3) .card-icon{background:linear-gradient(135deg,#D1FAE5,#A7F3D0);color:#059669}
+.card:nth-child(5) .card-icon{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:var(--sky)}
 .card:nth-child(4) .card-icon{background:linear-gradient(135deg,#FFF7E0,#FEF3C7);color:#D97706}
 .card h3{font-size:1.25em;font-weight:700;margin-bottom:6px;color:var(--ink)}
 .card .desc{font-size:.88em;color:#8B88A0;margin-bottom:16px;line-height:1.6}
@@ -63,6 +65,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--soft);color:var(--
 .card:nth-child(2) .links a:hover{background:var(--purple);color:#fff}
 .card:nth-child(3) .links a{background:#ECFDF5;color:#059669}
 .card:nth-child(3) .links a:hover{background:#059669;color:#fff}
+.card:nth-child(5) .links a{background:#EFF6FF;color:var(--sky)}
+.card:nth-child(5) .links a:hover{background:var(--sky);color:#fff}
 .card:nth-child(4) .links a{background:#FFFBF0;color:#D97706}
 .card:nth-child(4) .links a:hover{background:#D97706;color:#fff}
 /* 装饰线条 */

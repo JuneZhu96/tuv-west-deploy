@@ -1,0 +1,168 @@
+<!-- ===== 第十八章 · 网页部署与文件分享 ===== -->
+<div class="section" id="ch18"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0071B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M18 10l-6-6-6 6"/><path d="M12 4v16"/></svg> 第十八章 · 网页部署与文件分享（Web Deploy & File Sharing）</div>
+<div class="section-desc">GitHub + Vercel + 腾讯云 + Cloudflare 四层架构——一条命令推送，自有域名访问，微信直接打开</div>
+
+<div class="highlight">
+<strong>本章核心命题：</strong>AI Agent产出的HTML报告、PPT页面、调研问卷，怎么让June在手机上秒开？怎么发给客户？答案是一套四层部署方案——<strong>GitHub托管源码 <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Vercel自动部署 <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 腾讯云Nginx <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Cloudflare Tunnel</strong>。一次git push，Vercel自动部署；服务器git pull，Cloudflare隧道连通自有域名，微信浏览器直接访问，免费、稳定、零运维。
+</div>
+
+<div class="card" id="ch18-arch">
+<div class="step-header">
+<div class="step-circle">1</div>
+<div><h3>四层架构总览</h3>
+<div class="meta">源码一处存放，两条交付线，覆盖国内外所有访问场景</div></div>
+</div>
+
+<div class="diagram">
+                     <span class="ascii-art">┌─────────────────────────────────────────┐</span>
+                     │         Local Git Repo                    │
+                     │         /d/tuv-west-deploy/               │
+                     │  AI问卷 · 课程大纲 · 调研报告 · PPT       │
+                     <span class="ascii-art">└────────────────────┬──────────────────────┘</span>
+                                          │
+                                  git push origin main
+                                          │
+                                          <svg class="emoji-svg" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><polygon points="2,3 6,9 10,3" fill="currentColor"/></svg>
+                       <span class="ascii-art">┌──────────────────────┐</span>
+                       │   GitHub              │
+                       │   JuneZhu96/          │
+                       │   tuv-west-deploy     │
+                       <span class="ascii-art">└──────────┬───────────┘</span>
+                                  │
+                    ┌─────────────┴─────────────┐
+                    │                           │
+              Vercel 自动部署              git pull 到服务器
+                    │                           │
+                    <svg class="emoji-svg" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><polygon points="2,3 6,9 10,3" fill="currentColor"/></svg>                           <svg class="emoji-svg" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><polygon points="2,3 6,9 10,3" fill="currentColor"/></svg>
+       <span class="ascii-art">┌──────────────────┐</span>         <span class="ascii-art">┌──────────────────┐</span>
+       │  Vercel           │         │ 腾讯云 Nginx       │
+       │  *.vercel.app     │         │ 49.233.213.101     │
+       │  <svg class="emoji-svg" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><circle cx="7" cy="7" r="6" fill="#3B82F6"/><ellipse cx="7" cy="7" rx="3" ry="5.5" fill="#22C55E"/><ellipse cx="7" cy="7" rx="1.5" ry="5.5" fill="#E5E7EB"/><line x1="1.5" y1="7" x2="12.5" y2="7" stroke="white" stroke-width="0.3" opacity="0.4"/></svg> 国际可用       │  │ /var/www/tuv-      │
+       │  <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><polygon points="8,1 15,14 1,14" fill="#EAB308" stroke="#CA8A04" stroke-width="0.5"/><text x="8" y="12" text-anchor="middle" font-size="9" font-weight="bold" fill="white">!</text></svg>️ 国内手机稍慢    │  │   west-deploy/     │
+       <span class="ascii-art">└──────────────────┘</span>         <span class="ascii-art">└────────┬─────────┘</span>
+                                           │
+                                    Cloudflare Tunnel
+                                           │
+                                           <svg class="emoji-svg" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><polygon points="2,3 6,9 10,3" fill="currentColor"/></svg>
+                                  <span class="ascii-art">┌──────────────────┐</span>
+                                  │  junezhu.com.cn   │
+                                  │  <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><circle cx="8" cy="8" r="7" fill="#22C55E"/><path d="M5 8.5l2 2 4-4" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 自有域名·HTTPS  │
+                                  │  <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><circle cx="8" cy="8" r="7" fill="#22C55E"/><path d="M5 8.5l2 2 4-4" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 微信直接打开     │
+                                  <span class="ascii-art">└──────────────────┘</span>
+</div>
+
+<table style="margin-top:16px;">
+<tr><th style="width:100px;">平台</th><th style="width:160px;">URL</th><th>特点</th><th style="width:80px;">更新方式</th></tr>
+<tr><td><strong>GitHub</strong></td><td><code>JuneZhu96/tuv-west-deploy</code></td><td>源码托管，Vercel的数据源</td><td><code>git push</code></td></tr>
+<tr><td><strong>Vercel</strong></td><td><code>tuv-west-deploy.vercel.app</code></td><td>自动部署，国际可用</td><td>推送即部署（10-30s）</td></tr>
+<tr><td><strong>腾讯云</strong></td><td><code>49.233.213.101</code></td><td>国内云服务器，Nginx托管</td><td><code>git pull</code>（需SSH）</td></tr>
+<tr><td><strong>Cloudflare</strong></td><td><code>junezhu.com.cn</code></td><td>Tunnel穿透+HTTPS+自有域名</td><td>自动（Tunnel常驻）</td></tr>
+</table>
+
+<div class="insight">
+<strong><svg class="emoji-svg" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><ellipse cx="10" cy="12" rx="8" ry="7" fill="#FCA5A5"/><circle cx="7" cy="10" r="1.5" fill="#1F2937"/><circle cx="13" cy="10" r="1.5" fill="#1F2937"/><ellipse cx="10" cy="14" rx="2.5" ry="1.5" fill="#F87171"/><circle cx="10" cy="7" r="3" fill="#FCA5A5"/><circle cx="8.5" cy="6.5" r="0.8" fill="#1F2937"/><circle cx="11.5" cy="6.5" r="0.8" fill="#1F2937"/></svg> 八戒点评：</strong>这套架构的核心是<strong>"一次推送，两条交付线，一个自有域名"</strong>。GitHub推完，Vercel自动部署国际线；服务器git pull，Cloudflare Tunnel把腾讯云Nginx包装成junezhu.com.cn。不再依赖Gitee Pages（2026年7月已弃用），所有资产统一在junezhu.com.cn域名下。以前发个PPT要QQ邮箱传附件，现在一个链接甩过去，客户手机浏览器直接打开，档次都不一样了撒！
+</div>
+</div>
+
+<div class="card" id="ch18-why">
+<div class="step-header">
+<div class="step-circle">2</div>
+<div><h3>为什么需要多平台？——中国互联网的现实</h3>
+<div class="meta">不是技术选型，是物理现实</div></div>
+</div>
+
+<table>
+<tr><th style="width:100px;">场景</th><th style="width:120px;">最佳方案</th><th>原因</th></tr>
+<tr><td><svg class="emoji-svg" width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><rect x="1.5" y="0.5" width="7" height="14" rx="1.5" fill="white" stroke="#6B7280" stroke-width="1"/><rect x="3" y="2" width="4" height="8" rx="0.5" fill="#E5E7EB"/></svg> 微信发给客户</td><td><strong>junezhu.com.cn</strong></td><td>自有域名+HTTPS，微信不拦截，专业品牌感</td></tr>
+<tr><td><svg class="emoji-svg" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><circle cx="7" cy="7" r="6" fill="#3B82F6"/><ellipse cx="7" cy="7" rx="3" ry="5.5" fill="#22C55E"/><ellipse cx="7" cy="7" rx="1.5" ry="5.5" fill="#E5E7EB"/><line x1="1.5" y1="7" x2="12.5" y2="7" stroke="white" stroke-width="0.3" opacity="0.4"/></svg> 国际客户访问</td><td><strong>Vercel</strong></td><td><code>*.vercel.app</code>全球CDN，未被屏蔽</td></tr>
+<tr><td><svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M3 13l3-3 2 2-3 3zM13 3L9.5 6.5l2 2L15 5z" fill="#9CA3AF" stroke="#6B7280" stroke-width="0.5"/></svg> 开发调试预览</td><td><strong>localhost.run</strong></td><td>免费SSH隧道，临时URL，30秒搭好</td></tr>
+<tr><td><svg class="emoji-svg" width="16" height="12" viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><rect x="1" y="2" width="14" height="9" rx="1" fill="white" stroke="#6B7280" stroke-width="1"/><path d="M1 3l7 5 7-5" fill="none" stroke="#6B7280" stroke-width="0.8"/></svg> 大文件/离线场景</td><td><strong>QQ邮箱附件</strong></td><td>兜底方案，不限文件类型</td></tr>
+</table>
+
+<div class="highlight">
+<strong>实测数据（2026年7月）：</strong>
+<ul style="margin:8px 0 0 20px;font-size:14px;color:#4A5568;">
+<li>Vercel：中国移动4G加载3MB页面约5-10秒，WiFi约1-2秒</li>
+<li>junezhu.com.cn（腾讯云+Cloudflare）：无论4G还是WiFi，加载均小于2秒</li>
+<li>GitHub Pages：微信内置浏览器完全打不开（404/空白）</li>
+</ul>
+</div>
+</div>
+
+<div class="card" id="ch18-git">
+<div class="step-header">
+<div class="step-circle">3</div>
+<div><h3>Git部署流程——一条命令，自动生效</h3>
+<div class="meta">GitHub推送 → Vercel自动部署；腾讯云服务器git pull → Cloudflare自动生效</div></div>
+</div>
+
+<pre style="font-size:13px;line-height:1.8;color:#4A5568;white-space:pre-wrap;background:#f4f7fb;padding:16px;border-radius:8px;margin:12px 0;"># GitHub：Vercel自动部署的数据源
+git remote add origin https://JuneZhu96:TOKEN@github.com/JuneZhu96/tuv-west-deploy.git
+git push -u origin main
+
+# 腾讯云服务器上（需SSH登录）：
+cd /var/www/tuv-west-deploy && git pull origin main</pre>
+
+<p style="color:#4A5568;font-size:14px;line-height:1.7;">每次更新：<code>git add</code> <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> <code>git commit</code> <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> <code>git push origin main</code> —— Vercel 10-30秒自动部署，腾讯云侧SSH登录后 <code>git pull</code> 拉取最新。Cloudflare Tunnel常驻运行，服务器文件更新后域名自动生效。</p>
+
+<div class="insight">
+<strong><svg class="emoji-svg" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><ellipse cx="10" cy="12" rx="8" ry="7" fill="#FCA5A5"/><circle cx="7" cy="10" r="1.5" fill="#1F2937"/><circle cx="13" cy="10" r="1.5" fill="#1F2937"/><ellipse cx="10" cy="14" rx="2.5" ry="1.5" fill="#F87171"/><circle cx="10" cy="7" r="3" fill="#FCA5A5"/><circle cx="8.5" cy="6.5" r="0.8" fill="#1F2937"/><circle cx="11.5" cy="6.5" r="0.8" fill="#1F2937"/></svg> 八戒点评：</strong>这套架构的精髓不是"选Vercel还是腾讯云"，是<strong>"两个都要，一个域名统管"</strong>。GitHub负责源码+自动部署，腾讯云负责国内稳定访问，Cloudflare Tunnel提供自有域名和HTTPS。为什么放弃Gitee？因为腾讯云+Nginx是自己可控的服务器，配合Cloudflare Tunnel可以绑定自有域名——junezhu.com.cn比gitee.io专业一百倍。
+</div>
+</div>
+
+<div class="card" id="ch18-matrix">
+<div class="step-header">
+<div class="step-circle">4</div>
+<div><h3>部署决策矩阵——不同场景选不同平台</h3>
+<div class="meta">不是所有文件都适合Vercel，不是所有场景都适合腾讯云</div></div>
+</div>
+
+<table>
+<tr><th>场景</th><th>渠道</th><th>持久性</th></tr>
+<tr><td>"刚做的方案，你看下对不对"</td><td><strong>localhost.run</strong></td><td>当前会话</td></tr>
+<tr><td>"这个给客户看的，链接要固定"</td><td><strong>junezhu.com.cn</strong>（首选）</td><td>永久</td></tr>
+<tr><td>"国际客户需要访问"</td><td><strong>Vercel</strong></td><td>永久</td></tr>
+<tr><td>"文件太大了 / 不便公开"</td><td><strong>QQ邮箱</strong>（兜底）</td><td>永久</td></tr>
+</table>
+
+<p style="color:#4A5568;font-size:14px;margin-top:12px;"><strong>腾讯云服务器注意：</strong>不自动部署，每次git push后需SSH登录服务器执行 <code>cd /var/www/tuv-west-deploy && git pull origin main</code>。配置SSH密钥后可实现免密登录。</p>
+</div>
+
+<div class="card" id="ch18-actual">
+<div class="step-header">
+<div class="step-circle">5</div>
+<div><h3>全流程实战——以本课程为例</h3>
+<div class="meta">真实项目：从HTML完成到全球可访问</div></div>
+</div>
+
+<div class="timeline">
+<div class="timeline-item"><h4>Step 1：内容产出</h4><p>Hermes Agent完成<strong>课程HTML</strong>——18章、TÜV品牌格式。放在 <code>/d/tuv-west-deploy/</code> 目录。</p></div>
+<div class="timeline-item"><h4>Step 2：Git提交</h4><p><code>git add && git commit && git push origin main</code></p></div>
+<div class="timeline-item"><h4>Step 3：Vercel自动部署</h4><p>GitHub推送后10-30秒自动生效。URL：<code>tuv-west-deploy.vercel.app/hermes-course.html</code></p></div>
+<div class="timeline-item"><h4>Step 4：腾讯云git pull</h4><p>SSH登录服务器，<code>cd /var/www/tuv-west-deploy && git pull</code></p></div>
+<div class="timeline-item"><h4>Step 5：Cloudflare Tunnel自动生效</h4><p>Tunnel常驻运行，git pull后文件更新自动同步到 <code>junezhu.com.cn/hermes-course.html</code></p></div>
+<div class="timeline-item"><h4>Step 6：微信发送</h4><p>链接发微信——对方直接打开，无需附件，无需等待。域名是junezhu.com.cn，专业品牌感拉满。</p></div>
+</div>
+
+<div class="highlight" style="margin-top:16px;">
+<strong>踩坑记录：</strong><svg class="emoji-svg" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><circle cx="9" cy="9" r="7.5" fill="#0071B9"/><text x="9" y="13.5" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="Arial,sans-serif">1</text></svg> SSH密钥要先配好——腾讯云服务器需配置 <code>authorized_keys</code> 才能免密登录；<svg class="emoji-svg" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><circle cx="9" cy="9" r="7.5" fill="#0071B9"/><text x="9" y="13.5" text-anchor="middle" font-size="10" font-weight="bold" fill="white" font-family="Arial,sans-serif">2</text></svg> Cloudflare Tunnel需在所有部署步骤完成后启动一次即可常驻。</div>
+</div>
+
+<div class="card" id="ch18-optimize">
+<div class="step-header">
+<div class="step-circle">6</div>
+<div><h3>文件优化技巧——让手机加载快10倍</h3>
+<div class="meta">3MB <svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 245KB</div></div>
+</div>
+
+<table>
+<tr><th style="width:20px;">#</th><th>问题</th><th>优化</th><th>效果</th></tr>
+<tr><td>1</td><td>HTML内嵌base64大图</td><td>提取为外部JPG</td><td>3MB<svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>245KB</td></tr>
+<tr><td>2</td><td>品牌格式不规范</td><td>先跑TÜV DESIGN.md品牌标准再部署</td><td>客户看到品牌感</td></tr>
+<tr><td>3</td><td>无版本标记</td><td>文件名加版本号</td><td>可追溯，不搞混</td></tr>
+</table>
+
+<div class="insight">
+<strong><svg class="emoji-svg" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><ellipse cx="10" cy="12" rx="8" ry="7" fill="#FCA5A5"/><circle cx="7" cy="10" r="1.5" fill="#1F2937"/><circle cx="13" cy="10" r="1.5" fill="#1F2937"/><ellipse cx="10" cy="14" rx="2.5" ry="1.5" fill="#F87171"/><circle cx="10" cy="7" r="3" fill="#FCA5A5"/><circle cx="8.5" cy="6.5" r="0.8" fill="#1F2937"/><circle cx="11.5" cy="6.5" r="0.8" fill="#1F2937"/></svg> 八戒点评：</strong>部署不是"把文件扔上去就完了"——从内容产出到品牌化到发布，这是一个完整工作流。以后June你任何一个方案、任何一份报告，都能在<strong>5分钟内走完"产出<svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>品牌化<svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>部署<svg class="emoji-svg" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle"><path d="M2 8h10M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>发链接"</strong>。这不是工具教学，这是<strong>工作方式的升级</strong>——从"做完了存在电脑里"变成"做完了在junezhu.com.cn上全世界都能看到"。安逸！
+</div>
+</div>
