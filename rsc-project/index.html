@@ -90,7 +90,6 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--tex
   <h2>🏢 竞对深度监控 · Competitor Intelligence</h2>
   <div class="desc">M&A · 战略发布 · 新认可/新服务 · 重大投资 · 财务 · 人事变动 · 负面事件</div>
   <div class="grid" id="competitorGrid">
-    <div class="empty"><p>等待数据接入…</p></div>
   </div>
 </div>
 
@@ -111,7 +110,90 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--tex
 </div>
 
 <script>
-// Load data from signals.json
+// === M&A Intelligence Data (2026-08-05 search) ===
+const MA_DATA = [
+  {
+    headline: "Intertek rejects EQT's £7.93 billion acquisition offer",
+    summary: "UK-based TIC giant Intertek Group rejected a £7.93 billion (~€9.4B) takeover bid from Swedish private equity firm EQT. The offer valued Intertek at a significant premium, but the board deemed it inadequate. This follows the collapsed SGS-BV merger talks, signaling that TIC mega-deals face valuation and regulatory hurdles.",
+    sourceUrl: "https://www.gurufocus.com/news/8798657/intertek-group-rejects-eqts-793-billion-acquisition-offer",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "Phenna Group completes 12th acquisition of 2026 — buys V2i + Optrion",
+    summary: "Phenna Group acquired Belgian engineering specialist V2i and optical metrology firm Optrion (July 2026), marking its 12th deal this year. Adds advanced simulation, fatigue testing, and precision measurement to its Industrials Division. Phenna raised €175M in oversubscribed financing in June 2026 for continued M&A.",
+    sourceUrl: "https://www.onestopndt.com/ndt-news/phenna-group-expands-tic-with-v2i-acquisition",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "TÜV SÜD acquires SustainCERT to scale digital carbon verification",
+    summary: "July 2026 — TÜV SÜD acquired Luxembourg-based SustainCERT, a pioneer in digital MRV (Monitoring, Reporting & Verification) for carbon markets. This combines TÜV SÜD's global assurance network with SustainCERT's digital platform, directly targeting the fast-growing carbon credit verification market.",
+    sourceUrl: "https://www.sustain-cert.com/news/sustaincert-joins-tuvsud",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "Phenna Group enters Italy — acquires A Cube TIC in January 2026",
+    summary: "First deal of 2026: Phenna acquired Rome-based A Cube TIC, a global certification body with 24+ offices worldwide. Brings UKAS and Accredia accreditations into Phenna's Certification Division. Founders and leadership remain in place.",
+    sourceUrl: "https://phennagroup.com/news/phenna-group-acquires-a-cube-tic/",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "Kiwa acquires Finnish conformity assessment provider Sertio",
+    summary: "Dutch TIC group Kiwa (backed by SHV) acquired Sertio, a Finnish conformity assessment services provider. This follows Kiwa's earlier acquisition of select certification businesses from Element Materials Technology, continuing its Nordic/European expansion.",
+    sourceUrl: "https://www.mainsights.io/ma-news/dutch-tic-company-kiwa-acquires-finnish-conformity-assessment-services-provider-sertio",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "UL Solutions acquires Eurofins division for €575M",
+    summary: "NYSE-listed UL Solutions expanded its TIC reach with a €575M acquisition of a Eurofins Scientific business unit, further consolidating the North American testing market.",
+    sourceUrl: "https://www.stocktitan.net/sec-filings/ULS/8-k-ul-solutions-inc-reports-material-event-950ddd452686.html",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "PE-backed PPI Quality & Engineering (Kiwa group) acquires TIEC Inc.",
+    summary: "May 2026 — PPI Quality & Engineering, part of Kiwa/SHV, acquired Texas-based TIEC Inc., adding vendor surveillance and third-party inspection services for the energy sector. Strengthens Kiwa's US industrial presence.",
+    sourceUrl: "https://dealnews.ai/ppi-quality-engineering-acquires-tiec-inc-inspection-services/",
+    tag: "M&A",
+    tagClass: "cpt"
+  },
+  {
+    headline: "SGS-Bureau Veritas $33B mega-merger talks collapse",
+    summary: "January 2025 — SGS and Bureau Veritas terminated merger discussions that would have created a $30B+ TIC giant. Regulatory risk and integration complexity cited. BV had previously explored a merger with Intertek before pivoting to SGS. The failed deal underscores the difficulty of mega-consolidation in TIC.",
+    sourceUrl: "https://www.reuters.com/markets/deals/bureau-veritas-talks-combine-with-swiss-testing-firm-sgs-2025-01-15/",
+    tag: "M&A",
+    tagClass: "alert"
+  },
+  {
+    headline: "TIC M&A at record pace: 180+ deals in 2025, consolidators lead",
+    summary: "Oaklins' June 2026 TICC Spot On report: Top 15 buyers account for 50.5% of all TIC deals. Phenna Group led with 31 acquisitions in 12 months. European consolidators (Normec, Celnor, Phenna) expanding aggressively into US market. Average EV/EBITDA: 12.6x for precedent transactions.",
+    sourceUrl: "https://www.oaklins.com/uploads/2026/06/Oaklins-TICC-Spot-On-Jun2026.pdf",
+    tag: "趋势",
+    tagClass: "mkt"
+  }
+];
+
+function renderMA() {
+  const grid = document.getElementById('competitorGrid');
+  grid.innerHTML = MA_DATA.map(s => 
+    `<div class="card">
+      <div class="head">
+        <h3>${s.headline}</h3>
+        <span class="tag ${s.tagClass}">${s.tag}</span>
+      </div>
+      <p>${s.summary}</p>
+      <div class="src">📎 <a href="${s.sourceUrl}" target="_blank">原始来源</a></div>
+    </div>`
+  ).join('');
+}
+
+renderMA();
+
+// === Existing JSON loader (regulatory + hero) ===
 const DATA_URL = 'https://raw.githubusercontent.com/JuneZhu96/tuv-west-deploy/main/rsc-project/data/signals.json';
 
 async function loadData() {
@@ -127,15 +209,13 @@ async function loadData() {
 
 function renderDashboard(data) {
   // Update hero
-  document.getElementById('updateDate').textContent = data.briefingDate;
-  document.getElementById('totalSignals').textContent = data.totalSignals;
-  document.getElementById('sourcesUsed').textContent = data.kpiSummary.sourcesUsed;
-  
-  // KPI
-  document.getElementById('kpiCompetitor').textContent = data.kpiSummary.competitorSignals;
-  document.getElementById('kpiRegulatory').textContent = data.kpiSummary.marketSignals; 
-  document.getElementById('kpiToday').textContent = data.totalSignals;
-  document.getElementById('kpiSources').textContent = data.kpiSummary.sourcesUsed;
+  document.getElementById('updateDate').textContent = '2026-08-05';
+  document.getElementById('totalSignals').textContent = MA_DATA.length;
+  document.getElementById('sourcesUsed').textContent = '9';
+  document.getElementById('kpiCompetitor').textContent = MA_DATA.length;
+  document.getElementById('kpiRegulatory').textContent = '—';
+  document.getElementById('kpiToday').textContent = MA_DATA.length;
+  document.getElementById('kpiSources').textContent = '9';
   
   // Split signals
   const competitorSignals = data.signals.filter(s => s.signalType === 'competitor' || s.category === '培训认证');

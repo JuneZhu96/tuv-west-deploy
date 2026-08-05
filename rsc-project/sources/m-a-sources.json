@@ -1,0 +1,42 @@
+{
+  "category": "竞对深度监控",
+  "subcategory": "M&A_并购活动",
+  "sources": {
+    "primary": [
+      {"name": "Oaklins TICC Spot On", "url": "https://www.oaklins.com/", "type": "季度报告", "searchTerms": ["Oaklins TICC Spot On 2026", "Oaklins TIC M&A report"]},
+      {"name": "Clairfield TICC Report", "url": "https://www.clairfield.com/", "type": "半年报告", "searchTerms": ["Clairfield TICC sector report 2026"]},
+      {"name": "Red Swan Partners", "url": "https://www.redswanpartners.com/", "type": "年度报告", "searchTerms": ["Red Swan Partners TIC M&A outlook 2026", "TIC+ buyer ranking"]},
+      {"name": "Consultancy.eu", "url": "https://www.consultancy.eu/", "type": "行业媒体", "searchTerms": ["TICC M&A consultancy.eu", "TIC merger acquisition consultancy"]}
+    ],
+    "deal_trackers": [
+      {"name": "Phenna Group News", "url": "https://phennagroup.com/news/", "type": "企业新闻稿"},
+      {"name": "SGS News", "url": "https://www.sgs.com/en/news", "type": "企业新闻稿"},
+      {"name": "Bureau Veritas News", "url": "https://group.bureauveritas.com/news", "type": "企业新闻稿"},
+      {"name": "Intertek News", "url": "https://www.intertek.com/news/", "type": "企业新闻稿"},
+      {"name": "DealNews.ai", "url": "https://dealnews.ai/", "type": "交易追踪"},
+      {"name": "Victanis Blog", "url": "https://www.victanis.com/blog", "type": "投行交易公告"}
+    ],
+    "macro_valuation": [
+      {"name": "Aventis Advisors", "url": "https://aventis-advisors.com/", "type": "估值分析"},
+      {"name": "Armstrong", "url": "https://www.armstrong-ts.com/", "type": "投资分析"},
+      {"name": "PwC TICC", "url": "https://www.pwc.com/gx/en/industries/business-services/global-business-services-index/testing-inspection-certification.html", "type": "行业报告"}
+    ],
+    "news_wires": [
+      {"name": "Reuters", "url": "https://www.reuters.com/", "type": "重大新闻"},
+      {"name": "Bloomberg", "url": "https://www.bloomberg.com/", "type": "重大新闻"}
+    ]
+  },
+  "searchQueries": {
+    "english": [
+      "\"TIC acquisition\" OR \"TICC merger\" testing certification 2026",
+      "\"Phenna Group acquires\" OR \"SGS acquisition\" OR \"Bureau Veritas deal\"",
+      "TIC sector consolidation M&A July August 2026",
+      "Eurofins Intertek DEKRA acquisition TIC 2026"
+    ],
+    "chinese": [
+      "检测认证 TIC 收购 并购 2026",
+      "SGS 必维 Intertek 收购"
+    ]
+  },
+  "lockedDate": "2026-08-05"
+}
