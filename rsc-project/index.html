@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BSA RSC Intelligence — TÜV Rheinland</title>
+<style>
+:root{
+  --blue:#0071B9;--blue-light:#BDCEE9;--blue-pale:#EAEEF8;
+  --green:#009537;--red:#D20033;--orange:#EB971B;
+  --bg:#F5F7FA;--white:#FFFFFF;--text:#1A1A2E;--muted:#6B7B8D;
+  --border:#E2E6ED;--surface:#FFFFFF;--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.app{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{position:relative;background:linear-gradient(135deg,#0A1628 0%,rgba(0,113,185,0.85) 100%);color:#fff;padding:48px 40px 32px;margin:24px 0 32px;border-radius:12px;overflow:hidden}
+.hero .wave{position:absolute;bottom:0;left:0;width:100%;height:30px}
+.hero .logo{font-size:.8em;letter-spacing:2px;opacity:.7;margin-bottom:16px;text-transform:uppercase}
+.hero h1{font-size:2em;font-weight:700;margin-bottom:8px}
+.hero .sub{font-size:.95em;opacity:.8;margin-bottom:20px}
+.hero .meta{display:flex;gap:24px;font-size:.82em;opacity:.7}
+.hero .meta span{display:flex;align-items:center;gap:6px}
+
+/* KPI Row */
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.kc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:var(--shadow)}
+.kc .kv{font-size:2em;font-weight:700;color:var(--blue);line-height:1}
+.kc .kl{font-size:.78em;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+
+/* Section */
+.sec{margin-bottom:32px}
+.sec h2{font-size:1.2em;font-weight:700;color:var(--blue);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--blue)}
+.sec .desc{font-size:.85em;color:var(--muted);margin-bottom:16px}
+
+/* Signal cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.card .head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.card .tag{padding:2px 10px;border-radius:12px;font-size:.68em;font-weight:600;white-space:nowrap}
+.card .tag.mkt{background:rgba(0,113,185,.12);color:var(--blue)}
+.card .tag.cpt{background:rgba(0,149,55,.12);color:var(--green)}
+.card .tag.reg{background:rgba(235,151,27,.12);color:var(--orange)}
+.card .tag.alert{background:rgba(210,0,51,.12);color:var(--red)}
+.card h3{font-size:.92em;font-weight:700;line-height:1.35;flex:1;margin-right:8px}
+.card p{font-size:.82em;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .src{font-size:.7em;color:rgba(107,123,141,.5);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.card .src a{color:var(--blue);text-decoration:none}
+.card .src a:hover{text-decoration:underline}
+
+/* Empty state */
+.empty{text-align:center;padding:40px;color:var(--muted)}
+.empty svg{width:48px;height:48px;margin-bottom:12px;opacity:.3}
+
+/* Footer */
+.footer{text-align:center;padding:32px;color:var(--muted);font-size:.75em;border-top:1px solid var(--border);margin-top:40px}
+
+@media(max-width:768px){.kpi{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="logo">TÜV Rheinland · Business Stream Assurance</div>
+  <h1>RSC Management Intelligence</h1>
+  <div class="sub">竞对深度监控 · 监管动态追踪 · 每日情报简报</div>
+  <div class="meta">
+    <span>📅 <span id="updateDate">—</span></span>
+    <span>📊 <span id="totalSignals">0</span> signals</span>
+    <span>🔍 <span id="sourcesUsed">0</span> sources</span>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="#F5F7FA"></path></svg>
+</div>
+
+<!-- KPI -->
+<div class="kpi">
+  <div class="kc"><div class="kv" id="kpiCompetitor">—</div><div class="kl">竞对信号</div></div>
+  <div class="kc"><div class="kv" id="kpiRegulatory">—</div><div class="kl">监管信号</div></div>
+  <div class="kc"><div class="kv" id="kpiToday">—</div><div class="kl">今日新增</div></div>
+  <div class="kc"><div class="kv" id="kpiSources">—</div><div class="kl">数据来源</div></div>
+</div>
+
+<!-- Competitor Intelligence -->
+<div class="sec">
+  <h2>🏢 竞对深度监控 · Competitor Intelligence</h2>
+  <div class="desc">M&A · 战略发布 · 新认可/新服务 · 重大投资 · 财务 · 人事变动 · 负面事件</div>
+  <div class="grid" id="competitorGrid">
+    <div class="empty"><p>等待数据接入…</p></div>
+  </div>
+</div>
+
+<!-- Regulatory Watch -->
+<div class="sec">
+  <h2>⚖️ 监管动态 · Regulatory Watch</h2>
+  <div class="desc">CNCA/CNAS · TIC Council · 行业新规 · 重大处罚</div>
+  <div class="grid" id="regulatoryGrid">
+    <div class="empty"><p>等待数据接入…</p></div>
+  </div>
+</div>
+
+<div class="footer">
+  TÜV Rheinland BS.A · RSC Management Intelligence · Powered by Hermes AI Pipeline<br>
+  Data refreshes daily at 07:45 Beijing Time
+</div>
+
+</div>
+
+<script>
+// Load data from signals.json
+const DATA_URL = 'https://raw.githubusercontent.com/JuneZhu96/tuv-west-deploy/main/rsc-project/data/signals.json';
+
+async function loadData() {
+  try {
+    const resp = await fetch(DATA_URL);
+    const data = await resp.json();
+    renderDashboard(data);
+  } catch(e) {
+    console.log('Data not yet available — showing empty state');
+    document.getElementById('updateDate').textContent = new Date().toISOString().slice(0,10);
+  }
+}
+
+function renderDashboard(data) {
+  // Update hero
+  document.getElementById('updateDate').textContent = data.briefingDate;
+  document.getElementById('totalSignals').textContent = data.totalSignals;
+  document.getElementById('sourcesUsed').textContent = data.kpiSummary.sourcesUsed;
+  
+  // KPI
+  document.getElementById('kpiCompetitor').textContent = data.kpiSummary.competitorSignals;
+  document.getElementById('kpiRegulatory').textContent = data.kpiSummary.marketSignals; 
+  document.getElementById('kpiToday').textContent = data.totalSignals;
+  document.getElementById('kpiSources').textContent = data.kpiSummary.sourcesUsed;
+  
+  // Split signals
+  const competitorSignals = data.signals.filter(s => s.signalType === 'competitor' || s.category === '培训认证');
+  const regulatorySignals = data.signals.filter(s => 
+    s.signalType === 'market' && (s.headline.includes('CNCA') || s.headline.includes('认证') || s.headline.includes('ISO') || s.headline.includes('TIC') || s.headline.includes('监管'))
+  );
+  
+  renderGrid('competitorGrid', competitorSignals.length > 0 ? competitorSignals : data.signals.filter(s => s.signalType === 'competitor'));
+  renderGrid('regulatoryGrid', regulatorySignals.length > 0 ? regulatorySignals : data.signals.filter(s => s.signalType === 'market'));
+}
+
+function renderGrid(id, signals) {
+  const grid = document.getElementById(id);
+  if (!signals.length) {
+    grid.innerHTML = '<div class="empty"><p>暂无数据</p></div>';
+    return;
+  }
+  
+  grid.innerHTML = signals.slice(0, 20).map(s => {
+    const tagClass = s.signalType === 'competitor' ? 'cpt' : 'mkt';
+    const tagLabel = s.signalType === 'competitor' ? '竞对' : (s.category || '行业');
+    const sourceHtml = s.sourceUrl ? `<a href="${s.sourceUrl}" target="_blank">${s.sourceName || '原始来源'}</a>` : '';
+    
+    return `<div class="card">
+      <div class="head">
+        <h3>${s.headline}</h3>
+        <span class="tag ${tagClass}">${tagLabel}</span>
+      </div>
+      <p>${s.summary || s.westAnalysis?.slice(0,200) || ''}</p>
+      ${s.sourceUrl ? `<div class="src">📎 ${sourceHtml || s.sourceUrl}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+loadData();
+</script>
+</body>
+</html>
