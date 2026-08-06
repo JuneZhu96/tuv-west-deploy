@@ -65,6 +65,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--tex
   <a href="#ma" class="active">M&A Activity</a>
   <a href="#strategy">Strategy Watch</a>
   <a href="#accred">Accreditations</a>
+  <a href="#risk">Risk Watch</a>
   <a href="#regulatory">Regulatory</a>
 </div>
 <div class="main">
@@ -72,6 +73,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--tex
   <div class="kc"><div class="kv">35</div><div class="kl">M&A</div></div>
   <div class="kc"><div class="kv">19</div><div class="kl">Strategy</div></div>
   <div class="kc"><div class="kv">23</div><div class="kl">Accreditation</div></div>
+  <div class="kc"><div class="kv">4</div><div class="kl">Risk</div></div>
   <div class="kc"><div class="kv">20+</div><div class="kl">Sources</div></div>
 </div>
 <div class="sec" id="ma">
@@ -89,6 +91,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--tex
   <div class="desc">New certifications · Lab openings · Accreditation expansions · Service launches</div>
   <div class="grid" id="accredGrid"></div>
 </div>
+
+<div class="sec" id="risk">
+  <h2><svg class="sico" viewBox="0 0 24 24" fill="none" stroke="#D20033" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Risk & Incidents</h2>
+  <div class="desc">Regulatory sanctions · Investigations · Scandals · Major compliance failures</div>
+  <div class="grid" id="riskGrid"></div>
+</div>
+
+<!-- Regulatory -->
 <div class="sec" id="regulatory">
   <h2>Regulatory Watch</h2>
   <div class="desc">CNCA/CNAS · TIC Council · New regulations · Major sanctions</div>
@@ -141,6 +151,15 @@ function renderAll(){
   }).join('');
 }
 renderAll();
+
+<script type="application/json" id="riskData">
+[{"headline":"Intertek深圳天祥被八部门通报——2025年度检验检测机构监督抽查涉嫌违法违规","summary":"Apr 17,2026 — 市场监管总局联合公安部、自然资源部等八部门通报2025年度检验检测机构监督抽查结果。深圳天祥质量技术服务有限公司(Intertek)等28家机构存在涉嫌违法违规问题，已移交属地市场监管部门依法调查处置。覆盖生态环境监测、机动车检验、食品检验等13个重点领域。","sourceUrl":"https://finance.sina.com.cn/jjxw/2026-04-17/doc-inhuvkwu2139690.shtml","tag":"Sanction","tagClass":"alert"},{"headline":"CNAS 2024年度专项监督：撤销12家、暂停35家认可资格","summary":"CNAS通报2024年度专项监督结果：对60家高风险实验室开展专项督查，200家随机抽查，17家认证机构专项督查。共撤销12家、暂停35家、告诫56家、缩小范围40家。采用飞行检查方式。","sourceUrl":"https://sh.ccic.com/xwdt/yndt/art/2025/art_ff58e4294d504baeafbec3038f554f26.html","tag":"Regulatory","tagClass":"alert"},{"headline":"市场监管总局发布检验检测机构资质认定管理办法修订草案——强化处罚力度","summary":"May 29,2026 — 市场监管总局发布《检验检测机构资质认定管理办法(修订草案)》征求意见稿，大幅强化处罚：擅自出具报告罚款5-20万，超范围出具报告5-10万，转让出租出借资质5-10万。对TIC行业合规提出更高要求。","sourceUrl":"https://www.lab-plaza.com/h-nd-4247.html","tag":"Regulatory","tagClass":"alert"},{"headline":"抖音、美团等7家电商平台涉"幽灵外卖"被处罚35.97亿元","summary":"Apr 2026 — 市场监管总局对7家电商平台涉食品安全系列案合计处罚没款35.97亿元。虽非直接TIC案件，但反映出平台经济领域监管趋严，相关检验检测合规需求增加。","sourceUrl":"https://finance.sina.com.cn/","tag":"Market","tagClass":"alert"}]
+</script>
+
+<script>
+// Render risk data
+var r=JSON.parse(document.getElementById("riskData").textContent);
+document.getElementById("riskGrid").innerHTML=r.map(function(s){var h=s.sourceUrl.replace(/^https?:\/\//,"").split("/")[0];return "<div class=card><div class=head><h3>"+s.headline+"</h3><span class="tag "+s.tagClass+"">"+s.tag+"</span></div><p>"+s.summary+"</p><div class=src><a href=""+s.sourceUrl+"" target=_blank>"+h+"</a></div></div>"}).join("");
 </script>
 </body>
 </html>
