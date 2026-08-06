@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BSA RSC Intelligence — TÜV Rheinland</title>
+<style>
+:root{--blue:#0071B9;--blue10:#EAEEF8;--blue30:#BDCEE9;--green:#009537;--red:#D20033;--orange:#EB971B;--muted:#C3C5C7;--bg:#F5F7FA;--card:#fff;--text:#000;--border:#ECECEC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+.hero{background:linear-gradient(135deg,#0A1628,rgba(0,113,185,0.85));color:#fff;padding:40px 32px 0;position:relative;overflow:hidden}
+.hero h1{font:700 28px Arial,sans-serif;letter-spacing:-0.5px}
+.hero .sub{font-size:14px;opacity:.7;margin:8px 0 20px}
+.hero .meta{display:flex;gap:24px;font-size:12px;opacity:.8;padding-bottom:40px;flex-wrap:wrap}
+.hero .wave{position:absolute;bottom:0;left:0;width:100%;height:30px}
+.kpi{max-width:1200px;margin:-16px auto 0;display:flex;gap:12px;padding:0 24px;flex-wrap:wrap}
+.kc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px 20px;flex:1;min-width:140px;text-align:center}
+.kv{font:700 28px Arial,sans-serif;color:var(--blue)}
+.kl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
+.sec{max-width:1200px;margin:24px auto;padding:0 24px}
+.sec h2{font:700 18px Arial,sans-serif;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.desc{font-size:12px;color:var(--muted);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;display:flex;flex-direction:column}
+.card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.card h3{font:700 14px Arial,sans-serif;flex:1}
+.tag{font:400 10px Arial,sans-serif;padding:2px 8px;border-radius:3px;white-space:nowrap;text-transform:uppercase;letter-spacing:0.3px}
+.tag.cpt{background:var(--blue10);color:var(--blue)}
+.tag.alert{background:#FAE1BE;color:var(--orange)}
+.tag.mkt{background:#C4E0C1;color:var(--green)}
+.card p{font-size:13px;color:#333;flex:1}
+.src{font-size:11px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:4px;border-top:1px solid var(--border);padding-top:8px}
+.src a{color:var(--blue);text-decoration:none}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)}
+.footer{text-align:center;color:var(--muted);font-size:11px;padding:32px 24px 40px;border-top:1px solid var(--border);margin-top:24px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.hero{padding:20px 14px 0}.hero h1{font-size:20px}.hero .meta{font-size:11px;gap:12px}.sec{padding:0 12px}.kpi{padding:0 12px;gap:6px}.kc{padding:10px 12px}.kv{font-size:22px}.card h3{font-size:13px}.card p{font-size:12px}.card{padding:12px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>BSA RSC Management Intelligence</h1>
+  <div class="sub">Competitor Intelligence · Strategy Watch · Regulatory Monitor</div>
+  <div class="meta">
+    <span>2026-08-06</span>
+    <span>54 signals</span>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="#F5F7FA"></path></svg>
+</div>
+
+<div class="kpi">
+  <div class="kc"><div class="kv">35</div><div class="kl">M&A</div></div>
+  <div class="kc"><div class="kv">19</div><div class="kl">Strategy</div></div>
+</div>
+
+<div class="sec">
+  <h2>M&A Activity Monitor</h2>
+  <div class="desc">Test version</div>
+  <div class="grid" id="maGrid"></div>
+</div>
+
+<div class="sec">
+  <h2>Strategy Release & Update</h2>
+  <div class="desc">Test version</div>
+  <div class="grid" id="strategyGrid"></div>
+</div>
+
+<script>
+var MA = [
+  {headline:"Test MA Card 1",summary:"This is a test M&A signal.",sourceUrl:"https://example.com",tag:"M&A",tagClass:"cpt"},
+  {headline:"Test MA Card 2",summary:"Another test signal.",sourceUrl:"https://example.com",tag:"M&A",tagClass:"cpt"}
+];
+var ST = [
+  {headline:"Test Strategy Card 1",summary:"Strategy test signal.",sourceUrl:"https://example.com",tag:"Strategy",tagClass:"mkt"},
+  {headline:"Test Strategy Card 2",summary:"Another strategy test.",sourceUrl:"https://example.com",tag:"Strategy",tagClass:"mkt"}
+];
+
+(function(){
+  var g = document.getElementById("maGrid");
+  if(g) g.innerHTML = MA.map(function(s){
+    return "<div class='card'><div class='head'><h3>"+s.headline+"</h3><span class='tag "+s.tagClass+"'>"+s.tag+"</span></div><p>"+s.summary+"</p><div class='src'><a href='"+s.sourceUrl+"' target='_blank'>"+s.sourceUrl+"</a></div></div>";
+  }).join("");
+})();
+
+(function(){
+  var g = document.getElementById("strategyGrid");
+  if(g) g.innerHTML = ST.map(function(s){
+    return "<div class='card'><div class='head'><h3>"+s.headline+"</h3><span class='tag "+s.tagClass+"'>"+s.tag+"</span></div><p>"+s.summary+"</p><div class='src'><a href='"+s.sourceUrl+"' target='_blank'>"+s.sourceUrl+"</a></div></div>";
+  }).join("");
+})();
+</script>
+</body>
+</html>

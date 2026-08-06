@@ -1,0 +1,65 @@
+{
+  "module": "Accreditation_新认可新服务",
+  "version": "FINAL_LOCKED",
+  "lockedDate": "2026-08-06",
+  "totalSignals": 23,
+  "sources": {
+    "L1A_global_websites": {
+      "description": "25家TIC机构全球官网Newsroom",
+      "covered": ["SGS","BV","Intertek","Eurofins","UL Solutions","ALS","Applus","TÜV SÜD","DEKRA","DNV","BSI","TÜV NORD","TÜV Rheinland","LRQA","Element","Phenna","Normec","Celnor","CERTANIA","Sansidor","SOCOTEC","Kiwa"]
+    },
+    "L1A_CN_websites": {
+      "description": "17家TIC机构中国官网",
+      "covered": [
+        {"name":"SGS中国","url":"https://www.sgsgroup.com.cn/"},
+        {"name":"BV中国","url":"https://www.bureauveritas.cn/"},
+        {"name":"Intertek中国","url":"https://www.intertek.com.cn/","active":true},
+        {"name":"TÜV SÜD中国","url":"https://www.tuvsud.cn/"},
+        {"name":"DEKRA中国","url":"https://www.dekra.com.cn/"},
+        {"name":"DNV中国","url":"https://www.dnv.cn/"},
+        {"name":"BSI中国","url":"https://www.bsigroup.com/zh-CN/"},
+        {"name":"TÜV NORD中国","url":"https://www.tuv-nord.com/cn/"},
+        {"name":"TÜV Rheinland中国","url":"https://www.tuv.com/china/"},
+        {"name":"LRQA中国","url":"https://www.lrqa.com/zh-cn/"},
+        {"name":"Kiwa中国","url":"https://www.kiwa.com/zh/cn","active":true},
+        {"name":"Eurofins中国","url":"https://www.eurofins.cn/"},
+        {"name":"UL Solutions中国","url":"https://china.ul.com/"},
+        {"name":"SOCOTEC中国","url":"https://www.socotec.cn/"},
+        {"name":"Applus中国","url":"https://www.applus.com/cn/"},
+        {"name":"ALS中国","url":"https://www.alsglobal.com/zh-cn"},
+        {"name":"Element中国","url":"https://www.element.com/zh-cn"}
+      ]
+    },
+    "L1B_accreditationBodies": [
+      {"name":"UKAS","url":"https://www.ukas.com"},
+      {"name":"DAkkS","url":"https://www.dakks.de/en/"},
+      {"name":"ANAB","url":"https://anab.ansi.org"},
+      {"name":"CNAS","url":"https://www.cnas.org.cn/"},
+      {"name":"CNCA","url":"https://www.cnca.gov.cn/"},
+      {"name":"RvA","url":"https://www.rva.nl/en/"}
+    ],
+    "L1D_industrySchemes": [
+      {"name":"CertifHy","url":"https://www.certifhy.eu/","category":"氢能"},
+      {"name":"IECEE CB Scheme","url":"https://www.iecee.org/","category":"电气"},
+      {"name":"IATF","url":"https://www.iatfglobaloversight.org","category":"汽车"},
+      {"name":"TISAX/ENX","url":"https://enx.com/TISAX","category":"汽车信息安全"},
+      {"name":"IDFB","url":"https://www.idfb.net/","category":"羽绒羽毛"}
+    ],
+    "L1E_newStandards": [
+      {"name":"ISO/IEC 42001","note":"AI管理体系","year":2026},
+      {"name":"ISO/IEC 17020:2026","note":"检验机构认可","year":2026},
+      {"name":"VDA ISA2027","note":"TISAX新标准","year":2026}
+    ]
+  },
+  "searchStrategy": {
+    "global": "web_search: 'company name + accreditation + certification + 2026'",
+    "CN": "web_search: 'site:company.cn + 认可 + 资质 + 2026'",
+    "scheme": "web_search: 'scheme name + new certification body + 2026'"
+  },
+  "signalsCategories": {
+    "lab": 5,
+    "accreditation": 13,
+    "service": 4,
+    "standard": 1
+  }
+}

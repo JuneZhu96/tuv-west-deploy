@@ -1,0 +1,54 @@
+{
+  "module": "Strategy_战略发布与更新",
+  "lockedDate": "2026-08-06",
+  "coveragePeriod": "2026-01-01 onwards",
+  "monitoringTargets": {
+    "listedTIC": [
+      {"name": "SGS", "strategyPage": "https://www.sgs.com/en/our-company/about-sgs/strategy-27", "newsroom": "https://www.sgs.com/en/news", "type": "Listed-SIX"},
+      {"name": "Bureau Veritas", "strategyPage": "https://group.bureauveritas.com/about-us/vision-mission-strategy", "newsroom": "https://group.bureauveritas.com/newsroom", "type": "Listed-Euronext"},
+      {"name": "Intertek", "strategyPage": "https://www.intertek.com/investors/", "newsroom": "https://www.intertek.com/news/", "type": "Listed-LSE"},
+      {"name": "Eurofins", "strategyPage": "https://www.eurofins.com/about-us/our-business/eurofins-strategy-and-objectives/", "newsroom": "https://www.eurofins.com/media-centre/press-releases/", "type": "Listed-Euronext"},
+      {"name": "UL Solutions", "strategyPage": "https://ir.ul.com/", "newsroom": "https://www.ul.com/news", "type": "Listed-NYSE"},
+      {"name": "ALS Limited", "strategyPage": "https://www.alsglobal.com/en/investor-relations", "newsroom": "https://www.alsglobal.com/en/News-and-publications", "type": "Listed-ASX"},
+      {"name": "Applus", "strategyPage": "https://www.applus.com/en/investor-relations", "newsroom": "N/A-delisted-2024", "type": "Private-Amber"}
+    ],
+    "foundationPrivate": [
+      {"name": "TÜV SÜD", "strategyPage": "https://www.tuvsud.com/en/newsroom/press-releases", "type": "Foundation"},
+      {"name": "DEKRA", "strategyPage": "https://www.dekra.com/en/media-relations/", "type": "Foundation"},
+      {"name": "DNV", "strategyPage": "https://www.dnv.com/news/", "type": "Foundation"},
+      {"name": "BSI", "strategyPage": "https://www.bsigroup.com/en-GB/about-bsi/", "type": "Royal Charter"},
+      {"name": "TÜV NORD", "strategyPage": "https://www.tuev-nord-group.com/en/company/annual-reports/", "type": "Foundation"},
+      {"name": "TÜV Rheinland", "strategyPage": "https://www.tuv.com/world/en/about-us/corporate-report", "type": "Foundation"},
+      {"name": "LRQA", "strategyPage": "https://www.lrqa.com/en/latest-news/", "type": "PE-GoldmanSachs"}
+    ],
+    "peBackedConsolidators": [
+      {"name": "Element Materials", "strategyPage": "https://www.element.com/about-element/news", "type": "PE-Bridgepoint"},
+      {"name": "Phenna Group", "strategyPage": "https://phennagroup.com/news/", "type": "PE-OakleyCapital"},
+      {"name": "Normec Group", "strategyPage": "https://normecgroup.com/news/", "type": "PE-Astorg"},
+      {"name": "Celnor Group", "strategyPage": "https://celnor.com/news", "type": "PE-Inflexion"},
+      {"name": "CERTANIA", "strategyPage": "https://certania.com/news", "type": "PE-Greenpeak/Summit"},
+      {"name": "Sansidor", "strategyPage": "https://sansidor.com/acquisitions/?lang=en", "type": "PE-IKPartners"},
+      {"name": "SOCOTEC", "strategyPage": "https://www.socotec.com/media/news", "type": "PE-CD&R"},
+      {"name": "Kiwa", "strategyPage": "https://www.kiwa.com/en/news/", "type": "SHV-Subsidiary"}
+    ]
+  },
+  "industryBodies": {
+    "L2_industry": [
+      {"name": "TIC Council", "url": "https://www.tic-council.org/", "note": "Annual Report, Strategy Papers, Summit"},
+      {"name": "ISO", "url": "https://www.iso.org/strategy-2030.html", "note": "Strategy 2030"},
+      {"name": "Global ACI (ILAC+IAF merged)", "url": "https://global-accreditation.org/", "note": "ILAC/IAF merged into Global Accreditation Cooperation Inc., 2026"},
+      {"name": "European Accreditation (EA)", "url": "https://european-accreditation.org/", "note": "EU-level TIC strategy"}
+    ]
+  },
+  "secondarySources": {
+    "L3_analysis": [
+      {"name": "SeventhBiz", "url": "https://seventhbiz.com/", "note": "TIC earnings call strategy analysis"},
+      {"name": "Oaklins TICC Spot On", "url": "https://www.oaklins.com/", "note": "Quarterly sector report"},
+      {"name": "BusinessWire", "url": "https://www.businesswire.com/", "note": "Press release distribution"},
+      {"name": "GlobeNewswire", "url": "https://www.globenewswire.com/", "note": "Press release distribution"},
+      {"name": "PRNewswire", "url": "https://www.prnewswire.com/", "note": "Press release distribution"},
+      {"name": "StockAnalysis", "url": "https://stockanalysis.com/", "note": "Earnings call transcripts"},
+      {"name": "ION Analytics/Mergermarket", "url": "https://ionanalytics.com/", "note": "M&A + growth strategy profiles"}
+    ]
+  }
+}

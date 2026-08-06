@@ -1,0 +1,102 @@
+{
+  "L1_CN_websites": [
+    {
+      "name": "SGS中国",
+      "url": "https://www.sgsgroup.com.cn/"
+    },
+    {
+      "name": "BV中国",
+      "url": "https://www.bureauveritas.cn/"
+    },
+    {
+      "name": "Intertek中国",
+      "url": "https://www.intertek.com.cn/"
+    },
+    {
+      "name": "Eurofins中国",
+      "url": "https://www.eurofins.cn/"
+    },
+    {
+      "name": "UL Solutions中国",
+      "url": "https://china.ul.com/"
+    },
+    {
+      "name": "TÜV SÜD中国",
+      "url": "https://www.tuvsud.cn/"
+    },
+    {
+      "name": "DEKRA中国",
+      "url": "https://www.dekra.com.cn/"
+    },
+    {
+      "name": "DNV中国",
+      "url": "https://www.dnv.cn/"
+    },
+    {
+      "name": "BSI中国",
+      "url": "https://www.bsigroup.com/zh-CN/"
+    },
+    {
+      "name": "TÜV NORD中国",
+      "url": "https://www.tuv-nord.com/cn/"
+    },
+    {
+      "name": "TÜV Rheinland中国",
+      "url": "https://www.tuv.com/china/"
+    },
+    {
+      "name": "LRQA中国",
+      "url": "https://www.lrqa.com/zh-cn/"
+    },
+    {
+      "name": "Kiwa中国",
+      "url": "https://www.kiwa.com/cn/"
+    },
+    {
+      "name": "SOCOTEC中国",
+      "url": "https://www.socotec.cn/"
+    },
+    {
+      "name": "Applus中国",
+      "url": "https://www.applus.com/cn/"
+    },
+    {
+      "name": "ALS中国",
+      "url": "https://www.alsglobal.com/zh-cn"
+    },
+    {
+      "name": "Element中国",
+      "url": "https://www.element.com/zh-cn"
+    },
+    {
+      "name": "Celnor",
+      "url": "N/A-UK仅"
+    },
+    {
+      "name": "Phenna Group",
+      "url": "N/A-无中国官网"
+    },
+    {
+      "name": "Normec",
+      "url": "N/A-无中国官网"
+    },
+    {
+      "name": "CERTANIA",
+      "url": "N/A-无中国官网"
+    },
+    {
+      "name": "Sansidor",
+      "url": "N/A-无中国官网"
+    }
+  ],
+  "L1_CN_accreditation_bodies": [
+    {
+      "name": "CNAS",
+      "url": "https://www.cnas.org.cn/"
+    },
+    {
+      "name": "CNCA",
+      "url": "https://www.cnca.gov.cn/"
+    }
+  ]
+}

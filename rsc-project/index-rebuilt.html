@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BSA RSC Intelligence — TÜV Rheinland</title>
+<style>
+:root{--blue:#0071B9;--blue10:#EAEEF8;--blue30:#BDCEE9;--green:#009537;--red:#D20033;--orange:#EB971B;--muted:#C3C5C7;--bg:#F5F7FA;--card:#fff;--text:#000;--border:#ECECEC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+.hero{background:linear-gradient(135deg,#0A1628,rgba(0,113,185,0.85));color:#fff;padding:40px 32px 0;position:relative;overflow:hidden}
+.hero h1{font:700 28px Arial,sans-serif;letter-spacing:-0.5px}
+.hero .sub{font-size:14px;opacity:.7;margin:8px 0 20px}
+.hero .meta{display:flex;gap:24px;font-size:12px;opacity:.8;padding-bottom:40px;flex-wrap:wrap}
+.hero .wave{position:absolute;bottom:0;left:0;width:100%;height:30px}
+.kpi{max-width:1200px;margin:-16px auto 0;display:flex;gap:12px;padding:0 24px;flex-wrap:wrap}
+.kc{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px 20px;flex:1;min-width:140px;text-align:center}
+.kv{font:700 28px Arial,sans-serif;color:var(--blue)}
+.kl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
+.sec{max-width:1200px;margin:24px auto;padding:0 24px}
+.sec h2{font:700 18px Arial,sans-serif;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.desc{font-size:12px;color:var(--muted);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;display:flex;flex-direction:column}
+.card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.card h3{font:700 14px Arial,sans-serif;flex:1}
+.tag{font:400 10px Arial,sans-serif;padding:2px 8px;border-radius:3px;white-space:nowrap;text-transform:uppercase;letter-spacing:0.3px}
+.tag.cpt{background:var(--blue10);color:var(--blue)}
+.tag.alert{background:#FAE1BE;color:var(--orange)}
+.tag.mkt{background:#C4E0C1;color:var(--green)}
+.card p{font-size:13px;color:#333;flex:1}
+.src{font-size:11px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:4px;border-top:1px solid var(--border);padding-top:8px}
+.src a{color:var(--blue);text-decoration:none}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)}
+.footer{text-align:center;color:var(--muted);font-size:11px;padding:32px 24px 40px;border-top:1px solid var(--border);margin-top:24px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.hero{padding:20px 14px 0}.hero h1{font-size:20px}.hero .meta{font-size:11px;gap:12px}.sec{padding:0 12px}.kpi{padding:0 12px;gap:6px}.kc{padding:10px 12px}.kv{font-size:22px}.card h3{font-size:13px}.card p{font-size:12px}.card{padding:12px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>BSA RSC Management Intelligence</h1>
+  <div class="sub">Competitor Intelligence · Strategy Watch · Regulatory Monitor</div>
+  <div class="meta">
+    <span>2026-08-06</span>
+    <span>54 signals</span>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,15 Q300,0 600,15 T1200,15 L1200,30 L0,30 Z" fill="#F5F7FA"></path></svg>
+</div>
+
+<div class="kpi">
+  <div class="kc"><div class="kv">35</div><div class="kl">M&A</div></div>
+  <div class="kc"><div class="kv">19</div><div class="kl">Strategy</div></div>
+</div>
+
+<div class="sec">
+  <h2>M&A Activity Monitor</h2>
+  <div class="desc">Test version</div>
+  <div class="grid" id="maGrid"></div>
+</div>
+
+<div class="sec">
+  <h2>Strategy Release & Update</h2>
+  <div class="desc">Test version</div>
+  <div class="grid" id="strategyGrid"></div>
+</div>
+
+<script>
+var M={headline:"",summary:"",sourceUrl:"",tag:"M&A",tagClass:"cpt"};
+var MA=[
+M,{headline:"BV acquires Lotusworks €375M — data centers & semiconductors",summary:"April 2026 — BV acquired Lotusworks (750 staff,€131M rev),global leader in mission-critical commissioning for data centers/semiconductor fabs. Creates ~€300M growth platform,15x EV/EBITA. LEAP | 28 landmark deal.",sourceUrl:"https://group.bureauveritas.com/newsroom/bureau-veritas-acquires-lotusworks-reinforcing-its-position-in-data-centers"},
+{headline:"SGS acquires 4 NA labs H1 2026 — Keystone,CMIC,Agroknow,K Prime",summary:"SGS expanded NA Life Sciences: Keystone Bioanalytical(May,Philly),CMIC Inc.(Jun,Chicago)—both GLP bioanalytical. Agroknow(Jul,food risk AI platform),K Prime(Jul,PFAS/consumer testing,CA). Strategy 27 targeting 2x NA sales.",sourceUrl:"https://www.sgs.com/en-us/news"},
+{headline:"BV acquires SPIN360 — sustainability for Italian luxury & fashion",summary:"Jan 2026 — BV acquired Milan-based SPIN360,sustainability consultancy for premium fashion/luxury brands. Adds proprietary LCA tools,ESG reporting. 30 staff,~€4M rev. LEAP | 28 CPS new stronghold.",sourceUrl:"https://group.bureauveritas.com/newsroom/bureau-veritas-acquire-leading-sustainability-specialist-consumer-products-italy"},
+{headline:"Intertek acquires AePVI — drone solar PV inspection (Germany)",summary:"Feb 2026 — Intertek acquired Aerial PV Inspection GmbH(Aachen),provider of TEK-powered drone inspection for large solar PV systems. Strengthens Intertek CEA factory-to-field solar assurance.",sourceUrl:"https://www.intertek.com/news/2026/intertek-strengthens-global-solar-assurance-leadership-with-acquisition-of-tek-based-inspection-provider-aepvi/"},
+{headline:"Intertek acquires Mitsui Chemicals solar lab assets (India)",summary:"Apr 2026 — Intertek purchased Mitsui Chemicals solar PV module testing lab assets in Gujarat,India,strengthening its global solar QA footprint in fast-growing Indian market.",sourceUrl:"https://www.pv-magazine-india.com/2026/04/17/intertek-acquires-mitsui-chemicals-solar-lab-assets-in-india/"},
+{headline:"Intertek ETL expands into Colombia — acquires QTEST",summary:"Feb 2026 — Intertek ETL acquired QTEST(Medellín),market leader in electrical testing/certification (33 staff,£2M rev). Expands ATIC offering across Colombia and Latin America.",sourceUrl:"https://www.intertek.com/news/2026/intertek-etl-to-expand-presence-in-colombia-with-acquisition-of-qtest/",tagClass:"cpt"},
+{headline:"Intertek rejects EQT £7.93B acquisition offer",summary:"UK-based TIC giant Intertek rejected £7.93B(~€9.4B) takeover bid from Swedish PE firm EQT. Board deemed offer inadequate,mirroring collapsed SGS-BV merger pattern.",sourceUrl:"https://www.gurufocus.com/news/8798657/intertek-group-rejects-eqts-793-billion-acquisition-offer",tagClass:"alert"},
+{headline:"Eurofins acquires Element Life Sciences NA for $400M",summary:"Eurofins agreed to acquire Element Life Sciences Testing in NA: 27 labs,750 staff,$150M+ rev. Expected to close Q4 2026.",sourceUrl:"https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/"},
+{headline:"UL Solutions acquires Eurofins E&E for €575M",summary:"NYSE-listed UL Solutions expands TIC portfolio with €575M acquisition of Eurofins Electrical & Electronics,consolidating NA TIC market.",sourceUrl:"https://www.nasdaq.com/press-release/ul-solutions-inc-broadens-portfolio-agreement-acquire-eurofins-scientifics-electrical"},
+{headline:"Phenna Group #12 V2i+Optrion (Belgium)",summary:"Phenna acquired Belgian engineering specialist V2i and optical metrology firm Optrion(Jul 2026),12th deal of 2026. Raised €175M in Jun 2026 for continued M&A.",sourceUrl:"https://www.onestopndt.com/ndt-news/phenna-group-expands-tic-with-v2i-acquisition"},
+{headline:"TÜV SÜD acquires SustainCERT — digital carbon verification",summary:"Jul 2026 — TÜV SÜD acquired Luxembourg-based SustainCERT,pioneer in digital MRV for carbon markets. Combines global assurance network with digital platform.",sourceUrl:"https://www.sustain-cert.com/news/sustaincert-joins-tuvsud"},
+{headline:"SOCOTEC UK acquires LSTC Group — 16th deal since 2017",summary:"SOCOTEC UK&Ireland(£240M rev,2,300 staff) acquired LSTC,engineering and asset inspection specialist for UK regulated energy transmission.",sourceUrl:"https://www.socotec.com/media/news/socotec-uk-acquisition-lstc"},
+{headline:"Celnor Group acquires Meridian Consult — UK building safety",summary:"Celnor expanded Risk Management division with Meridian Consult,adding building control,fire safety and technical compliance across UK residential/commercial/education sectors.",sourceUrl:"https://www.buildnews.co.uk/celnor-expands-building-safety-services-with-meridian-consult-acquisition/"},
+{headline:"Celnor Group acquires Calbarrie Compliance Services",summary:"UK-based TICC platform Celnor further expanded safety & compliance division with acquisition of Calbarrie,strengthening regulatory compliance capabilities.",sourceUrl:"https://thedealwire.com/celnor-group-acquires-calbarrie-compliance-services/"},
+{headline:"Phenna #14 Asprel Ingeniería — Spanish electrical TICC",summary:"Phenna acquired Asprel(Spain),one of Spain's leading electrical testing,inspection and verification specialists. 14th deal of 2026(Jul 31).",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-asprel-ingenieria/"},
+{headline:"Phenna #13 Begalvi — Spanish compliance SaaS",summary:"Phenna acquired Valencia-based Begalvi,compliance SaaS serving 1,000+ property admins,70,000+ homeowners in Spain. 13th deal of 2026.",sourceUrl:"https://capital-riesgo.es/en/articles/phenna-group-an-oakley-capital-portfolio-company-expands-certification-compliance-presence-in-spain-with-the-acquisition-of-begalvi/"},
+{headline:"Phenna #11 RMEC Environmental — Utah,USA",summary:"Phenna acquired RMEC(Bountiful,Utah),environmental H&S firm serving OSHA/EPA/MSHA clients. 11th deal of 2026,expands Americas Infrastructure & Industrials.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-rmec-environmental/"},
+{headline:"Phenna #10 AUCATEL-EIC — Spanish urban & environmental",summary:"Phenna acquired AUCATEL-EIC(Barcelona/Madrid),leader in urban verification,environmental inspection and industrial safety. 10th deal of 2026.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-majority-stake-in-aucatel-eic-group/"},
+{headline:"Phenna #9 MLA Geotechnical — Austin,Texas",summary:"Phenna acquired Austin,TX-based MLA Geotechnical,premier geotechnical inspection firm(founded 1964). 9th deal of 2026.",sourceUrl:"https://phennagroup.com/news/phenna-acquires-mla-geotechnical/"},
+{headline:"Phenna #8 Ventilate — UK kitchen ventilation",summary:"Phenna acquired Ventilate,UK specialist in kitchen ventilation compliance and FOG management,bolt-on to ECAS. 8th deal of 2026.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-ventilate/"},
+{headline:"Phenna #7 ENX — Irish residential MEP",summary:"Phenna acquired Dublin-based ENX,MEP consultancy serving Ireland's residential housing. 7th deal of 2026.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-enx/"},
+{headline:"Phenna #6 Grupo Ingertec — Spanish TIC & cybersecurity",summary:"Phenna acquired Córdoba-based Grupo Ingertec,TIC/advisory specializing in ISO certification,cybersecurity,GDPR,sustainability across Spain&LatAm.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-grupo-ingertec/"},
+{headline:"Phenna #5 QTI Services — enters Netherlands food testing",summary:"Phenna acquired Rotterdam-based QTI,food/feed safety testing lab(ISO 17025). 5th deal of 2026,first platform in Continental Europe for Food & Life Sciences.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-qti/"},
+{headline:"Phenna #4 Sigma Tre — Italian materials testing",summary:"Phenna acquired majority stake in Sigma Tre Lab(near Milan),ISO 17025 metallic materials testing(founded 1982). 4th deal of 2026(Feb 4).",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-sigma-tre/"},
+{headline:"Phenna #3 MDS — OHS Spain & Portugal",summary:"Phenna acquired MDS,leading OHS consultancy across Spain/Portugal with 60+ accredited professionals. 3rd deal of 2026.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-mds/"},
+{headline:"Phenna #2 GTP — Iberian OHS inspection",summary:"Phenna acquired GTP,specialist OHS inspection serving complex construction and data centre projects across Iberia. 2nd deal of 2026.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-gtp/"},
+{headline:"Phenna #1 A Cube TIC — enters Italy",summary:"First deal of 2026: Phenna acquired Rome-based A Cube TIC,global certification body with 24+ offices,UKAS and Accredia accreditations.",sourceUrl:"https://phennagroup.com/news/phenna-group-acquires-a-cube-tic/"},
+{headline:"Kiwa acquires Finnish conformity provider Sertio",summary:"Dutch TIC group Kiwa(SHV) acquired Sertio,Finnish conformity assessment provider,continuing Nordic/European expansion.",sourceUrl:"https://www.mainsights.io/ma-news/dutch-tic-company-kiwa-acquires-finnish-conformity-assessment-services-provider-sertio"},
+{headline:"PPI/Kiwa acquires TIEC Inc. — Texas energy inspection",summary:"May 2026 — PPI Quality & Engineering(Kiwa/SHV) acquired TIEC(Texas),adding vendor surveillance and third-party inspection for energy sector.",sourceUrl:"https://dealnews.ai/ppi-quality-engineering-acquires-tiec-inc-inspection-services/"},
+{headline:"CERTANIA acquires Van Santen Advies — Dutch infrastructure",summary:"CERTANIA(GREENPEAK/Summit) acquired Netherlands-based Van Santen Advies,expanding Dutch infrastructure testing and inspection capabilities.",sourceUrl:"https://dealnews.ai/certania-acquires-van-santen-advies-expand-infrastructure-services/"},
+{headline:"CERTANIA 10+ acquisitions H1 2026 — Life Sciences & Infrastructure push",summary:"CERTANIA scaled: SPGL(pharma CQV,Jun),Van Santen(Jun),Blue Frog Scientific(May),ICP Analytik(May),APV(Sweden,Apr),InnoDiab(Apr),Brabant+SGI(Apr),Labortest(Italy,Apr),FES Group(UK,Apr),ICA Group(UK,Mar).",sourceUrl:"https://certania.com/news",tagClass:"cpt"},
+{headline:"Celnor Group 7 deals 2026 including US entry",summary:"Inflexion-backed Celnor: John Turner Consulting(US entry),Beyond Consult->Airey Miller(Jul),Northeast Geo->JTC(Jul),TelLab Ireland(Jul),Meridian(Jul),Calbarrie(Jun). Tracxn lists 17 deals in 12mo.",sourceUrl:"https://celnor.com/news"},
+{headline:"Normec Group €2B valuation — 85+ acquisitions since 2016",summary:"Astorg-backed Dutch TICC leader Normec(7,000+ staff) continues buy-and-build. Recent: US entry with 3 acquisitions,Labor Friedle+GALAB(Germany food),PharmaKorell,Silliker NL. Oaklins #4 by volume.",sourceUrl:"https://normecgroup.com/news/"},
+{headline:"Sansidor 11 acq in 12mo — fire safety,electrical,environmental",summary:"IK Partners-backed Dutch TICC: DLR Eurlicon(elevator),CH Fire Protection,LVHT,NIM,Umwelthygiene Marburg,Westenberg,Ortageo,Grondslag,MILON/MILAB/De Roever,LGBA,flex|sec+GBS. Active NL/DE/BE.",sourceUrl:"https://sansidor.com/acquisitions/?lang=en"},
+{headline:"TIC M&A record: 180+ deals,top 15 buyers drive 50% of activity",summary:"Oaklins Jun 2026 TICC Spot On: Top 15 buyers 50.5% of all TIC deals. Phenna led(31 in 12mo). European consolidators expanding into US. Avg EV/EBITDA: 12.6x.",sourceUrl:"https://www.oaklins.com/uploads/2026/06/Oaklins-TICC-Spot-On-Jun2026.pdf",tagClass:"mkt"}
+].slice(1);
+
+(function renderMA(){
+  var g=document.getElementById("maGrid");if(!g)return;
+  g.innerHTML=MA.map(function(s){var h;try{h=new URL(s.sourceUrl).hostname}catch(e){h=s.sourceUrl}
+  return "<div class=card><div class=head><h3>"+s.headline+"</h3><span class=\"tag "+"cpt" /\*ma\*/+"\">"+(s.tag||"M&A")+"</span></div><p>"+s.summary+"</p><div class=src><a href=\""+s.sourceUrl+"\" target=_blank>"+h+"</a></div></div>"}).join("")
+})();
+
+var ST=[
+{headline:"Intertek launches strategic review — potential split into two listed companies",summary:"Apr 14,2026 — Intertek announced review of separating into Testing & Assurance and Energy & Infrastructure. CEO: generalist portfolio model might be reaching its potential. Review concludes mid-2027.",sourceUrl:"https://www.intertek.com/news/2026/intertek-q1-2026-trading-statement/",tag:"Strategy",tagClass:"alert"},
+{headline:"Element Materials Technology — new global operating model",summary:"Jul 29,2026 — Element transitions from 2 regions+5 BUs to 2 global Business Lines: Aero/Space/Defense and Consumer/Industrials. CEO Jo Wetz: confident next step. $100M→~$1.5B revenue under his leadership.",sourceUrl:"https://www.element.com/about-element/news/2026/07/29/element-materials-technology-announces-new-global-operating-model",tag:"Strategy",tagClass:"mkt"},
+{headline:"Eurofins H1 2026: portfolio focus — sells E&E to UL,divests clinical testing",summary:"Jul 23,2026 — Eurofins closed 17 acquisitions(€80M+),divested E&E to UL Solutions,exited NL clinical testing. CEO: trend to focus on core is accelerating in TIC. 130bps margin expansion to 23.7%.",sourceUrl:"https://www.eurofins.com/media-centre/press-releases/2026-01-29/",tag:"Strategy",tagClass:"cpt"},
+{headline:"BV LEAP 28 portfolio rotation — sells Oil & Petrochemicals testing",summary:"Jun 30,2026 — BV signed agreement to sell Oil&Petrochemicals and Coal testing,advancing LEAP 28 portfolio rotation toward higher-growth,higher-margin activities.",sourceUrl:"https://www.globenewswire.com/news-release/2026/06/30/3319386/0/en/bureau-veritas-in-line-with-the-leap-28-portfolio-rotation-strategy-bureau-veritas-signs-an-agreement-to-sell-its-oil-petrochemicals-and-coal-testing-and-inspection-business.html",tag:"Strategy",tagClass:"cpt"},
+{headline:"SGS Strategy 27 delivers — H1 2026 strong growth,digital trust gains",summary:"Jul 2026 — SGS H1: excellent organic growth,margin expansion,record cash generation. Strategy 27 targeting 2x NA sales on track. Digital Trust and Sustainability leading pillars.",sourceUrl:"https://www.sgs.com/en/news/2026/07/sgs-2026-half-year-results",tag:"Strategy",tagClass:"mkt"},
+{headline:"TÜV SÜD advances POWER 2030 strategy — resilient growth in 2025",summary:"May 19,2026 — TÜV SÜD reported resilient FY 2025 and advanced POWER 2030. Focus: AI,cybersecurity,hydrogen,sustainability services.",sourceUrl:"https://www.tuvsud.com/en/newsroom/press-releases/2026/may/tuev-sued-reports-resilient-growth-and-advances-power-2030-strategy",tag:"Strategy",tagClass:"cpt"},
+{headline:"DNV completes strategy period — exceeds ambitions,raises RD&I to 6%",summary:"Mar 26,2026 — DNV closed 2021-2025 period with NOK 35.3B rev,exceeding ambitions. New strategy from Jan 1 commits to RD&I at 6% of rev(up from 5%). All climate targets achieved.",sourceUrl:"https://www.dnv.com/news/2026/dnvcompletes-strategy-period-with-solid-growth/",tag:"Strategy",tagClass:"mkt"},
+{headline:"DNV launches Industrial Services — standalone business unit",summary:"2026 — DNV rebranded inspection division as Industrial Services,covering energy,renewables,power,hydrogen,CCUS,rail,manufacturing. Responds to complex energy transition demand.",sourceUrl:"https://www.dnv.com/news/2026/dnv-launches-industrial-services-to-support-rapidly-expanding-energy-and-infrastructure-markets/",tag:"Strategy",tagClass:"mkt"},
+{headline:"DEKRA aligns 5-year strategy to Mobility,Digital Trust & Sustainability",summary:"Apr 17,2026 — DEKRA reported €4.4B rev(+3.4%),€275M adj.EBIT. Three pillars: Mobility(Battery Test Center Lausitzring,Michigan Auto Center),Digital Trust(first SESIP Level 5 for Google,first AI biometric certifier under EU AI Act),Sustainability.",sourceUrl:"https://www.dekra.com/en/results-in-anniversary-year-2025/",tag:"Strategy",tagClass:"cpt"},
+{headline:"ALS achieves 5-year strategic target one year early — record $381M NPAT",summary:"FY26 AGM — ALS hit FY27 target in FY26: $381M NPAT(+25.8%),10.7% rev growth. $93.7M in 4 hub labs. Leverage from 2.3x to 1.5x. 10.3% dividend increase.",sourceUrl:"https://kalkine.com.au/news/announcements/als-limited-delivers-record-3812-million-net-profit-and-achieves-five-year-strategic-target-one-year-early",tag:"Strategy",tagClass:"mkt"},
+{headline:"LRQA targets 10 acq in 2026 — €500M loan + Hillhouse backing",summary:"2026 — Goldman Sachs-backed LRQA(£500M+ rev) plans 10 deals,5 at exclusivity. €500M term loan. Focus: Americas,China,APAC; cybersecurity,ESG,data analytics. EiQ supply chain platform launched.",sourceUrl:"https://ionanalytics.com/insights/uncategory/lrqa-pursuing-acquisitions-to-strengthen-footprint-and-offering-ceo/",tag:"Strategy",tagClass:"alert"},
+{headline:"TIC Council — Digital Quality Infrastructure Framework",summary:"Feb 16,2026 — TIC Council strategy paper on how AI,IoT,remote techniques,data analytics can enhance conformity assessment while preserving independence,impartiality and human-in-the-loop accountability.",sourceUrl:"https://www.sgs.com/en/news/2026/02/tic-council-highlights-tic-industrys-digital-shift-in-strategy-paper",tag:"Industry",tagClass:"mkt"},
+
+{headline:"ILAC and IAF merge into Global Accreditation Cooperation — landmark industry restructuring",summary:"2026 — Two largest global accreditation bodies merged into Global Accreditation Cooperation Incorporated (Global ACI). Mid-Term Strategy 2026-2030 published. Reshapes TIC accreditation landscape worldwide, impacting all certified bodies.",sourceUrl:"https://global-accreditation.org/",tag:"Industry",tagClass:"alert"},
+{headline:"TÜV Rheinland publishes Corporate Report 2025 — ~€3B revenue, Strategy 2030 sustainability targets",summary:"April 16, 2026 — TÜV Rheinland reported ~€3B revenue, 28,550 employees (+1,500 YoY). Five focus areas: impact-driven services, safe working environment, decarbonization, responsible digitalization, reliable conduct. EcoVadis Gold, Ludwig Erhard Award.",sourceUrl:"https://www.tuv.com/world/en/about-us/corporate-report",tag:"Strategy",tagClass:"cpt"},
+{headline:"SOCOTEC accelerates US growth strategy — new leadership, strategic acquisitions across Mid-Atlantic",summary:"2026 — SOCOTEC announced leadership promotions and accelerated growth strategy via acquisitions across United States. American Engineers Group (AEG) acquisition expands infrastructure engineering from Pennsylvania to Mid-Atlantic.",sourceUrl:"https://www.socotec.us/media/news/",tag:"Strategy",tagClass:"mkt"},
+{headline:"TIC Council publishes Annual Report 2025 — industry resilience, digital transformation agenda",summary:"2026 — TIC Council released Annual Report 2025 and convened Global Leaders Summit 2026 on future-proofing quality infrastructure amid fragmentation. Quality Infrastructure Framework for Digitalised World published.",sourceUrl:"https://www.tic-council.org/",tag:"Industry",tagClass:"mkt"},
+{headline:"Celnor Group buy-and-build strategy — 42 acquisitions in just over 2 years",summary:"2026 — Inflexion-backed Celnor CEO reflects on 42 acquisitions since launch. Strategy refined via enablement model and refinancing. 'Goal from here is over 50.' Leaders Event 2026: Building for Tomorrow theme.",sourceUrl:"https://celnor.com/news",tag:"Strategy",tagClass:"cpt"},
+{headline:"ISO Strategy 2030 — Making lives easier, safer and better",summary:"ISO's ten-year strategy framework guides global standards development. TIC-relevant: conformity assessment standards evolution, digital transformation of standards, sustainability standards acceleration.",sourceUrl:"https://www.iso.org/strategy-2030.html",tag:"Industry",tagClass:"mkt"},
+{headline:"Big Three TIC strategy themes: AI,energy transition,ESG dominate",summary:"SeventhBiz analysis of BV/SGS/Intertek earnings calls: 5 themes — AI/digital infra(unanimous),energy transition,ESG(double-digit at all three),AI assurance(new revenue),supply chain complexity.",sourceUrl:"https://seventhbiz.com/tic-industry-investment-2026-what-the-big-three-are-saying/",tag:"Industry",tagClass:"mkt"}
+];
+
+(function renderSt(){var g=document.getElementById("strategyGrid");if(!g)return;g.innerHTML=ST.map(function(s){var h;try{h=new URL(s.sourceUrl).hostname}catch(e){h=s.sourceUrl}return "<div class=card><div class=head><h3>"+s.headline+"</h3><span class=\"tag "+"mkt" /\*ma\*/+"\">"+(s.tag||"M&A")+"</span></div><p>"+s.summary+"</p><div class=src><a href=\""+s.sourceUrl+"\" target=_blank>"+h+"</a></div></div>"}).join("")})();
+</script>
+</body>
+</html>
