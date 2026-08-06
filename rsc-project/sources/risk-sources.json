@@ -1,0 +1,40 @@
+{
+  "module": "Risk_负面与风险事件",
+  "version": "FINAL_LOCKED",
+  "lockedDate": "2026-08-06",
+  "totalSignals": 9,
+  "languageSplit": {"CN": 6, "EN": 3},
+  "sources": {
+    "L1_regulatory_cn": {
+      "description": "中国监管机构处罚公告",
+      "channels": [
+        {"name": "市场监管总局(SAMR)", "url": "https://zwfw.samr.gov.cn/", "note": "检验检测机构监督抽查通报"},
+        {"name": "CNAS", "url": "https://www.cnas.org.cn/", "note": "认可资格暂停/撤销/注销公告"},
+        {"name": "国家认监委(CNCA)", "url": "https://www.cnca.gov.cn/", "note": "认证机构批准资质撤销"}
+      ]
+    },
+    "L2_media_cn": {
+      "description": "中国行业媒体",
+      "channels": [
+        {"name": "质量与认证", "url": "https://www.zljweb.com/"},
+        {"name": "新浪财经", "url": "https://finance.sina.com.cn/"},
+        {"name": "仪器信息网", "url": "https://bbs.instrument.com.cn/"},
+        {"name": "中国质量新闻网", "url": "https://www.cqn.com.cn/"}
+      ]
+    },
+    "L3_international": {
+      "description": "国际监管+行业风险",
+      "channels": [
+        {"name": "Violation Tracker", "url": "https://violationtracker.goodjobsfirst.org/", "note": "企业违规罚款数据库"},
+        {"name": "US Federal Register", "url": "https://www.federalregister.gov/", "note": "NRTL等监管公告"},
+        {"name": "US DOJ (False Claims Act)", "url": "https://www.justice.gov/", "note": "实验室欺诈案件"},
+        {"name": "TIC Council", "url": "https://www.tic-council.org/", "note": "伪造证书/反假冒白皮书"}
+      ]
+    }
+  },
+  "realityNote": "英文TIC负面信号天然稀缺——西方TIC公司合规问题多通过私下和解处理，极少公开通报。中国监管体系透明度反而更高。建议本模块以中文源为主、英文源为补充。",
+  "searchQueries": {
+    "CN": ["CNAS 2026 撤销 暂停 认可", "市场监管总局 检验检测 通报 处罚 2026", "认证机构 撤销 处罚 2026"],
+    "EN": ["TIC company lawsuit fine regulatory 2026", "laboratory testing fraud False Claims Act 2026", "NRTL OSHA termination 2026"]
+  }
+}
