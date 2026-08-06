@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TÜV Rheinland BS.A West Intelligence Signal",
+  "description": "西区市场竞对情报每日信号 — External Intelligence Adapter 标准输出格式",
+  "type": "object",
+  "required": ["pipelineVersion", "briefingDate", "generatedAt", "totalSignals", "signals"],
+  "properties": {
+    "pipelineVersion": {
+      "type": "string",
+      "description": "采集管线版本号，变更时递增"
+    },
+    "briefingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "简报日期 (YYYY-MM-DD)"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "采集完成时间 (ISO 8601)"
+    },
+    "totalSignals": {
+      "type": "integer",
+      "description": "本日信号总数"
+    },
+    "signals": {
+      "type": "array",
+      "description": "当日所有情报信号",
+      "items": {
+        "type": "object",
+        "required": ["externalId", "headline", "category", "collectedAt", "contentHash"],
+        "properties": {
+          "externalId": {
+            "type": "string",
+            "description": "来源系统唯一ID (hermes-briefing-YYYYMMDD-NNN)"
+          },
+          "headline": {
+            "type": "string",
+            "description": "新闻标题"
+          },
+          "summary": {
+            "type": "string",
+            "description": "核心事实摘要 (2-3句)"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["西区产业", "AI Agent在培训咨询", "培训认证", "AI与Agent"],
+            "description": "简报分类"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "二级分类 (如 新能源汽车/半导体/ISO标准/竞对)"
+          },
+          "organization": {
+            "type": "string",
+            "description": "涉及组织/公司"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家/地区"
+          },
+          "eventDate": {
+            "type": "string",
+            "format": "date",
+            "description": "事件日期"
+          },
+          "collectedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "采集时间 (ISO 8601)"
+          },
+          "sourceName": {
+            "type": "string",
+            "description": "来源名称"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "来源URL"
+          },
+          "primaryTheme": {
+            "type": "string",
+            "enum": ["西区重点产业", "培训咨询市场", "TIC行业", "AI与数字化"],
+            "description": "映射后的主主题"
+          },
+          "signalType": {
+            "type": "string",
+            "enum": ["market", "competitor"],
+            "description": "市场信号 / 竞对信号"
+          },
+          "riskLevel": {
+            "type": "string",
+            "enum": ["", "low", "medium", "high", "critical"],
+            "description": "风险等级"
+          },
+          "opportunityLevel": {
+            "type": "string",
+            "enum": ["", "low", "medium", "high"],
+            "description": "机会等级"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "AI置信度"
+          },
+          "westAnalysis": {
+            "type": "string",
+            "description": "八戒点评：对西区BS.A的战略意义"
+          },
+          "contentHash": {
+            "type": "string",
+            "description": "内容去重哈希 (SHA256前8位)"
+          },
+          "requiresReview": {
+            "type": "boolean",
+            "description": "是否需要人工审核",
+            "default": true
+          }
+        }
+      }
+    },
+    "kpiSummary": {
+      "type": "object",
+      "description": "每日简报统计",
+      "properties": {
+        "marketSignals": { "type": "integer" },
+        "competitorSignals": { "type": "integer" },
+        "sourcesUsed": { "type": "integer" },
+        "categoriesCovered": { "type": "integer" }
+      }
+    }
+  }
+}
